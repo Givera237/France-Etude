@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CampusFranceComponent } from './campus-france/campus-france.component';
 import { AProposComponent } from './a-propos/a-propos.component';
+import { PresentationRoutingModule } from './presentation-routing.module';
 
 
 
@@ -11,7 +12,8 @@ import { AProposComponent } from './a-propos/a-propos.component';
     AProposComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PresentationRoutingModule
   ]
 })
 export class PresentationModule { }

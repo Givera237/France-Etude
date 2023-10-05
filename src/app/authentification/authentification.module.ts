@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { AuthentificationRoutingModule } from './authentification-routing.module';
 
 
 
@@ -11,7 +12,8 @@ import { ConnexionComponent } from './connexion/connexion.component';
     ConnexionComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AuthentificationRoutingModule
   ]
 })
 export class AuthentificationModule { }
