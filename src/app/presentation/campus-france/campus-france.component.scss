@@ -1,9 +1,12 @@
 iframe
 {
     width: 100%;
-    height: 400px;
+    height: 350px;
 }
-
+h3
+{
+    font-family:  'Kelly Slab';
+}
 .citation
 {
     font-family:  "Jacques Francois Shadow";
@@ -12,4 +15,23 @@ iframe
 .auteur
 {
     font-family: 'Kavoon';
+}
+
+.couleur_titre
+{
+    color: #1283EB;
+}
+.explication
+{
+    font-family: 'Inknut Antiqua', serif;
+}
+.texte_coaching
+{
+    font-family: 'Almendra', serif;
+}
+.btn_coaching
+{
+    background-color: #F12020;
+    width: 150px;
+    height: 85px;
 }
