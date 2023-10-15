@@ -1,0 +1,38 @@
+iframe
+{
+    width: 100%;
+    height: 150px;
+    margin-top: 10px;
+} 
+
+.images
+{
+    height: 250px;
+    width: 250px;
+    margin: 10px;
+    border-radius: 15%;
+}
+.carrousel
+{
+    margin-bottom: 50px;
+    height: 400px;
+    width: 100%;
+}
+.citation
+{
+    font-family:  "Jacques Francois Shadow";
+}
+
+.auteur
+{
+    font-family: 'Kavoon';
+}
+.que_faisons_nous
+{
+    font-family: "Almendra";
+}
+
+img:hover {
+    background-color: gold;
+  }
+  

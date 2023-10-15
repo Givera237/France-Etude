@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InscriptionComponent } from './inscription/inscription.component';
-import { ConnexionComponent } from './connexion/connexion.component';
+import { InscriptionComponent } from './components/inscription/inscription.component';
+import { ConnexionComponent } from './components/connexion/connexion.component';
 import { AuthentificationRoutingModule } from './authentification-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -13,7 +15,10 @@ import { AuthentificationRoutingModule } from './authentification-routing.module
   ],
   imports: [
     CommonModule,
-    AuthentificationRoutingModule
+    AuthentificationRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule
   ]
 })
 export class AuthentificationModule { }
