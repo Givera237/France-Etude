@@ -18,14 +18,14 @@
 <section class="formation">
     <div class="container ">
         <div class="row">
-            <div class="col-10 col-md-4" *ngFor="let formation of formations">
-                 <div class="card my-4 " style="width: 18rem;">
-                      <div class="card-header text-center" style="background-color: #F31111;">
+            <div class="col-10 col-md-4" *ngFor="let formation of formations" >
+                 <div class="card my-4 " style="width: 18rem;" >
+                      <div class="card-header text-center" style="background-color: #F31111;" >
                         <strong>{{formation.titre | uppercase}}</strong>
                       </div>
-                      <img src="/assets/Visa.jpeg" class="card-img-top" alt="..." (click)="onViewFormation(formation.id_formation)"  >
-                      <div class="card-body">
-                        <p class="card-text">{{formation.description | uppercase}} {{formation.id_formation}} </p>
+                      <img src="/assets/Visa.jpeg" class="card-img-top" alt="..." (click)="onViewFormation(formation.id_formation)"  >   
+                       <div class="card-body" >
+                        <p class="card-text">{{formation.description | uppercase}} </p>
                       </div>
                   </div>
             </div>
@@ -38,6 +38,8 @@
         </div>
     </div>
 </section>
+
+
 
 
 <!--

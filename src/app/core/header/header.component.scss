@@ -12,35 +12,11 @@
     margin-bottom: 35px;
     
 }
+.texte_souligne {
+  text-decoration: none; // Enlevez le soulignement de base
+  &:hover {
+    text-decoration: underline; // Ajoutez un soulignement au passage de la souris
+  }
+}
 
-/*
-<nav class=" nav navbar navbar-expand-md navbar-light ">
-        <div class="container-fluid">
-          <a class="navbar-brand text-uppercase text-white px-10 pb-25 " href="#">France-Etude</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="col-8 collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-            <ul class="navbar-nav ">
-              <li class="nav-item">
-             
-              <li class="nav-item px-4">
-                <a  class="nav-link text-white px-1 active">Accueil</a>
-            </li>
-            <li class="nav-item text-white ">
-                <a href="formation/liste" class="nav-link text-white px-4 active"  >Formations</a>
-            </li>
-            <li class="nav-item   ">
-                <a href="accueil/campus_france"class="nav-link text-white px-4 active" >Campus France</a>
-            </li>
-            
-            <li class="nav-item">
-                <a href="accueil/a_propos" class="nav-link text-white px-4 active" >A propos</a>
-            </li>
-            <li class="nav-item">
-                <a href="authentification/connexion" class="nav-link text-white px-4 active" >Connexion</a>
-            </li>
-            </ul>
-          </div>
-        </div>
-      </nav> */
+

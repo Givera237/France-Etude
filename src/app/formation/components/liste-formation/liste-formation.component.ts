@@ -13,7 +13,8 @@ import { Image } from '../../models/image';
 export class ListeFormationComponent 
 {
   formations !: Formation[];
-  images!: Image[];
+  images!: Image;
+  nom !: string;
 
   constructor(
     private route : ActivatedRoute,
@@ -26,12 +27,14 @@ export class ListeFormationComponent
       {
         this.formations = reponse;
         console.log('Yo bro voici tes objets', reponse);
+        console.log(this.formations.length)
       }
       );
-      this.http.get<Image[]>('http://localhost:3000/api/image/:1').subscribe(reponse  => 
+      this.http.get<Image>('http://localhost:3000/api/image/1').subscribe(reponse  => 
       {
         this.images = reponse;
         console.log('Yo bro voici tes images', reponse);
+
       }
       )
     }
