@@ -7,6 +7,8 @@ import { CoreModule } from './core/core.module';
 import { SafePipe } from './safe.pipe';
 import { AccueilComponent } from './accueil/accueil.component';
 
+import { NgImageSliderModule } from 'ng-image-slider';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +18,7 @@ import { AccueilComponent } from './accueil/accueil.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgImageSliderModule,
     CoreModule 
   ],
   providers: [],

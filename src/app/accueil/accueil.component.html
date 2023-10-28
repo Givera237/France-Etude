@@ -3,43 +3,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Almendra&family=Inknut+Antiqua:wght@300&family=Jacques+Francois+Shadow&family=Kavoon&family=Kelly+Slab&family=Montserrat:wght@100&display=swap" rel="stylesheet">
 </head>
+<img src="/assets/pexels-goutinho-de-flávio-gf-3028514(1).jpg" class=" kenburns-top-left carrousel rounded float-start" alt="...">
+
 <div class="container">
 
 <div class="row">
     <div class="col-12">
-        <img src="/assets/Absolute_Palais_Universitaire_01-1024x768.jpg.webp" class=" image_mobile carrousel rounded float-start" alt="...">
     </div>
     <div class="col"></div>
 </div>
-<div class="row ">
-    <div class="col-12 col-md-6 ">
-        <br> <h3 class="text-center text-bold que_faisons_nous fs-bold"> Nous vous accompagnons dans </h3> <br>
-        
-        <a class="">
-             <img src="/assets/sorbonne.jpg" class="images float-center" alt="...">
-        </a>
-        <a>
-            <img src="/assets/campus france.png" class=" images float-center" alt="...">
-            <span>
-                
-            </span>
-        </a>
-        <a>
-            <img src="/assets/Visa.jpeg" class=" images float-center" alt="...">
-            <span>
-                
-            </span>
-        </a>
-        <a>
-            <img src="/assets/agent-immobilier-rediger-cv-1200x628.jpg" class=" images float-center" alt="...">
-            <span>
-                
-            </span>
-        </a>      
+<div class="row mt-5 ">
+    <div data-aos="fade-down" data-aos-offset="300" data-aos-duration="2000" class="col-12 col-md-6 ">
+        <br> <h3 class=" tracking-in-expand text-center text-bold que_faisons_nous fs-bold"> Nous vous accompagnons dans </h3> <br>
+        <ng-image-slider 
+        class="images float-center"
+        [images]="imgCollection" #nav
+        [infinite]="true"
+          [autoSlide]="5"
+          [imageSize]="{width: '100%', height: 360}"
+          slideImage="1">
+        ></ng-image-slider>
+       
     </div>
-    <div class="col-10 col-md-4 offset-1">
+    <div data-aos="fade-up" data-aos-offset="300" data-aos-duration="2000" class="col-10 col-md-4 offset-1">
      <br> <h3 class="text-center text-bold que_faisons_nous fs-bold"> Que faisons nous?</h3> <br>
-        <p class="que_faisons_nous">
+        <p class="kenburns-top que_faisons_nous text-focus-in">
        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br> 
         
      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute  esse cillum dolore eu fugiat nulla pariatur. 
@@ -48,11 +36,11 @@
         </p>
     </div>
     <div class="row m-10">
-        <div class="col-10 col-md-7 offset-1  offset-md-0">
+        <div data-aos="fade-right" data-aos-offset="400" data-aos-duration="1000" class="col-10 col-md-7 offset-1 offset-md-0">
             <iframe class="embed-responsive-item m-10" src="https://www.youtube.com/embed/w18osAo51G4" title="Etudes en France procédure 2022/2023, les démarches de A à Z sur Campus France 🇫🇷" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
         </div>
-        <div class="col-10 col-md-4 offset-1">
+        <div data-aos="fade-left" data-aos-offset="400" data-aos-duration="1000" class="col-10 col-md-4 offset-1">
            <br> <br> <br>
            <p class="citation">
             “ La seule limite à 
@@ -79,42 +67,35 @@
   <li class="content__container__list__item">Visa !</li>
   <li class="content__container__list__item">Job !</li>
   <li class="content__container__list__item">Logement !</li>
-  <li class="content__container__list__item">everybody !</li>
+  <li class="content__container__list__item">for everybody !</li>
 </ul>
 </div>
 </div>
 <div class="container">
-    <h1>Carrousel</h1>
-    <div id="demo" class="carousel slide carousel-fade" data-ride="carousel">
-      <!-- Indicateurs -->
-      <ul class="carousel-indicators">
-        <li data-target="#demo" data-slide-to="0" class="active"></li>
-        <li data-target="#demo" data-slide-to="1"></li>
-        <li data-target="#demo" data-slide-to="2"></li>
-      </ul>
 
-      <!-- Carrousel -->
-      <div class="carousel-inner mb-10">
-        <div class="carousel-item active" data-interval="4000">
-          <img src="https://www.pierre-giraud.com/bootstrap-carrousel-slide-1.jpg" alt="Carrousel slide 1" class="d-block w-100">
-        </div>
-        <div class="carousel-item" data-interval="2000">
-          <img src="https://www.pierre-giraud.com/bootstrap-carrousel-slide-2.jpg" alt="Carrousel slide 2" class="d-block w-100">
-        </div>
-        <div class="carousel-item" data-interval="1000">
-          <img src="https://www.pierre-giraud.com/bootstrap-carrousel-slide-3.jpg" alt="Carrousel slide 3" class="d-block w-100">
-        </div>
-      </div>
-      
-      <!-- Contrôles -->
-      <a class="carousel-control-prev" href="#demo" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Précédent</span>
-      </a>
-      <a class="carousel-control-next" href="#demo" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Suivant</span>
-      </a>
-    </div>
-  </div>
+
 </div>
+<h2 class="text-center" >Choisir France-Etude c'est choisir : </h2>
+
+<a class="">
+    <img src="/assets/sorbonne.jpg" class=" image_mobile images float-center" alt="...">
+</a>
+<a>
+   <img src="/assets/campus france.png" class=" image_mobile images float-center" alt="...">
+   <span>
+       
+   </span>
+</a>
+<a>
+   <img src="/assets/Visa.jpeg" class="image_mobile images float-center" alt="...">
+   <span>
+       
+   </span>
+</a>
+<a>
+   <img src="/assets/agent-immobilier-rediger-cv-1200x628.jpg" class="image_mobile images float-center" alt="...">
+   <span>
+       
+   </span>
+</a>      
+

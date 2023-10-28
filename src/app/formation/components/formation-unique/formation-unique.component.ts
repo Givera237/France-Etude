@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Pipe, PipeTransform } from '@angular/core';
@@ -23,18 +23,36 @@ export class FormationUniqueComponent
 
     ngOnInit()
     {
-      const id_formation = +this.route.snapshot.params['id'];
+      const id_formation = this.route.snapshot.params['id'];
 
       this.http.get<Video[]>(`http://localhost:3000/api/video/${id_formation}`).subscribe(reponse  => 
       {
         this.videos = reponse;
         console.log('Yo bro voici tes objets', reponse);
-        this.path = this.videos[0].path;
+        console.log(id_formation);
       }
       )
     }
 
-    getSanitizedURL(path : string) {
+    getSanitizedURL(path : string) 
+    {
       return this.sanitizer.bypassSecurityTrustUrl(path);
+    }
+
+    supprimer()
+    {
+      const id_formation = this.route.snapshot.params['id'];
+      this.http.delete(`http://localhost:3000/api/formation/supprimer/${id_formation}`).subscribe(reponse  => 
+      {
+        console.log('Réponse : ', reponse),
+        (error: any) => console.log('Erreur : ', error)
+  
+      }
+      )
+    }
+
+    onViewFormation() : void
+    {
+     this.router.navigateByUrl(`formation/liste`);
     }
 }

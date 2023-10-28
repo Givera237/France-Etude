@@ -1,3 +1,5 @@
+@import "~aos/dist/aos.css";
+
 iframe
 {
     width: 100%;
@@ -11,11 +13,11 @@ iframe
     height: 250px;
     width: 250px;
     margin: 10px;
-    border-radius: 15%;
+    border-radius: 55%;
 }
 .carrousel
 {
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     height: 400px;
     width: 100%;
 }
@@ -182,3 +184,73 @@ color: #ecf0f1;
 66.64%,79.3% {transform:translate3d(0,-50%,0);}
 83.3%,95.96% {transform:translate3d(0,-25%,0);}
 }
+
+.text-focus-in {
+	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+ @-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.kenburns-top:hover {
+	-webkit-animation: kenburns-top 5s ease-out both;
+	        animation: kenburns-top 5s ease-out both;
+}
+
+ @-webkit-keyframes kenburns-top {
+  0% {
+    -webkit-transform: scale(1) translateY(0);
+            transform: scale(1) translateY(0);
+    -webkit-transform-origin: 50% 16%;
+            transform-origin: 50% 16%;
+  }
+  100% {
+    -webkit-transform: scale(1.25) translateY(-15px);
+            transform: scale(1.25) translateY(-15px);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+  }
+}
+@keyframes kenburns-top {
+  0% {
+    -webkit-transform: scale(1) translateY(0);
+            transform: scale(1) translateY(0);
+    -webkit-transform-origin: 50% 16%;
+            transform-origin: 50% 16%;
+  }
+  100% {
+    -webkit-transform: scale(1.25) translateY(-15px);
+            transform: scale(1.25) translateY(-15px);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+  }
+}
+
+.tracking-in-expand:hover{animation:tracking-in-expand 2s cubic-bezier(.215,.61,.355,1.000) both}
+ @keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}
+
+ .kenburns-top-left{animation:kenburns-top-left 5s ease-out both}
+@keyframes kenburns-top-left{0%{transform:scale(1) translate(0,0);transform-origin:16% 16%}100%{transform:scale(1.25) translate(-20px,-15px);transform-origin:top left}}
