@@ -6,6 +6,7 @@ import { Formation } from '../../models/formation';
 import { Image } from '../../models/image';
 
 import * as AOS from 'aos';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-liste-formation',
@@ -43,8 +44,17 @@ export class ListeFormationComponent
       )
     }
 
-    onViewFormation(titre_formation : string) : void
+    onViewFormation(id_formation : number) : void
     {
-     this.router.navigateByUrl(`formation/${titre_formation}`);
+      this.router.navigateByUrl(`formation/${id_formation}`);
+     /* if(environment.connexion === 1)
+      {
+        this.router.navigateByUrl(`formation/${id_formation}`);
+
+      }
+      else
+      {
+        this.router.navigateByUrl(`authentification/connexion`);
+      } */
     }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient,  HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-connexion',
@@ -39,8 +40,11 @@ export class ConnexionComponent
       {
         if (response.status === 200) 
         {
+          console.log('avant connexion',environment.connexion);
           console.log(response.body.id_utilisateur);
           console.log(response.status);
+          environment.connexion = 1;
+          console.log('après connexion',environment.connexion);
           //environment.id_utilisateur = response.body.id_utilisateur;
           this.router.navigateByUrl(``);
         }

@@ -23,7 +23,7 @@ export class FormationUniqueComponent
 
     ngOnInit()
     {
-      const id_formation = this.route.snapshot.params['id'];
+      const id_formation = +this.route.snapshot.params['id'];
 
       this.http.get<Video[]>(`http://localhost:3000/api/video/${id_formation}`).subscribe(reponse  => 
       {
@@ -41,7 +41,7 @@ export class FormationUniqueComponent
 
     supprimer()
     {
-      const id_formation = this.route.snapshot.params['id'];
+      const id_formation = +this.route.snapshot.params['id'];
       this.http.delete(`http://localhost:3000/api/formation/supprimer/${id_formation}`).subscribe(reponse  => 
       {
         console.log('Réponse : ', reponse),
@@ -54,5 +54,11 @@ export class FormationUniqueComponent
     onViewFormation() : void
     {
      this.router.navigateByUrl(`formation/liste`);
+    }
+
+    onModifyFormation() : void
+    {
+      const id_formation = +this.route.snapshot.params['id'];
+     this.router.navigateByUrl(`admin/modifier/${id_formation}`);
     }
 }

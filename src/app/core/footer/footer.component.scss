@@ -10,3 +10,42 @@ img
 {
     width: 250px;
 }
+
+.contact
+{
+    color : black;
+    &:hover
+    {
+        color : red;
+    }
+}
+
+i
+{
+    color : black;
+    &:hover
+    {
+        color : red;
+    }
+}
+
+.texte_souligne 
+{
+  text-decoration: none; // Enlevez le soulignement de base
+  &:hover {
+    text-decoration: underline; // Ajoutez un soulignement au passage de la souris
+  }
+}
+.icone_mobile 
+{
+  transform: none; // Réinitialisez la transformation de base
+  &:hover {
+    transform: translate(10px, 10px); // Déplacez l'image de 10 pixels vers la droite et le bas
+  }
+}
+
+.text-focus-in{-webkit-animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both;animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both}
+ @-webkit-keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}
+
+ .kenburns-top-left:hover{animation:kenburns-top-left 5s ease-out both}
+@keyframes kenburns-top-left{0%{transform:scale(1) translate(0,0);transform-origin:16% 16%}100%{transform:scale(1.25) translate(-20px,-15px);transform-origin:top left}}

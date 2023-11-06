@@ -1,0 +1,52 @@
+<section>
+    <div class="container">
+      <div class="row"> 
+        <div class="col-1"></div>
+        <div class="col-7 offset-1">
+          <form [formGroup]="mailForm">
+            <div class="mb-3">
+                <label for="subject" class="form-label">Sujet</label>
+                <input type="text" class="form-control mt-1 mb-3 p-1" formControlName="subject" id="subject" placeholder="Votre sujet ">
+              </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Contenu</label>
+              <textarea  class="form-control" formControlName="message"  placeholder="Contenu du mail" rows="6"></textarea>
+            </div>
+            <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
+              <button type="submit" (click)="onSubmit()" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Envoyer</button>
+            </div>
+          </form>
+        </div>
+     </div>
+    </div>
+  </section>
+
+<!--
+  <section>
+    <div class="container">
+      <div class="row"> 
+        <div class="col-1"></div>
+        <div class="col-7 offset-1">
+          <form (submit)="Submit()">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">sujet</label>
+                <input type="text" class="form-control" [(ngModel)]="suject" name="sujet">
+              </div>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Contenu</label>
+              <textarea [(ngModel)]="message" class="form-control" name="mail" rows="3"></textarea>
+            </div>
+            <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Envoyer</button>
+  
+            </div>
+          </form>
+        </div>
+     </div>
+    </div>
+  
+  </section>
+  -->
+  
+
+  

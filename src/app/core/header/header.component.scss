@@ -3,21 +3,34 @@
    // background-color: #1283EB;
     padding: 1.5rem;
     margin-bottom: 35px;
-    height: 65px;
+    //height: 95px;
 }
 
 .nav
 {
-    background-color: #1283EB;
-    margin-bottom: 35px;
+    height: 75px;
+    background-color :rgba(18, 131, 235, 0.5);
+   // margin-bottom: 35px;
     
 }
-.texte_souligne {
+.texte_souligne 
+{
   text-decoration: none; // Enlevez le soulignement de base
   &:hover {
     text-decoration: underline; // Ajoutez un soulignement au passage de la souris
   }
 }
+.rouge
+{ 
+  color: white;
+  &:focus {
+    color: red; /* Changer la couleur du lien */
+  }
 
+}
+
+/*a:active {
+  color: red; /* Changer la couleur du lien */
+//}
 
 

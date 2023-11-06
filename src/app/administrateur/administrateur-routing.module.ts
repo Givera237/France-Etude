@@ -2,11 +2,14 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AjoutFormationComponent } from "./components/ajout-formation/ajout-formation.component";
 import { ModifierFormationComponent } from "./components/modifier-formation/modifier-formation.component";
+import { EnvoiMailComponent } from "./components/envoi-mail/envoi-mail.component";
 
 const routes : Routes =
 [
  {path: 'ajout', component : AjoutFormationComponent},
- {path: 'modifier', component : ModifierFormationComponent},
+ {path : 'modifier/:id', component: ModifierFormationComponent},
+ {path : 'mail', component : EnvoiMailComponent}
+
 ]
 
 @NgModule
