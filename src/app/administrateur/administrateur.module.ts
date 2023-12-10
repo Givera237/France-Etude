@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModifierFormationComponent } from './components/modifier-formation/modifier-formation.component';
 import { EnvoiMailComponent } from './components/envoi-mail/envoi-mail.component';
+import { AjoutPayantComponent } from './components/ajout-payant/ajout-payant.component';
+import { AbonnementComponent } from './components/abonnement/abonnement.component';
 
 
 
@@ -13,7 +15,9 @@ import { EnvoiMailComponent } from './components/envoi-mail/envoi-mail.component
   declarations: [
     AjoutFormationComponent,
     ModifierFormationComponent,
-    EnvoiMailComponent
+    EnvoiMailComponent,
+    AjoutPayantComponent,
+    AbonnementComponent
   ],
   imports: 
   [

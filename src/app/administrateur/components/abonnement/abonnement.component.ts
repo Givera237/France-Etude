@@ -2,15 +2,16 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 @Component({
-  selector: 'app-modifier-formation',
-  templateUrl: './modifier-formation.component.html',
-  styleUrls: ['./modifier-formation.component.scss']
+  selector: 'app-abonnement',
+  templateUrl: './abonnement.component.html',
+  styleUrls: ['./abonnement.component.scss']
 })
-export class ModifierFormationComponent 
+export class AbonnementComponent 
 {
   essai = new FormData();
-  titre!: string
+  email!: string
   description!: string
   contenu!: string 
   url!:string
@@ -43,7 +44,7 @@ export class ModifierFormationComponent
   {
     const id_formation = +this.route.snapshot.params['id'];
 
-    this.essai.append('titre', this.titre);
+    this.essai.append('titre', this.email);
     this.essai.append('description', this.description);
     this.essai.append('contenu', this.contenu);
     this.essai.append('url', this.url);

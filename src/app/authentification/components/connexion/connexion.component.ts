@@ -38,7 +38,7 @@ export class ConnexionComponent
     (
       (response: HttpResponse<any>) => 
       {
-        if (response.status === 200) 
+       /* if (response.status === 200) 
         {
           console.log('avant connexion',environment.connexion);
           console.log(response.body.id_utilisateur);
@@ -47,7 +47,7 @@ export class ConnexionComponent
           console.log('après connexion',environment.connexion);
           //environment.id_utilisateur = response.body.id_utilisateur;
           this.router.navigateByUrl(``);
-        }
+        } */
         
       },
       error => 

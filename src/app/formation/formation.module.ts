@@ -5,6 +5,8 @@ import { FormationUniqueComponent } from './components/formation-unique/formatio
 import { FormationRoutingModule } from './formation-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SafePipe } from '../safe.pipe';
+import { FormationPayanteComponent } from './components/formation-payante/formation-payante.component';
+import { MesFormationsComponent } from './components/mes-formations/mes-formations.component';
 
 
 
@@ -12,7 +14,9 @@ import { SafePipe } from '../safe.pipe';
   declarations: [
     ListeFormationComponent,
     FormationUniqueComponent,
-    SafePipe
+    SafePipe,
+    FormationPayanteComponent,
+    MesFormationsComponent
   ],
   imports: [
     CommonModule,

@@ -15,6 +15,7 @@ export class EnvoiMailComponent
   mailform = new FormData();
   message!: string;
   suject!: string;
+  annee!: string;
   constructor(
               private router : Router, 
               private formbuilder : FormBuilder,
@@ -27,7 +28,8 @@ export class EnvoiMailComponent
       (
         {
           subject: [null],
-          message: [null],     
+          message: [null], 
+          annee: [null]    
         }
       ) ;
     }      

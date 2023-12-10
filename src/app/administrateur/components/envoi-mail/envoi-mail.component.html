@@ -1,4 +1,4 @@
-<section>
+<section  style="margin-top: 70px; margin-bottom: 80px;" >
     <div class="container">
       <div class="row"> 
         <div class="col-1"></div>
@@ -11,6 +11,10 @@
             <div class="mb-3">
               <label for="message" class="form-label">Contenu</label>
               <textarea  class="form-control" formControlName="message"  placeholder="Contenu du mail" rows="6"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="annee" class="form-label">Année</label>
+              <input type="number" min="2021" max="2050" class="form-control mt-1 mb-3 p-1" formControlName="annee" id="annee" placeholder="Choisissez l'année ">
             </div>
             <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
               <button type="submit" (click)="onSubmit()" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Envoyer</button>

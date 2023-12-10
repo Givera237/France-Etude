@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+
 
 @Component({
-  selector: 'app-modifier-formation',
-  templateUrl: './modifier-formation.component.html',
-  styleUrls: ['./modifier-formation.component.scss']
+  selector: 'app-ajout-payant',
+  templateUrl: './ajout-payant.component.html',
+  styleUrls: ['./ajout-payant.component.scss']
 })
-export class ModifierFormationComponent 
+export class AjoutPayantComponent 
 {
   essai = new FormData();
   titre!: string
@@ -18,15 +19,13 @@ export class ModifierFormationComponent
   constructor
   (
    private http : HttpClient, 
-   private route : ActivatedRoute,
    private router : Router,
   ){}
 
   ngOnInit() : void
   {
  
-    const id_formation = this.route.snapshot.params['id'];
-    this.essai.append('image', 'null');
+
   } 
 
   onFileChange(event: any) 
@@ -41,7 +40,6 @@ export class ModifierFormationComponent
 
   onSubmit()
   {
-    const id_formation = +this.route.snapshot.params['id'];
 
     this.essai.append('titre', this.titre);
     this.essai.append('description', this.description);
@@ -49,7 +47,7 @@ export class ModifierFormationComponent
     this.essai.append('url', this.url);
 
     console.log(this.essai)
-    this.http.put(`http://localhost:3000/api/formation/modifier/${id_formation}`, this.essai, { observe: 'response' }).subscribe
+    this.http.post(`http://localhost:3000/api/creation/formation`, this.essai, { observe: 'response' }).subscribe
     (
       (response: HttpResponse<any>) => 
       {
