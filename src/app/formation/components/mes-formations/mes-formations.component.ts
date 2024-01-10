@@ -6,6 +6,7 @@ import { Formation } from '../../models/formation';
 import { Image } from '../../models/image';
 
 import * as AOS from 'aos';
+import { CookieService } from 'src/app/cookie.service';
 
 @Component({
   selector: 'app-mes-formations',
@@ -17,17 +18,20 @@ export class MesFormationsComponent
   formations !: Formation[];
   images!: Image[];
   nom !: string;
+  email!: string
 
   constructor(
     private route : ActivatedRoute,
     private http : HttpClient,
+    private cookieService: CookieService,
     private router : Router ){}
 
     ngOnInit(): void
     {
       AOS.init();
+      this.email = this.cookieService.getCookie('email');
 
-      this.http.get<Formation[]>('http://localhost:3000/api/liste/formation').subscribe(reponse  => 
+      this.http.get<Formation[]>(`http://localhost:3000/api/liste/formation_paye/${this.email}`).subscribe(reponse  => 
       {
         this.formations = reponse;
         console.log('Yo bro voici tes objets', reponse);

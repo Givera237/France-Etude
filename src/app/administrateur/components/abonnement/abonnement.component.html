@@ -1,32 +1,26 @@
-<section  style="margin-top: 75px;">
+<section  style="margin-top: 95px;">
     <div class="container">
+      <h3 class="fw-bold text-center" > <br> Vous procedez à un abonnement <br></h3> <br>
       <div class="row"> 
         <div class="col-1"></div>
         <div class="col-7 offset-1">
-          <form (submit)="onSubmit()">
+          <form [formGroup]="mailForm">
             <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Utilisateur</label>
-              <input type="email" class="form-control" [(ngModel)]="email" name="email">
-            </div>
+                <label for="titre_repertoire" class="form-label">Titre</label>
+                <select formControlName="titre_repertoire" id="titre_repertoire" class="mx-3">
+                  <option> </option>
+                  <option *ngFor="let option of titre">{{ option }}</option>
+                </select> 
+              </div>
             <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-              <textarea [(ngModel)]="description" class="form-control" name="description" rows="3"></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">Contenu</label>
-              <textarea  [(ngModel)]="contenu" class="form-control" name="contenu" rows="3"></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Image</label>
-              <input type="file" class="form-control" (change)="onFileChange($event)">
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Vidéo</label>
-              <input type="text" class="form-control" [(ngModel)]="url" name="url">
+              <label for="adresse_visiteur" class="form-label">Adresse</label> 
+              <select formControlName="adresse_visiteur" id="adresse_visiteur" class="mx-3">
+                <option> </option>
+                <option *ngFor="let option of utilisateur">{{ option }}</option>
+              </select>     
             </div>
             <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
-              <button type="submit" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Envoyer</button>
-  
+              <button type="submit" (click)="Submit()" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Abonner</button>
             </div>
           </form>
         </div>
@@ -35,5 +29,20 @@
   
   </section>
   
+
+ 
   
-  
+  <!--
+     <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Utilisateur</label>
+      <select [(ngModel)]="email" name="adresse_visiteur" class="mx-3">
+        <option *ngFor="let option of utilisateur">{{ option }}</option>
+      </select>           
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Formation</label>
+      <select [(ngModel)]="formation" name="titre_repertoire" class="mx-3">
+        <option *ngFor="let option of titre">{{ option }}</option>
+      </select>          
+    </div>
+  -->

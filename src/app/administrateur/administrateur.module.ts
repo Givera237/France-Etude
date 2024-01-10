@@ -8,6 +8,11 @@ import { ModifierFormationComponent } from './components/modifier-formation/modi
 import { EnvoiMailComponent } from './components/envoi-mail/envoi-mail.component';
 import { AjoutPayantComponent } from './components/ajout-payant/ajout-payant.component';
 import { AbonnementComponent } from './components/abonnement/abonnement.component';
+import { FormationPayanteComponent } from './components/formation-payante/formation-payante.component';
+import { UploadVideoPayanteComponent } from './components/upload-video-payante/upload-video-payante.component';
+import { UploadPdfComponent } from './components/upload-pdf/upload-pdf.component';
+import { ListeVideoComponent } from './components/liste-video/liste-video.component';
+import { ListePdfComponent } from './components/liste-pdf/liste-pdf.component';
 
 
 
@@ -17,7 +22,12 @@ import { AbonnementComponent } from './components/abonnement/abonnement.componen
     ModifierFormationComponent,
     EnvoiMailComponent,
     AjoutPayantComponent,
-    AbonnementComponent
+    AbonnementComponent,
+    FormationPayanteComponent,
+    UploadVideoPayanteComponent,
+    UploadPdfComponent,
+    ListeVideoComponent,
+    ListePdfComponent
   ],
   imports: 
   [

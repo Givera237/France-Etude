@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+
 import * as AOS from 'aos';
 
 @Component({
@@ -8,9 +10,17 @@ import * as AOS from 'aos';
 })
 export class AccueilComponent
  {
+
+  constructor(
+    private cookieService: CookieService,
+             ){}
+
     ngOnInit() : void
     {
       AOS.init();
+
+      //this.cookieService.set('estAdministrateur', 'false');
+      //console.log('cookie crée');
     }
 
     imgCollection: Array<object> = [

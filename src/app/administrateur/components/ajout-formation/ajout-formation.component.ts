@@ -54,6 +54,7 @@ export class AjoutFormationComponent
         {
           console.log(response.statusText)
           console.log('Post bien envoyé')
+          this.router.navigateByUrl(`formation/liste`);
         }
         else 
         {

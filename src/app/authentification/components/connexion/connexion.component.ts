@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient,  HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.development';
+import { CookieService } from 'src/app/cookie.service';
+import { Connexion } from 'src/app/formation/models/connexion';
 
 @Component({
   selector: 'app-connexion',
@@ -13,9 +15,14 @@ export class ConnexionComponent
 {
   loginForm!: FormGroup;
   erreur!:string;
+  statut!: number;
+  connect!: Connexion;
+  connexion!: boolean;
+  cookie!: any;
   constructor(
               private router : Router, 
               private formbuilder : FormBuilder,
+              private cookieService: CookieService,
               private http : HttpClient
   ){}
 
@@ -28,28 +35,34 @@ export class ConnexionComponent
         pseudo: [null],     
       }
     ) ;
+
+    
   }
 
   onSubmit()
   {
     const obj = this.loginForm.value;
-    console.log(obj);
+   // console.log(obj);
+
+    //j'envoie les informations de connexion
+
     this.http.post('http://localhost:3000/api/login', obj, { observe: 'response' }).subscribe
     (
       (response: HttpResponse<any>) => 
       {
-       /* if (response.status === 200) 
-        {
-          console.log('avant connexion',environment.connexion);
-          console.log(response.body.id_utilisateur);
-          console.log(response.status);
-          environment.connexion = 1;
-          console.log('après connexion',environment.connexion);
-          //environment.id_utilisateur = response.body.id_utilisateur;
+        if (response.status === 200) 
+        
+        { 
+         console.log(response);
+         console.log('session',response.body);
+         this.cookie = response.body;
+         
+          this.cookieService.setCookie(this.cookie, 30);      
           this.router.navigateByUrl(``);
-        } */
+        } 
         
       },
+      
       error => 
       {
         
@@ -57,19 +70,17 @@ export class ConnexionComponent
         {
           this.erreur = 'Pseudo inexixtant Veuillez réessayer!!';
           console.log(error);
-        //  console.log(error.statusText)
-          //this.router.navigateByUrl(`authentification/login`);
         }
         if (error.status === 500) 
         {
           this.erreur = 'Erreur système réessayer plus tard'
-        //  console.log(error.statusText)
-          //this.router.navigateByUrl(`authentification/login`);
         }
         console.error(error.body); // Afficher l'erreur à l'utilisateur
       } 
     ) ;  
 
+
   }
+ 
 
 }

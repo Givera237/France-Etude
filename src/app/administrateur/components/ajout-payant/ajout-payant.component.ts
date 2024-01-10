@@ -14,7 +14,7 @@ export class AjoutPayantComponent
   titre!: string
   description!: string
   contenu!: string 
-  url!:string
+  prix!:string
 
   constructor
   (
@@ -44,10 +44,10 @@ export class AjoutPayantComponent
     this.essai.append('titre', this.titre);
     this.essai.append('description', this.description);
     this.essai.append('contenu', this.contenu);
-    this.essai.append('url', this.url);
+    this.essai.append('prix', this.prix);
 
     console.log(this.essai)
-    this.http.post(`http://localhost:3000/api/creation/formation`, this.essai, { observe: 'response' }).subscribe
+    this.http.post(`http://localhost:3000/api/creation/repertoire`, this.essai, { observe: 'response' }).subscribe
     (
       (response: HttpResponse<any>) => 
       {
@@ -55,6 +55,7 @@ export class AjoutPayantComponent
         {
           console.log(response.statusText)
           console.log('Post bien envoyé')
+          this.router.navigateByUrl(`formation/payante`);
         }
         else 
         {
@@ -66,6 +67,6 @@ export class AjoutPayantComponent
         console.error(error); // Afficher l'erreur à l'utilisateur
       }
     )
-
   }
+
 }

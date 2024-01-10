@@ -1,0 +1,32 @@
+<section style="margin-top: 125px; margin-bottom: 25px;">
+    <h3 class="fw-bold text-center" > <br> Liste des vidéos<br></h3>
+    <div class="container">
+      <div class="row" style="margin-bottom: 25px;">
+        <div class="container">
+          <div class="col">
+            <table class="table" >
+              <thead >
+              <tr>
+                  <th scope="col">N°</th>
+                  <th scope="col">Vidéo</th>
+                  <th scope="col">option</th> 
+              </tr>
+              </thead>
+              <tbody *ngFor="let video of videos" >
+              <tr>
+                  <td>{{video.id_videos}} </td>
+                  <td>{{video.path}} </td>
+                  <td (click)="onDelete(video.id_videos)">supprimer</td>
+              </tr>
+              </tbody>
+          </table>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  
+  
+  

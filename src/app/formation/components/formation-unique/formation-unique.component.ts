@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Video } from '../../models/video';
+import { CookieService } from 'src/app/cookie.service';
 @Component({
   selector: 'app-formation-unique',
   templateUrl: './formation-unique.component.html',
@@ -14,22 +15,25 @@ export class FormationUniqueComponent
 {
   videos !: Video[];
   path !: string;
+  admin!: string;
 
   constructor(
     private route : ActivatedRoute,
     private http : HttpClient,
     private router : Router,
+    private cookieService: CookieService,
     private sanitizer: DomSanitizer ){}
 
     ngOnInit()
     {
       const id_formation = +this.route.snapshot.params['id'];
+      this.admin = this.cookieService.getCookie('status');
 
       this.http.get<Video[]>(`http://localhost:3000/api/video/${id_formation}`).subscribe(reponse  => 
       {
         this.videos = reponse;
         console.log('Yo bro voici tes objets', reponse);
-        console.log(id_formation);
+        //console.log(id_formation);
       }
       )
     }
