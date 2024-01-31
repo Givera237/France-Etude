@@ -1,0 +1,40 @@
+<section style="margin-top: 85px;">
+    <div class="container">
+        <h3 class="fw-bold text-center" > <br> Vous modifier la formation <br></h3>
+      <div class="row"> 
+        <div class="col-1"></div>
+        <div class="col-7 offset-1">
+          <form (submit)="onSubmit()">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Titre</label>
+              <input type="text" class="form-control" [(ngModel)]="titre" name="titre">
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+              <textarea [(ngModel)]="description" class="form-control" name="description" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Prix</label>
+              <input type="number" class="form-control" [(ngModel)]="prix" name="prix">
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Contenu</label>
+              <textarea  [(ngModel)]="contenu" class="form-control" name="contenu" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Image</label>
+              <input type="file" accept="image/jpeg, image/png, image/gif, image/jpg, image/webp " class="form-control" (change)="onFileChange($event)">
+            </div>
+            <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Envoyer</button>
+  
+            </div>
+          </form>
+        </div>
+     </div>
+    </div>
+  
+  </section>
+  
+  
+  

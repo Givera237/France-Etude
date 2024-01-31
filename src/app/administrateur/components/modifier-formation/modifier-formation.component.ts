@@ -57,6 +57,7 @@ export class ModifierFormationComponent
         {
           console.log(response.statusText)
           console.log('Post bien envoyé')
+          this.router.navigateByUrl(`formation/${id_formation}`);
         }
         else 
         {

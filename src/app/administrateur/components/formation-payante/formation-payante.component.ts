@@ -67,27 +67,51 @@ export class FormationPayanteComponent
     }
   }
 
-  onDelete(id : number)
+  onDeleteVideo(id : number)
   {
-    const id_formation = this.route.snapshot.params['id'];
+    const id_repertoire = this.route.snapshot.params['id'];
     this.http.delete(`http://localhost:3000/api/video/supprimer/${id}`).subscribe(reponse  => 
     {
       console.log('Réponse : ', reponse),
       (error: any) => console.log('Erreur : ', error)
-      //this.router.navigateByUrl(`admin/liste_video`);
+      this.router.navigateByUrl(`admin/formation_payante/${id_repertoire}`);
     }
     )
   }
 
   deletePdf(id : number)
   {
-    const id_formation = this.route.snapshot.params['id'];
+    const id_repertoire = this.route.snapshot.params['id'];
     this.http.delete(`http://localhost:3000/api/pdf/supprimer/${id}`).subscribe(reponse  => 
     {
       console.log('Réponse : ', reponse),
       (error: any) => console.log('Erreur : ', error)
-      //this.router.navigateByUrl(`admin/liste_video`);
+      this.router.navigateByUrl(`admin/formation_payante/${id_repertoire}`);
     }
     )
   }
+  deleteRepertoire()
+  {
+    const id_formation = this.route.snapshot.params['id'];
+    this.http.delete(`http://localhost:3000/api/repertoire/supprimer/${id_formation}`).subscribe(reponse  => 
+    {
+      console.log('Repertoire supprimé : ', reponse),
+      (error: any) => console.log('Erreur : ', error)
+      this.router.navigateByUrl(`formation/payante`);
+    }
+    )
+  }
+
+  listeAbonne()
+  {
+    const id_formation = this.route.snapshot.params['id'];
+    this.router.navigateByUrl(`admin/liste_abonne/${id_formation}`);
+  }
+
+  onModifyRepertoire()
+  {
+    const id_repertoire = +this.route.snapshot.params['id'];
+    this.router.navigateByUrl(`admin/modifier_repertoire/${id_repertoire}`);
+  }
+
 }

@@ -7,7 +7,7 @@
           <form (submit)="onSubmit()">
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">PDF</label>
-              <input type="file" class="form-control" (change)="onFileChange($event)">
+              <input type="file" accept="application/pdf" class="form-control" (change)="onFileChange($event)">
             </div>
             <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
               <button type="submit" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Envoyer</button>

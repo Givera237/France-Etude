@@ -10,19 +10,19 @@
 <section class="formation">
     <div class="container ">
         <div class="row">
-            <div class="col-10 col-md-6 col-lg-4 heartbeat " *ngFor="let formation of formations" >
+            <div class="col-10 col-md-6 col-lg-4 heartbeat " *ngFor="let repertoire of repertoires" >
                  <div class="card my-4 puff-in-br " style="width: 18rem;" >
                       <div class="card-header text-center" style="background-color: #F31111;" >
-                        <strong>{{formation.titre | uppercase}}</strong>
+                        <strong>{{repertoire.titre | uppercase}}</strong>
                       </div>
                       <div  *ngFor="let img of images ; let i = index">
-                        <div *ngIf="formation.id_formation===img.id_formation"> 
-                          <img class="card-img-top" src="../assets/{{img.nom}}" alt="Card image cap" (click)="onViewFormation(formation.id_formation)">                         <!-- <img src="./{{img.path}}" class="card-img-top" alt="..." (click)="onViewFormation(formation.id_formation)"  >   --> 
+                        <div *ngIf="repertoire.id_repertoire===img.id_repertoire"> 
+                          <img class="card-img-top img-fluid " style="height: 200px;" src="../assets/{{img.nom}}" alt="Card image cap" (click)="onViewFormation(repertoire.id_repertoire)">                         <!-- <img src="./{{img.path}}" class="card-img-top" alt="..." (click)="onViewFormation(formation.id_formation)"  >   --> 
 
                         </div>
                       </div>
                          <div class="card-body" >
-                        <p class="card-text">{{formation.description | uppercase}} </p>
+                        <p class="card-text">{{repertoire.description | uppercase}} </p>
                       </div>
                   </div>
             </div>

@@ -1,28 +1,76 @@
-    <nav class="nav navbar navbar-expand-md fixed-top navbar-light w-auto  container-fluid  " >
+
+<nav class="navbar navbar-expand-md bg">
+  
+  <div class="container" style="width: 500px;">
+    <a class="navbar-brand fs-3 ms-5" href="#">
+      <img src="/assets/France-Etude zoom.jpg" alt="" width="70" class="heartbeat" style=" border-radius: 25%;" height="44">
+    </a>
+  </div> 
+ <!-- <a href="" class="navbar-brand fs-3 ms-4 text-white" > France-Etude</a> -->
+  <button class="navbar-toggler me-3 text-black" type="button" data-bs-toggle="collapse" data-bs-target="#btn" >
+    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="26" fill="currentColor" class="bi bi-list bx-md" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+    </svg>
+  </button>
+  <div class="collapse navbar-collapse ul-bg" id="btn">
+    <ul class="navbar-nav " style="margin-right: 95px;" >
+      <li class="nav-item">
+        <a href="" class="nav-link mx-2 text-white fs-5 " > Accueil</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white fs-5 mx-2"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Nos services
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li class="p-3"><a class="dropdown-item" href="formation/liste">Formation</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li class="p-3" ><a class="dropdown-item" href="accueil/campus_france">Campus France</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li class="p-3" ><a class="dropdown-item" href="accueil/visa">Visa France</a></li>
+        </ul>
+      </li>
+      
+      <li class="nav-item">
+        <a href="accueil/a_propos" class="nav-link mx-2 text-white fs-5" > A propos</a>
+      </li>
+      <li class="nav-item">
+        <a href="authentification/connexion" class="nav-link mx-2 text-white fs-5" > Connexion</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    <!--
+          <nav class="nav navbar navbar-expand-md fixed-top navbar-light   container-fluid  " >
         <div class="container">
-            <a href="" class=" navbar-brand text-uppercase text-white">France-Etude</a>
-            <div class="w-10">
-           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-           </button>
-          </div>
-           <div class="col-7 collapse navbar-collapse justify-content-center offset-1" id="navbarNav">
-              <ul class="navbar-nav me-auto my-14 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <div>
+              <div class="d-inline" style="margin-right: 10px;">
+                <a href="" class=" navbar-brand text-uppercase text-white">France-Etude</a>
+              </div>
+              
+              <div class="d-inline" >
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                </button>
+              </div> 
+            </div>
+            <div class="col-11 collapse navbar-collapse justify-content-center offset-1" id="navbarNav">
+              <ul class="navbar-nav me-auto my-14 my-lg-0 navbar-nav-scroll " style="--bs-scroll-height: 100px;">
                   <li class="nav-item px-4">
-                      <a href=" "  class="nav-link rouge texte_souligne px-3">Accueil</a>
+                      <a href=" "  class="nav-link  rouge texte_souligne px-3">Accueil</a>
                   </li>
                   <li class="nav-item text-white ">
-                      <a href="formation/liste" class="nav-link rouge texte_souligne px-3"  >Formations</a>
+                      <a href="formation/liste" class="nav-link  rouge texte_souligne px-3"  >Formations</a>
                   </li>
                   <li class="nav-item   ">
-                      <a href="accueil/campus_france"class="nav-link rouge texte_souligne px-3" >Campus France</a>
+                      <a href="accueil/campus_france"class="nav-link  rouge texte_souligne px-3" >Campus France</a>
                   </li>
                   <li class="nav-item   ">
                     <a href="accueil/visa"class="nav-link rouge  texte_souligne px-3" >Visa France</a>
                   </li>
                   <li class="nav-item">
-                      <a href="accueil/a_propos" class="nav-link rouge texte_souligne px-3" >A propos</a>
+                      <a href="accueil/a_propos" class="nav-link  rouge texte_souligne px-3" >A propos</a>
                   </li>
                   <li class="nav-item">
                       <a href="authentification/connexion" class="nav-link rouge texte_souligne px-3 " >Connexion</a>
@@ -30,47 +78,6 @@
               </ul>
               
                </div>
-         </div>
+          </div>
    </nav>
-
-   
-  
-
-    <!--
-<nav class="nav navbar navbar-expand-lg sticky-top navbar-light ">
-    <div class="container-fluid">
-      <a href="" class=" navbar-brand text-uppercase text-white px-10 pb-25 ">France-Etude</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
   -->

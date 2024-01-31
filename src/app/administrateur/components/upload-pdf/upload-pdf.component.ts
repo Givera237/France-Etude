@@ -45,6 +45,7 @@ export class UploadPdfComponent
         {
           console.log(response.statusText)
           console.log('Post bien envoyé')
+          this.router.navigateByUrl(`admin/formation_payante/${id_repertoire}`);
         }
         else 
         {

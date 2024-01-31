@@ -7,6 +7,8 @@ import { Image } from '../../models/image';
 
 import * as AOS from 'aos';
 import { CookieService } from 'src/app/cookie.service';
+import { ImageRepertoire } from '../../models/image_repertoire';
+import { Repertoire } from '../../models/repertoire';
 
 @Component({
   selector: 'app-mes-formations',
@@ -15,8 +17,8 @@ import { CookieService } from 'src/app/cookie.service';
 })
 export class MesFormationsComponent 
 {
-  formations !: Formation[];
-  images!: Image[];
+  repertoires !: Repertoire[];
+  images!: ImageRepertoire[];
   nom !: string;
   email!: string
 
@@ -31,33 +33,23 @@ export class MesFormationsComponent
       AOS.init();
       this.email = this.cookieService.getCookie('email');
 
-      this.http.get<Formation[]>(`http://localhost:3000/api/liste/formation_paye/${this.email}`).subscribe(reponse  => 
+      this.http.get<Repertoire[]>(`http://localhost:3000/api/liste/formation_paye/${this.email}`).subscribe(reponse  => 
       {
-        this.formations = reponse;
-        console.log('Yo bro voici tes objets', reponse);
-        console.log(this.formations.length)
+        this.repertoires = reponse;
+        console.log('payé ', this.repertoires )
       }
       );
-      this.http.get<Image[]>('http://localhost:3000/api/liste/imagecomplet').subscribe(reponse  => 
+      this.http.get<ImageRepertoire[]>('http://localhost:3000/api/liste/imagepayantescomplet').subscribe(reponse  => 
       {
         this.images = reponse;
-        console.log('Yo bro voici tes images', reponse);
-
+        console.log('image ', this.images )
       }
       )
     }
 
     onViewFormation(id_formation : number) : void
     {
-      this.router.navigateByUrl(`formation/${id_formation}`);
-     /* if(environment.connexion === 1)
-      {
-        this.router.navigateByUrl(`formation/${id_formation}`);
-
-      }
-      else
-      {
-        this.router.navigateByUrl(`authentification/connexion`);
-      } */
+      this.router.navigateByUrl(`admin/formation_payante/${id_formation}`);
+    
     }
 }

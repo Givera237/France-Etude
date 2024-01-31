@@ -13,6 +13,7 @@ import { UploadVideoPayanteComponent } from './components/upload-video-payante/u
 import { UploadPdfComponent } from './components/upload-pdf/upload-pdf.component';
 import { ListeVideoComponent } from './components/liste-video/liste-video.component';
 import { ListePdfComponent } from './components/liste-pdf/liste-pdf.component';
+import { ModifierRepertoireComponent } from './components/modifier-repertoire/modifier-repertoire.component';
 
 
 
@@ -27,7 +28,8 @@ import { ListePdfComponent } from './components/liste-pdf/liste-pdf.component';
     UploadVideoPayanteComponent,
     UploadPdfComponent,
     ListeVideoComponent,
-    ListePdfComponent
+    ListePdfComponent,
+    ModifierRepertoireComponent
   ],
   imports: 
   [

@@ -1,5 +1,6 @@
 @import "~aos/dist/aos.css";
 
+
 iframe
 {
     width: 100%;
@@ -7,6 +8,21 @@ iframe
     margin-top: 10px;
     margin-bottom: 15px;
 } 
+input {
+  border-radius: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.inscription:hover
+{
+  background-color: rgb(220,20,60) !important;
+}
+.background
+{
+  background-image: url('/assets/avion qui décolle.jpg');
+  width: 1250px;
+  height: 650px;
+}
 
 .images
 {
@@ -54,6 +70,7 @@ iframe
 {
   height: 300px ;
   width: 550px;
+  border-radius: 55%;
 }
 
 .mon-element {

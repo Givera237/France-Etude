@@ -4,4 +4,5 @@ export class Repertoire
     titre!: string;
     description!: string;
     contenu!: string;
+    prix!: number
 }

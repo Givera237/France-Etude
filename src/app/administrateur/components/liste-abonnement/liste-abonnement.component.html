@@ -1,0 +1,33 @@
+<section class="formation">
+    <h3 class="fw-bold text-center" > <br> Les abonnés <br></h3>
+
+    <div class="container ">
+        <div class="row">
+            <div class="col" >
+                    <div  >
+                        <div> 
+                            <table class="table" >
+                                <thead >
+                                <tr>
+                                    <th scope="col">N°</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Formation</th>
+                                    <th scope="col">Désabonner</th>
+                    
+                                </tr>
+                                </thead>
+                                <tbody  *ngFor="let abonnement of abonnement ; let i = index">
+                                <tr>
+                                    <td> {{i+1}} </td>
+                                    <td>{{abonnement.adresse_visiteur}} </td>
+                                    <td>{{abonnement.titre_repertoire}} </td>
+                                    <td  class="supp" (click)="desabonner(abonnement.id_abonnement)">désabonner </td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>

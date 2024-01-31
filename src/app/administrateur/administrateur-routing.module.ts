@@ -10,6 +10,8 @@ import { UploadVideoPayanteComponent } from "./components/upload-video-payante/u
 import { UploadPdfComponent } from "./components/upload-pdf/upload-pdf.component";
 import { ListeVideoComponent } from "./components/liste-video/liste-video.component";
 import { ListePdfComponent } from "./components/liste-pdf/liste-pdf.component";
+import { ListeAbonnementComponent } from "./components/liste-abonnement/liste-abonnement.component";
+import { ModifierRepertoireComponent } from "./components/modifier-repertoire/modifier-repertoire.component";
 
 const routes : Routes =
 [
@@ -20,8 +22,10 @@ const routes : Routes =
  {path : 'up_pdf/:id', component : UploadPdfComponent},
  {path : 'liste_video/:id', component : ListeVideoComponent},
  {path : 'liste_pdf', component : ListePdfComponent},
+ {path : 'liste_abonne/:id', component : ListeAbonnementComponent},
  {path : 'abonnement', component : AbonnementComponent},
  {path : 'modifier/:id', component: ModifierFormationComponent},
+ {path : 'modifier_repertoire/:id', component: ModifierRepertoireComponent},
  {path : 'mail', component : EnvoiMailComponent}
 
 ]

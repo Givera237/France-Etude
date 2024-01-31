@@ -3,15 +3,255 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Almendra&family=Inknut+Antiqua:wght@300&family=Jacques+Francois+Shadow&family=Kavoon&family=Kelly+Slab&family=Montserrat:wght@100&display=swap" rel="stylesheet">
 </head>
-<div>
-    <div > 
-            <img src="/assets/pexels-fred-augé-18978472.jpg" class=" mon-image img-fluid d-flex justify-content-between carrousel  float-start" alt="...">
+    <div class="bg-image img-fluid" style="width: 100%; height: 100vh; background-image: url('/assets/avion qui décolle rogné.jpg'); background-size: cover; background-position: center; ">
+        <br><br><br><br>
+        <div class="container">
+            <div class="row">
+                <div class="col-7">
+                    <p class="display-5">
+                        <strong> Avec <br> France-Etude<br> prenez votre envol afin de réaliser vos reves. </strong>
+                     </p> <br><br>
+                     <a href="accueil/a_propos">
+                        <button type="button" class="jello-horizontal btn btn-danger btn-lg btn_coaching"  style="background-color: #F31111;"><strong> Qui Sommes Nous ?</strong> </button> <br> <br> <br>
+                     </a>      
+                      <a href="formation/liste">
+                      <button type="button" class="jello-horizontal btn btn-danger btn-lg btn_coaching text-black" style="background-color: white;"> <strong>Découvrez nos Formations</strong> </button>
+                     </a>
+                </div>
+                <div class="col-5">
+                   
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br>
+    </div>
+<section class="my-4" style="margin-left: 10px; margin-right: 30px;">
+    <div class="row  d-flex justify-content-center  ">
+        <br> <h3 class=" tracking-in-expand text-center text-black que_faisons_nous fw-bold my-3" > Que faisons nous? </h3> <br>
+        <div class="col-10 col-md-4 p-2 mx-2 image_mobile" style="width: 430px; background-color:rgb(220,220,220,0.4);">
+            <h4 class="text-center text-black " style="font-family: Almendra;" > Dispenser des formations dans le but d'immigrer en France </h4>
+            <p class="kenburns-top que_faisons_nous text-focus-in mx-3">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. <br> 
+                 Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+                   esse cillum dolore eu fugiat nulla pariatur. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco <br>
+                 laboris nisi ut aliquip ex ea commodo consequat. Duis aute  
+                 esse cillum dolore eu fugiat nulla pariatur.
+            </p>         
+        </div>
+        <div class="col-10 col-md-4 p-2 mx-2 my-5 my-lg-0 image_mobile" style="width: 430px; background-color: rgb(220,220,220,0.4);">
+            <h4 class="text-center text-black " style="font-family: Almendra;" > Procédure d'obtention de Visa </h4>
+            <p class="kenburns-top que_faisons_nous text-focus-in mx-3  ">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. <br> 
+                 Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+                   esse cillum dolore eu fugiat nulla pariatur. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco <br>
+                 laboris nisi ut aliquip ex ea commodo consequat. Duis aute  
+                 esse cillum dolore eu fugiat nulla pariatur.
+            </p>   
+        </div>
+        <div class="col-10 col-md-4 p-2 image_mobile" style="width: 430px; background-color: rgb(220,220,220,0.4); ">
+            <h4 class="text-center text-black " style="font-family: Almendra;" > Admissibilité Campus France </h4>
+            <p class="kenburns-top que_faisons_nous text-focus-in mx-3  ">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. <br> 
+                 Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+                   esse cillum dolore eu fugiat nulla pariatur. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco <br>
+                 laboris nisi ut aliquip ex ea commodo consequat. Duis aute  
+                 esse cillum dolore eu fugiat nulla pariatur.
+            </p>   
+        </div>
+    </div>
+    <div class="row my-3">
+        <div class="container">
+            <div data-aos="fade-down" data-aos-offset="300" data-aos-duration="2000" class="col-10 offset-1 ">
+                <ng-image-slider 
+                class="img-fluid float-center"
+                [images]="imgCollection" #nav
+                [infinite]="true"
+                [autoSlide]="5"
+                [imageSize]="{width: '100%', height: 360}"
+                slideImage="1">
+                ></ng-image-slider>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+        <div class="row mon-element p-4">
+            <div class="col-11 col-md-5 offset-0 mt-3 text-center">
+                <h1>Un Accompagnement continu</h1>
+                <p class="text-black" style="color:#ffffff;font-weight:500;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur 
+                </p>
+            </div>
+            <div class="col-11 col-md-5 offset-md-1 mt-3">
+                <img src="/assets/pexels-keira-burton-6084272.jpg" class="img-fluid image_fond" alt="">
+            </div>
+             <form [formGroup]="inscriptionForm" class="container my-3" style="background-color: aliceblue;" >
+                <div class="row">
+                    <h3 class="text-black text-center fw-bold" > Inscrivez vous pour bénéficier de nos formations et conseils</h3>
+                    <div class="col-10 col-md-4 py-4">
+                        <input type="text" formControlName="pseudo" id="pseudo" class="py-2 " placeholder="Votre pseudo" >
+                    </div>
+                    <div class="col-10 col-md-4 py-4">
+                        <input type="text" formControlName="email" id="email" class="py-2" style="width: 300px;" placeholder="Votre email"  >
+                    </div> 
+                    <div class="col-10 col-md-3 offset-1 py-4">
+                        <button type="submit" (click)="onSubmit()" [disabled]="inscriptionForm.invalid" class="btn inscription text-center" style="background-color: rgba(245, 117, 134, 0.774); border-radius: 15%;">S'inscrire</button>
+                    </div>
+                </div>         
+             </form>
+        </div>
+        <div class="row">
 
+        </div>
+</section>
+<section class="my-3" style="background-color:aliceblue; ;">
+    <div class="container">
+        <div style="background-color: aliceblue; ">
+            <div class="container pt-5 pb-4">
+                <h2 class="text-center  fs-bold"> Nos Chiffres</h2> <br>
+                <div class="row d-flex justify-content-between">
+                    <div class="col-10 col-md-3">
+                        <div class="card rouge" style="width: 18rem;">
+                            <div class="card-body">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-person-arms-up" viewBox="0 0 16 16">
+                                    <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+                                    <path d="m5.93 6.704-.846 8.451a.768.768 0 0 0 1.523.203l.81-4.865a.59.59 0 0 1 1.165 0l.81 4.865a.768.768 0 0 0 1.523-.203l-.845-8.451A1.492 1.492 0 0 1 10.5 5.5L13 2.284a.796.796 0 0 0-1.239-.998L9.634 3.84a.72.72 0 0 1-.33.235c-.23.074-.665.176-1.304.176-.64 0-1.074-.102-1.305-.176a.72.72 0 0 1-.329-.235L4.239 1.286a.796.796 0 0 0-1.24.998l2.5 3.216c.317.316.475.758.43 1.204Z"/>
+                                  </svg> <br>
+                            <h2 class="card-title text-center">1500</h2>
+                            <h6 class="card-subtitle mb-2 text-center text-muted">Etudiants accompagnés</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-10 col-md-3 my-2 my-md-0 ">
+                        <div class="card rouge" style="width: 18rem;">
+                            <div class="card-body">
+                                <img src="/assets/salutation.png" style="width: 36px; height: 36px;" class="" alt="">
+                            <h2 class="card-title text-center">2000</h2>
+                            <h6 class="card-subtitle mb-2 text-center text-muted">Partenaires d'emploi</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-10 col-md-4 ">
+                        <div class="card rouge" style="width: 18rem;">
+                            <div class="card-body">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-person-vcard" viewBox="0 0 16 16">
+                                    <path d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4m4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5M9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8m1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5"/>
+                                    <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96c.026-.163.04-.33.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1.006 1.006 0 0 1 1 12z"/>
+                                  </svg> <br>
+                            <h2 class="card-title text-center">500</h2>
+                            <h6 class="card-subtitle mb-2 text-center text-muted">Visas obtenus</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+           </div>
+    </div>
+</section>
+ 
+
+
+
+
+
+
+
+
+
+
+
+<a href="https://api.whatsapp.com/send?phone=237681195346">
+    <img src="/assets/134937.png" class="logo_fige heartbeat" alt="logo de whatsapp">
+</a>
+<section  data-aos="fade-up"
+data-aos-anchor-placement="top-bottom" data-aos-duration="3000">
+    <div class="container">
+        <div class="row m-10">
+            <div data-aos="fade-right" data-aos-offset="400" data-aos-duration="1000" class="col-10 col-md-7 offset-1 offset-md-0">
+                <iframe class="embed-responsive-item m-10" src="https://www.youtube.com/embed/w18osAo51G4" title="Etudes en France procédure 2022/2023, les démarches de A à Z sur Campus France 🇫🇷" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    
+            </div>
+            <div data-aos="fade-left" data-aos-offset="400" data-aos-duration="1000" class="col-10 col-md-4 offset-1">
+            <br> <br> <br>
+            <p class="citation">
+                “ La seule limite à 
+                notre épanouissement
+                    de demain sera 
+                        nos  doutes 
+                    d’aujourd’hui”
+                </p>
+                <h3 class="auteur">Franklin Delano Roosevelt</h3>
+            </div>
+        </div>
+    </div>
+</section>    
+   
+            <div class="row ">
+                <div class="col-8 offset-2">
+                    <p class="text-black auteur fst-italic mt-5" style="color:#ffffff;font-weight:500; ">
+                       " Avec cette agence de voyage contrairement à d’autres ma satisfaction a été à son comble. Ils m’ont tenue la main jusqu’à ce que je mette mon pied dans l’avion pour Paris". 
+                    </p>
+                    <span class="text-black text-center " style="font-family: Georgia, 'Times New Roman', Times, serif;"><strong class="fs-4">Farnel Ango</strong> désormais étudiant à <strong>L'université de la Sorbonne</strong></span> 
+                </div>   
+            </div>
+        <br> <br><br><br>
+        
+<div class="container">
+    <h2 class="text-center" >Choisir France-Etude c'est choisir : </h2>
+
+    <a class="">
+        <img src="/assets/pexels-ricky-esquivel-1654698.jpg" class=" image_mobile images float-center" alt="...">
+    </a>
+    <a>
+       <img src="/assets/images.jpeg" class=" image_mobile images float-center" alt="...">
+       <span>
+           
+       </span>
+    </a>
+    <a>
+       <img src="/assets/pexels-oleksandr-p-7599735.jpg" class="image_mobile images float-center" alt="...">
+       <span>
+           
+       </span>
+    </a>
+    <a>
+       <img src="/assets/pexels-tima-miroshnichenko-5439453.jpg" class="image_mobile images float-center" alt="...">
+       <span>
+           
+       </span>
+    </a>   
+
+</div>
+   
+
+<!--
+ <div  style="background-image:url(/assets/image-figaro-etudiants-etrangers-france-1024x576.webp) ;  height: 100%; " > 
+            <p>
+                yo
+            </p> <br><br><br><br><br><br><br><br><br>
             <div class=" contactez_nous">        
                 <button type="button" class="btn rounded-pill btn-primary btn-md-lg bouton_image px-5 py-3 scale-in-top">Contacter nous</button>
             </div>
     </div>
-</div>
+
+
+       <img src="/assets/avion qui décolle.jpg" width="100%" height="650px" alt="">
+
+-->
+
+<!--
+
 <section class="arrière_plan">
     <div class="container ">
         <div class="row ">
@@ -170,5 +410,5 @@ data-aos-anchor-placement="top-bottom" data-aos-duration="3000">
     </a>   
 
 </div>
-   
 
+-->
