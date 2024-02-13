@@ -66,12 +66,7 @@ export class AccueilComponent
         title: 'Obtention de votre visa ',
         alt: 'Visa pour la France'
       },
-      {
-        image: '/assets/etudiant qui voyage 1.jpg',
-        thumbImage: '/assets/etudiant qui voyage 1.jpg',
-        title: 'Voyage',
-        alt: 'Etudiant qui voyage'
-      }
+  
   ];
 
   onSubmit() : void
