@@ -5,14 +5,23 @@
     margin-bottom: 010px;
   //  position: relative; /* Position absolue pour le component header */
     bottom: 5; /* Positionner le header en haut */
-  
+}
+
+.texte
+{
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .formation
 {
     margin-bottom: 20px;
 }
-
+.bleu:hover
+{
+    background-color:#1283EB !important;
+}
 .na
 {
     margin-top: 25px;

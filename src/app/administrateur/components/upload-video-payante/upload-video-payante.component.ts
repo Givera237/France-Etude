@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { AdministrateurServices } from '../../services/administrateur-service';
 
 @Component({
   selector: 'app-upload-video-payante',
@@ -13,16 +13,10 @@ export class UploadVideoPayanteComponent
 
   constructor
   (
-   private http : HttpClient, 
    private route : ActivatedRoute,
-   private router : Router,
+   private admin : AdministrateurServices
   ){}
 
-  
-  ngOnInit() : void
-  {
-    const id_repertoire = this.route.snapshot.params['id'];
-  }
 
   onFileChange(event: any) 
   {
@@ -37,27 +31,8 @@ export class UploadVideoPayanteComponent
   {
     console.log(this.essai)
     const id_repertoire = this.route.snapshot.params['id'];
-    this.http.post(`http://localhost:3000/api/uploads/video/${id_repertoire}`, this.essai, { observe: 'response' }).subscribe
-    (
-      (response: HttpResponse<any>) => 
-      {
-        if (response.status === 200) 
-        {
-          console.log(response.statusText)
-          console.log('Post bien envoyé')
-          this.router.navigateByUrl(`admin/formation_payante/${id_repertoire}`);
-        }
-        else 
-        {
-          console.log('merde combi');
-        }
-      },
-      error => 
-      {
-        console.error(error); // Afficher l'erreur à l'utilisateur
-      }
-    )
 
+    this.admin.uploadVideo(this.essai, id_repertoire)
   }
 
 }

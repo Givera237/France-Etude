@@ -1,21 +1,103 @@
-<div class="fond" style="margin-top: 80px;">
-    <div class="container ">
-        <div class="col-4 col-sm-6 col-md-5 offset-0 offset-md-3 p-4 d-flex justify-content-center">
-             <form [formGroup]="loginForm" class="row g-3 cont">
-                <label for="pseudo" class="for-label"> <h4 class="fw-bold text-center text-white text-uppercase">Connexion</h4> </label>
-                <span>pseudo <em>*</em></span> <span>{{erreur}} </span>
-                <input type="text" formControlName="pseudo" class="form-control mt-1 mb-3 p-1" id="pseudo" placeholder="Votre Pseudo ">
-                <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
-                    <button type="submit" (click)="onSubmit()" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Connexion</button>
+<div  *ngIf="existe(connexion); else existe_pas">
+    <div *ngIf="connexion === 'true'; else non_connecte"> 
+        <h3 class="fw-bold text-center" style="color:#1283EB;;" > <br> Hello <span style="color: black;">{{pseudo}}</span>, comment pouvons nous vous aider?   <br></h3>
+        <div class="container mt-5 mb-5">
+            <div class="row d-flex justify-content-between">
+                <div class="col-10 col-md-3 offset-1  text-center">
+                    <button type="button"  data-bs-toggle="modal" data-bs-target="#deconnexion" class="jello-horizontal btn btn-primary bleu btn-lg btn_coaching text-black" style="background-color: white;"> <strong>Déconnexion</strong> </button>
                 </div>
-                <div class="text-md-end">
-                    <span class="text-white text-start text-end">
-                        Pas de compte, <a href="authentification/inscription " class="text-black">Inscrivez vous</a> 
-                    </span>
+                <div class="col-10 col-md-3 my-4 my-md-0 offset-1  text-center" >
+                    <button type="button"  data-bs-toggle="modal" data-bs-target="#desabonner" class="jello-horizontal btn btn-primary bleu btn-lg btn_coaching text-black" style="background-color: white;"> <strong>Désabonnement</strong> </button>
                 </div>
-             </form>
-         </div>
-        
+                <div class="col-10 col-md-3 offset-1  text-center" >
+                    <a href="https://api.whatsapp.com/send?phone=237681195346">
+                        <button type="button"  class="jello-horizontal btn btn-primary bleu btn-lg btn_coaching text-black" style="background-color: white;"> <strong>Contactez nous</strong> </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Debut Modal -->
+        <div class="modal fade" style="margin-top: 70px;" id="deconnexion" tabindex="-1" aria-labelledby="deconnexionLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deconnexionLabel">Deconnexion</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            En vous déconnectant vous fermez votre session mais pourrez-vous reconnecter plus tard  
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" (click)="Deconnexion()" data-bs-dismiss="modal" class="btn btn-primary">Valider</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" style="margin-top: 70px;" id="desabonner" tabindex="-1" aria-labelledby="desabonneLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="desabonneLabel">Désabonnement</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Voulez vous supprimer votre compte ? 
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" (click)="suppresion()" data-bs-dismiss="modal" class="btn btn-primary">Valider</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    
+    <!-- Fin Modal -->
+    <ng-template #non_connecte>
+        <div class="fond" style="margin-top: 80px;" >
+            <div class="container ">
+                <div class="col-4 col-sm-6 col-md-5 offset-0 offset-md-3 p-4 d-flex justify-content-center">
+                     <form [formGroup]="loginForm" class="row g-3 cont">
+                        <label for="pseudo" class="for-label"> <h4 class="fw-bold text-center text-white text-uppercase">Connexion</h4> </label>
+                        <span>pseudo <em>*</em></span> <span>{{erreur}} </span>
+                        <input type="text" formControlName="pseudo" class="form-control mt-1 mb-3 p-1" id="pseudo" placeholder="Votre Pseudo ">
+                        <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
+                            <button type="submit" (click)="onSubmit()" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Connexion</button>
+                        </div>
+                        <div class="text-md-end">
+                            <span class="text-white text-start text-end">
+                                Pas de compte, <a href="authentification/inscription " class="text-black rouge">Inscrivez vous</a> 
+                            </span>
+                        </div>
+                     </form>
+                 </div>                
+            </div>
+        </div>
+    </ng-template>
 </div>
+<ng-template #existe_pas>
+    <div class="fond" style="margin-top: 80px;" >
+        <div class="container ">
+            <div class="col-4 col-sm-6 col-md-5 offset-0 offset-md-3 p-4 d-flex justify-content-center">
+                 <form [formGroup]="loginForm" class="row g-3 cont">
+                    <label for="pseudo" class="for-label"> <h4 class="fw-bold text-center text-white text-uppercase">Connexion</h4> </label>
+                    <span>pseudo <em>*</em></span> <span>{{erreur}} </span>
+                    <input type="text" formControlName="pseudo" class="form-control mt-1 mb-3 p-1" id="pseudo" placeholder="Votre Pseudo ">
+                    <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
+                        <button type="submit" (click)="onSubmit()" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Connexion</button>
+                    </div>
+                    <div class="text-md-end">
+                        <span class="text-white text-start text-end">
+                            Pas de compte, <a href="authentification/inscription " class="text-black rouge">Inscrivez vous</a> 
+                        </span>
+                    </div>
+                 </form>
+             </div>
+            
+        </div>
+    </div>
+</ng-template>
 

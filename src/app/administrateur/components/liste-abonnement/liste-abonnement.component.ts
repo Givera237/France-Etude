@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
 import { Repertoire } from 'src/app/formation/models/repertoire';
 import { Abonnement } from '../../models/abonnement';
+import { AdministrateurServices } from '../../services/administrateur-service';
 
 @Component({
   selector: 'app-liste-abonnement',
@@ -19,8 +19,8 @@ export class ListeAbonnementComponent
   (
    private http : HttpClient, 
    private route : ActivatedRoute,
-   private router : Router,
-  ){}
+   private admin : AdministrateurServices
+    ){}
 
 
   ngOnInit() : void
@@ -39,15 +39,8 @@ export class ListeAbonnementComponent
   }
 
   desabonner(id : number)
-  {
-    const id_formation = this.route.snapshot.params['id'];
-    this.http.delete(`http://localhost:3000/api/abonnement/supprimer/${id}`).subscribe(reponse  => 
-    {
-      console.log('utilisateur désabonné : ', reponse),
-      (error: any) => console.log('Erreur : ', error)
-      this.router.navigateByUrl(`formation/payante`);
-    }
-    )
+  {    
+    this.admin.desabonnement(id)
   }
 
 }

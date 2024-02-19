@@ -1,116 +1,78 @@
-  <section class="fond mt-10 mb-10 ">
-    <div class="container p-5">
-        <div data-aos="zoom-in"  data-aos-duration="3000" class="row">
-            <div class="col-12 col-md-3 text-center">               
-              <h3 class="fw-bold" style="margin-top: 40px;"> <br> Découvrez <br> nos <br> formations <br></h3>
-            </div>
-            <div class="col-12 col-md-5 offset-md-3">
-                <p style="margin-top: 40px;">
-                    obtention de visa, logement , la préparation à campus france sont des étapes fondementales dans le processus d’immigration. De ce fait, se préparer à les affronter est essentiel si l’ont veut ... 
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                     dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-                     aliquip ex ea commodo consequat.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="formation">
-    <div class="container ">
-        <div class="row">
-            <div class="col-10 col-md-6 col-lg-4 heartbeat " *ngFor="let formation of formations" >
-                 <div class="card my-4 puff-in-br " style="width: 18rem;" >
-                      <div class="card-header text-center" style="background-color: #F31111;" >
-                        <strong>{{formation.titre | uppercase}}</strong>
-                      </div>
-                      <div  *ngFor="let img of images ; let i = index">
-                        <div *ngIf="formation.id_formation===img.id_formation"> 
-                          <img class="card-img-top" src="../assets/{{img.nom}}" alt="Card image cap" (click)="onViewFormation(formation.id_formation)" >                         <!-- <img src="./{{img.path}}" class="card-img-top" alt="..." (click)="onViewFormation(formation.id_formation)"  >   --> 
-
-                        </div>
-                      </div>
-                         <div class="card-body" >
-                        <p class="card-text">{{formation.description | uppercase}} </p>
-                      </div>
-                  </div>
-            </div>
-        </div>
-        <p class="text-end texte_coaching">   
-          Pour un éventail de formations plus large, des formations plus ciblées, consultez nos formations payantes
-          <a href="formation/payante">
-              <button type="button" class="jello-horizontal btn btn-danger btn-lg btn_coaching" style="background-color: #F31111;">Formations</button>
-          </a>
-      </p>
-    </div>
-    <div *ngIf="admin ==='1'">
-      <a href="admin/ajout">
-        <svg xmlns="http://www.w3.org/2000/svg" width="75" style="color :blue" height="52" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
-          <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
-          <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
-        </svg>
-      </a>
-      <a href="admin/mail">
-        <svg xmlns="http://www.w3.org/2000/svg" width="75" height="58" style="color :blue" fill="currentColor" class="bi bi-envelope-arrow-up" viewBox="0 0 16 16">
-          <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4.5a.5.5 0 0 1-1 0V5.383l-7 4.2-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h5.5a.5.5 0 0 1 0 1H2a2 2 0 0 1-2-1.99V4Zm1 7.105 4.708-2.897L1 5.383v5.722ZM1 4v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1Z"/>
-          <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.354-5.354 1.25 1.25a.5.5 0 0 1-.708.708L13 12.207V14a.5.5 0 0 1-1 0v-1.717l-.28.305a.5.5 0 0 1-.737-.676l1.149-1.25a.5.5 0 0 1 .722-.016Z"/>
-        </svg>
-      </a>
-    </div>
-    
-</section>
-
-
-
-
-<!--
-   <div class="card my-4" style="width: 18rem;">
-                      <div class="card-header text-center" style="background-color: #F31111;">
-                          titre
-                      </div>
-                      <img src="/assets/Visa.jpeg" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      </div>
-                  </div>
-   <div class="col">
-                <div class="card my-4" style="width: 18rem;">
-                    <div class="card-header text-center" style="background-color: #F31111;">
-                        titre
-                    </div>
-                    <img src="/assets/Visa.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
+<div  *ngIf="existe(connexion); else existe_pas">
+  <div *ngIf="connexion === 'true'; else non_connecte"> 
+    <section class="fond mt-10 mb-10 ">
+        <div class="container p-5">
+            <div data-aos="zoom-in"  data-aos-duration="3000" class="row">
+                <div class="col-12 col-md-3 text-center">               
+                  <h3 class="fw-bold" style="margin-top: 40px;">Découvrez <br> nos <br> formations <br></h3>
                 </div>
-                  <div class="card my-4" style="width: 18rem;">
-                    <div class="card-header text-center" style="background-color: #F31111;">
-                        titre
-                    </div>
-                    <img src="/assets/Visa.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                  </div>
+                <div class="col-12 col-md-5 offset-md-3">
+                    <p class="texte fs-5" style="margin-top: 40px;">
+                      Explorez une série de vidéos informatives et de documents couvrant chaque aspect de votre 
+                      voyage en France, y compris les procédures de Campus France, la recherche de logement, 
+                      la demande de visa et l'obtention de votre premier emploi étudiant en France.
+                    </p>
+                </div>
             </div>
- <div class="col">
-                <div class="card my-4" style="width: 18rem;">
-                    <div class="card-header text-center" style="background-color: #F31111;">
-                        titre
-                    </div>
-                    <img src="/assets/Visa.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                  </div>
-                  <div class="card my-4" style="width: 18rem;">
-                    <div class="card-header text-center" style="background-color: #F31111;">
-                        titre
-                    </div>
-                    <img src="/assets/Visa.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                  </div>
+        </div>
+    </section>
+    <section class="formation">
+        <div class="container ">
+            <div class="row">
+                <div class="col-10 col-md-6 col-lg-4 heartbeat " *ngFor="let formation of formations" >
+                    <div class="card my-4 puff-in-br " style="width: 18rem;" >
+                          <div class="card-header text-center" style="background-color: #F31111;" >
+                            <strong>{{formation.titre | uppercase}}</strong>
+                          </div>
+                          <div  *ngFor="let img of images ; let i = index">
+                            <div *ngIf="formation.id_formation===img.id_formation"> 
+                              <img class="card-img-top " src="http://{{img.path}}" height="200px" alt="Card image cap" (click)="onViewFormation(formation.id_formation)" >                         <!-- <img src="./{{img.path}}" class="card-img-top" alt="..." (click)="onViewFormation(formation.id_formation)"  >   --> 
+                            </div>
+                          </div>
+                            <div class="card-body" >
+                            <p class="card-text">{{formation.description | uppercase}} </p>
+                          </div>
+                      </div>
+                </div>
             </div>
+            <p class="text-end texte_coaching">   
+              Pour un éventail de formations plus large, des formations plus ciblées, consultez nos formations payantes
+              <a href="formation/payante">
+                  <button type="button" class="jello-horizontal btn btn-danger btn-lg btn_coaching" style="background-color: #F31111;">Formations</button>
+              </a>
+          </p>
+        </div>
+        <div *ngIf="admin ==='1'">
+          <a href="admin/ajout">
+            <svg xmlns="http://www.w3.org/2000/svg" width="75" style="color :blue" height="52" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+              <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
+              <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
+            </svg>
+          </a>
+          <a href="admin/mail">
+            <svg xmlns="http://www.w3.org/2000/svg" width="75" height="58" style="color :blue" fill="currentColor" class="bi bi-envelope-arrow-up" viewBox="0 0 16 16">
+              <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4.5a.5.5 0 0 1-1 0V5.383l-7 4.2-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h5.5a.5.5 0 0 1 0 1H2a2 2 0 0 1-2-1.99V4Zm1 7.105 4.708-2.897L1 5.383v5.722ZM1 4v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1Z"/>
+              <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.354-5.354 1.25 1.25a.5.5 0 0 1-.708.708L13 12.207V14a.5.5 0 0 1-1 0v-1.717l-.28.305a.5.5 0 0 1-.737-.676l1.149-1.25a.5.5 0 0 1 .722-.016Z"/>
+            </svg>
+          </a>
+        </div>
+        
+    </section>
+  </div>
+  <ng-template #non_connecte>
+    <div class="fond" style="margin-top: 80px;" >
+        <div class="container ">
+          <div class="row">
+            <div class="col-3 offset-2 p-2 d-flex justify-content-center ">
+              <h3 class="fw-bold text-center" style="color:#1283EB;;" >Veuiller vous connecter afin de consulter toutes nos formations gratuites</h3>
+          </div>  
+          <div class="col-3 offset-1  ">
+              <br><br>
+              <button type="button" (click)="onConnect()" class="jello-horizontal btn btn-primary bleu btn-lg btn_coaching text-black my-4" style="background-color: white;"> <strong>Connexion</strong> </button>
+          </div>        
+          </div>  
+        </div>
+    </div>
+</ng-template>
+</div>
 
--->

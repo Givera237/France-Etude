@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { AdministrateurServices } from '../../services/administrateur-service';
 
 
 @Component({
@@ -18,15 +17,9 @@ export class AjoutPayantComponent
 
   constructor
   (
-   private http : HttpClient, 
-   private router : Router,
+   private admin : AdministrateurServices
   ){}
 
-  ngOnInit() : void
-  {
- 
-
-  } 
 
   onFileChange(event: any) 
   {
@@ -46,27 +39,7 @@ export class AjoutPayantComponent
     this.essai.append('contenu', this.contenu);
     this.essai.append('prix', this.prix);
 
-    console.log(this.essai)
-    this.http.post(`http://localhost:3000/api/creation/repertoire`, this.essai, { observe: 'response' }).subscribe
-    (
-      (response: HttpResponse<any>) => 
-      {
-        if (response.status === 200) 
-        {
-          console.log(response.statusText)
-          console.log('Post bien envoyé')
-          this.router.navigateByUrl(`formation/payante`);
-        }
-        else 
-        {
-          console.log('merde combi');
-        }
-      },
-      error => 
-      {
-        console.error(error); // Afficher l'erreur à l'utilisateur
-      }
-    )
+    this.admin.ajoutFormationPayante(this.essai)
   }
 
 }

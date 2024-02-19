@@ -5,13 +5,15 @@ import { ConnexionComponent } from './components/connexion/connexion.component';
 import { AuthentificationRoutingModule } from './authentification-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { VerificationEmailComponent } from './components/verification-email/verification-email.component';
 
 
 
 @NgModule({
   declarations: [
     InscriptionComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    VerificationEmailComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,33 @@
+<section class=" d-flex justify-content-center" style="margin-top: 40px; margin-bottom: 20px;" >
+
+
+  <ng-container *ngIf="maVariable">
+    <p class="mx-5 fw-bold fs-5 " >
+      Veuillez entrer le code envoyé à l'adresse <span style="color: blue;" >{{maVariable.email}} </span> 
+  </p>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Confirmation du code
+</button> 
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 80px;">
+    <div class="modal-dialog">
+      <form class="modal-content" (submit)="onSubmit()">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmer votre code</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="number" class="form-control" [(ngModel)]="code_verifie" name="code" >
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" >Vérifier</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </ng-container>
+
+ 
+</section>
+

@@ -51,11 +51,16 @@ input {
   left: 80%
 }
 
+// <uniquifier>: Use a uniquifier for the class name
+// <weight>: Use a value from 400 to 900
+
+
 .bouton_image:hover
 {
   background-color: red; // Réinitialisez la transformation de base
 
 }
+
 
 .arrière_plan
 {
@@ -102,7 +107,20 @@ input {
 }
 .que_faisons_nous
 {
-    font-family: "Almendra";
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.pacifico-regular 
+{
+  font-family: "Geologica", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "CRSV" 0,
+    "SHRP" 0;
 }
 
 .logo_fige
@@ -136,8 +154,15 @@ position: fixed;
 background-color: #34495e;
 }
 
-.rouge:hover {
-  background-color: red;
+.rouge:hover 
+{
+  background-color: red !important;
+}
+
+.bouton_blanc:hover
+{
+  background-color: white !important;
+  color : red !important;
 }
 
 

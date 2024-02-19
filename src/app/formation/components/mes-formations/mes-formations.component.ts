@@ -6,7 +6,7 @@ import { Formation } from '../../models/formation';
 import { Image } from '../../models/image';
 
 import * as AOS from 'aos';
-import { CookieService } from 'src/app/cookie.service';
+import { CookieServices } from 'src/app/cookie.service';
 import { ImageRepertoire } from '../../models/image_repertoire';
 import { Repertoire } from '../../models/repertoire';
 
@@ -25,7 +25,7 @@ export class MesFormationsComponent
   constructor(
     private route : ActivatedRoute,
     private http : HttpClient,
-    private cookieService: CookieService,
+    private cookieService: CookieServices,
     private router : Router ){}
 
     ngOnInit(): void

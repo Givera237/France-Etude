@@ -3,7 +3,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Video } from '../../models/video';
 import { DomSanitizer } from '@angular/platform-browser';
-import { CookieService } from 'src/app/cookie.service';
+import { CookieServices } from 'src/app/cookie.service';
 
 @Component({
   selector: 'app-liste-video',
@@ -20,7 +20,7 @@ export class ListeVideoComponent
    private http : HttpClient, 
    private route : ActivatedRoute,
    private router : Router,
-   private cookieService: CookieService,
+   private cookieService: CookieServices,
   ){}
 
   ngOnInit() : void

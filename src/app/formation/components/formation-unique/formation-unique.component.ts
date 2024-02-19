@@ -5,7 +5,8 @@ import { Observable } from 'rxjs';
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Video } from '../../models/video';
-import { CookieService } from 'src/app/cookie.service';
+import { CookieServices } from 'src/app/cookie.service';
+import { FormationService } from '../../services/formation.services';
 @Component({
   selector: 'app-formation-unique',
   templateUrl: './formation-unique.component.html',
@@ -21,7 +22,8 @@ export class FormationUniqueComponent
     private route : ActivatedRoute,
     private http : HttpClient,
     private router : Router,
-    private cookieService: CookieService,
+    private cookieService: CookieServices,
+    private formation : FormationService,
     private sanitizer: DomSanitizer ){}
 
     ngOnInit()
@@ -46,13 +48,15 @@ export class FormationUniqueComponent
     supprimer()
     {
       const id_formation = +this.route.snapshot.params['id'];
+      this.formation.supprimerFormationGratuite(id_formation);
+      /*
       this.http.delete(`http://localhost:3000/api/formation/supprimer/${id_formation}`).subscribe(reponse  => 
       {
         console.log('Réponse : ', reponse),
         (error: any) => console.log('Erreur : ', error)
   
       }
-      )
+      ) */
     }
 
     onViewFormation() : void

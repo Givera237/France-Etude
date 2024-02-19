@@ -5,14 +5,15 @@
                 <label for="pseudo" class="for-label"> <h4 class="fw-bold text-center text-white text-uppercase">INSCRIPTION</h4> </label><br><br>
                 <span>pseudo <em>*</em></span> <span style="color: white;"> {{erreur}} </span>
                 <input type="text" class="form-control mt-1 mb-3 p-1" formControlName="pseudo" id="pseudo" placeholder="Votre Pseudo "><br>
+                <div *ngIf="usernameControl.hasError('pattern')"> <span class="text-white" >Le nom d'utilisateur doit contenir une majuscule et des caractères spéciaux.</span></div>
                 <span>email <em>*</em></span>
                 <input type="email" class="form-control mt-1 mb-3 p-1" formControlName="email" id="email" placeholder="Votre Email ">
                 <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
-                    <button type="submit" (click)="onSubmit()" [disabled]="inscriptionForm.invalid" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Inscription</button>
+                    <button type="submit" (click)="onSubmit()" [disabled]="inscriptionForm.invalid" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Suivant</button>
                 </div>
                 <div class="text-md-end">
                     <span class="text-white text-start text-end">
-                        Déjà un compte, <a href="authentification/connexion " class="text-black">Se connecter</a> 
+                        Déjà un compte, <a href="authentification/connexion " class="text-black rouge">Se connecter</a> 
                     </span>
                 </div>
              </form>
@@ -21,3 +22,5 @@
     </div>
 </div>
 
+
+  

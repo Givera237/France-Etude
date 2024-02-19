@@ -5,4 +5,5 @@ export class Image
     nom!: string;
     titre_formation !: string; 
     path!: string;
+    chemin!: string;
 }

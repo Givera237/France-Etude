@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient,  HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { AdministrateurServices } from '../../services/administrateur-service';
 
 
 @Component({
@@ -17,9 +16,8 @@ export class EnvoiMailComponent
   suject!: string;
   annee!: string;
   constructor(
-              private router : Router, 
               private formbuilder : FormBuilder,
-              private http : HttpClient
+              private admin : AdministrateurServices
               ){}
 
     ngOnInit() :void
@@ -37,64 +35,8 @@ export class EnvoiMailComponent
     onSubmit()
     {
       const obj = this.mailForm.value;
-      console.log(obj);
-      this.http.post('http://localhost:3000/api/sendmail/1', obj, { observe: 'response' }).subscribe
-      (
-        (response: HttpResponse<any>) => 
-        {
-          if (response.status === 200) 
-          {
-            console.log('yes mail envoyé');
-            //this.router.navigateByUrl(``);
-          }
-          
-        },
-        error => 
-        {
-          
-          if (error.status === 404) 
-          {
-            console.log(error);
-          //  console.log(error.statusText)
-            //this.router.navigateByUrl(`authentification/login`);
-          }
-          if (error.status === 500) 
-          {
-          //  console.log(error.statusText)
-            //this.router.navigateByUrl(`authentification/login`);
-          }
-          console.error(error.body); // Afficher l'erreur à l'utilisateur
-        } 
-      ) ;  
-  
+      this.admin.envoieMail(obj)
     }
 
-    Submit()
-    {
-  
-      this.mailform.append('suject', this.suject);
-      this.mailform.append('message', this.message);
-  
-      console.log(this.mailform)
-      this.http.post(`http://localhost:3000/api/sendmail/1`, this.mailform, { observe: 'response' }).subscribe
-      (
-        (response: HttpResponse<any>) => 
-        {
-          if (response.status === 200) 
-          {
-            console.log(response.statusText)
-            console.log('Post bien envoyé')
-          }
-          else 
-          {
-            console.log('merde combi');
-          }
-        },
-        error => 
-        {
-          console.error(error); // Afficher l'erreur à l'utilisateur
-        }
-      )
-  
-    }
-}
+  }
+

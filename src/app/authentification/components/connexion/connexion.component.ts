@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient,  HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment.development';
-import { CookieService } from 'src/app/cookie.service';
-import { Connexion } from 'src/app/formation/models/connexion';
+import { Component, TemplateRef } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { CookieServices } from 'src/app/cookie.service';
+import { NgIfContext } from '@angular/common';
+import { AuthentificationService } from '../../service/authentification-service';
 
 @Component({
   selector: 'app-connexion',
@@ -15,71 +13,55 @@ export class ConnexionComponent
 {
   loginForm!: FormGroup;
   erreur!:string;
-  statut!: number;
-  connect!: Connexion;
-  connexion!: boolean;
+  connexion!: string;
   cookie!: any;
+  pseudo!: string;
+  existe_pas!: TemplateRef<NgIfContext<boolean>>|null;
+  non_connecte!: TemplateRef<NgIfContext<boolean>>|null;
+
   constructor(
-              private router : Router, 
               private formbuilder : FormBuilder,
-              private cookieService: CookieService,
-              private http : HttpClient
-  ){}
+              private cookieService: CookieServices,
+              private auth : AuthentificationService  
+             ){}
 
   ngOnInit() :void
   {
     this.erreur = '';
+    this.connexion = this.cookieService.getCookie('connexion');
+    this.pseudo = this.cookieService.getCookie('pseudo');
+
     this.loginForm = this.formbuilder.group
     (
       {
         pseudo: [null],     
       }
     ) ;
-
-    
   }
+
+
+  existe(variable: string): boolean 
+  {
+    return variable !== undefined && variable !== null;
+  }
+  
 
   onSubmit()
   {
     const obj = this.loginForm.value;
-   // console.log(obj);
+    this.auth.connexion(obj, this.cookie, this.erreur)
+  }
 
-    //j'envoie les informations de connexion
+  Deconnexion()
+  {
+    const id_utilisateur = +this.cookieService.getCookie('id_utilisateur');
+    this.auth.deconnection(id_utilisateur)
+  }
 
-    this.http.post('http://localhost:3000/api/login', obj, { observe: 'response' }).subscribe
-    (
-      (response: HttpResponse<any>) => 
-      {
-        if (response.status === 200) 
-        
-        { 
-         console.log(response);
-         console.log('session',response.body);
-         this.cookie = response.body;
-         
-          this.cookieService.setCookie(this.cookie, 30);      
-          this.router.navigateByUrl(``);
-        } 
-        
-      },
-      
-      error => 
-      {
-        
-        if (error.status === 404) 
-        {
-          this.erreur = 'Pseudo inexixtant Veuillez réessayer!!';
-          console.log(error);
-        }
-        if (error.status === 500) 
-        {
-          this.erreur = 'Erreur système réessayer plus tard'
-        }
-        console.error(error.body); // Afficher l'erreur à l'utilisateur
-      } 
-    ) ;  
-
-
+  suppresion()
+  {
+    const id_utilisateur = +this.cookieService.getCookie('id_utilisateur');
+    this.auth.desabonnement(id_utilisateur)
   }
  
 

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CookieService } from 'src/app/cookie.service';
 
 @Component({
   selector: 'app-campus-france',
@@ -8,11 +7,9 @@ import { CookieService } from 'src/app/cookie.service';
 })
 export class CampusFranceComponent 
 {
-  constructor(private cookieService: CookieService){}
 
   ngOnInit(): void
   {
-    const username = this.cookieService.getCookie('username');
-    console.log(username); // Affiche 'JohnDoe'
+    
   }
 }

@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Video } from '../../models/video';
-import { DomSanitizer } from '@angular/platform-browser';
-import { CookieService } from 'src/app/cookie.service';
+import { CookieServices } from 'src/app/cookie.service';
 import { Pdf } from '../../models/pdf';
+import { AdministrateurServices } from '../../services/administrateur-service';
 
 @Component({
   selector: 'app-formation-payante',
@@ -22,7 +22,8 @@ export class FormationPayanteComponent
    private http : HttpClient, 
    private route : ActivatedRoute,
    private router : Router,
-   private cookieService: CookieService,
+   private admins : AdministrateurServices,
+   private cookieService: CookieServices,
   ){}
 
   ngOnInit() : void
@@ -70,36 +71,23 @@ export class FormationPayanteComponent
   onDeleteVideo(id : number)
   {
     const id_repertoire = this.route.snapshot.params['id'];
-    this.http.delete(`http://localhost:3000/api/video/supprimer/${id}`).subscribe(reponse  => 
-    {
-      console.log('Réponse : ', reponse),
-      (error: any) => console.log('Erreur : ', error)
-      this.router.navigateByUrl(`admin/formation_payante/${id_repertoire}`);
-    }
-    )
+
+    this.admins.supprimerVideoPayante(id, id_repertoire)
   }
 
   deletePdf(id : number)
   {
     const id_repertoire = this.route.snapshot.params['id'];
-    this.http.delete(`http://localhost:3000/api/pdf/supprimer/${id}`).subscribe(reponse  => 
-    {
-      console.log('Réponse : ', reponse),
-      (error: any) => console.log('Erreur : ', error)
-      this.router.navigateByUrl(`admin/formation_payante/${id_repertoire}`);
-    }
-    )
+
+    this.admins.supprimerPdf(id, id_repertoire)
+    
   }
+
   deleteRepertoire()
   {
     const id_formation = this.route.snapshot.params['id'];
-    this.http.delete(`http://localhost:3000/api/repertoire/supprimer/${id_formation}`).subscribe(reponse  => 
-    {
-      console.log('Repertoire supprimé : ', reponse),
-      (error: any) => console.log('Erreur : ', error)
-      this.router.navigateByUrl(`formation/payante`);
-    }
-    )
+
+   this.admins.supprimerRepertoire(id_formation)
   }
 
   listeAbonne()
