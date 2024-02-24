@@ -4,13 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { SafePipe } from './safe.pipe';
 import { AccueilComponent } from './accueil/accueil.component';
 
-import { NgImageSliderModule } from 'ng-image-slider';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ListeAbonnementComponent } from './administrateur/components/liste-abonnement/liste-abonnement.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -22,10 +22,11 @@ import { ListeAbonnementComponent } from './administrateur/components/liste-abon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgImageSliderModule,
+    ReactiveFormsModule,
     CoreModule,
     HttpClientModule,
-    ReactiveFormsModule 
+    BrowserAnimationsModule,
+     
   ],
   providers: [],
   bootstrap: [AppComponent]

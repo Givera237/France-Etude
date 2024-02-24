@@ -4,6 +4,7 @@ import { HttpClient,  HttpResponse } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieServices } from 'src/app/cookie.service';
+import { ConnexionComponent } from '../components/connexion/connexion.component';
 
 @Injectable({
   providedIn: 'root'
@@ -14,17 +15,17 @@ export class AuthentificationService
     private variable!: Utilisateur;
     inscriptionForm!: FormGroup;
     code!: number;
-  
+
     constructor(
       private router : Router, 
       private formbuilder : FormBuilder,
       private cookieService: CookieServices,
-      private http : HttpClient
+      private http : HttpClient,
+      
 ){}
 
 ngOnInit() : void
 {
-
   this.inscriptionForm = this.formbuilder.group
   (
     {
@@ -101,7 +102,7 @@ ngOnInit() : void
         {  
           if (error.status === 404) 
           {
-            erreur = 'Pseudo inexixtant Veuillez réessayer!!';
+            erreur = 'Pseudo inexistant veuillez réessayer!';
             console.log(error);
           }
           if (error.status === 500) 

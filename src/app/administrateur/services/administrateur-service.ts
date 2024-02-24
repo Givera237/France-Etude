@@ -256,5 +256,29 @@ import { FormGroup } from '@angular/forms';
         }
       )
     }
+
+    ajoutPdfGratuit(essai : FormData, id_formation : number)
+    {
+      this.http.post(`http://localhost:3000/api/uploads/pdf_formation/${id_formation}`, essai, { observe: 'response' }).subscribe
+      (
+        (response: HttpResponse<any>) => 
+        {
+          if (response.status === 200) 
+          {
+            console.log(response.statusText)
+            console.log('Post bien envoyé')
+            this.router.navigateByUrl(`formation/${id_formation}`);
+          }
+          else 
+          {
+            console.log('merde combi');
+          }
+        },
+        error => 
+        {
+          console.error(error); // Afficher l'erreur à l'utilisateur
+        }
+      )
+    }
   }
   

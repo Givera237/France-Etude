@@ -51,4 +51,15 @@ import { NgIfContext } from '@angular/common';
       }
       )
     }
+
+    supprimerPdf(id : number)
+    {
+      this.http.delete(`http://localhost:3000/api/pdf_formation/supprimer/${id}`).subscribe(reponse  => 
+      {
+        console.log('Réponse : ', reponse),
+        (error: any) => console.log('Erreur : ', error)
+      }
+      ) 
+    }
+
    }

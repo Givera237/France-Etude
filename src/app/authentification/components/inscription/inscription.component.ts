@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient,  HttpHeaders, HttpResponse } from '@angular/common/http';
-import { FormBuilder, FormControl, FormGroup, Validators, AbstractControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Utilisateur } from '../../models/utilisateurs';
 import { AuthentificationService } from '../../service/authentification-service';
 @Component({

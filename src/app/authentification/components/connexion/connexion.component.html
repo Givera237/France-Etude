@@ -57,23 +57,25 @@
     
     <!-- Fin Modal -->
     <ng-template #non_connecte>
-        <div class="fond" style="margin-top: 80px;" >
-            <div class="container ">
-                <div class="col-4 col-sm-6 col-md-5 offset-0 offset-md-3 p-4 d-flex justify-content-center">
-                     <form [formGroup]="loginForm" class="row g-3 cont">
-                        <label for="pseudo" class="for-label"> <h4 class="fw-bold text-center text-white text-uppercase">Connexion</h4> </label>
-                        <span>pseudo <em>*</em></span> <span>{{erreur}} </span>
-                        <input type="text" formControlName="pseudo" class="form-control mt-1 mb-3 p-1" id="pseudo" placeholder="Votre Pseudo ">
-                        <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
-                            <button type="submit" (click)="onSubmit()" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Connexion</button>
-                        </div>
-                        <div class="text-md-end">
-                            <span class="text-white text-start text-end">
-                                Pas de compte, <a href="authentification/inscription " class="text-black rouge">Inscrivez vous</a> 
-                            </span>
-                        </div>
-                     </form>
-                 </div>                
+        <div class="container">
+            <div class="fond" style="margin-top: 80px;" >
+                <div class="row d-flex justify-content-center ">
+                    <div class="col-12  col-md-6 col-lg-4  p-4 d-flex justify-content-center">
+                        <form [formGroup]="loginForm" class="row g-3 cont">
+                            <label for="pseudo" class="for-label"> <h4 class="fw-bold text-center text-white text-uppercase">Connexion</h4> </label>
+                            <span>pseudo <em>*</em></span> <span class="text-white " >{{erreur}} </span>
+                            <input type="text" formControlName="pseudo" class="form-control mt-1 mb-3 p-1" id="pseudo" placeholder="Votre Pseudo ">
+                            <div class=" d-flex justify-content-center">
+                                <button type="submit" (click)="onSubmit()" class="btn btn-primary mt-3 mb-3 fw-bold text-black btn_connexion">Connexion</button>
+                            </div>
+                            <div class="text-md-end">
+                                <span class="text-white text-start text-end">
+                                    Pas de compte, <a href="authentification/inscription " class="fw-bold rouge">Inscrivez-vous</a> 
+                                </span>
+                            </div>
+                        </form>
+                    </div> 
+                </div>
             </div>
         </div>
     </ng-template>
@@ -84,7 +86,7 @@
             <div class="col-4 col-sm-6 col-md-5 offset-0 offset-md-3 p-4 d-flex justify-content-center">
                  <form [formGroup]="loginForm" class="row g-3 cont">
                     <label for="pseudo" class="for-label"> <h4 class="fw-bold text-center text-white text-uppercase">Connexion</h4> </label>
-                    <span>pseudo <em>*</em></span> <span>{{erreur}} </span>
+                    <span>pseudo <em>*</em></span> <span class="text-white " >{{erreur}} </span>
                     <input type="text" formControlName="pseudo" class="form-control mt-1 mb-3 p-1" id="pseudo" placeholder="Votre Pseudo ">
                     <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
                         <button type="submit" (click)="onSubmit()" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Connexion</button>

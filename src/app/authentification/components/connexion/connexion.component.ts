@@ -1,4 +1,6 @@
 import { Component, TemplateRef } from '@angular/core';
+import { HttpClient,  HttpResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CookieServices } from 'src/app/cookie.service';
 import { NgIfContext } from '@angular/common';
@@ -9,6 +11,7 @@ import { AuthentificationService } from '../../service/authentification-service'
   templateUrl: './connexion.component.html',
   styleUrls: ['./connexion.component.scss']
 })
+
 export class ConnexionComponent 
 {
   loginForm!: FormGroup;
@@ -22,7 +25,9 @@ export class ConnexionComponent
   constructor(
               private formbuilder : FormBuilder,
               private cookieService: CookieServices,
-              private auth : AuthentificationService  
+              private auth : AuthentificationService  ,
+              private http : HttpClient,
+              private router : Router, 
              ){}
 
   ngOnInit() :void
@@ -30,6 +35,7 @@ export class ConnexionComponent
     this.erreur = '';
     this.connexion = this.cookieService.getCookie('connexion');
     this.pseudo = this.cookieService.getCookie('pseudo');
+   // this.cookieService.setCookie(this.cookie, 30)
 
     this.loginForm = this.formbuilder.group
     (
@@ -38,7 +44,6 @@ export class ConnexionComponent
       }
     ) ;
   }
-
 
   existe(variable: string): boolean 
   {
@@ -49,7 +54,30 @@ export class ConnexionComponent
   onSubmit()
   {
     const obj = this.loginForm.value;
-    this.auth.connexion(obj, this.cookie, this.erreur)
+   // this.auth.connexion(obj, this.cookie, this.erreur)
+    this.http.post('http://localhost:3000/api/login', obj, { observe: 'response' }).subscribe
+      (
+        (response: HttpResponse<any>) => 
+        {
+          if (response.status === 200) 
+          {            
+            this.cookie = response.body
+            this.cookieService.setCookie(this.cookie, 30)
+            this.router.navigateByUrl(``);
+          } 
+        },
+        error => 
+        {  
+          if (error.status === 404) 
+          {
+            this.erreur = error.error.message;
+          }
+          if (error.status === 500) 
+          {
+            this.erreur = error.error.message;
+          }
+        } 
+      ) ;  
   }
 
   Deconnexion()

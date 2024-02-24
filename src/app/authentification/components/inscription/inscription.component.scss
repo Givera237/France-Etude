@@ -1,6 +1,5 @@
 form
 {
-    
     margin: 20px;
     padding: 10px;
     height: 475px;
@@ -9,18 +8,22 @@ em
 {
     color: red;
 }
-.rouge:hover
+.rouge
 {
-    color : red !important;
+    color: #1283EB !important;
+
+    &:hover 
+    {
+        color: red !important;
+    }
 }
 
 .fond
 {
-    background-color: #D9D9D9;
+    background-color: rgba(18, 131, 235, 0.2);
     margin: auto;
-    margin-bottom: 15px;
+    margin-bottom: 35px;
     padding: 10px;
-    width: 1050px;
 }
 
 .cont
@@ -32,9 +35,8 @@ em
 .btn_connexion
 {
     background-color: #D9D9D9;
-}
-
-.btn_connexion:hover
-{
-    background-color:#1283EB;
+    &:hover 
+    {
+        background-color:#1283EB !important ;
+    }
 }

@@ -14,6 +14,7 @@ import { UploadPdfComponent } from './components/upload-pdf/upload-pdf.component
 import { ListeVideoComponent } from './components/liste-video/liste-video.component';
 import { ListePdfComponent } from './components/liste-pdf/liste-pdf.component';
 import { ModifierRepertoireComponent } from './components/modifier-repertoire/modifier-repertoire.component';
+import { AjoutPdfGratuitComponent } from './components/ajout-pdf-gratuit/ajout-pdf-gratuit.component';
 
 
 
@@ -29,7 +30,8 @@ import { ModifierRepertoireComponent } from './components/modifier-repertoire/mo
     UploadPdfComponent,
     ListeVideoComponent,
     ListePdfComponent,
-    ModifierRepertoireComponent
+    ModifierRepertoireComponent,
+    AjoutPdfGratuitComponent
   ],
   imports: 
   [

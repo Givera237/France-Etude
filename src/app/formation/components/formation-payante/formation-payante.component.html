@@ -26,14 +26,14 @@
                       </div>
                          <div class="card-body" >
                         <p class="card-text" >{{repertoire.description | uppercase}} </p>
-                        <p class="card-text text-center " > <strong>{{repertoire.prix}} FCFA </strong> </p>
+                        <p class="card-text text-center " > <strong>{{repertoire.prix | number: '1.0-0' }} € </strong> </p>
                       </div>
                   </div>
             </div>
         </div>
         <p class="text-end texte_coaching">   
           Pour obtenir l'accès à ces formations veuillez vous abonnez
-          <a href="formation/payante">
+          <a href="https://api.whatsapp.com/send?phone=237681195346">
               <button type="button" class="jello-horizontal btn btn-danger btn-lg btn_coaching" style="background-color: #F31111;">M'abonner</button>
           </a>
       </p>

@@ -5,6 +5,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
 </head>
     <div class="bg-image img-fluid" style="width: 100%; height: 100vh; background-image: url('/assets/avion 3.jpg'); background-size: cover; background-position: center;">
         <br><br><br><br>
@@ -12,7 +13,7 @@
             <div class="row">
                 <div class="col-12  col-md-12">
                     <p class="display-5 text-center fw-bold text-white">
-                        <strong> Avec <br> <strong> <span style="color: blue;" >Fran</span><span style="color: white;" >ceÉt</span><span style="color: red;">udes</span> </strong> <br> prenez votre envol afin de réaliser vos reves. </strong>
+                        <strong> Avec <br> <strong><span class="fw-bold" style="color: #1283EB;"> FranceÉtude </span> </strong> <br> prenez votre envol afin de réaliser vos reves. </strong>
                         
                     </p> <br><br>
                 </div>
@@ -23,12 +24,12 @@
             <div class="row">
                 <div class="col-12 col-md-4 d-flex justify-content-center">
                     <a href="accueil/a_propos">
-                        <button type="button" class="jello-horizontal btn btn-danger bouton_blanc btn-lg btn_coaching"  style="background-color: #F31111; "><strong> Qui Sommes Nous ?</strong> </button> 
+                        <button type="button" class="btn btn-danger bouton_blanc btn-lg btn_coaching"  style=" background-color: #F31111; "><strong> Qui Sommes Nous ?</strong> </button> 
                     </a>      
                 </div>
                 <div class="col-12 col-md-5 offset-md-3 my-4 my-md-0 ">
                     <a href="formation/liste">
-                        <button type="button" class="jello-horizontal btn btn-danger rouge btn-lg btn_coaching text-black" style="background-color: white;"> <strong>Découvrez nos Formations gratuites</strong> </button>
+                        <button type="button" class="btn btn-danger rouge btn-lg btn_coaching text-black" style="background-color: white;"> <strong>Découvrez nos Formations gratuites</strong> </button>
                     </a>
                 </div>
             </div>
@@ -71,19 +72,46 @@
         </div>
     </div>
     <div class="row my-3">
-        <div class="container">
-            <div data-aos="fade-down" data-aos-offset="300" data-aos-duration="2000" class="col-10 offset-1 ">
-                <ng-image-slider 
-                [images]="imgCollection" #nav
-                [infinite]="true"
-                [autoSlide]="5"
-                [imageSize]="{width: '100%', height: '400px'}"
-                slideImage="1">
-                ></ng-image-slider>
+        <div class="d-flex justify-content-center">
+            <div data-aos="fade-down" data-aos-offset="300" data-aos-duration="2000" class=" ">
+                <div class="mb-5">
+                    <div id="carouselExampleIndicators" class="carousel slide carousel-dark carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                             <img src="/assets/groupe étudiant 1.jpg" class="img-fluid" style="width: 1400px; height: 450px;" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                             <img src="/assets/pexels-emily-ranquist-1205651.jpg" class="img-fluid" style="width: 1400px; height: 450px;" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                             <img src="/assets/pexels-atypeek-dgn-5781917.jpg" class="img-fluid" style="width: 1400px; height: 450px;" alt="...">
+                            </div>
+                            <div class="caroussel-item" >
+                             <img src="/assets/pexels-pixabay-532826.jpg" class="img-fluid" style="width: 1400px; height: 450px;" alt="tout effeil">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
+  
+
 <section>
         <div class="row mon-element p-4">
             <div class="col-11 col-md-5 offset-0 mt-3 text-center">
@@ -101,18 +129,41 @@
             </div>
              <form [formGroup]="inscriptionForm" class="container my-3" style="background-color: aliceblue;" >
                 <div class="row">
-                    <h3 class="text-black text-center fw-bold" > Inscrivez vous pour bénéficier de nos formations et conseils gratuit</h3>
+                    <h3 class="text-black text-center fw-bold" > Inscrivez-vous pour bénéficier de nos formations et conseils gratuit</h3>
                     <div class="col-10 col-md-4 py-4">
                         <input type="text" formControlName="pseudo" id="pseudo" class="py-2 " placeholder="Votre pseudo" >
+                        <div *ngIf="usernameControl.hasError('pattern')"> <span class="text-black" >Le nom d'utilisateur doit contenir une majuscule et des caractères spéciaux.</span></div>
                     </div>
                     <div class="col-10 col-md-4 py-4">
                         <input type="text" formControlName="email" id="email" class="py-2" style="width: 300px;" placeholder="Votre email"  >
                     </div> 
                     <div class="col-10 col-md-3 offset-1 py-4">
-                        <button type="submit" (click)="onSubmit()" [disabled]="inscriptionForm.invalid" class="btn inscription text-center" style="background-color: rgba(245, 117, 134, 0.774); border-radius: 15%;">S'inscrire</button>
+                        <button type="submit" data-bs-toggle="modal" data-bs-target="#cookie" [disabled]="inscriptionForm.invalid" class="btn inscription text-center" style="background-color: rgba(245, 117, 134, 0.774); border-radius: 15%;">S'inscrire</button>
                     </div>
                 </div>         
              </form>
+             <div class="modal fade" id="cookie" tabindex="-1" aria-labelledby="cookies" aria-hidden="true"  style="margin-top: 80px;" >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title text-black" id="cookies">Utilisation de cookies</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                     <p class="text-black" >
+                        Ce site utilise des cookies pour améliorer votre expérience de navigation. 
+                        Pour en savoir plus sur les cookies que nous utilisons, 
+                        veuillez consulter notre politique de cookies: <a href="">lien vers la politique de cookies.</a>  <br>
+                        En cliquant sur le bouton <strong>'j'accepte' </strong> , vous acceptez l'utilisation de cookies.
+                     </p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Je refuse</button>
+                      <button type="button" (click)="onSubmit()" data-bs-dismiss="modal" class="btn btn-primary">J'accepte</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </div>
         <div class="row">
 
@@ -125,19 +176,19 @@
                 <h2 class="text-center  fs-bold"> Nos Chiffres</h2> <br>
                 <div class="row d-flex justify-content-between">
                     <div class="col-10 col-md-3">
-                        <div class="card rouge" style="width: 18rem;">
+                        <div class="card rouge" >
                             <div class="card-body">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-person-arms-up" viewBox="0 0 16 16">
                                     <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
                                     <path d="m5.93 6.704-.846 8.451a.768.768 0 0 0 1.523.203l.81-4.865a.59.59 0 0 1 1.165 0l.81 4.865a.768.768 0 0 0 1.523-.203l-.845-8.451A1.492 1.492 0 0 1 10.5 5.5L13 2.284a.796.796 0 0 0-1.239-.998L9.634 3.84a.72.72 0 0 1-.33.235c-.23.074-.665.176-1.304.176-.64 0-1.074-.102-1.305-.176a.72.72 0 0 1-.329-.235L4.239 1.286a.796.796 0 0 0-1.24.998l2.5 3.216c.317.316.475.758.43 1.204Z"/>
-                                  </svg> <br>
-                            <h2 class="card-title text-center">1500</h2>
-                            <h6 class="card-subtitle mb-2 text-center text-muted">Etudiants accompagnés</h6>
+                                </svg> <br>
+                                <h2 class="card-title text-center">1500</h2>
+                                <h6 class="card-subtitle mb-2 text-center text-muted">Etudiants accompagnés</h6>
                             </div>
                         </div>
                     </div>
                     <div class="col-10 col-md-3 my-2 my-md-0 ">
-                        <div class="card rouge" style="width: 18rem;">
+                        <div class="card rouge" >
                             <div class="card-body">
                                 <img src="/assets/salutation.png" style="width: 36px; height: 36px;" class="" alt="">
                             <h2 class="card-title text-center">2000</h2>
@@ -146,7 +197,7 @@
                         </div>
                     </div>
                     <div class="col-10 col-md-4 ">
-                        <div class="card rouge" style="width: 18rem;">
+                        <div class="card rouge" >
                             <div class="card-body">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-person-vcard" viewBox="0 0 16 16">
                                     <path d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4m4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5M9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8m1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5"/>
@@ -174,7 +225,7 @@ data-aos-anchor-placement="top-bottom" data-aos-duration="3000">
             </div>
             <div data-aos="fade-left" data-aos-offset="400" data-aos-duration="1000" class="col-10 col-md-4 offset-1">
             <br> <br> <br>
-            <p class="citation">
+            <p class="citation fw-bold fs-5">
                 “ La seule limite à 
                 notre épanouissement
                     de demain sera 
@@ -196,7 +247,7 @@ data-aos-anchor-placement="top-bottom" data-aos-duration="3000">
 </div>
 <br> <br><br><br>
 <div class="container">
-    <h2 class="text-center" >Choisir France-Etude c'est choisir : </h2>
+    <h2 class="text-center" >Choisir <span class="fw-bold" style="color: #1283EB;"> FranceÉtude </span> c'est choisir : </h2>
     <a class="">
         <img src="/assets/pexels-ricky-esquivel-1654698.jpg" class=" image_mobile images float-center" alt="...">
     </a>
@@ -210,5 +261,4 @@ data-aos-anchor-placement="top-bottom" data-aos-duration="3000">
        <img src="/assets/pexels-tima-miroshnichenko-5439453.jpg" class="image_mobile images float-center" alt="...">
     </a>   
 </div>
-   
 
