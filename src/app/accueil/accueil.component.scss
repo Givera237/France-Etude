@@ -88,10 +88,22 @@ input {
   left: 2%;
   z-index: 1;
 }
+.texte_mobile
+{
+    transform: none; // Réinitialisez la transformation de base
+    &:hover 
+    {
+      transform: translate(10px, 10px); // Déplacez l'image de 10 pixels vers la droite et le bas
+    }
+}
   
   .image_mobile 
   {
     transform: none; // Réinitialisez la transformation de base
+    height: 200px;
+    width: 200px;
+    margin: 5px;
+    border-radius: 55%;
     &:hover {
       transform: translate(10px, 10px); // Déplacez l'image de 10 pixels vers la droite et le bas
     }

@@ -20,7 +20,7 @@ export class MesFormationsComponent
   repertoires !: Repertoire[];
   images!: ImageRepertoire[];
   nom !: string;
-  email!: string
+  pseudo!: string
 
   constructor(
     private route : ActivatedRoute,
@@ -31,9 +31,9 @@ export class MesFormationsComponent
     ngOnInit(): void
     {
       AOS.init();
-      this.email = this.cookieService.getCookie('email');
+      this.pseudo = this.cookieService.getCookie('pseudo');
 
-      this.http.get<Repertoire[]>(`http://localhost:3000/api/liste/formation_paye/${this.email}`).subscribe(reponse  => 
+      this.http.get<Repertoire[]>(`http://localhost:3000/api/liste/formation_paye/${this.pseudo}`).subscribe(reponse  => 
       {
         this.repertoires = reponse;
         console.log('payé ', this.repertoires )

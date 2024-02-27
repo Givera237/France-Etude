@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ListeAbonnementComponent } from './administrateur/components/liste-abonnement/liste-abonnement.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CoreModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    LoadingBarHttpClientModule
      
   ],
   providers: [],
