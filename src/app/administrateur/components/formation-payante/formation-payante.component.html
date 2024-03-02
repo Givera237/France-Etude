@@ -42,7 +42,7 @@
             <tr>
                 <td>{{pdf.id_pdf}} </td>
                 <td><a href="http://{{pdf.path}}" target="_blank">{{pdf.nom}} </a></td>
-                <td *ngIf="admin ==='1'" class="supp" (click)="deletePdf(pdf.id_pdf)">supprimer</td>
+                <td *ngIf="admin ==='1'" class="supp" (click)="deletePdf(pdf.id_pdf)"> <button>supprimer</button> </td>
               </tr>
             </tbody>
         </table>

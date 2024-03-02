@@ -49,4 +49,4 @@ i
  @-webkit-keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}
 
  .kenburns-top-left:hover{animation:kenburns-top-left 5s ease-out both}
-@keyframes kenburns-top-left{0%{transform:scale(1) translate(0,0);transform-origin:16% 16%}100%{transform:scale(1.25) translate(-20px,-15px);transform-origin:top left}}
+@keyframes kenburns-top-left{0%{transform:scale(1) translate(0,0);transform-origin:5% 5%}100%{transform:scale(1.005) translate(-10px,-5px);transform-origin:top left}}

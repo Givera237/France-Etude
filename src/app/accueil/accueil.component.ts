@@ -41,7 +41,7 @@ export class AccueilComponent
       this.inscriptionForm = this.formbuilder.group
       (
         {
-          pseudo: [null,[Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[,.!?]).{6,}$/)]],
+          pseudo: [null,[Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[0-9])(?=.*[!.,?_@#$%^&*])[a-zA-Z0-9!.,?_@#$%^&*]{8,}$/)]],
           email: [null,[Validators.required]],
           code_confirmation: [4,[Validators.required]],
 

@@ -4,7 +4,7 @@
         <div class="container p-5">
             <div data-aos="zoom-in"  data-aos-duration="3000" class="row">
                 <div class="col-12 col-md-3 text-center">               
-                  <h3 class="fw-bold" style="margin-top: 40px;">Découvrez <br> nos <br> formations <br></h3>
+                  <p class="fw-bold display-6 " style="margin-top: 20px; color: orange; ">Découvrez <br> nos <br> formations <br></p>
                 </div>
                 <div class="col-12 col-md-5 offset-md-3">
                     <p class="texte fs-5" style="margin-top: 40px;">
@@ -19,7 +19,7 @@
     <section class="formation">
         <div class="container ">
             <div class="row">
-                <div class="col-10 col-md-6 col-lg-4 heartbeat " *ngFor="let formation of formations" >
+                <div class="col-12 col-md-6 col-lg-4 heartbeat d-flex justify-content-center " *ngFor="let formation of formations" >
                     <div class="card my-4 puff-in-br " style="width: 18rem;" >
                           <div class="card-header text-center" style="background-color: #F31111;" >
                             <strong>{{formation.titre | uppercase}}</strong>
@@ -35,7 +35,7 @@
                       </div>
                 </div>
             </div>
-            <p class="text-end texte_coaching">   
+            <p class="text-end texte_coaching fs-5">   
               Pour un éventail de formations plus large, des formations plus ciblées, consultez nos formations payantes
               <a href="formation/payante">
                   <button type="button" class="jello-horizontal btn btn-danger btn-lg btn_coaching" style="background-color: #F31111;">Formations</button>
@@ -63,11 +63,11 @@
     <div class="fond" style="margin-top: 80px;" >
         <div class="container ">
           <div class="row">
-            <div class="col-3 offset-2 p-2 d-flex justify-content-center ">
-              <h3 class="fw-bold text-center" style="color:#1283EB;;" >Veuiller vous connecter afin de consulter toutes nos formations gratuites</h3>
+            <div class="col-3 offset-2 p-2 d-flex justify-content-center "> 
+              <p class="fw-bold fs-4 text-center" style="color:#1283EB;;" > <br> Veuiller vous connecter afin de consulter toutes nos formations gratuites</p>
           </div>  
           <div class="col-3 offset-1  ">
-              <br><br>
+              <br>
               <button type="button" (click)="onConnect()" class="jello-horizontal btn btn-primary bleu btn-lg btn_coaching text-black my-4" style="background-color: white;"> <strong>Connexion</strong> </button>
           </div>        
           </div>  

@@ -14,6 +14,7 @@ export class AjoutPayantComponent
   description!: string
   contenu!: string 
   prix!:string
+  prix_barre!: string
 
   constructor
   (
@@ -38,6 +39,7 @@ export class AjoutPayantComponent
     this.essai.append('description', this.description);
     this.essai.append('contenu', this.contenu);
     this.essai.append('prix', this.prix);
+    this.essai.append('prix_barre', this.prix_barre);
 
     this.admin.ajoutFormationPayante(this.essai)
   }

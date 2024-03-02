@@ -28,14 +28,14 @@
 
     </div>
     <section class="container mt-5">
-        <h3 class="text-center couleur_titre">Aperçu</h3> <br> <br>
-        <p class="texte fs-5">
+        <p class="text-center display-4 fw-bold couleur_titre">Aperçu</p> <br> <br>
+        <p class="texte fs-6">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute  esse cillum 
         </p>
-        <p class="texte fs-5">
+        <p class="texte fs-6">
            
-   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br><br>
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute  esse cillum dolore eu fugiat nulla pariatur. 
              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br> <br>
              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ris nisi ut aliquip ex ea commodo consequat. Duis aute  esse cillum 
@@ -73,7 +73,7 @@
             <tr>
                 <td>{{pdf.id_pdf}} </td>
                 <td><a href="http://{{pdf.path}}" target="_blank">{{pdf.nom}} </a></td>
-                <td *ngIf="admin ==='1'" class="supp" (click)="onDeletePdf(pdf.id_pdf)">supprimer</td>
+                <td *ngIf="admin ==='1'" class="supp" (click)="onDeletePdf(pdf.id_pdf)"> <button>supprimer</button> </td>
               </tr>
             </tbody>
         </table>

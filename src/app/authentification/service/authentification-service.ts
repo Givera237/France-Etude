@@ -94,7 +94,7 @@ ngOnInit() : void
            cookie = response.body;
            
             this.cookieService.setCookie(cookie, 30); 
-            this.router.navigateByUrl(``);
+            this.router.navigateByUrl(`formation/liste`);
           } 
           
         },
