@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ConfidentialiteComponent } from './confidentialite/confidentialite.component';
 import { CoreRoutingModule } from './core-routing.module';
+import { MentionsLegalesComponent } from './mentions-legales/mentions-legales.component';
 
 
 
@@ -11,7 +12,8 @@ import { CoreRoutingModule } from './core-routing.module';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    ConfidentialiteComponent
+    ConfidentialiteComponent,
+    MentionsLegalesComponent
   ],
   imports: [
     CommonModule,
