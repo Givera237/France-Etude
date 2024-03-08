@@ -6,6 +6,7 @@ import { Image } from '../models/image';
 import { Formation } from '../models/formation';
 import { CookieServices } from 'src/app/cookie.service';
 import { NgIfContext } from '@angular/common';
+import { Objet } from '../models/objet';
 
 
 
@@ -17,6 +18,7 @@ import { NgIfContext } from '@angular/common';
    {
     formations!: Formation[];
     images!: Image[];
+    objet!: Objet
     
     constructor(
         private http : HttpClient,
@@ -60,6 +62,31 @@ import { NgIfContext } from '@angular/common';
         (error: any) => console.log('Erreur : ', error)
       }
       ) 
+    }
+
+    envoieMessge(objet :Objet)
+    {
+
+      this.http.post(`http://localhost:3000/api/mail_demande_abonnement`, objet, { observe: 'response' }).subscribe
+      (
+        (response: HttpResponse<any>) => 
+        {
+          if (response.status === 200) 
+          {
+            console.log(response.statusText)
+            console.log(objet)
+            //this.router.navigateByUrl(`formation`);
+          }
+          else 
+          {
+            console.log('merde combi');
+          }
+        },
+        error => 
+        {
+          console.error(error); // Afficher l'erreur à l'utilisateur
+        }
+      )     
     }
 
    }

@@ -27,7 +27,7 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
     CoreModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    LoadingBarHttpClientModule
+    LoadingBarHttpClientModule,
      
   ],
   providers: [],

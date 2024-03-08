@@ -5,17 +5,14 @@
 </head>
 <div class="container">
     <div class="row d-flex justify-content-center" style="margin-top: 80px;">
-        <div data-aos="zoom-in-right"  data-aos-duration="2000" class="col-12 col-md-7 ">
-            <iframe class="mb-5" src="https://www.youtube.com/embed/oj74waKj6mI" title="J&#39;ai Fait Ça Pour Avoir 04 Acceptations sur CAMPUS FRANCE !" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div data-aos="zoom-in-right"  data-aos-duration="2000" class="col-12">
+            <video *ngIf="videoPlaying" [autoplay]="true" controls>
+                <source  src="/assets/Intro.mp4" type="video/mp4">
+                <source  src="" type="video/mp4">
+              </video>
             <p class="citation text-center fw-bold fst-italic ">
                 “c’est votre attitude, bien plus que votre aptitude, qui determine votre altitude” <br>
                 <span class="auteur "> Zig Ziglar</span> 
-            </p>
-        </div>
-        <div class="col-12 col-md-3 ">
-            <img class="" src="/assets/presentation.jpeg" alt="">
-            <p class="text-end fw-bold">
-                CEO de FranceÉtudes
             </p>
         </div>
     </div>
