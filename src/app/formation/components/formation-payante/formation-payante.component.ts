@@ -10,7 +10,6 @@ import { CookieServices } from 'src/app/cookie.service';
 import { Repertoire } from '../../models/repertoire';
 import { ImageRepertoire } from '../../models/image_repertoire';
 import { Objet } from '../../models/objet';
-import { AgRichSelect } from 'ag-grid-community';
 import { FormationService } from '../../services/formation.services';
 
 @Component({
