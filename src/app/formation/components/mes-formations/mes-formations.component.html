@@ -17,7 +17,7 @@
                       </div>
                       <div  *ngFor="let img of images ; let i = index">
                         <div *ngIf="repertoire.id_repertoire===img.id_repertoire"> 
-                          <img class="card-img-top img-fluid " style="height: 200px;" src="http://{{img.path}}" alt="Card image cap" (click)="onViewFormation(repertoire.id_repertoire)">                         <!-- <img src="./{{img.path}}" class="card-img-top" alt="..." (click)="onViewFormation(formation.id_formation)"  >   --> 
+                          <img class="card-img-top img-fluid " style="height: 200px;" src="{{img.path}}" alt="Card image cap" (click)="onViewFormation(repertoire.id_repertoire)">                         <!-- <img src="./{{img.path}}" class="card-img-top" alt="..." (click)="onViewFormation(formation.id_formation)"  >   --> 
 
                         </div>
                       </div>

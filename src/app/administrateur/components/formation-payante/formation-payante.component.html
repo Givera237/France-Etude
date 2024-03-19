@@ -10,7 +10,7 @@
           <div class="col-10 col-md-6 col-lg-4 heartbeat " *ngFor="let video of videos ; let i = index" >
                <div class="card my-4 puff-in-br " width="520" height="440"  >
                   <video  controls >
-                    <source  src="http://{{video.path}}" type="video/mp4">
+                    <source  src="{{video.path}}" type="video/mp4">
                     <source  src="" type="video/mp4">
                   </video>
                        <div class="card-body" >
@@ -41,7 +41,7 @@
             <tbody *ngFor="let pdf of pdf" >
             <tr>
                 <td>{{pdf.id_pdf}} </td>
-                <td><a href="http://{{pdf.path}}" target="_blank">{{pdf.nom}} </a></td>
+                <td><a href="{{pdf.path}}" target="_blank">{{pdf.nom}} </a></td>
                 <td *ngIf="admin ==='1'" class="supp" (click)="deletePdf(pdf.id_pdf)"> <button>supprimer</button> </td>
               </tr>
             </tbody>

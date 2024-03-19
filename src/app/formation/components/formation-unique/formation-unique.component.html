@@ -72,7 +72,7 @@
             <tbody *ngFor="let pdf of pdf" >
             <tr>
                 <td>{{pdf.id_pdf}} </td>
-                <td><a href="http://{{pdf.path}}" target="_blank">{{pdf.nom}} </a></td>
+                <td><a href="{{pdf.path}}" target="_blank">{{pdf.nom}} </a></td>
                 <td *ngIf="admin ==='1'" class="supp" (click)="onDeletePdf(pdf.id_pdf)"> <button>supprimer</button> </td>
               </tr>
             </tbody>
