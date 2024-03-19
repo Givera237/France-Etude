@@ -26,7 +26,7 @@ import { Objet } from '../models/objet';
 
     listeFormation()
     {
-        this.http.get<Formation[]>('http://localhost:3000/api/liste/formation').subscribe(reponse  => 
+        this.http.get<Formation[]>('https://franceétudes.com:3000/api/liste/formation').subscribe(reponse  => 
       {
         this.formations = reponse;
         console.log(this.formations)
@@ -36,7 +36,7 @@ import { Objet } from '../models/objet';
 
     listeImage()
     {
-        this.http.get<Image[]>('http://localhost:3000/api/liste/imagecomplet').subscribe(reponse  => 
+        this.http.get<Image[]>('https://franceétudes.com:3000/api/liste/imagecomplet').subscribe(reponse  => 
         {
           this.images = reponse;
         }
@@ -45,7 +45,7 @@ import { Objet } from '../models/objet';
 
     supprimerFormationGratuite( id_formation : number)
     {
-        this.http.delete(`http://localhost:3000/api/formation/supprimer/${id_formation}`).subscribe(reponse  => 
+        this.http.delete(`https://franceétudes.com:3000/api/formation/supprimer/${id_formation}`).subscribe(reponse  => 
       {
         console.log('Réponse : ', reponse),
         (error: any) => console.log('Erreur : ', error)
@@ -56,7 +56,7 @@ import { Objet } from '../models/objet';
 
     supprimerPdf(id : number)
     {
-      this.http.delete(`http://localhost:3000/api/pdf_formation/supprimer/${id}`).subscribe(reponse  => 
+      this.http.delete(`https://franceétudes.com:3000/api/pdf_formation/supprimer/${id}`).subscribe(reponse  => 
       {
         console.log('Réponse : ', reponse),
         (error: any) => console.log('Erreur : ', error)
@@ -67,7 +67,7 @@ import { Objet } from '../models/objet';
     envoieMessge(objet :Objet)
     {
 
-      this.http.post(`http://localhost:3000/api/mail_demande_abonnement`, objet, { observe: 'response' }).subscribe
+      this.http.post(`https://franceétudes.com:3000/api/mail_demande_abonnement`, objet, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {

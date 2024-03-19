@@ -59,7 +59,7 @@ ngOnInit() : void
 
     deconnection(id_utilisateur : number)
     {
-      this.http.get<any>(`http://localhost:3000/api/logout/${id_utilisateur}`).subscribe(reponse  => 
+      this.http.get<any>(`https://franceétudes.com:3000/api/logout/${id_utilisateur}`).subscribe(reponse  => 
       {
          console.log(reponse);
       }
@@ -70,7 +70,7 @@ ngOnInit() : void
 
     desabonnement(id_utilisateur : number)
     {
-      this.http.delete(`http://localhost:3000/api/utilisateur/supprimer/${id_utilisateur}`).subscribe(reponse  => 
+      this.http.delete(`https://franceétudes.com:3000/api/utilisateur/supprimer/${id_utilisateur}`).subscribe(reponse  => 
       {
         console.log('Réponse : ', reponse),
         (error: any) => console.log('Erreur : ', error)
@@ -82,7 +82,7 @@ ngOnInit() : void
 
     connexion(obj : FormGroup, cookie : any, erreur : string)
     {
-      this.http.post('http://localhost:3000/api/login', obj, { observe: 'response' }).subscribe
+      this.http.post('https://franceétudes.com:3000/api/login', obj, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {
@@ -116,7 +116,7 @@ ngOnInit() : void
 
     verification_email(obj : Utilisateur, code = this.inscriptionForm.value, erreur : string  )
     {
-      const route = "http://localhost:3000/api/envoie_mail_confirmation "
+      const route = "https://franceétudes.com:3000/api/envoie_mail_confirmation"
 
       this.http.post(route, obj, { observe: 'response' }).subscribe
    (
@@ -146,7 +146,7 @@ ngOnInit() : void
 
     inscription(maVariable : Utilisateur, erreur : string)
     {
-      this.http.post('http://193.203.190.101:3000', maVariable, { observe: 'response' }).subscribe
+      this.http.post('https://franceétudes.com:3000/api/register', maVariable, { observe: 'response' }).subscribe
       ( 
          (response: HttpResponse<any>) => 
          {

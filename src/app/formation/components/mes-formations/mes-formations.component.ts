@@ -33,13 +33,13 @@ export class MesFormationsComponent
       AOS.init();
       this.pseudo = this.cookieService.getCookie('pseudo');
 
-      this.http.get<Repertoire[]>(`http://localhost:3000/api/liste/formation_paye/${this.pseudo}`).subscribe(reponse  => 
+      this.http.get<Repertoire[]>(`https://franceétudes.com:3000/api/liste/formation_paye/${this.pseudo}`).subscribe(reponse  => 
       {
         this.repertoires = reponse;
         console.log('payé ', this.repertoires )
       }
       );
-      this.http.get<ImageRepertoire[]>('http://localhost:3000/api/liste/imagepayantescomplet').subscribe(reponse  => 
+      this.http.get<ImageRepertoire[]>('https://franceétudes.com:3000/api/liste/imagepayantescomplet').subscribe(reponse  => 
       {
         this.images = reponse;
         console.log('image ', this.images )

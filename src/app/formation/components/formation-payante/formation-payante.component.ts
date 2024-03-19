@@ -41,13 +41,13 @@ export class FormationPayanteComponent
       this.admin = this.cookieService.getCookie('status');
       this.pseudo = this.cookieService.getCookie('pseudo');
 
-      this.http.get<Repertoire[]>('http://localhost:3000/api/liste/repertoire').subscribe(reponse  => 
+      this.http.get<Repertoire[]>('https://franceétudes.com:3000/api/liste/repertoire').subscribe(reponse  => 
       {
         this.repertoires = reponse;
         console.log('payante ', this.repertoires )
       }
       );
-      this.http.get<ImageRepertoire[]>('http://localhost:3000/api/liste/imagepayantescomplet').subscribe(reponse  => 
+      this.http.get<ImageRepertoire[]>('https://franceétudes.com:3000/api/liste/imagepayantescomplet').subscribe(reponse  => 
       {
         this.images = reponse;
         console.log('image ', this.images )
@@ -82,7 +82,7 @@ export class FormationPayanteComponent
 
         this.formation.envoieMessge(maConstante)
 /*
-        this.http.post(`http://localhost:3000/api/mail_demande_abonnement`, maConstante, { observe: 'response' }).subscribe
+        this.http.post(`https://franceétudes.com:3000/api/mail_demande_abonnement`, maConstante, { observe: 'response' }).subscribe
         (
           (response: HttpResponse<any>) => 
           {

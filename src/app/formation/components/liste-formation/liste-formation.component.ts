@@ -48,13 +48,13 @@ export class ListeFormationComponent
        this.admin = this.cookieService.getCookie('status');
        this.connexion = this.cookieService.getCookie('connexion');
    
-      this.http.get<Formation[]>('http://localhost:3000/api/liste/formation').subscribe(reponse  => 
+      this.http.get<Formation[]>('https://franceétudes.com:3000/api/liste/formation').subscribe(reponse  => 
       {
         this.formations = reponse;
       }
       );
 
-      this.http.get<Image[]>('http://localhost:3000/api/liste/imagecomplet').subscribe(reponse  => 
+      this.http.get<Image[]>('https://franceétudes.com:3000/api/liste/imagecomplet').subscribe(reponse  => 
       {
         this.images = reponse;
       }

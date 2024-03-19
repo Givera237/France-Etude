@@ -31,7 +31,7 @@ export class FormationUniqueComponent
       const id_formation = +this.route.snapshot.params['id'];
       this.admin = this.cookieService.getCookie('status');
 
-      this.http.get<Video[]>(`http://localhost:3000/api/video/${id_formation}`).subscribe(reponse  => 
+      this.http.get<Video[]>(`https://franceétudes.com:3000/api/video/${id_formation}`).subscribe(reponse  => 
       {
         this.videos = reponse;
         console.log('Yo bro voici tes objets', reponse);
@@ -39,7 +39,7 @@ export class FormationUniqueComponent
       }
       );
 
-      this.http.get<Pdf[]>(`http://localhost:3000/api/liste/Pdf_formation/${id_formation}`).subscribe(reponse  => 
+      this.http.get<Pdf[]>(`https://franceétudes.com:3000/api/liste/Pdf_formation/${id_formation}`).subscribe(reponse  => 
       {
         this.pdf = reponse;
         console.log('les pdfs :', this.pdf);
@@ -57,7 +57,7 @@ export class FormationUniqueComponent
       const id_formation = +this.route.snapshot.params['id'];
       this.formation.supprimerFormationGratuite(id_formation);
       /*
-      this.http.delete(`http://localhost:3000/api/formation/supprimer/${id_formation}`).subscribe(reponse  => 
+      this.http.delete(`https://franceétudes.com:3000/api/formation/supprimer/${id_formation}`).subscribe(reponse  => 
       {
         console.log('Réponse : ', reponse),
         (error: any) => console.log('Erreur : ', error)

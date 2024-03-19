@@ -29,7 +29,7 @@ export class ListeAbonnementComponent
 
    
 
-    this.http.get<Abonnement[]>(`http://localhost:3000/api/liste/abonnement/${id_repertoire}`).subscribe(reponse  => 
+    this.http.get<Abonnement[]>(`https://franceétudes.com:3000/api/liste/abonnement/${id_repertoire}`).subscribe(reponse  => 
     {
       this.abonnement = reponse;
       console.log('voici les abonnements : ', this.abonnement )

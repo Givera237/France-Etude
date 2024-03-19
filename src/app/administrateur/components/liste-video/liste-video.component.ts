@@ -29,7 +29,7 @@ export class ListeVideoComponent
  
     const id_repertoire = this.route.snapshot.params['id'];
 
-    this.http.get<Video[]>(`http://localhost:3000/api/video_uploads/${id_repertoire}`).subscribe(reponse  => 
+    this.http.get<Video[]>(`https://franceétudes.com:3000/api/video_uploads/${id_repertoire}`).subscribe(reponse  => 
     {
       this.videos = reponse;
       console.log('les vidéo :', this.videos);
@@ -49,7 +49,7 @@ export class ListeVideoComponent
   onDelete(id : number)
   {
     const id_formation = this.route.snapshot.params['id'];
-    this.http.delete(`http://localhost:3000/api/video/supprimer/${id}`).subscribe(reponse  => 
+    this.http.delete(`https://franceétudes.com:3000/api/video/supprimer/${id}`).subscribe(reponse  => 
     {
       console.log('Réponse : ', reponse),
       (error: any) => console.log('Erreur : ', error)

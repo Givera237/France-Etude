@@ -19,7 +19,7 @@ import { FormGroup } from '@angular/forms';
 
     abonnement(obj : FormGroup["value"] )
     {
-        this.http.post('http://localhost:3000/api/creation/abonnement', obj, { observe: 'response' }).subscribe
+        this.http.post('https://franceétudes.com:3000/api/creation/abonnement', obj, { observe: 'response' }).subscribe
         (
           (response: HttpResponse<any>) => 
           {
@@ -46,7 +46,7 @@ import { FormGroup } from '@angular/forms';
 
     ajoutFormationGratuite(essai : FormData)
     {
-        this.http.post(`http://localhost:3000/api/creation/formation`, essai, { observe: 'response' }).subscribe
+        this.http.post(`https://franceétudes.com:3000/api/creation/formation`, essai, { observe: 'response' }).subscribe
         (
           (response: HttpResponse<any>) => 
           {
@@ -69,7 +69,7 @@ import { FormGroup } from '@angular/forms';
 
     ajoutFormationPayante(essai : FormData)
     {
-      this.http.post(`http://localhost:3000/api/creation/repertoire`, essai, { observe: 'response' }).subscribe
+      this.http.post(`https://franceétudes.com:3000/api/creation/repertoire`, essai, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {
@@ -93,7 +93,7 @@ import { FormGroup } from '@angular/forms';
 
     envoieMail(obj : FormGroup["value"])
     {
-      this.http.post('http://localhost:3000/api/sendmail/1', obj, { observe: 'response' }).subscribe
+      this.http.post('https://franceétudes.com:3000/api/sendmail/1', obj, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {
@@ -119,7 +119,7 @@ import { FormGroup } from '@angular/forms';
 
     supprimerVideoPayante(id : number, id_repertoire : number)
     {
-      this.http.delete(`http://localhost:3000/api/video/supprimer/${id}`).subscribe(reponse  => 
+      this.http.delete(`https://franceétudes.com:3000/api/video/supprimer/${id}`).subscribe(reponse  => 
       {
         console.log('Réponse : ', reponse),
         (error: any) => console.log('Erreur : ', error)
@@ -130,7 +130,7 @@ import { FormGroup } from '@angular/forms';
 
     supprimerPdf(id : number, id_repertoire : number)
     {
-      this.http.delete(`http://localhost:3000/api/pdf/supprimer/${id}`).subscribe(reponse  => 
+      this.http.delete(`https://franceétudes.com:3000/api/pdf/supprimer/${id}`).subscribe(reponse  => 
     {
       console.log('Réponse : ', reponse),
       (error: any) => console.log('Erreur : ', error)
@@ -141,7 +141,7 @@ import { FormGroup } from '@angular/forms';
 
     supprimerRepertoire(id_formation : number)
     {
-      this.http.delete(`http://localhost:3000/api/repertoire/supprimer/${id_formation}`).subscribe(reponse  => 
+      this.http.delete(`https://franceétudes.com:3000/api/repertoire/supprimer/${id_formation}`).subscribe(reponse  => 
     {
       console.log('Repertoire supprimé : ', reponse),
       (error: any) => console.log('Erreur : ', error)
@@ -152,7 +152,7 @@ import { FormGroup } from '@angular/forms';
 
     desabonnement(id : number)
     {
-      this.http.delete(`http://localhost:3000/api/abonnement/supprimer/${id}`).subscribe(reponse  => 
+      this.http.delete(`https://franceétudes.com:3000/api/abonnement/supprimer/${id}`).subscribe(reponse  => 
       {
         console.log('utilisateur désabonné : ', reponse),
         (error: any) => console.log('Erreur : ', error)
@@ -163,7 +163,7 @@ import { FormGroup } from '@angular/forms';
 
     modifierFormationGratuite(essai : FormData,id_formation : number)
     {
-      this.http.put(`http://localhost:3000/api/formation/modifier/${id_formation}`, essai, { observe: 'response' }).subscribe
+      this.http.put(`https://franceétudes.com:3000/api/formation/modifier/${id_formation}`, essai, { observe: 'response' }).subscribe
     (
       (response: HttpResponse<any>) => 
       {
@@ -187,7 +187,7 @@ import { FormGroup } from '@angular/forms';
 
     modifierFormationPayante(essai : FormData, id_repertoire : number)
     {
-      this.http.put(`http://localhost:3000/api/repertoire/modifier/${id_repertoire}`, essai, { observe: 'response' }).subscribe
+      this.http.put(`https://franceétudes.com:3000/api/repertoire/modifier/${id_repertoire}`, essai, { observe: 'response' }).subscribe
     (
       (response: HttpResponse<any>) => 
       {
@@ -211,7 +211,7 @@ import { FormGroup } from '@angular/forms';
 
     uploadPdf(essai : FormData, id_repertoire : number)
     {
-      this.http.post(`http://localhost:3000/api/uploads/pdf/${id_repertoire}`, essai, { observe: 'response' }).subscribe
+      this.http.post(`https://franceétudes.com:3000/api/uploads/pdf/${id_repertoire}`, essai, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {
@@ -235,7 +235,7 @@ import { FormGroup } from '@angular/forms';
 
     uploadVideo(essai : FormData, id_repertoire : number)
     {
-      this.http.post(`http://localhost:3000/api/uploads/video/${id_repertoire}`,essai, { observe: 'response' }).subscribe
+      this.http.post(`https://franceétudes.com:3000/api/uploads/video/${id_repertoire}`,essai, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {
@@ -259,7 +259,7 @@ import { FormGroup } from '@angular/forms';
 
     ajoutPdfGratuit(essai : FormData, id_formation : number)
     {
-      this.http.post(`http://localhost:3000/api/uploads/pdf_formation/${id_formation}`, essai, { observe: 'response' }).subscribe
+      this.http.post(`https://franceétudes.com:3000/api/uploads/pdf_formation/${id_formation}`, essai, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {

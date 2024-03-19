@@ -62,11 +62,11 @@ export class AccueilComponent
     const obj = this.inscriptionForm.value;
     const code = this.inscriptionForm.value.code_confirmation;
     this.authentification.setCode(code)
-    const route = "http://localhost:3000/api/envoie_mail_confirmation"
+    const route = "https://franceétudes.com:3000/api/envoie_mail_confirmation"
  
     this.authentification.verification_email(obj, code, this.erreur )
 /*
-    this.http.post('http://localhost:3000/api/register', obj, { observe: 'response' }).subscribe
+    this.http.post('https://franceétudes.com:3000/api/register', obj, { observe: 'response' }).subscribe
     (
       (response: HttpResponse<any>) => 
       {
