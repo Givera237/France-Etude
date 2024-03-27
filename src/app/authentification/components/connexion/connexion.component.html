@@ -64,7 +64,7 @@
                         <form [formGroup]="loginForm" class="row g-3 cont">
                             <label for="pseudo" class="for-label"> <h4 class="fw-bold text-center text-white text-uppercase">Connexion</h4> </label>
                             <span>pseudo <em>*</em></span> <span class="text-white " >{{erreur}} </span>
-                            <input type="text" formControlName="pseudo" class="form-control mt-1 mb-3 p-1" id="pseudo" placeholder="Votre Pseudo ">
+                            <input type="password" formControlName="pseudo" class="form-control mt-1 mb-3 p-1" id="pseudo" placeholder="Votre Pseudo ">
                             <div class=" d-flex justify-content-center">
                                 <button type="submit" (click)="onSubmit()" class="btn btn-primary mt-3 mb-3 fw-bold text-black btn_connexion">Connexion</button>
                             </div>
