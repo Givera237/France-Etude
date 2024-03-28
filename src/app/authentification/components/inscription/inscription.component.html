@@ -6,10 +6,10 @@
                 <form [formGroup]="inscriptionForm" class="row g-3 cont">
                     <label for="pseudo" class="for-label"> <h4 class="fw-bold text-center text-white text-uppercase">INSCRIPTION</h4> </label><br><br>
                     <span>pseudo <em>*</em></span> <span style="color: white;"> {{erreur}} </span>
-                    <input type="text" class="form-control mt-1 mb-3 p-1" formControlName="pseudo" id="pseudo" placeholder="Votre Pseudo "><br>
+                    <input type="password" autocomplete="off" class="form-control mt-1 mb-3 p-1" formControlName="pseudo" id="pseudo" placeholder="Votre Pseudo "><br>
                     <div *ngIf="usernameControl.hasError('pattern')"> <span class="text-white" >Le nom d'utilisateur doit contenir au-moins 8 caractères, une majuscule et des caractères spéciaux tel que . , ! ? # @ _</span></div>
                     <span>email <em>*</em></span>
-                    <input type="email" class="form-control mt-1 mb-3 p-1" formControlName="email" id="email" placeholder="Votre Email ">
+                    <input type="email" autocomplete="off" class="form-control mt-1 mb-3 p-1" formControlName="email" id="email" placeholder="Votre Email ">
                     <div class="d-flex justify-content-center">
                         <button type="submit"  data-bs-toggle="modal" data-bs-target="#cookie" [disabled]="inscriptionForm.invalid" class="btn btn-primary mt-3 mb-3 fw-bold text-black btn_connexion">Suivant</button>
                     </div>

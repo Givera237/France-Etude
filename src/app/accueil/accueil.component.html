@@ -132,11 +132,11 @@
                     <div class="row">
                         <h2 class="text-black text-center fw-bold" > Inscrivez-vous pour bénéficier de nos formations et conseils gratuits</h2>
                         <div class="col-10 col-md-4 py-4">
-                            <input type="text" formControlName="pseudo" id="pseudo" class="py-2 " placeholder="Votre pseudo" >
+                            <input type="password" autocomplete="off" formControlName="pseudo" id="pseudo" class="py-2 " placeholder="Votre pseudo" >
                             <div *ngIf="usernameControl.hasError('pattern')"> <span class="text-black" >Le nom d'utilisateur doit contenir au-moins 8 caractères, une majuscule, des chiffres et des caractères spéciaux tel que . , ! ? # @ € $ etc</span></div>
                         </div>
                         <div class="col-10 col-md-4 py-4">
-                            <input type="text" formControlName="email" id="email" class="py-2" style="width: 300px;" placeholder="Votre email"  >
+                            <input type="text" autocomplete="off" formControlName="email" id="email" class="py-2" style="width: 300px;" placeholder="Votre email"  >
                         </div> 
                         <div class="col-10 col-md-3 offset-1 py-4">
                             <button type="submit" data-bs-toggle="modal" data-bs-target="#cookie" [disabled]="inscriptionForm.invalid" class="btn inscription text-center" style="background-color: rgba(245, 117, 134, 0.774); border-radius: 15%;">S'inscrire</button>
