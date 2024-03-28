@@ -35,12 +35,12 @@ export class ConnexionComponent
     this.erreur = '';
     this.connexion = this.cookieService.getCookie('connexion');
     this.pseudo = this.cookieService.getCookie('pseudo');
-   // this.cookieService.setCookie(this.cookie, 30)
 
     this.loginForm = this.formbuilder.group
     (
       {
-        pseudo: [null],     
+        pseudo: [null],
+        password: [null]     
       }
     ) ;
   }
@@ -90,6 +90,4 @@ export class ConnexionComponent
     const id_utilisateur = +this.cookieService.getCookie('id_utilisateur');
     this.auth.desabonnement(id_utilisateur)
   }
- 
-
 }

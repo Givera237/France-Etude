@@ -1,10 +1,8 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component} from '@angular/core';
 import * as AOS from 'aos';
-import { HttpClient, HttpResponse } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Utilisateur } from '../authentification/models/utilisateurs';
-import { Router } from '@angular/router';
 import { AuthentificationService } from '../authentification/service/authentification-service';
 
 
@@ -27,9 +25,7 @@ export class AccueilComponent
 
 
   constructor(
-              private http : HttpClient, 
               private formbuilder : FormBuilder,
-              private router : Router,
               private authentification :AuthentificationService
              ){}
 
@@ -41,8 +37,9 @@ export class AccueilComponent
       this.inscriptionForm = this.formbuilder.group
       (
         {
-          pseudo: [null,[Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[0-9])(?=.*[!.,?_@#$%^&*])[a-zA-Z0-9!.,?_@#$%^&*]{8,}$/)]],
+          pseudo: [null,[Validators.required]],
           email: [null,[Validators.required]],
+          password: [null,[Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[0-9])(?=.*[!.,?_@#$%^&*])[a-zA-Z0-9!.,?_@#$%^&*]{8,}$/)]],
           code_confirmation: [4,[Validators.required]],
 
         }
@@ -51,13 +48,11 @@ export class AccueilComponent
 
     get usernameControl(): any 
   {
-    return this.inscriptionForm.get('pseudo');
+    return this.inscriptionForm.get('password');
   }
 
   onSubmit() : void
   { 
-    //const obj = this.inscriptionForm.value;
-
     this.inscriptionForm.value.code_confirmation = Math.floor(Math.random() * 100);
     const obj = this.inscriptionForm.value;
     const code = this.inscriptionForm.value.code_confirmation;
@@ -65,29 +60,5 @@ export class AccueilComponent
     const route = "https://franceétudes.com:3000/api/envoie_mail_confirmation"
  
     this.authentification.verification_email(obj, code, this.erreur )
-/*
-    this.http.post('https://franceétudes.com:3000/api/register', obj, { observe: 'response' }).subscribe
-    (
-      (response: HttpResponse<any>) => 
-      {
-        if (response.status === 200) 
-        {
-          console.log(response.statusText)
-          this.router.navigateByUrl(`authentification/connexion`);
-        }
-        else 
-        {
-          console.log('merde combi');
-        }
-      },
-      error => 
-      {
-        console.error(error);
-        this.erreur = error.error.message;
-        console.log(error.error.message);
-         // Afficher l'erreur à l'utilisateur
-      } 
-    ) ;  
-*/
   }
 }
