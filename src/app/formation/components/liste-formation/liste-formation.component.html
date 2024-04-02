@@ -42,6 +42,32 @@
               </a>
           </p>
         </div>
+        <div *ngIf="admin ==='1'"  >
+          <h3 class="fw-bold text-center" > <br> Nombre d'inscrits par année<br></h3>
+          <div class="container">
+            <div class="row" style="margin-bottom: 25px;">
+              <div class="container">
+                <div class="col">
+                  <table class="table" >
+                    <thead >
+                    <tr>
+                        <th scope="col">Année</th>
+                        <th scope="col">Nombre d'inscrit</th>
+                    </tr>
+                    </thead>
+                    <tbody *ngFor="let nombre of nombre" >
+                    <tr>
+                        <td>{{nombre.annee}} </td>
+                        <td>{{nombre.nombre}}</td>
+                      </tr>
+                    </tbody>
+                </table>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div *ngIf="admin ==='1'">
           <a href="admin/ajout">
             <svg xmlns="http://www.w3.org/2000/svg" width="75" style="color :blue" height="52" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">

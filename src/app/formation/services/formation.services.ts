@@ -64,6 +64,16 @@ import { Objet } from '../models/objet';
       ) 
     }
 
+    supprimerVideo(id : number)
+    {
+      this.http.delete(`https://franceétudes.com:3000/api/video_youtube/supprimer/${id}`).subscribe(reponse  => 
+      {
+        console.log('Réponse : ', reponse),
+        (error: any) => console.log('Erreur : ', error)
+      }
+      ) 
+    }
+
     envoieMessge(objet :Objet)
     {
 

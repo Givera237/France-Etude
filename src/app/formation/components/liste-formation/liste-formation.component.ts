@@ -26,6 +26,7 @@ export class ListeFormationComponent
 {
   formations !: Formation[];
   images!: Image[];
+  nombre!:any[];
   connect!: Connexion;
   nom !: string;
   connexion!: string;
@@ -57,6 +58,13 @@ export class ListeFormationComponent
       this.http.get<Image[]>('https://franceétudes.com:3000/api/liste/imagecomplet').subscribe(reponse  => 
       {
         this.images = reponse;
+      }
+      );
+
+      this.http.get<any[]>('https://franceétudes.com:3000/api/nombre_utilisateur').subscribe(reponse  => 
+      {
+        this.nombre = reponse;
+        console.log(this.nombre)
       }
       );
     }

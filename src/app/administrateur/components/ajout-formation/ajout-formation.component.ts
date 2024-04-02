@@ -12,7 +12,6 @@ export class AjoutFormationComponent
   titre!: string
   description!: string
   contenu!: string 
-  url!:string
 
   constructor
   (
@@ -36,7 +35,6 @@ export class AjoutFormationComponent
     this.essai.append('titre', this.titre);
     this.essai.append('description', this.description);
     this.essai.append('contenu', this.contenu);
-    this.essai.append('url', this.url);
 
     this.admin.ajoutFormationGratuite(this.essai)
   

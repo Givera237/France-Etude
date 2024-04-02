@@ -13,11 +13,13 @@ import { ListePdfComponent } from "./components/liste-pdf/liste-pdf.component";
 import { ListeAbonnementComponent } from "./components/liste-abonnement/liste-abonnement.component";
 import { ModifierRepertoireComponent } from "./components/modifier-repertoire/modifier-repertoire.component";
 import { AjoutPdfGratuitComponent } from "./components/ajout-pdf-gratuit/ajout-pdf-gratuit.component";
+import { AjoutVideoGratuiteComponent } from "./components/ajout-video-gratuite/ajout-video-gratuite.component";
 
 const routes : Routes =
 [
  {path : 'ajout', component : AjoutFormationComponent},
  {path : 'ajout_pdf/:id', component : AjoutPdfGratuitComponent},
+ {path : 'ajout_video/:id', component : AjoutVideoGratuiteComponent},
  {path :'ajout_payant', component : AjoutPayantComponent },
  {path : 'formation_payante/:id', component : FormationPayanteComponent},
  {path : 'up_video/:id', component : UploadVideoPayanteComponent},

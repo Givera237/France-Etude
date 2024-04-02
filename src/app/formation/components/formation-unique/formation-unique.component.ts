@@ -6,6 +6,7 @@ import { Video } from '../../models/video';
 import { CookieServices } from 'src/app/cookie.service';
 import { FormationService } from '../../services/formation.services';
 import { Pdf } from 'src/app/administrateur/models/pdf';
+import { Formation } from '../../models/formation';
 @Component({
   selector: 'app-formation-unique',
   templateUrl: './formation-unique.component.html',
@@ -14,9 +15,12 @@ import { Pdf } from 'src/app/administrateur/models/pdf';
 export class FormationUniqueComponent 
 {
   videos !: Video[];
+  formations !: Formation[];
   pdf!: Pdf[];
+  url!: any[]
   path !: string;
   admin!: string;
+  id = +this.route.snapshot.params['id'];
 
   constructor(
     private route : ActivatedRoute,
@@ -31,6 +35,12 @@ export class FormationUniqueComponent
       const id_formation = +this.route.snapshot.params['id'];
       this.admin = this.cookieService.getCookie('status');
 
+      this.http.get<Formation[]>('https://franceétudes.com:3000/api/liste/formation').subscribe(reponse  => 
+      {
+        this.formations = reponse;
+        console.log(this.formations)
+      }
+      ); 
       this.http.get<Video[]>(`https://franceétudes.com:3000/api/video/${id_formation}`).subscribe(reponse  => 
       {
         this.videos = reponse;
@@ -66,6 +76,7 @@ export class FormationUniqueComponent
       ) */
     }
 
+
     onViewFormation() : void
     {
      this.router.navigateByUrl(`formation/liste`);
@@ -83,8 +94,18 @@ export class FormationUniqueComponent
       this.router.navigateByUrl(`admin/ajout_pdf/${id_formation}`);
     }
 
+    addVideo()
+    {
+      const id_formation = +this.route.snapshot.params['id'];
+      this.router.navigateByUrl(`admin/ajout_video/${id_formation}`);
+    }
+
     onDeletePdf(id : number)
     {
       this.formation.supprimerPdf(id)
+    }
+    onDeleteVideo(id : number)
+    {
+      this.formation.supprimerVideo(id)
     }
 }
