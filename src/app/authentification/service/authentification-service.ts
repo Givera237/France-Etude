@@ -4,7 +4,6 @@ import { HttpClient,  HttpResponse } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieServices } from 'src/app/cookie.service';
-import { ConnexionComponent } from '../components/connexion/connexion.component';
 
 @Injectable({
   providedIn: 'root'
@@ -61,7 +60,6 @@ ngOnInit() : void
     {
       this.http.get<any>(`https://franceétudes.com:3000/api/logout/${id_utilisateur}`).subscribe(reponse  => 
       {
-         console.log(reponse);
       }
       );
       this.cookieService.setConnexion(30, 'false');
@@ -72,7 +70,6 @@ ngOnInit() : void
     {
       this.http.delete(`https://franceétudes.com:3000/api/utilisateur/supprimer/${id_utilisateur}`).subscribe(reponse  => 
       {
-        console.log('Réponse : ', reponse),
         (error: any) => console.log('Erreur : ', error)
       }
       );
@@ -89,7 +86,6 @@ ngOnInit() : void
           if (response.status === 200) 
           
           { 
-           console.log(response);
            console.log('session',response.body);
            cookie = response.body;
            
@@ -126,7 +122,6 @@ ngOnInit() : void
         {
           console.log(response.statusText)
           this.setVariable(obj);
-          console.log( obj) 
           this.router.navigate(['authentification/verification']);
         }
         else 
@@ -150,7 +145,6 @@ ngOnInit() : void
       ( 
          (response: HttpResponse<any>) => 
          {
-          console.log('je suis entré dans le post')
            if (response.status === 200) 
            {
              console.log(response.statusText)
@@ -169,7 +163,6 @@ ngOnInit() : void
            // Afficher l'erreur à l'utilisateur
          } 
        ) ;
-       console.log('jai sauté le post')
     }
     
   }

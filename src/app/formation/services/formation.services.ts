@@ -1,11 +1,8 @@
-import { Component,Injectable, TemplateRef } from '@angular/core';
+import {Injectable} from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, map } from 'rxjs';
+
 import { Image } from '../models/image';
 import { Formation } from '../models/formation';
-import { CookieServices } from 'src/app/cookie.service';
-import { NgIfContext } from '@angular/common';
 import { Objet } from '../models/objet';
 
 
@@ -29,7 +26,6 @@ import { Objet } from '../models/objet';
         this.http.get<Formation[]>('https://franceétudes.com:3000/api/liste/formation').subscribe(reponse  => 
       {
         this.formations = reponse;
-        console.log(this.formations)
       }
       );
     }
@@ -47,7 +43,6 @@ import { Objet } from '../models/objet';
     {
         this.http.delete(`https://franceétudes.com:3000/api/formation/supprimer/${id_formation}`).subscribe(reponse  => 
       {
-        console.log('Réponse : ', reponse),
         (error: any) => console.log('Erreur : ', error)
   
       }
@@ -58,7 +53,6 @@ import { Objet } from '../models/objet';
     {
       this.http.delete(`https://franceétudes.com:3000/api/pdf_formation/supprimer/${id}`).subscribe(reponse  => 
       {
-        console.log('Réponse : ', reponse),
         (error: any) => console.log('Erreur : ', error)
       }
       ) 
@@ -68,7 +62,6 @@ import { Objet } from '../models/objet';
     {
       this.http.delete(`https://franceétudes.com:3000/api/video_youtube/supprimer/${id}`).subscribe(reponse  => 
       {
-        console.log('Réponse : ', reponse),
         (error: any) => console.log('Erreur : ', error)
       }
       ) 
@@ -84,7 +77,6 @@ import { Objet } from '../models/objet';
           if (response.status === 200) 
           {
             console.log(response.statusText)
-            console.log(objet)
             //this.router.navigateByUrl(`formation`);
           }
           else 

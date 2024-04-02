@@ -29,7 +29,6 @@ export class UploadPdfComponent
 
   onSubmit()
   {
-    console.log(this.essai)
     const id_repertoire = this.route.snapshot.params['id'];
 
     this.admin.uploadPdf(this.essai, id_repertoire)

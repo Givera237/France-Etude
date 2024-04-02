@@ -32,7 +32,6 @@ export class ListeVideoComponent
     this.http.get<Video[]>(`https://franceétudes.com:3000/api/video_uploads/${id_repertoire}`).subscribe(reponse  => 
     {
       this.videos = reponse;
-      console.log('les vidéo :', this.videos);
     }
     );
   }
@@ -51,7 +50,6 @@ export class ListeVideoComponent
     const id_formation = this.route.snapshot.params['id'];
     this.http.delete(`https://franceétudes.com:3000/api/video/supprimer/${id}`).subscribe(reponse  => 
     {
-      console.log('Réponse : ', reponse),
       (error: any) => console.log('Erreur : ', error)
       this.router.navigateByUrl(`admin/liste_video`);
     }

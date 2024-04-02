@@ -1,21 +1,15 @@
 import { Component, TemplateRef } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, map } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import {Router } from '@angular/router';
 import { Formation } from '../../models/formation';
 import { Image } from '../../models/image';
 
-//import { CookieService } from 'ngx-cookie-service';
 import { CookieServices } from 'src/app/cookie.service';
 import { NgIfContext } from '@angular/common';
 
-
-
 import * as AOS from 'aos';
-import { environment } from 'src/environments/environment.development';
 import { Connexion } from '../../models/connexion';
 import { Deconnexion } from '../../models/deconnexion';
-import { FormationService } from '../../services/formation.services';
 
 @Component({
   selector: 'app-liste-formation',
@@ -37,10 +31,8 @@ export class ListeFormationComponent
   non_connecte!: TemplateRef<NgIfContext<boolean>>|null;
   
   constructor(
-    private route : ActivatedRoute,
     private http : HttpClient,
     private cookieService: CookieServices,
-    private formation : FormationService,
     private router : Router ){}
 
     ngOnInit(): void
@@ -64,7 +56,6 @@ export class ListeFormationComponent
       this.http.get<any[]>('https://franceétudes.com:3000/api/nombre_utilisateur').subscribe(reponse  => 
       {
         this.nombre = reponse;
-        console.log(this.nombre)
       }
       );
     }

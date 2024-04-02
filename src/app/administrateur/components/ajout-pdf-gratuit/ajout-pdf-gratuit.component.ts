@@ -28,7 +28,6 @@ export class AjoutPdfGratuitComponent
 
   onSubmit()
   {
-    console.log(this.essai)
     const id_formation = this.route.snapshot.params['id'];
 
     this.admin.ajoutPdfGratuit(this.essai, id_formation)

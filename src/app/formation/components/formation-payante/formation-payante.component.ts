@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, map } from 'rxjs';
-import { Formation } from '../../models/formation';
-import { Image } from '../../models/image';
+import { HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 import * as AOS from 'aos';
 import { CookieServices } from 'src/app/cookie.service';
@@ -29,7 +26,6 @@ export class FormationPayanteComponent
   objet!: Objet
 
   constructor(
-    private route : ActivatedRoute,
     private http : HttpClient,
     private cookieService: CookieServices,
     private formation : FormationService,
@@ -44,13 +40,11 @@ export class FormationPayanteComponent
       this.http.get<Repertoire[]>('https://franceétudes.com:3000/api/liste/repertoire').subscribe(reponse  => 
       {
         this.repertoires = reponse;
-        console.log('payante ', this.repertoires )
       }
       );
       this.http.get<ImageRepertoire[]>('https://franceétudes.com:3000/api/liste/imagepayantescomplet').subscribe(reponse  => 
       {
         this.images = reponse;
-        console.log('image ', this.images )
       }
       )
     }
@@ -81,27 +75,6 @@ export class FormationPayanteComponent
         };
 
         this.formation.envoieMessge(maConstante)
-/*
-        this.http.post(`https://franceétudes.com:3000/api/mail_demande_abonnement`, maConstante, { observe: 'response' }).subscribe
-        (
-          (response: HttpResponse<any>) => 
-          {
-            if (response.status === 200) 
-            {
-              console.log(response.statusText)
-              console.log(maConstante)
-              //this.router.navigateByUrl(`formation`);
-            }
-            else 
-            {
-              console.log('merde combi');
-            }
-          },
-          error => 
-          {
-            console.error(error); // Afficher l'erreur à l'utilisateur
-          }
-        )     
-*/
+
     }
 }

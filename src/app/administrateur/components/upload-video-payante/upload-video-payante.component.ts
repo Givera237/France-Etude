@@ -29,7 +29,6 @@ export class UploadVideoPayanteComponent
 
   onSubmit()
   {
-    console.log(this.essai)
     const id_repertoire = this.route.snapshot.params['id'];
 
     this.admin.uploadVideo(this.essai, id_repertoire)

@@ -76,7 +76,6 @@ import { FormGroup } from '@angular/forms';
           if (response.status === 200) 
           {
             console.log(response.statusText)
-            console.log('Post bien envoyé')
             this.router.navigateByUrl(`formation/payante`);
           }
           else 
@@ -121,7 +120,6 @@ import { FormGroup } from '@angular/forms';
     {
       this.http.delete(`https://franceétudes.com:3000/api/video/supprimer/${id}`).subscribe(reponse  => 
       {
-        console.log('Réponse : ', reponse),
         (error: any) => console.log('Erreur : ', error)
         this.router.navigateByUrl(`admin/formation_payante/${id_repertoire}`);
       }
@@ -132,7 +130,6 @@ import { FormGroup } from '@angular/forms';
     {
       this.http.delete(`https://franceétudes.com:3000/api/pdf/supprimer/${id}`).subscribe(reponse  => 
     {
-      console.log('Réponse : ', reponse),
       (error: any) => console.log('Erreur : ', error)
       this.router.navigateByUrl(`admin/formation_payante/${id_repertoire}`);
     }
@@ -143,7 +140,6 @@ import { FormGroup } from '@angular/forms';
     {
       this.http.delete(`https://franceétudes.com:3000/api/repertoire/supprimer/${id_formation}`).subscribe(reponse  => 
     {
-      console.log('Repertoire supprimé : ', reponse),
       (error: any) => console.log('Erreur : ', error)
       this.router.navigateByUrl(`formation/payante`);
     }
@@ -154,7 +150,6 @@ import { FormGroup } from '@angular/forms';
     {
       this.http.delete(`https://franceétudes.com:3000/api/abonnement/supprimer/${id}`).subscribe(reponse  => 
       {
-        console.log('utilisateur désabonné : ', reponse),
         (error: any) => console.log('Erreur : ', error)
         this.router.navigateByUrl(`formation/payante`);
       }
@@ -170,7 +165,6 @@ import { FormGroup } from '@angular/forms';
         if (response.status === 200) 
         {
           console.log(response.statusText)
-          console.log('Post bien envoyé')
           this.router.navigateByUrl(`formation/${id_formation}`);
         }
         else 
@@ -194,7 +188,6 @@ import { FormGroup } from '@angular/forms';
         if (response.status === 200) 
         {
           console.log(response.statusText)
-          console.log('Post bien envoyé')
           this.router.navigateByUrl(`formation/payante`);
         }
         else 
@@ -218,7 +211,6 @@ import { FormGroup } from '@angular/forms';
           if (response.status === 200) 
           {
             console.log(response.statusText)
-            console.log('Post bien envoyé')
             this.router.navigateByUrl(`admin/formation_payante/${id_repertoire}`);
           }
           else 
@@ -242,7 +234,6 @@ import { FormGroup } from '@angular/forms';
           if (response.status === 200) 
           {
             console.log(response.statusText)
-            console.log('Post bien envoyé')
             this.router.navigateByUrl(`admin/formation_payante/${id_repertoire}`);
           }
           else 
@@ -266,7 +257,6 @@ import { FormGroup } from '@angular/forms';
           if (response.status === 200) 
           {
             console.log(response.statusText)
-            console.log('Post bien envoyé')
             this.router.navigateByUrl(`formation/${id_formation}`);
           }
           else 
@@ -290,7 +280,6 @@ import { FormGroup } from '@angular/forms';
           if (response.status === 200) 
           {
             console.log(response.statusText)
-            console.log('Post bien envoyé')
             this.router.navigateByUrl(`formation/${id_formation}`);
           }
           else 

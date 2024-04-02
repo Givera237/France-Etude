@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, map } from 'rxjs';
-import { Formation } from '../../models/formation';
-import { Image } from '../../models/image';
+import { Router } from '@angular/router';
 
 import * as AOS from 'aos';
 import { CookieServices } from 'src/app/cookie.service';
@@ -23,7 +20,6 @@ export class MesFormationsComponent
   pseudo!: string
 
   constructor(
-    private route : ActivatedRoute,
     private http : HttpClient,
     private cookieService: CookieServices,
     private router : Router ){}
@@ -36,13 +32,11 @@ export class MesFormationsComponent
       this.http.get<Repertoire[]>(`https://franceétudes.com:3000/api/liste/formation_paye/${this.pseudo}`).subscribe(reponse  => 
       {
         this.repertoires = reponse;
-        console.log('payé ', this.repertoires )
       }
       );
       this.http.get<ImageRepertoire[]>('https://franceétudes.com:3000/api/liste/imagepayantescomplet').subscribe(reponse  => 
       {
         this.images = reponse;
-        console.log('image ', this.images )
       }
       )
     }

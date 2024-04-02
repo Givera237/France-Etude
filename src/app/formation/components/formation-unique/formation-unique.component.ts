@@ -38,21 +38,17 @@ export class FormationUniqueComponent
       this.http.get<Formation[]>('https://franceétudes.com:3000/api/liste/formation').subscribe(reponse  => 
       {
         this.formations = reponse;
-        console.log(this.formations)
       }
       ); 
       this.http.get<Video[]>(`https://franceétudes.com:3000/api/video/${id_formation}`).subscribe(reponse  => 
       {
         this.videos = reponse;
-        console.log('Yo bro voici tes objets', reponse);
-        //console.log(id_formation);
       }
       );
 
       this.http.get<Pdf[]>(`https://franceétudes.com:3000/api/liste/Pdf_formation/${id_formation}`).subscribe(reponse  => 
       {
         this.pdf = reponse;
-        console.log('les pdfs :', this.pdf);
       }
       );
     }
@@ -66,14 +62,6 @@ export class FormationUniqueComponent
     {
       const id_formation = +this.route.snapshot.params['id'];
       this.formation.supprimerFormationGratuite(id_formation);
-      /*
-      this.http.delete(`https://franceétudes.com:3000/api/formation/supprimer/${id_formation}`).subscribe(reponse  => 
-      {
-        console.log('Réponse : ', reponse),
-        (error: any) => console.log('Erreur : ', error)
-  
-      }
-      ) */
     }
 
 
@@ -85,7 +73,7 @@ export class FormationUniqueComponent
     onModifyFormation() : void
     {
       const id_formation = +this.route.snapshot.params['id'];
-     this.router.navigateByUrl(`admin/modifier/${id_formation}`);
+      this.router.navigateByUrl(`admin/modifier/${id_formation}`);
     }
     
     addPdf()

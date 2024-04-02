@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AdministrateurServices } from '../../services/administrateur-service';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 
 @Component({
@@ -20,7 +19,6 @@ export class AjoutVideoGratuiteComponent
   (
    private route : ActivatedRoute,
    private formbuilder : FormBuilder,
-   private admin : AdministrateurServices,
    private http : HttpClient,
    private router : Router
   ){}
@@ -41,7 +39,6 @@ export class AjoutVideoGratuiteComponent
   { 
    const obj = this.monFormulaire.value;
    const id_formation = this.route.snapshot.params['id'];
-   console.log(obj)
 
    this.http.post(`https://franceétudes.com:3000/api/creation/video_youtube/${id_formation}`, obj, { observe: 'response' }).subscribe
       (
@@ -50,7 +47,6 @@ export class AjoutVideoGratuiteComponent
           if (response.status === 200) 
           {
             console.log(response.statusText)
-            console.log(obj)
             this.router.navigateByUrl(`formation/${id_formation}`);
           }
           else 

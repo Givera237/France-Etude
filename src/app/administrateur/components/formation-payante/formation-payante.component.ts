@@ -35,14 +35,12 @@ export class FormationPayanteComponent
     this.http.get<Video[]>(`https://franceétudes.com:3000/api/video_uploads/${id_repertoire}`).subscribe(reponse  => 
     {
       this.videos = reponse;
-      console.log('les vidéo :', this.videos);
     }
     );
 
     this.http.get<Pdf[]>(`https://franceétudes.com:3000/api/liste/Pdf/${id_repertoire}`).subscribe(reponse  => 
     {
       this.pdf = reponse;
-      console.log('les pdfs :', this.pdf);
     }
     );
 

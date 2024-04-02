@@ -57,7 +57,6 @@ export class AbonnementComponent
   Submit()
   {
     const obj = this.mailForm.value;
-    console.log(obj);
     this.admin.abonnement(obj)
   }
 
