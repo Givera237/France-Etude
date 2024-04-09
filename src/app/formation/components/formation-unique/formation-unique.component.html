@@ -18,7 +18,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-10 col-md-6 col-lg-4 heartbeat" *ngFor="let video of videos; let i = index " >
+    <div class="col-12 col-md-6 col-lg-4 heartbeat" *ngFor="let video of videos; let i = index " >
         <div class="card my-4 puff-in-br " width="520" height="440"  >
             <iframe class="embed-responsive-item h-sd-auto d-inline-block" [src]="video.path | safe "  title="Etudes en France procédure 2022/2023, les démarches de A à Z sur Campus France 🇫🇷" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 <div class="card-body" >
@@ -63,9 +63,9 @@
                 <th *ngIf="admin ==='1'" scope="col">option</th>
             </tr>
             </thead>
-            <tbody *ngFor="let pdf of pdf" >
+            <tbody *ngFor="let pdf of pdf; let i = index " >
             <tr>
-                <td>{{pdf.id_pdf}} </td>
+                <td>N°{{i+1}} </td>
                 <td><a href="{{pdf.path}}" target="_blank">{{pdf.nom}} </a></td>
                 <td *ngIf="admin ==='1'" class="supp" (click)="onDeletePdf(pdf.id_pdf)"> <button>supprimer</button> </td>
               </tr>

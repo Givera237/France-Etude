@@ -19,6 +19,7 @@ export class VerificationEmailComponent
 
   ngOnInit() 
   {
+    this.erreur = ''
     this.maVariable = this.authentification.getVariable();
     this.code = this.authentification.getCode();
   }
@@ -29,6 +30,10 @@ export class VerificationEmailComponent
     if(this.code === +this.code_verifie)
     {
       this.authentification.inscription(this.maVariable, this.erreur)
+    }
+    else
+    {
+      this.erreur = 'Code de confirmation incorrect, veuillez réessayer!'
     }
   }
 }
