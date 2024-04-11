@@ -138,11 +138,10 @@ ngOnInit() : void
       {
         console.error(error);
         erreur = error.error.message;
-        console.log(error.error.message);
         // Afficher l'erreur à l'utilisateur
       } 
     ) ;
-    }
+    } 
 
     inscription(maVariable : Utilisateur, erreur : string)
     {
