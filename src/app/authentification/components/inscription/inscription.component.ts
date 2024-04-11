@@ -15,6 +15,7 @@ export class InscriptionComponent
   pseudo!: string;
   emailRegex!: RegExp;
   erreur!: string;
+  erreur_mail!: string
 
   constructor
   (
@@ -25,6 +26,7 @@ export class InscriptionComponent
   ngOnInit() : void
   {
     this.erreur = "";
+    this.erreur_mail = this.authentification.getErreur()
 
     this.inscriptionForm = this.formbuilder.group
     (

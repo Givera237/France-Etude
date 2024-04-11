@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthentificationService } from '../../service/authentification-service';
 import { Utilisateur } from '../../models/utilisateurs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-verification-email',
@@ -15,7 +16,11 @@ export class VerificationEmailComponent
   code!: number
   erreur!: string
 
-  constructor(private authentification :AuthentificationService) { }
+  constructor
+  (
+    private router : Router,
+    private authentification :AuthentificationService
+  ) { }
 
   ngOnInit() 
   {
@@ -26,6 +31,7 @@ export class VerificationEmailComponent
 
   onSubmit()
   {
+
     this.essai.append('code', this.code_verifie);
     if(this.code === +this.code_verifie)
     {
@@ -35,5 +41,6 @@ export class VerificationEmailComponent
     {
       this.erreur = 'Code de confirmation incorrect, veuillez réessayer!'
     }
+   
   }
 }

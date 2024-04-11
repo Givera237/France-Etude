@@ -14,6 +14,7 @@ export class AuthentificationService
     private variable!: Utilisateur;
     inscriptionForm!: FormGroup;
     code!: number;
+    erreur_mail!: string
 
     constructor(
       private router : Router, 
@@ -45,6 +46,10 @@ ngOnInit() : void
     {
       return this.variable;
     }
+    getErreur()
+    {
+      return this.erreur_mail
+    }
 
     setCode(code : number)
     {
@@ -75,7 +80,7 @@ ngOnInit() : void
       );
       this.cookieService.delete()
       this.router.navigateByUrl(``);
-    }
+    } 
 
     connexion(obj : FormGroup, cookie : any, erreur : string)
     {
@@ -158,8 +163,9 @@ ngOnInit() : void
          error => 
          {
            console.error(error);
-           erreur = error.error.message;
-           console.log(error.error.message);
+           this.erreur_mail = error.error.message;
+           //console.log(error.error.message);
+           this.router.navigateByUrl(`authentification/inscription`);
            // Afficher l'erreur à l'utilisateur
          } 
        ) ;
