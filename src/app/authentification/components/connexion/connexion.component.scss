@@ -44,3 +44,26 @@ em
         background-color:#1283EB !important ;
     }
 }
+
+.input-container 
+{
+    position: relative;
+    display: inline-block;
+}
+  
+.input-container input 
+{   
+    padding-right: 40px; /* Ajustez la valeur pour laisser de l'espace pour le bouton */
+}
+
+.input-container button 
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 40px; /* Ajustez la valeur pour définir la largeur du bouton */
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}

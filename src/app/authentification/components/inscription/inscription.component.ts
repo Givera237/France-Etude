@@ -11,11 +11,13 @@ export class InscriptionComponent
 {
   inscriptionForm!: FormGroup;
   monFormulaire!: FormGroup;
+  myForm!: FormGroup;
   utilisateur!: Utilisateur;
   pseudo!: string;
   emailRegex!: RegExp;
   erreur!: string;
   erreur_mail!: string
+  passwordVisible = false;
 
   constructor
   (
@@ -37,7 +39,19 @@ export class InscriptionComponent
         password: [null,[Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[0-9])(?=.*[!.,?_@#$%^&*])[a-zA-Z0-9!.,?_@#$%^&*]{8,}$/)]],
       }
     ) ;
+
+    this.myForm = this.formbuilder.group
+    (
+      {
+        password: [null,[Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[0-9])(?=.*[!.,?_@#$%^&*])[a-zA-Z0-9!.,?_@#$%^&*]{8,}$/)]],
+      }
+    )
   } 
+
+   togglePasswordVisibility() 
+  {
+    this.passwordVisible = !this.passwordVisible;
+  }
 
   get usernameControl(): any 
   {

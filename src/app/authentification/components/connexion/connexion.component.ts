@@ -19,6 +19,7 @@ export class ConnexionComponent
   connexion!: string;
   cookie!: any;
   pseudo!: string;
+  passwordVisible = false;
   existe_pas!: TemplateRef<NgIfContext<boolean>>|null;
   non_connecte!: TemplateRef<NgIfContext<boolean>>|null;
 
@@ -43,6 +44,11 @@ export class ConnexionComponent
         password: [null]     
       }
     ) ;
+  }
+
+  togglePasswordVisibility() 
+  {
+    this.passwordVisible = !this.passwordVisible;
   }
 
   existe(variable: string): boolean 
