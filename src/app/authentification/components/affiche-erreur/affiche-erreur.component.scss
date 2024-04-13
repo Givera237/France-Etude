@@ -1,0 +1,15 @@
+.rouge
+{
+    color: red !important;
+
+    &:hover 
+    {
+        color: red !important;
+    }
+}
+
+.bouton_blanc:hover
+{
+  background-color: white !important;
+  color : red !important;
+}

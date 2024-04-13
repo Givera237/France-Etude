@@ -6,6 +6,7 @@ import { AuthentificationRoutingModule } from './authentification-routing.module
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { VerificationEmailComponent } from './components/verification-email/verification-email.component';
+import { AfficheErreurComponent } from './components/affiche-erreur/affiche-erreur.component';
 
 
 
@@ -13,7 +14,8 @@ import { VerificationEmailComponent } from './components/verification-email/veri
   declarations: [
     InscriptionComponent,
     ConnexionComponent,
-    VerificationEmailComponent
+    VerificationEmailComponent,
+    AfficheErreurComponent
   ],
   imports: [
     CommonModule,

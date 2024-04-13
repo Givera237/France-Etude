@@ -8,15 +8,6 @@ em
 {
     color: red;
 }
-.rouge
-{
-    color: black !important;
-
-    &:hover 
-    {
-        color: red !important;
-    }
-}
 
 .fond
 {
@@ -26,10 +17,26 @@ em
     padding: 10px;
 }
 
+
+.rouge
+{
+    color: red !important;
+
+    &:hover 
+    {
+        color: red !important;
+    }
+}
 .cont
 {
-    background-color:rgba(0, 0, 0, 0.49);
+    //background-color:rgba(0, 0, 0, 0.49);
+    background-color: rgb(255, 255, 255);
     border-radius: 10%;
+}
+.bouton_blanc:hover
+{
+  background-color: white !important;
+  color : red !important;
 }
 
 .btn_connexion
