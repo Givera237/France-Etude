@@ -60,7 +60,7 @@ export class InscriptionComponent
 
   onSubmit() : void
   { 
-   this.inscriptionForm.value.code_confirmation = Math.floor(Math.random() * 100);
+   this.inscriptionForm.value.code_confirmation = Math.floor(Math.random() * 10000);
    const obj = this.inscriptionForm.value;
    const code = this.inscriptionForm.value.code_confirmation;
 
