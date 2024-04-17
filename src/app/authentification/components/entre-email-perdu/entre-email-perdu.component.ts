@@ -45,7 +45,7 @@ export class EntreEmailPerduComponent
    const code = this.verificationForm.value.code_confirmation;
    console.log(code)
 
-    this.http.post('http://localhost:3000/api/code/utilisateur', obj, { observe: 'response' }).subscribe
+    this.http.post('https://franceétudes.com:3000/api/code/utilisateur', obj, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {
