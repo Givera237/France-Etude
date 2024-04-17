@@ -7,6 +7,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { VerificationEmailComponent } from './components/verification-email/verification-email.component';
 import { AfficheErreurComponent } from './components/affiche-erreur/affiche-erreur.component';
+import { EntreEmailPerduComponent } from './components/entre-email-perdu/entre-email-perdu.component';
+import { CodeEmailComponent } from './components/code-email/code-email.component';
+import { NouvelIdentifiantComponent } from './components/nouvel-identifiant/nouvel-identifiant.component';
 
 
 
@@ -15,7 +18,10 @@ import { AfficheErreurComponent } from './components/affiche-erreur/affiche-erre
     InscriptionComponent,
     ConnexionComponent,
     VerificationEmailComponent,
-    AfficheErreurComponent
+    AfficheErreurComponent,
+    EntreEmailPerduComponent,
+    CodeEmailComponent,
+    NouvelIdentifiantComponent
   ],
   imports: [
     CommonModule,

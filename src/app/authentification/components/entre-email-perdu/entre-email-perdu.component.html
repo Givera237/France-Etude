@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="fond" style="margin-top: 80px;" >
+        <div class="row d-flex justify-content-center ">
+            <div class="col-12  col-md-6 col-lg-4  p-2 d-flex justify-content-center">
+                <form [formGroup]="verificationForm" class="row g-3 cont">
+                    <label for="pseudo" class="for-label"> <h4 class="fw-bold text-center text-uppercase" style="color : red" >Entrez votre adresse email</h4> </label>
+                    <p class="text-black fs-4 " > {{erreur}} </p>
+                    <span>Email <em>*</em></span>
+                    <input type="email" autocomplete="off" formControlName="email" class="form-control mb-3 p-1" id="email" placeholder="Votre email ">
+                    <div class=" d-flex justify-content-center">
+                        <button type="submit" (click)="onSubmit()" class="btn btn-danger bouton_blanc mt-3 mb-3 "  style=" background-color: #F31111; "><strong> Envoyer</strong> </button> <br>
+                    </div>
+                    <div class="text-md-end">
+                        <span class="text-black text-start text-end">
+                            Pas de compte, <a href="authentification/inscription " class="fw-bold rouge">Inscrivez-vous</a> 
+                        </span>
+                    </div>
+                </form>
+            </div> 
+        </div>
+    </div>
+</div>

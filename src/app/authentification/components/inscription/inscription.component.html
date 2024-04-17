@@ -11,7 +11,7 @@
                     <span>email <em>*</em></span>
                     <input type="email" autocomplete="off" class="form-control mt-1 mb-3 p-1" formControlName="email" id="email" placeholder="Votre Email "> 
                     <span>mot de passe <em>*</em></span>
-                    <div class="input-container">
+                    <div class="input-container"> <br>
                       <input type="{{ passwordVisible ? 'text' : 'password' }}" autocomplete="off" class="form-control mt-1 mb-3 p-1" formControlName="password" id="password" placeholder="Votre mot de passe ">                                                        
                       <button type="button" style="width: 40px;" (click)="togglePasswordVisibility()">
                         <i class="fa"  [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>

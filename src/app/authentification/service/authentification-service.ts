@@ -63,7 +63,7 @@ ngOnInit() : void
 
     deconnection(id_utilisateur : number)
     {
-      this.http.get<any>(`https://franceétudes.com:3000/api/logout/${id_utilisateur}`).subscribe(reponse  => 
+      this.http.get<any>(`http://localhost:3000/api/logout/${id_utilisateur}`).subscribe(reponse  => 
       {
       }
       );
@@ -73,7 +73,7 @@ ngOnInit() : void
 
     desabonnement(id_utilisateur : number)
     {
-      this.http.delete(`https://franceétudes.com:3000/api/utilisateur/supprimer/${id_utilisateur}`).subscribe(reponse  => 
+      this.http.delete(`http://localhost:3000/api/utilisateur/supprimer/${id_utilisateur}`).subscribe(reponse  => 
       {
         (error: any) => console.log('Erreur : ', error)
       }
@@ -84,7 +84,7 @@ ngOnInit() : void
 
     connexion(obj : FormGroup, cookie : any, erreur : string)
     {
-      this.http.post('https://franceétudes.com:3000/api/login', obj, { observe: 'response' }).subscribe
+      this.http.post('http://localhost:3000/api/login', obj, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {
@@ -117,7 +117,73 @@ ngOnInit() : void
 
     verification_email(obj : Utilisateur, code = this.inscriptionForm.value, erreur : string  )
     {
-      const route = "https://franceétudes.com:3000/api/envoie_mail_confirmation"
+      const route = "http://localhost:3000/api/envoie_mail_confirmation"
+      
+      this.http.post(route, obj, { observe: 'response' }).subscribe
+   (
+      (response: HttpResponse<any>) => 
+      {
+        if (response.status === 200) 
+        {
+          console.log(response.statusText)
+          this.setVariable(obj);
+          console.log(response.body)
+          this.erreur_mail = response.body;
+          if(this.erreur_mail != 'mail envoye' )
+            {
+              this.router.navigate(['authentification/erreur']);
+              console.log('la redirection marche')
+            }
+          else
+            {
+              this.router.navigate(['authentification/verification']);
+            }
+        }
+        else 
+        {
+          console.log('merde combi');
+        }
+      },
+      error => 
+      {
+        console.error(error);
+        erreur = error.error.message;
+        console.log(erreur)
+        // Afficher l'erreur à l'utilisateur
+      } 
+    ) ;
+    } 
+
+    inscription(maVariable : Utilisateur, erreur : string)
+    {
+      this.http.post('http://localhost:3000/api/register', maVariable, { observe: 'response' }).subscribe
+      ( 
+         (response: HttpResponse<any>) => 
+         {
+           if (response.status === 200) 
+           {
+             console.log(response.statusText)
+             this.router.navigateByUrl(`authentification/connexion`);
+           }
+           else 
+           {
+             console.log('merde combi');
+           }
+         },
+         error => 
+         {
+           console.error(error);
+           this.erreur_mail = error.error.message;
+           //console.log(error.error.message);
+           this.router.navigateByUrl(`authentification/inscription`);
+           // Afficher l'erreur à l'utilisateur
+         } 
+       ) ;
+    }
+    
+    envoi_code_email_perdu(obj : any, erreur : string  )
+    {
+      const route = "http://localhost:3000/api/envoie_mail_confirmation"
       
       this.http.post(route, obj, { observe: 'response' }).subscribe
    (
@@ -149,32 +215,4 @@ ngOnInit() : void
       } 
     ) ;
     } 
-
-    inscription(maVariable : Utilisateur, erreur : string)
-    {
-      this.http.post('https://franceétudes.com:3000/api/register', maVariable, { observe: 'response' }).subscribe
-      ( 
-         (response: HttpResponse<any>) => 
-         {
-           if (response.status === 200) 
-           {
-             console.log(response.statusText)
-             this.router.navigateByUrl(`authentification/connexion`);
-           }
-           else 
-           {
-             console.log('merde combi');
-           }
-         },
-         error => 
-         {
-           console.error(error);
-           this.erreur_mail = error.error.message;
-           //console.log(error.error.message);
-           this.router.navigateByUrl(`authentification/inscription`);
-           // Afficher l'erreur à l'utilisateur
-         } 
-       ) ;
-    }
-    
   }

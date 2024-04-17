@@ -66,7 +66,7 @@
                             <span>pseudo <em>*</em></span> <span class="text-black " >{{erreur}} </span>
                             <input type="text" autocomplete="off" formControlName="pseudo" class="form-control mt-1 mb-3 p-1" id="pseudo" placeholder="Votre Pseudo ">
                             <span>mot de passe <em>*</em></span>
-                            <div class="input-container">
+                            <div class="input-container"> <br>
                                 <input type="{{ passwordVisible ? 'text' : 'password' }}" autocomplete="off" class="form-control mt-1 mb-3 p-1" formControlName="password" id="password" placeholder="Votre mot de passe ">                                                        
                                 <button type="button" style="width: 40px;" (click)="togglePasswordVisibility()">
                                   <i class="fa"  [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
@@ -74,6 +74,11 @@
                               </div>
                             <div class=" d-flex justify-content-center">
                                 <button type="submit" (click)="onSubmit()" class="btn btn-danger bouton_blanc mt-3 mb-3 "  style=" background-color: #F31111; "><strong> Connexion</strong> </button> <br>
+                            </div>
+                            <div class="text-center" *ngIf="erreur!=''" >
+                                <span class="text-black text-start text-end">
+                                    Identifiants oubliés?, <a href="authentification/entre_email" class="fw-bold rouge">Cliquez ici</a> 
+                                </span>
                             </div>
                             <div class="text-md-end">
                                 <span class="text-black text-start text-end">
@@ -95,12 +100,24 @@
                     <label for="pseudo" class="for-label"> <h4 class="fw-bold text-center text-white text-uppercase">Connexion</h4> </label>
                     <span>pseudo <em>*</em></span> <span class="text-black " >{{erreur}} </span>
                     <input type="text" formControlName="pseudo" class="form-control mt-1 mb-3 p-1" id="pseudo" placeholder="Votre Pseudo ">
+                    <span>mot de passe <em>*</em></span>
+                    <div class="input-container"> <br>
+                        <input type="{{ passwordVisible ? 'text' : 'password' }}" autocomplete="off" class="form-control mt-1 mb-3 p-1" formControlName="password" id="password" placeholder="Votre mot de passe ">                                                        
+                        <button type="button" style="width: 40px;" (click)="togglePasswordVisibility()">
+                          <i class="fa"  [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+                        </button>
+                      </div>
                     <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
                         <button type="submit" (click)="onSubmit()" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Connexion</button>
                     </div>
+                    <div class="text-center" *ngIf="erreur!=''" >
+                        <span class="text-black text-start text-end">
+                            Identifiants oubliés?, <a href="authentification/entre_email" class="fw-bold rouge">Cliquez ici</a> 
+                        </span>
+                    </div>
                     <div class="text-md-end">
                         <span class="text-white text-start text-end">
-                            Pas de compte, <a href="authentification/inscription " class="text-black rouge">Inscrivez vous</a> 
+                            Pas de compte, <a href="authentification/inscription" class="text-black rouge">Inscrivez vous</a> 
                         </span>
                     </div>
                  </form>
