@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient,  HttpResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthentificationService } from '../../service/authentification-service';
 import { Utilisateur } from '../../models/utilisateurs';
@@ -13,14 +13,16 @@ import { Utilisateur } from '../../models/utilisateurs';
 export class CodeEmailComponent 
 {
   essai = new FormData();
+  verificationForm!: FormGroup;
   code_verifie!: string
   maVariable!: Utilisateur
   erreur!: string
-  code = this.auth.getCode();
-
+  email!:string
+  lien!: string
   constructor(
     private formbuilder : FormBuilder,
     private auth : AuthentificationService  ,
+    private route : ActivatedRoute,
     private http : HttpClient,
     private router : Router, 
    ){}
@@ -29,27 +31,54 @@ export class CodeEmailComponent
   
   ngOnInit() 
   {
+    
+    this.email = this.route.snapshot.params['id'];
     this.erreur = ''
     this.maVariable = this.auth.getVariable();
-    this.code = this.auth.getCode();
-    if(this.code)
+    if(this.email)
       {
-        console.log('le code : ', this.code)
+        this.verificationForm = this.formbuilder.group
+        (
+          {
+            email: [this.email],
+            lien: [`https://franceétudes.com/authentification/nouvel_identifiant/${this.email}`] 
+          }
+        ) ;
       }
   }
-
+  //http://localhost:4200/formation/3 https://franceétudes.com
   onSubmit()
   {
-
-    this.essai.append('code', this.code_verifie);
-    if(this.code === +this.code_verifie)
-    {
-      this.router.navigateByUrl(`authentification/nouvel_identifiant`);
-    }
-    else
-    {
-      this.erreur = 'Code de confirmation incorrect, veuillez réessayer!'
-    }
-   
+    const obj = this.verificationForm.value;
+    this.http.post('https://franceétudes.com:3000/api/code/utilisateur', obj, { observe: 'response' }).subscribe
+    (
+      (response: HttpResponse<any>) => 
+      {
+        if (response.status === 200) 
+        {            
+          if(response.body != "l'utilisateur n'existe pas ")
+            {
+              this.auth.setVariable(obj);
+              //this.router.navigateByUrl(`authentification/code_email`);
+              console.log('mail envoyé')
+            }
+            else(response.body === "l'utilisateur n'existe pas ")
+            {
+              this.erreur = "Votre adresse email n'est pas repertoriée veuillez-vous inscrire"
+            }
+        } 
+      },
+      error => 
+      {  
+        if (error.status === 404) 
+        {
+          this.erreur = error.error.message;
+        }
+        if (error.status === 500) 
+        {
+          this.erreur = error.error.message;
+        }
+      } 
+    ) ;  
   }
 }

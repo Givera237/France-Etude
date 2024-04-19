@@ -119,6 +119,7 @@ ngOnInit() : void
     {
       const route = "https://franceétudes.com:3000/api/envoie_mail_confirmation"
       
+      
       this.http.post(route, obj, { observe: 'response' }).subscribe
    (
       (response: HttpResponse<any>) => 

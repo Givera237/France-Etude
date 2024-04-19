@@ -32,27 +32,22 @@ export class EntreEmailPerduComponent
     this.verificationForm = this.formbuilder.group
     (
       {
-        email: [null],
-        code_confirmation: [0,[Validators.required]],
+        email: [null], 
       }
     ) ;
   }
 
   onSubmit()
   {
-    this.verificationForm.value.code_confirmation = Math.floor(Math.random() * 10000);
    const obj = this.verificationForm.value;
-   const code = this.verificationForm.value.code_confirmation;
-   console.log(code)
-
-    this.http.post('https://franceétudes.com:3000/api/code/utilisateur', obj, { observe: 'response' }).subscribe
+   this.router.navigateByUrl(`authentification/code_email/${obj.email}`);
+/*
+    this.http.post('http://localhost:3000/api/code/utilisateur', obj, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {
           if (response.status === 200) 
           {            
-            this.auth.setCode(code)
-            console.log(response)
             if(response.body != "l'utilisateur n'existe pas ")
               {
                 this.auth.setVariable(obj);
@@ -76,5 +71,6 @@ export class EntreEmailPerduComponent
           }
         } 
       ) ;  
+      */
   }
 }

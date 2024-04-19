@@ -14,8 +14,8 @@ const routes : Routes =
     {path : 'inscription', component : InscriptionComponent},
     {path : 'connexion', component : ConnexionComponent},
     {path : 'entre_email', component : EntreEmailPerduComponent},
-    {path : 'code_email', component : CodeEmailComponent},
-    {path : 'nouvel_identifiant', component : NouvelIdentifiantComponent},
+    {path : 'code_email/:id', component : CodeEmailComponent},
+    {path : 'nouvel_identifiant/:id', component : NouvelIdentifiantComponent},
     {path : 'verification', component : VerificationEmailComponent},
     {path : 'erreur', component : AfficheErreurComponent}
 ]

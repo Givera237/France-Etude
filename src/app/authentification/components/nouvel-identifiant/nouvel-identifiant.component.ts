@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient,  HttpResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthentificationService } from '../../service/authentification-service';
 import { Utilisateur } from '../../models/utilisateurs';
@@ -18,6 +18,7 @@ export class NouvelIdentifiantComponent
   connexion!: string;
   cookie!: any;
   pseudo!: string;
+  email!:string
   maVariable!: Utilisateur
   passwordVisible = false;
 
@@ -25,6 +26,7 @@ export class NouvelIdentifiantComponent
   (
     private formbuilder : FormBuilder,
     private auth : AuthentificationService  ,
+    private route : ActivatedRoute,
     private http : HttpClient,
     private router : Router, 
    ){}
@@ -32,12 +34,7 @@ export class NouvelIdentifiantComponent
 ngOnInit() :void
 {
   this.erreur = '';
-  this.maVariable = this.auth.getVariable();
-  if(this.maVariable)
-    {
-      console.log('la variable : ', this.maVariable)
-      console.log('la variable : ', this.maVariable.email)
-    }
+  this.email = this.route.snapshot.params['id'];
 
   this.newForm = this.formbuilder.group
   (
@@ -66,7 +63,7 @@ existe(variable: string): boolean
 onSubmit()
 {
   const obj = this.newForm.value;
-    this.http.put(`https://franceétudes.com:3000/api/utilisateur/modifier/${this.maVariable.email}`, obj, { observe: 'response' }).subscribe
+    this.http.put(`https://franceétudes.com:3000/api/utilisateur/modifier/${this.email}`, obj, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {
@@ -90,4 +87,4 @@ onSubmit()
       ) ;  
 }
 
-}
+} 

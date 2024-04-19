@@ -4,9 +4,10 @@
             <div class="col-12  col-md-6 col-lg-4  p-4 d-flex justify-content-center">
                 <form [formGroup]="newForm" class="row g-3 cont">
                     <label for="pseudo" class="for-label"> <h4 class="fw-bold text-center text-uppercase" style="color : red" >Réinitialisation</h4> </label>
-                    <span>Nouveau pseudo <em>*</em></span> <span class="text-black " >{{erreur}} </span>
+                    <span class="fs-8" ><em>*</em> Laissez vide si vous ne voulez pas modifier</span>
+                    <span>Nouveau pseudo </span> <span class="text-black " >{{erreur}} </span>
                     <input type="text" autocomplete="off" formControlName="pseudo" class="form-control mt-1 mb-3 p-1" id="pseudo" placeholder="Votre Pseudo ">
-                    <span>Nouveau mot de passe <em>*</em></span>
+                    <span>Nouveau mot de passe </span>
                     <div class="input-container"> <br>
                         <input type="{{ passwordVisible ? 'text' : 'password' }}" autocomplete="off" class="form-control mt-1 mb-3 p-1" formControlName="password" id="password" placeholder="Votre mot de passe ">                                                        
                         <button type="button" style="width: 40px;" (click)="togglePasswordVisibility()">
