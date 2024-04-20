@@ -45,8 +45,9 @@ export class CodeEmailComponent
           }
         ) ;
       }
+      console.log('erreur vide : ', this.erreur)
   }
-  //http://localhost:4200/formation/3 https://franceétudes.com
+  //http://localhost:4200/formation/3 https://franceétudes.com http://localhost:3000 https://franceétudes.com:3000
   onSubmit()
   {
     const obj = this.verificationForm.value;
@@ -59,11 +60,12 @@ export class CodeEmailComponent
           if(response.body != "l'utilisateur n'existe pas ")
             {
               this.auth.setVariable(obj);
-              //this.router.navigateByUrl(`authentification/code_email`);
+              console.log(response)
               console.log('mail envoyé')
             }
-            else(response.body === "l'utilisateur n'existe pas ")
+          if(response.body === "l'utilisateur n'existe pas ")
             {
+              console.log('2ème cas',response)
               this.erreur = "Votre adresse email n'est pas repertoriée veuillez-vous inscrire"
             }
         } 
