@@ -16,7 +16,7 @@
                       </div>
                       <div *ngIf="usernameControl.hasError('pattern')"> <span class="text-black" >Le mot de passe doit contenir au-moins 8 caractères, une majuscule et des caractères spéciaux tel que . , ! ? # @ _</span></div>
                     <div class=" d-flex justify-content-center">
-                        <button type="submit" (click)="onSubmit()" class="btn btn-danger bouton_blanc mt-3 mb-3 "  style=" background-color: #F31111; "><strong> Enregistrer</strong> </button> <br>
+                        <button type="submit" (click)="onSubmit()" class="btn btn-danger bouton_blanc mt-3 mb-3 " [disabled]="newForm.invalid" style=" background-color: #F31111; "><strong> Enregistrer</strong> </button> <br>
                     </div>
                 </form>
             </div> 
