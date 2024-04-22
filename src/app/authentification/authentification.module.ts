@@ -10,6 +10,7 @@ import { AfficheErreurComponent } from './components/affiche-erreur/affiche-erre
 import { EntreEmailPerduComponent } from './components/entre-email-perdu/entre-email-perdu.component';
 import { CodeEmailComponent } from './components/code-email/code-email.component';
 import { NouvelIdentifiantComponent } from './components/nouvel-identifiant/nouvel-identifiant.component';
+import { ConfirmeModificationComponent } from './components/confirme-modification/confirme-modification.component';
 
 
 
@@ -21,7 +22,8 @@ import { NouvelIdentifiantComponent } from './components/nouvel-identifiant/nouv
     AfficheErreurComponent,
     EntreEmailPerduComponent,
     CodeEmailComponent,
-    NouvelIdentifiantComponent
+    NouvelIdentifiantComponent,
+    ConfirmeModificationComponent
   ],
   imports: [
     CommonModule,

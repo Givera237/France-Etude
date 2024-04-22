@@ -7,6 +7,7 @@ import { AfficheErreurComponent } from "./components/affiche-erreur/affiche-erre
 import { EntreEmailPerduComponent } from "./components/entre-email-perdu/entre-email-perdu.component";
 import { CodeEmailComponent } from "./components/code-email/code-email.component";
 import { NouvelIdentifiantComponent } from "./components/nouvel-identifiant/nouvel-identifiant.component";
+import { ConfirmeModificationComponent } from "./components/confirme-modification/confirme-modification.component";
 
 
 const routes : Routes =
@@ -17,7 +18,8 @@ const routes : Routes =
     {path : 'code_email/:id', component : CodeEmailComponent},
     {path : 'nouvel_identifiant/:id', component : NouvelIdentifiantComponent},
     {path : 'verification', component : VerificationEmailComponent},
-    {path : 'erreur', component : AfficheErreurComponent}
+    {path : 'erreur', component : AfficheErreurComponent},
+    {path : 'confirmation', component : ConfirmeModificationComponent}
 ]
 
 @NgModule

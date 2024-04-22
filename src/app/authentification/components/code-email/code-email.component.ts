@@ -19,6 +19,7 @@ export class CodeEmailComponent
   erreur!: string
   email!:string
   lien!: string
+  mail!: string
   constructor(
     private formbuilder : FormBuilder,
     private auth : AuthentificationService  ,
@@ -34,6 +35,7 @@ export class CodeEmailComponent
     
     this.email = this.route.snapshot.params['id'];
     this.erreur = ''
+    this.mail = ''
     this.maVariable = this.auth.getVariable();
     if(this.email)
       {
@@ -45,7 +47,6 @@ export class CodeEmailComponent
           }
         ) ;
       }
-      console.log('erreur vide : ', this.erreur)
   }
   //http://localhost:4200/formation/3 https://franceétudes.com http://localhost:3000 https://franceétudes.com:3000
   onSubmit()
@@ -60,12 +61,10 @@ export class CodeEmailComponent
           if(response.body != "l'utilisateur n'existe pas ")
             {
               this.auth.setVariable(obj);
-              console.log(response)
-              console.log('mail envoyé')
+              this.mail = 'Le mail contenant le lien a été envoyé'
             }
           if(response.body === "l'utilisateur n'existe pas ")
             {
-              console.log('2ème cas',response)
               this.erreur = "Votre adresse email n'est pas repertoriée veuillez-vous inscrire"
             }
         } 

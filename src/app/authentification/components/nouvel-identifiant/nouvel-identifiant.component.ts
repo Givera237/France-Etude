@@ -69,18 +69,19 @@ onSubmit()
         {
           if (response.status === 200) 
           {            
-            console.log(response)
-            this.router.navigateByUrl(`authentification/connexion`);
+            this.router.navigateByUrl(`authentification/confirmation`);
           } 
         },
         error => 
         {  
           if (error.status === 404) 
           {
+            console.log(error)
             this.erreur = error.error.message;
           }
           if (error.status === 500) 
           {
+            console.log(error)
             this.erreur = error.error.message;
           }
         } 
