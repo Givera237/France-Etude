@@ -63,6 +63,7 @@ existe(variable: string): boolean
 onSubmit()
 {
   const obj = this.newForm.value;
+  console.log(obj)
     this.http.put(`https://franceétudes.com:3000/api/utilisateur/modifier/${this.email}`, obj, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 

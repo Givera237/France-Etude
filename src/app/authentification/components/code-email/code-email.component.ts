@@ -20,6 +20,7 @@ export class CodeEmailComponent
   email!:string
   lien!: string
   mail!: string
+  change!: boolean
   constructor(
     private formbuilder : FormBuilder,
     private auth : AuthentificationService  ,
@@ -36,6 +37,7 @@ export class CodeEmailComponent
     this.email = this.route.snapshot.params['id'];
     this.erreur = ''
     this.mail = ''
+    this.change = false
     this.maVariable = this.auth.getVariable();
     if(this.email)
       {
@@ -61,6 +63,7 @@ export class CodeEmailComponent
           if(response.body != "l'utilisateur n'existe pas ")
             {
               this.auth.setVariable(obj);
+              this.change = true
               this.mail = 'Le mail contenant le lien a été envoyé'
             }
           if(response.body === "l'utilisateur n'existe pas ")
