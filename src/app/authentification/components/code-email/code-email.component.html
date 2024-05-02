@@ -1,14 +1,14 @@
 <section class=" container d-flex justify-content-center" style="margin-top: 40px; margin-bottom: 20px;" >
     <ng-container *ngIf="email">
       <div class="row">
-        <p class="text-black fw-bold fs-3 text-center">{{erreur}} </p> <br><br>
+        <p class="text-black fw-bold fs-5 text-center">{{erreur}} </p> <br><br>
         <div class="col-12 col-md-12 text-center ">
           <p *ngIf="change===false" class="mx-5 fw-bold fs-5 text-center" >
             Un lien de réinitialisation sera envoyé à l'adresse <span style="color: blue;" >{{email}} </span> <br> <br>
-            <button type="button" (click)="onSubmit()" class="btn btn-primary">Envoyer le lien </button>
+            <button type="button" (click)="onSubmit()" class="btn btn-danger rouge fw-bold btn_connexion">Envoyer le lien </button>
           </p> <br>
           <p *ngIf="change===true" class="mx-5 fw-bold fs-5 text-center" >
-           <span class="fw-bold fs-2 text-center" style="color: rgba(18, 131, 235, 0.8);" > Le mail contenant le lien a été envoyé</span> 
+           <span class="fw-bold fs-5 text-center" style="color: rgba(18, 131, 235, 0.8);" > Le mail contenant le lien a été envoyé</span> 
           </p> <br>
         </div>       
       </div>

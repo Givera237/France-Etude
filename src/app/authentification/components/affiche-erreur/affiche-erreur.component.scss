@@ -1,6 +1,6 @@
 .rouge
 {
-    color: red !important;
+    color: white !important;
 
     &:hover 
     {
@@ -8,8 +8,11 @@
     }
 }
 
-.bouton_blanc:hover
+.btn_connexion
 {
-  background-color: white !important;
-  color : red !important;
+    background-color: red;
+    &:hover 
+    {
+        background-color:white !important ;
+    }
 }
