@@ -11,7 +11,8 @@ em
 
 .fond
 {
-    background-color: rgba(18, 131, 235, 0.2);
+   // background-color: rgba(18, 131, 235, 0.2);
+   background-color: white; 
     margin: auto;
     margin-bottom: 35px;
     padding: 10px;
@@ -57,6 +58,7 @@ em
 .input-container input 
 {   
     padding-right: 40px; /* Ajustez la valeur pour laisser de l'espace pour le bouton */
+    height: 55px;
 }
 
 .input-container button 
@@ -69,4 +71,8 @@ em
     border: none;
     background-color: transparent;
     cursor: pointer;
+}
+.lien
+{
+    color : red
 }

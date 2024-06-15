@@ -1,4 +1,5 @@
-<h3 class="fw-bold text-center my-4 " style="color:#1283EB;;" > Inscrivez-vous afin de bénéficier de toutes nos formations gratuites  <br></h3>
+ 
+<!--
 <div class="container">
     <div class="fond" style="margin-top: 50px;">
         <div class="row d-flex justify-content-center ">
@@ -17,7 +18,7 @@
                         <i class="fa"  [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
                       </button>
                     </div>
-                    <div *ngIf="usernameControl.hasError('pattern')"> <span class="text-black" >Le mot de passe doit contenir au-moins 8 caractères, une majuscule et des caractères spéciaux tel que . , ! ? # @ _</span></div>
+                    <div *ngIf="usernameControl.hasError('pattern')"> <span class="text-black" style="color: red;" >Le mot de passe doit contenir au-moins 8 caractères, une majuscule et des caractères spéciaux tel que . , ! ? # @ _</span></div>
                     <div class="d-flex justify-content-center">
                       <button type="submit" data-bs-toggle="modal" data-bs-target="#cookie" [disabled]="inscriptionForm.invalid" class="btn btn-danger bouton_blanc mt-3 mb-3 "  style=" background-color: #F31111; "><strong> Suivant</strong> </button> <br> 
                     </div>
@@ -30,7 +31,45 @@
             </div>
         </div>
     </div>
-  
+  -->
+  <div class="bg-image img-fluid" style="width: 100%; height: 100vh; background-image: url('/assets/avion qui décolle.jpg'); background-size: 100% 100% ; background-attachment: fixed;  background-repeat :no-repeat; ">
+    <br><br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-9 col-md-9 col-lg-5 offset-0 offset-sm-1 offset-md-3 p-4 d-flex justify-content-center">
+                <form [formGroup]="inscriptionForm" class="row g-3 cont" style="margin-top: 80px;">
+                   <p class="text-center">
+                    <img src="/assets/France-Etude rond 1.png" alt="" class="heartbeat" style="width: 100px;">
+                   </p>
+                   <p class="text-center fs-5 fw-bold" style="color: red;" >
+                   Inscrivez-vous
+                   </p>
+                   <p class="text-center">
+                    Créez votre profil FranceÉtudes et rejoignez l'aventure. 
+                   </p>
+                   <input type="text" autocomplete="off" class="form-control mt-1 mb-3 p-1" formControlName="pseudo" id="pseudo" placeholder="Votre Pseudo ">
+                   <input type="email" autocomplete="off" class="form-control mt-1 mb-3 p-1" formControlName="email" id="email" placeholder="Votre Email "> 
+                   <div class="input-container"> <br>
+                    <input type="{{ passwordVisible ? 'text' : 'password' }}" autocomplete="off" class="form-control mt-1 mb-3 p-1" formControlName="password" id="password" placeholder="Votre mot de passe ">                                                        
+                    <button type="button" style="width: 40px;" (click)="togglePasswordVisibility()">
+                      <i class="fa"  [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+                    </button>
+                  </div>
+                  <div *ngIf="usernameControl.hasError('pattern')"> <span class="" style="color: red;" >Le mot de passe doit contenir au-moins 8 caractères, une majuscule et des caractères spéciaux tel que . , ! ? # @ _</span></div>
+                    <p class="text-center" >
+                      <button type="submit" (click)="onSubmit()" [disabled]="inscriptionForm.invalid" class="btn btn-primary mt-3 mb-1 text-black btn_connexion"><STRong>Inscription </STRong></button>
+                    </p>
+                   <div class="text-center">
+                        <span class="text-black">
+                            Déjà un compte, <a href="authentification/connexion" class="lien fw-bold ">Connectez-vous</a> 
+                        </span>
+                   </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br>
+</div>
   <!-- Modal -->
   <div class="modal fade" id="cookie" tabindex="-1" aria-labelledby="cookies" aria-hidden="true"  style="margin-top: 80px;" >
     <div class="modal-dialog">
@@ -55,4 +94,3 @@
     </div>
   </div>
   
-</div>

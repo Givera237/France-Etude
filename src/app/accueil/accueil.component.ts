@@ -60,5 +60,6 @@ export class AccueilComponent
     const route = "https://franceétudes.com:3000/api/envoie_mail_confirmation"
  
     this.authentification.verification_email(obj, code, this.erreur )
+    //display-4 text-center roboto-bold fw-bold text-white 
   }
 }

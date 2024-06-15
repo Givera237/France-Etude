@@ -1,13 +1,22 @@
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almendra&family=Inknut+Antiqua:wght@300&family=Jacques+Francois+Shadow&family=Kavoon&family=Kelly+Slab&family=Montserrat:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+
 <div  *ngIf="existe(connexion); else existe_pas">
   <div *ngIf="connexion === 'true'; else non_connecte"> 
     <section class="fond mt-10 mb-10 ">
         <div class="container p-5">
             <div data-aos="zoom-in"  data-aos-duration="3000" class="row">
                 <div class="col-12 col-md-3 text-center">               
-                  <p class="fw-bold display-6 " style="margin-top: 20px; color:#1283EB;; ">Découvrez <br> nos <br> formations <br></p>
+                  <p class="fw-bold display-6 " style="margin-top: 20px; color:orange; ">Découvrez <br> nos <br> formations <br></p>
                 </div>
                 <div class="col-12 col-md-5 offset-md-3">
-                    <p class="texte fs-5" style="margin-top: 40px;">
+                    <p class="fs-6 que_faisons_nous text-black" style="margin-top: 40px;">
                       Explorez une série de vidéos informatives et de documents couvrant chaque aspect de votre 
                       voyage en France, y compris les procédures de Campus France, la recherche de logement, 
                       la demande de visa et l'obtention de votre premier emploi étudiant en France.
@@ -35,7 +44,7 @@
                       </div>
                 </div>
             </div>
-            <p class="text-end texte_coaching fs-5">   
+            <p class="fs-6 que_faisons_nous text-end text-black">   
               Pour un éventail de formations plus large, des formations plus ciblées, consultez nos formations payantes
               <a href="formation/payante">
                   <button type="button" class="jello-horizontal btn btn-danger btn-lg btn_coaching" style="background-color: #F31111;">Formations</button>
@@ -90,7 +99,7 @@
         <div class="container ">
           <div class="row">
             <div class="col-10 col-md-3 offset-1 offset-md-2 p-2 d-flex justify-content-center"> 
-              <p class="fw-bold fs-4 text-center text-black"> <br> Veuillez-vous connecter afin de consulter toutes nos formations gratuites</p>
+              <p class="fs-6 que_faisons_nous text-black"> <br> Veuillez-vous connecter afin de consulter toutes nos formations gratuites</p>
           </div>  
           <div class="col-10 col-md-4 offset-1 offset-md-1 d-flex justify-content-center" >
               <br>
