@@ -44,6 +44,13 @@ i
     transform: translate(10px, 10px); // Déplacez l'image de 10 pixels vers la droite et le bas
   }
 }
+.que_faisons_nous
+{
+  font-family: "Libre Baskerville", serif;
+  //font-weight: 500;
+  font-size: large;
+  font-style: normal;
+}
 
 .text-focus-in{-webkit-animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both;animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both}
  @-webkit-keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}
