@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="mt-5 text-center">               
+            <p class="text-center texte couleur_titre display-4 fw-bold" style="color: orange;" >Vos demandes de réservations :  </p>
+        </div>
+        <mat-card class="scrollable-card">
+            <div class="scrollable-content">
+                <section class="container" style="margin-top: 30px ;">
+                    <table class="table" >
+                        <thead >
+                        <tr>
+                            <th scope="col">N°</th>
+                            <th scope="col">Réservation</th>
+                            <th scope="col">Prix</th>
+                            <th scope="col">durée</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Heure</th>
+                            <th scope="col">Accepter</th>
+                            <th scope="col">Refuser</th>
+                            <th scope="col">Annuler</th>
+                        </tr>
+                        </thead>
+                        <tbody *ngFor="let rdv of liste, let i=index ">
+                        <tr>
+                            <td>{{i+1}} </td>
+                            <td class="fw-bold" >{{rdv.nom}}</td>
+                            <td >10</td>
+                            <td >{{rdv.duree}} min</td>
+                            <td >{{rdv.date_debut | date: 'd MMMM yyyy'}}</td>
+                            <td >{{rdv.date_debut | date: 'HH:mm'}}</td>
+                            <td style="cursor: pointer;"> <span (click)="accepter(rdv.id_rendez_vous)" class="material-icons" style="color: greenyellow;" > check_circle</span></td>
+                            <td style="cursor: pointer;"><span (click)="refuser(rdv.id_rendez_vous)" class="material-icons" style="color: red;" >unpublished</span></td>
+                            <td style="cursor: pointer;"><span (click)="annuler(rdv.id_rendez_vous)" class="material-icons" style="color: yellow;">cancel </span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </mat-card>
+    </div>
+</div>
+

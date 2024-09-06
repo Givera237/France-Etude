@@ -1,0 +1,186 @@
+@import '~ngx-bootstrap/datepicker/bs-datepicker.css';
+
+iframe
+{
+    width: 100%;
+    height: 350px;
+}
+h3
+{
+    font-family:  'Kelly Slab';
+}
+.citation
+{
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.auteur
+{
+    font-family: 'Kavoon';
+}
+
+.couleur_titre
+{
+    color: #1283EB;
+}
+.texte
+{
+      font-family: "Libre Baskerville", serif;
+      font-weight: 400;
+      font-style: normal;
+}
+.texte_coaching
+{
+    font-family: 'Almendra', serif;
+}
+.btn_coaching
+{
+    background-color: #F12020;
+    width: 150px;
+    height: 85px;
+}
+.que_faisons_nous
+{
+  font-family: "Libre Baskerville", serif;
+  font-weight: 500;
+  font-size: large;
+  font-style: normal;
+}
+.rouge:hover 
+{
+  background-color: red !important;
+}
+.color 
+{
+  background-color: red !important;
+}
+.form-container {
+  overflow: auto;
+  max-height: 500px; /* Définir une hauteur maximale si nécessaire */
+}
+input 
+{
+  border-radius: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.select 
+{
+  border-radius: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.jello-horizontal:hover{-webkit-animation:jello-horizontal .9s both;animation:jello-horizontal .9s both}
+@-webkit-keyframes jello-horizontal{0%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}30%{-webkit-transform:scale3d(1.25,.75,1);transform:scale3d(1.25,.75,1)}40%{-webkit-transform:scale3d(.75,1.25,1);transform:scale3d(.75,1.25,1)}50%{-webkit-transform:scale3d(1.15,.85,1);transform:scale3d(1.15,.85,1)}65%{-webkit-transform:scale3d(.95,1.05,1);transform:scale3d(.95,1.05,1)}75%{-webkit-transform:scale3d(1.05,.95,1);transform:scale3d(1.05,.95,1)}100%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}}@keyframes jello-horizontal{0%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}30%{-webkit-transform:scale3d(1.25,.75,1);transform:scale3d(1.25,.75,1)}40%{-webkit-transform:scale3d(.75,1.25,1);transform:scale3d(.75,1.25,1)}50%{-webkit-transform:scale3d(1.15,.85,1);transform:scale3d(1.15,.85,1)}65%{-webkit-transform:scale3d(.95,1.05,1);transform:scale3d(.95,1.05,1)}75%{-webkit-transform:scale3d(1.05,.95,1);transform:scale3d(1.05,.95,1)}100%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}}
+
+.roboto-thin {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  .roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .roboto-medium {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .roboto-black {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  .roboto-thin-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+  }
+  
+  .roboto-light-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .roboto-regular-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .roboto-medium-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  .roboto-bold-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .roboto-black-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+  }
+
+::ng-deep .mat-calendar-header 
+{
+  background-color : red ;
+  color: white;
+}
+
+::ng-deep .mat-calendar-body 
+{
+  background-color : white ;
+}
+
+::ng-deep .mat-calendar-body.cell 
+{
+  color : red ;
+}
+
+::ng-deep .mat-calendar-date
+{
+  color : red ;
+  background-color: #F12020;
+}
+
+.selected-button 
+{
+  background-color: white !important;
+  border-color: red !important ;
+  color: red !important;
+}
+
+.disabled-date {
+  background-color: #f44336; /* Rouge pour les jours désactivés */
+  color: white;
+  }
+
+  .disabled-date {
+    background-color: red; /* Couleur de fond pour les dates désactivées */
+    color: blue; /* Couleur du texte pour les dates désactivées */
+    pointer-events: none; /* Empêche l'interaction */
+  }

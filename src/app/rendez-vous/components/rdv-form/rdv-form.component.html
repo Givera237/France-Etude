@@ -1,0 +1,215 @@
+<link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css"> 
+
+<div class="container" >
+    <div class="row">
+        <div class="mt-5 text-center">               
+            <p class="text-center texte couleur_titre display-4 fw-bold" style="color: orange;" >Envie de prendre Rendez-vous ? </p>
+        </div>
+        <div class="col-9 col-md-5 offset-1 offset-md-3 ">               
+            <p class="p-3 pt-3 text-black text-center text fs-6 que_faisons_nous"> 
+                <br>
+                <span class="fw-bold  ">Campus France </span>est un service public qui facilite 
+                l'accès des étudiants internationaux aux études en France. Il fournit des informations, aide à la 
+                constitution des dossiers de candidature et organise des entretiens, simplifiant ainsi les 
+                démarches administratives pour les étudiants étrangers.. <br><br>
+            </p>        
+        </div>
+    </div>
+    <div class="mt-5 text-center">               
+      <p class="text-center texte couleur_titre display-4 fw-bold mt-5" style="color: orange;" >Fixez un Rendez-vous : </p>
+    </div>
+    <div class="form-container">
+      <form class="container my-3" [formGroup]="rdvForm" style="background-color: aliceblue;">
+        <div class="row">
+          <h2 class="text-black text-center roboto-black fw-bold" > Entrez vos informations : </h2>
+          <div class="col-10 col-md-3 py-4">
+            <input type="text" autocomplete="off" formControlName="nom" id="nom" class="py-2 " placeholder="Votre pseudo" >
+          </div>
+          <div class="col-10 col-md-3 py-4">
+            <input type="email" autocomplete="off" formControlName="email" id="email" class="py-2 " placeholder="Votre adresse mail" >
+          </div>
+          <div class="col-10 col-md-3 py-4">
+            <input type="tel" autocomplete="off" class="py-2 " formControlName="telephone" id="telephone" placeholder="Votre numero de téléphone" >
+          </div>
+          <div class="col-10 col-md-3 py-2 ">
+            <mat-form-field  >
+              <mat-label>Objet du RDV</mat-label>
+              <mat-select formControlName="type" id="type" >
+                <mat-option class="select" *ngFor="let food of foods" [value]="food.value">
+                  {{food.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+      <div class="row d-flex justify-content-center mt-4 ">
+        <p class="texte text-center fw-bold fs-3 " >Nos tarifs : </p>
+        <div class="col-4">
+            <button class="btn shadow-lg rounded" > <span style="color: red;" >30 min : 50$ </span></button>
+        </div>
+        <div class="col-4 col-md-3 offset-0 offset-md-1  ">
+            <button class="btn shadow-lg rounded" > <span style="color: red;" >1 heure : 80$ </span></button>
+
+        </div>
+        <div class="col-4 col-md-2 offset-0 offset-md-2 ">
+            <button class="btn shadow-lg rounded" > <span style="color: red;" >1h30 min : 100$ </span></button>
+        </div>
+    </div> <br><br>
+    </div>
+    <div class="row mt-3">
+      <div class="col-12 col-md-6 text-center">
+        <mat-card class="demo-inline-calendar-card" style="margin-top: 100px;" >
+          <mat-calendar [dateFilter]="dateFilter" #releasedAtPicker color="accent" #calendar style="color: red;" [(selected)]="selected">
+            <mat-calendar-header style="background-color: red;"  ></mat-calendar-header>
+          </mat-calendar>
+        </mat-card>
+        <p class="text-black" >Selected date: {{selected}}</p>
+      </div>
+      <div class="col-12 col-md-3 offset-0 offset-md-2 mb-5 mt-5  " >
+        <p class="text-center mt-5 "> <br> <br><br>
+          <button class="btn shadow-lg rounded m-1 m-md-5 text-center time fw-bold" (click)="onButtonClick(1,30)" [class.selected-button]="selectedButtonId === 1"  style="background-color: red;" > <span class="text-time text-white " >30 min </span></button>
+          <button class="btn shadow-lg rounded m-1 m-md-5 text-center time fw-bold" (click)="onButtonClick(2, 60)" [class.selected-button]="selectedButtonId === 2" style="background-color: red;" > <span class="text-time" >1 heure </span></button> 
+          <button class="btn shadow-lg rounded m-1 m-md-5 text-center time fw-bold" (click)="onButtonClick(3, 90)" [class.selected-button]="selectedButtonId === 3" style="background-color: red;" > <span class="text-time" >1h30 min </span></button> 
+        </p>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center mt-5 ">
+      <p class="text-center">
+          <button type="button" (click)="creneauDispo()" class="btn btn-danger text-center rouge btn-lg btn_coaching text-black" style="background-color: white;"> <strong>Suivant</strong> </button>
+      </p>
+  </div>
+  <button (click)="listeReservation()" title="Valider les réservations" class="btn shadow-lg rounded" >
+    <span class="material-icons" style="font-size: 80px; color: red; " >
+      rule
+    </span>
+  </button>
+  <button (click)="entrerCreneau()" title="Mettre à jour mes horaires" class="btn shadow-lg rounded mx-5" >
+    <span class="material-icons" style="font-size: 80px; color: red; ">
+      update
+    </span>
+  </button>
+  <button (click)="mesRdv()" title="Consulter mes Rendez-vous" class="btn shadow-lg rounded mx-5" >
+    <span class="material-icons" style="font-size: 80px; color: red; ">
+      list
+      </span>
+  </button>
+</div>
+
+<form>
+  <label for="rdvType">Type de rendez-vous :</label>
+  <select id="rdvType" (change)="onTypeChange($event)">
+    <option value="">Sélectionnez un type</option>
+    <option *ngFor="let rdv of rendezVousTypes" [value]="rdv.type">
+      {{ rdv.type | titlecase }}
+    </option>
+  </select>
+
+  <div *ngIf="selectedTarif !== null">
+    <p>Tarif : {{ selectedTarif }} €</p>
+  </div>
+</form>
+<!--
+  <div class="row">
+  <div class="col-6 offset-2 ">
+    <mat-calendar
+    [dateClass]="dateClass"  style="margin-top: 100px;"></mat-calendar>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6 offset2">
+    <mat-calendar [dateClass]="dateClass" class="demo-inline-calendar-card" style="margin-top: 100px;" ></mat-calendar>
+  </div>
+</div>
+        <mat-datepicker #picker [opened]="true"></mat-datepicker>
+
+
+<form class="container my-3" style="background-color: aliceblue;" >
+  <div class="row">
+      <h2 class="text-black text-center roboto-black fw-bold" > Inscrivez-vous pour bénéficier de nos formations et conseils gratuits</h2>
+      <div class="col-10 col-md-3 py-4">
+          <input type="text" autocomplete="off" formControlName="pseudo" id="pseudo" class="py-2 " placeholder="Votre pseudo" >
+      </div>
+      <div class="col-10 col-md-3 py-4">
+          <input type="password" autocomplete="off" formControlName="password" id="password" class="py-2 " placeholder="Votre mot de passe" >
+      </div>
+      <div class="col-10 col-md-3 py-4">
+          <input type="text" autocomplete="off" formControlName="email" id="email" class="py-2" style="width: 300px;" placeholder="Votre email"  >
+      </div> 
+  </div>         
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="col-xs-12 col-12 col-md-4 col-lg-4 form-group mb-3">
+      <select
+        class="custom-select form-control from-select"
+        [(ngModel)]="colorTheme" (ngModelChange)="applyTheme(dp);">
+        <option value="theme-default">default</option>
+        <option value="theme-green">green</option>
+        <option value="theme-blue">blue</option>
+        <option value="theme-dark-blue">dark-blue</option>
+        <option value="theme-red">red</option>
+        <option value="theme-orange">orange</option>
+      </select>
+    </div>
+
+
+    <div class="col-xs-12 col-12 col-md-5 col-lg-5 mt-5 form-group mb-3" >
+      <div class="form-group mb-3">
+        <div class="input-group">
+          <input type="text" class="form-control bs-datepicker-container"  bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig">
+          <div class="input-group-btn bs-datepicker-container">
+            <button class="btn btn-success bs-datepicker-container"
+                    (click)="dp.show()"
+                    [attr.aria-expanded]="dp.isOpen"
+                    type="button">
+              Open
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <input class="" bsDatepicker [(ngModel)]="event" [bsConfig]="bsConfig" />
+
+
+
+      <div class="bg-image img-fluid rounded-5 opacity-100 mt-5 " style="width: 100%; height: 100vh; background-image: url('/assets/RDV_6.jpg'); background-size: 100% 100% ; background-attachment: fixed;  background-repeat :no-repeat; ">
+    <div class="container">
+      <div class="row">
+        <div class="col-9">
+          <mat-card class="demo-inline-calendar-card" style="margin-top: 100px; margin-left: 30px;  " >
+            <mat-calendar [(selected)]="selected"></mat-calendar>
+          </mat-card>
+          <p class="text-white" >Selected date: {{selected}}</p>    
+          <mat-datepicker #picker [opened]="true"></mat-datepicker>
+        </div>
+        <div class="col-3" style="margin-top: 200px; " >
+          <p><button class="btn shadow-lg rounded m-5 text-center " style="background-color: red;" > <span style="color: white;" >30 min </span></button> </p>
+          <p><button class="btn shadow-lg rounded m-5 text-center " style="background-color: red;" > <span style="color: white;" >1 heure </span></button> </p>
+          <p><button class="btn shadow-lg rounded m-5 text-center " style="background-color: red;" > <span style="color: white;" >1h30 min </span></button> </p>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+-->
