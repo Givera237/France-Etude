@@ -4,6 +4,8 @@ import { CampusFranceComponent } from './campus-france/campus-france.component';
 import { AProposComponent } from './a-propos/a-propos.component';
 import { PresentationRoutingModule } from './presentation-routing.module';
 import { VisaComponent } from './visa/visa.component';
+import {MatCardModule} from '@angular/material/card';
+
 
 
 
@@ -15,6 +17,7 @@ import { VisaComponent } from './visa/visa.component';
   ],
   imports: [
     CommonModule,
+    MatCardModule,
     PresentationRoutingModule
   ]
 })

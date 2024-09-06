@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-campus-france',
   templateUrl: './campus-france.component.html',
@@ -7,9 +8,8 @@ import { Component } from '@angular/core';
 })
 export class CampusFranceComponent 
 {
-
-  ngOnInit(): void
-  {
-    
-  }
+ 
 }
+
+
+
