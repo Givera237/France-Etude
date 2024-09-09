@@ -68,13 +68,15 @@ export class RdvFormComponent
         {
           date_debut: [null],
           duree: [null] ,
-          type: [null] ,
-          nom: [null] ,
-          email: [null] ,
-          telephone: [null] ,
+          type: [null,[Validators.required]] ,
+          nom: [null,[Validators.required]] ,
+          email: [null,[Validators.required]] ,
+          telephone: [null,[Validators.required]] ,
 
         }
       ) ;
+      this.rdvForm.value.date_debut = this.selected
+      this.rdvForm.value.duree = this.creneau
   }
 
   rendezVousTypes = 

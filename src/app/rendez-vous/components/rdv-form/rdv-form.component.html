@@ -43,59 +43,63 @@
           </div>
         </div>
       </form>
-      <div class="row d-flex justify-content-center mt-4 ">
-        <p class="texte text-center fw-bold fs-3 " >Nos tarifs : </p>
-        <div class="col-4">
-            <button class="btn shadow-lg rounded" > <span style="color: red;" >30 min : 50$ </span></button>
-        </div>
-        <div class="col-4 col-md-3 offset-0 offset-md-1  ">
-            <button class="btn shadow-lg rounded" > <span style="color: red;" >1 heure : 80$ </span></button>
-
-        </div>
-        <div class="col-4 col-md-2 offset-0 offset-md-2 ">
-            <button class="btn shadow-lg rounded" > <span style="color: red;" >1h30 min : 100$ </span></button>
-        </div>
-    </div> <br><br>
     </div>
-    <div class="row mt-3">
+</div>
+<div class="mt-3 bg-image img-fluid" style="width: 100%; height: 100vh; background-image: url('/assets/RDV.jpg'); background-size: 100% 100% ; background-attachment: fixed;  background-repeat :no-repeat; ">
+  <div class="container">
+    <div class="row d-flex justify-content-center mt-5 ">
+      <p class="texte text-center fw-bold fs-3 mt-4 mb-5" style="color: black;" > <span style="background-color: white;">Nos tarifs :</span> </p>
+      <div class="col-4">
+          <button class="btn shadow-lg rounded text_white" > <span style="color: red;" >30 min : 50$ </span></button>
+      </div>
+      <div class="col-4 col-md-3 offset-0 offset-md-1  ">
+          <button class="btn shadow-lg rounded text_white "> <span style="color: red;" >1 heure : 80$ </span></button>
+
+      </div>
+      <div class="col-4 col-md-2 offset-0 offset-md-2 ">
+          <button class="btn shadow-lg rounded text_white " > <span style="color: red;" >1h30 min : 100$ </span></button>
+      </div>
+  </div> <br>
+    <div class="row">
       <div class="col-12 col-md-6 text-center">
         <mat-card class="demo-inline-calendar-card" style="margin-top: 100px;" >
           <mat-calendar [dateFilter]="dateFilter" #releasedAtPicker color="accent" #calendar style="color: red;" [(selected)]="selected">
-            <mat-calendar-header style="background-color: red;"  ></mat-calendar-header>
+            <mat-calendar-header style="background-color: red;"></mat-calendar-header>
           </mat-calendar>
         </mat-card>
-        <p class="text-black" >Selected date: {{selected}}</p>
+        <!--<p class="text-white">Selected date: {{selected}} <br><br><br></p> -->
       </div>
       <div class="col-12 col-md-3 offset-0 offset-md-2 mb-5 mt-5  " >
         <p class="text-center mt-5 "> <br> <br><br>
-          <button class="btn shadow-lg rounded m-1 m-md-5 text-center time fw-bold" (click)="onButtonClick(1,30)" [class.selected-button]="selectedButtonId === 1"  style="background-color: red;" > <span class="text-time text-white " >30 min </span></button>
-          <button class="btn shadow-lg rounded m-1 m-md-5 text-center time fw-bold" (click)="onButtonClick(2, 60)" [class.selected-button]="selectedButtonId === 2" style="background-color: red;" > <span class="text-time" >1 heure </span></button> 
-          <button class="btn shadow-lg rounded m-1 m-md-5 text-center time fw-bold" (click)="onButtonClick(3, 90)" [class.selected-button]="selectedButtonId === 3" style="background-color: red;" > <span class="text-time" >1h30 min </span></button> 
+          <button class="btn shadow-lg rounded m-1 m-md-5 text-center text-white fw-bold" (click)="onButtonClick(1,30)" [class.selected-button]="selectedButtonId === 1" style="background-color: red;"> <span class="" >30 min </span></button>
+          <button class="btn shadow-lg rounded m-1 m-md-5 text-center text-white fw-bold" (click)="onButtonClick(2, 60)" [class.selected-button]="selectedButtonId === 2" style="background-color: red;" > <span class="text-time" >1 heure </span></button> 
+          <button class="btn shadow-lg rounded m-1 m-md-5 text-center text-white fw-bold" (click)="onButtonClick(3, 90)" [class.selected-button]="selectedButtonId === 3" style="background-color: red;" > <span class="text-time" >1h30 min </span></button> 
         </p>
       </div>
     </div>
-
-    <div class="row d-flex justify-content-center mt-5 ">
-      <p class="text-center">
-          <button type="button" (click)="creneauDispo()" class="btn btn-danger text-center rouge btn-lg btn_coaching text-black" style="background-color: white;"> <strong>Suivant</strong> </button>
-      </p>
-  </div>
-  <button (click)="listeReservation()" title="Valider les réservations" class="btn shadow-lg rounded" >
-    <span class="material-icons" style="font-size: 80px; color: red; " >
-      rule
-    </span>
-  </button>
-  <button (click)="entrerCreneau()" title="Mettre à jour mes horaires" class="btn shadow-lg rounded mx-5" >
-    <span class="material-icons" style="font-size: 80px; color: red; ">
-      update
-    </span>
-  </button>
-  <button (click)="mesRdv()" title="Consulter mes Rendez-vous" class="btn shadow-lg rounded mx-5" >
-    <span class="material-icons" style="font-size: 80px; color: red; ">
-      list
-      </span>
-  </button>
+  </div> 
 </div>
+
+<div class="row d-flex justify-content-center mt-5 ">
+  <p class="text-center">
+      <button type="button" (click)="creneauDispo()" [disabled]="rdvForm.invalid" class="btn btn-danger text-center rouge btn-lg btn_coaching text-black" style="background-color: white;"> <strong>Suivant</strong> </button>
+  </p>
+</div>
+<button (click)="listeReservation()" title="Valider les réservations" class="btn shadow-lg rounded" >
+<span class="material-icons" style="font-size: 80px; color: red; " >
+  rule
+</span>
+</button>
+<button (click)="entrerCreneau()" title="Mettre à jour mes horaires" class="btn shadow-lg rounded mx-5" >
+<span class="material-icons" style="font-size: 80px; color: red; ">
+  update
+</span>
+</button>
+<button (click)="mesRdv()" title="Consulter mes Rendez-vous" class="btn shadow-lg rounded mx-5" >
+<span class="material-icons" style="font-size: 80px; color: red; ">
+  list
+  </span>
+</button>
 
 <form>
   <label for="rdvType">Type de rendez-vous :</label>

@@ -14,7 +14,12 @@ h3
     font-style: italic;
     font-family: Arial, Helvetica, sans-serif;
 }
-
+.selected-button 
+{
+  background-color: white !important;
+  border-color: red !important ;
+  color: red !important;
+}
 .auteur
 {
     font-family: 'Kavoon';
@@ -167,13 +172,6 @@ input
   background-color: #F12020;
 }
 
-.selected-button 
-{
-  background-color: white !important;
-  border-color: red !important ;
-  color: red !important;
-}
-
 .disabled-date {
   background-color: #f44336; /* Rouge pour les jours désactivés */
   color: white;
@@ -184,3 +182,8 @@ input
     color: blue; /* Couleur du texte pour les dates désactivées */
     pointer-events: none; /* Empêche l'interaction */
   }
+  .text_white
+{
+    color: red !important;
+    background-color: white !important;
+}
