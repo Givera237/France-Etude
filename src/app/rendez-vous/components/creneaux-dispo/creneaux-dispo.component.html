@@ -3,14 +3,11 @@
         <div class="mt-5 text-center">               
             <p class="text-center texte couleur_titre display-4 fw-bold" style="color: orange;" >Vous y êtes presque :  </p>
         </div>
-        <div class="col-9 col-md-5 offset-1 offset-md-3 ">               
-            <p class="p-3 pt-3 text-black text-center text fs-6 que_faisons_nous"> 
-                <br>
-                <span class="fw-bold  ">Campus France </span>est un service public qui facilite 
-                l'accès des étudiants internationaux aux études en France. Il fournit des informations, aide à la 
-                constitution des dossiers de candidature et organise des entretiens, simplifiant ainsi les 
-                démarches administratives pour les étudiants étrangers.. <br><br>
-            </p>        
+        <div class="col-9 col-md-5 offset-1 offset-md-3 ">                  
+            <p class="p-3 pt-3 text-black text-center text fs-6 que_faisons_nous">
+              Choisissez votre créneau horaire et validez votre demande. Nous vous tiendrons informé par mail de l’avancement.
+               Finalisez cette étape et augmentez vos chances de succès !
+            </p>    
             <p class="texte text-center fw-bold fs-3 " >Choissisez un créneau horaire  : </p>
         </div>
         <mat-card class="scrollable-card">
@@ -19,7 +16,7 @@
                     <mat-list-option *ngFor="let creneau of liste_creneau" [value]="creneau">
                       <button class="btn shadow-lg rounded" > <span style="color: black;" >{{creneau.heure_debut}} ---> {{creneau.heure_fin}} </span></button>
                     </mat-list-option>
-                  </mat-selection-list>
+                </mat-selection-list>
             </div>
         </mat-card>
         <p class="fs-4" > <br><br>

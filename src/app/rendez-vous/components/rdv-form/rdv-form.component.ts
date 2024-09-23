@@ -22,12 +22,19 @@ interface Food {
 export class RdvFormComponent 
 {
   selected!: Date | null ;
+  selectedOption: string = 'case1'; // Valeur par défaut
+  admin!: string;
   isClicked: boolean = false;
   azerty!: any
   creneau!: any
+  prix!: number
   liste_creneau!: ListeCreneaux[]
   rdvForm !: FormGroup;
   selectedButtonId: number = 0; // Par défaut, le premier bouton est sélectionné
+  selectedType: string | null = null;
+  selectedTarif: number | null = null;
+  selectedTarif1: number | null = null;
+  selectedTarif2: number | null = null;
   blockedDates: Date[] = 
   [
     new Date('2024-08-06'),
@@ -45,18 +52,10 @@ export class RdvFormComponent
     private rdv : RendezVousService,
    ){}
 
-
-   foods: Food[] = 
-   [
-    {value: 'Visa', viewValue: 'Visa'},
-    {value: 'Campus France', viewValue: 'Campus France'},
-    {value: 'Financement', viewValue: 'Financement'},
-   ];
-
-
   ngOnInit()
   {
-        this.http.get<any[]>('http://localhost:3000/api/liste/rendez_vous_effectif').subscribe(reponse  => 
+      this.admin = this.cookieService.getCookie('status');
+      this.http.get<any[]>('http://localhost:3000/api/liste/rendez_vous_effectif').subscribe(reponse  => 
       {
         this.azerty = reponse;
         console.log(this.azerty)
@@ -72,6 +71,7 @@ export class RdvFormComponent
           nom: [null,[Validators.required]] ,
           email: [null,[Validators.required]] ,
           telephone: [null,[Validators.required]] ,
+          prix: [null] ,
 
         }
       ) ;
@@ -81,20 +81,24 @@ export class RdvFormComponent
 
   rendezVousTypes = 
   [
-    { type: 'visa', tarif: 50, duree: [{'30min' : 30},{'1 heure' : 60},{'1h30min' : 90}, ]  },
-    { type: 'financement', tarif: 100 },
-    { type: 'entretien', tarif: 75 }
+    { type: 'Visa', tarif: 69,tarif2: 99,tarif3: 149,  },
+    { type: 'Accompagnement Campus France', tarif: 249,tarif2: 499,tarif3: null,  },
+    { type: 'Entretien Campus France', tarif: 29, tarif2: 49,tarif3: null, },
+    { type: 'Recherche de logement', tarif: 299, tarif2: null,tarif3: null, },
+    { type: 'Alternance', tarif: 75, tarif2: 60,tarif3: 450, },
+    { type: 'Recheche de Job étudiant', tarif: 149, tarif2: null,tarif3: null, },
+    { type: 'Suivi complet', tarif: 500,tarif2: null,tarif3: null,},
   ];
-
-  selectedType: string = '';
-  selectedTarif: number | null = null;
 
   // Méthode pour mettre à jour le tarif en fonction du type sélectionné
   onTypeChange(event: Event) 
   {
     const selectElement = event.target as HTMLSelectElement;
     const selected = this.rendezVousTypes.find(rdv => rdv.type === selectElement.value);
+    this.selectedType = selected ? selected.type : null;
     this.selectedTarif = selected ? selected.tarif : null;
+    this.selectedTarif1 = selected ? selected.tarif2 : null;
+    this.selectedTarif2 = selected ? selected.tarif3 : null;
   }
 
 dateFilter = (date: Date): boolean => 
@@ -112,10 +116,11 @@ dateFilter = (date: Date): boolean =>
     // Retourne false si c'est un dimanche ou une date bloquée
     return !isSunday && !isBlockedDate;
   }
-  onButtonClick(buttonId: number, valeur : number ) 
+  onButtonClick(buttonId: number, valeur : number, prix : number ) 
   {
     this.selectedButtonId = buttonId;
     this.creneau = valeur
+    this.prix = prix
   }
 
   creneauDispo()

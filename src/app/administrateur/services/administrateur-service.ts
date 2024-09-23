@@ -3,6 +3,8 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieServices } from 'src/app/cookie.service';
 import { FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { Utilisateur } from 'src/app/authentification/models/utilisateurs';
 
 
 
@@ -12,9 +14,13 @@ import { FormGroup } from '@angular/forms';
 
   export class AdministrateurServices
   {
-    constructor(
+    titre: string[] =   ['hello', 'yo']
+
+    constructor
+    (
       private http : HttpClient,
-        private router : Router ){} 
+      private router : Router 
+    ){} 
 
 
     abonnement(obj : FormGroup["value"] )
@@ -292,6 +298,31 @@ import { FormGroup } from '@angular/forms';
           console.error(error); // Afficher l'erreur à l'utilisateur
         }
       )
+    }
+
+
+    recherchePseudo(obj : FormGroup["value"])
+    {
+      this.http.get<string[]>('http://localhost:3000/api/liste/titre_repertoire').subscribe
+      (reponse  => 
+        {
+          this.titre = reponse;
+          console.log( 'blabla', this.titre)    
+        }
+      );
+      return this.titre ;   
+    }
+
+    listePseudo(): Observable<string[]>
+    {
+       return this.http.get<string[]>('http://localhost:3000/api/liste/adresse_mail')
+    }
+
+    private apiUrl = 'http://localhost:3000/api/liste/adresse_mail'; // Remplacez par votre URL d'API
+
+    getNoms(): Observable<string[]> 
+    {
+      return this.http.get<string[]>(this.apiUrl);
     }
   }
   

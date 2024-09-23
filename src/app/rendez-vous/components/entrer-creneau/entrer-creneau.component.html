@@ -1,27 +1,39 @@
 <div class="container">
     <div class="row">
         <div class="mt-5 text-center">               
-            <p class="text-center texte couleur_titre display-4 fw-bold" style="color: orange;" >Entrer les créneaux horaires : </p>
+            <p class="text-center texte couleur_titre display-4 fw-bold" style="color: orange;" >Entrez les créneaux horaires : </p>
         </div>
     </div>
-    <div class="row mt-5">
+    <form [formGroup]="creneauForm" class="row mt-5">
         <div class="col-6">
-            <mat-form-field class="example-full-width">
-                <mat-label>Choose a date</mat-label>
-                <input matInput [matDatepicker]="picker">
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker touchUi #picker></mat-datepicker>
-              </mat-form-field>
+              <div>
+                <label for="time">Sélectionnez une heure de début :</label>
+                <input 
+                  type="time" 
+                  formControlName="heure_debut"
+                  class="form-control"
+                  id="time" 
+                />
+              </div>
+              <p>Heure sélectionnée : {{this.creneauForm.value.heure_debut}} </p>
         </div>
         <div class="col-6">
-            <mat-form-field class="example-full-width">
-                <mat-label>Choose a date</mat-label>
-                <input matInput [matDatepicker]="picker">
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker touchUi #picker></mat-datepicker>
-              </mat-form-field>
+              <div>
+                <label for="time">Sélectionnez une heure de fin :</label>
+                <input 
+                  type="time" 
+                  formControlName="heure_fin"
+                  class="form-control"
+                  id="time" 
+                />
+              </div>
+              <p>Heure sélectionnée : {{this.creneauForm.value.heure_fin}} </p>
         </div>
+      </form>
+    <div class="row d-flex justify-content-center mt-5 ">
+      <p class="text-center">
+          <button type="button" (click)="onSubmit()" [disabled]="creneauForm.invalid" class="btn btn-danger text-center rouge btn-lg btn_coaching text-black" style="background-color: white;"> <strong>Suivant</strong> </button>
+      </p>
     </div>
 </div>
+

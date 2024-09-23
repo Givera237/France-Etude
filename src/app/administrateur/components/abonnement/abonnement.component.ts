@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Utilisateur } from 'src/app/authentification/models/utilisateurs';
 import { Repertoire } from 'src/app/formation/models/repertoire';
 import { AdministrateurServices } from '../../services/administrateur-service';
 
@@ -14,14 +13,11 @@ import { AdministrateurServices } from '../../services/administrateur-service';
 })
 export class AbonnementComponent 
 {
-  essai = new FormData();
-  adresse_visiteur!: string
-  utilisateur!: Utilisateur[]
-  repertoire!: Repertoire[]
   titre!: string[]
-  titre_repertoire!: string
-
   mailForm!: FormGroup;
+  rechercheForm!: FormGroup
+  noms: string[] = [];
+  recherches: string = '';
 
   constructor
   (
@@ -41,24 +37,51 @@ export class AbonnementComponent
         }
       ) ;
 
-    const id_formation = this.route.snapshot.params['id'];
-    this.http.get<string[]>('https://franceétudes.com:3000/api/liste/titre_repertoire').subscribe(reponse  => 
+      this.rechercheForm = this.formbuilder.group
+      (
+        {
+          pseudo: [null],
+        }
+      ) ;
+
+    const id_formation = this.route.snapshot.params['id']; // http://localhost:3000/api/ https://franceétudes.com:3000/
+    this.http.get<string[]>('http://localhost:3000/api/liste/titre_repertoire').subscribe(reponse  => 
       {
         this.titre = reponse;
       }
       );
-      this.http.get<Utilisateur[]>('https://franceétudes.com:3000/api/liste/adresse_mail').subscribe(reponse  => 
+
+    this.admin.getNoms().subscribe(
+      (data: string[]) =>
       {
-        this.utilisateur = reponse;
+        this.noms = data; // Assurez-vous que les données sont un tableau de chaînes
+      },
+      (error) => 
+      {
+        console.error('Erreur lors de la récupération des noms:', error);
       }
-      );
+    );
+
   } 
-  
-  Submit()
+
+
+  get nomsFiltres(): string[] 
   {
-    const obj = this.mailForm.value;
-    this.admin.abonnement(obj)
+    return this.noms.filter(nom => 
+      nom.toLowerCase().includes(this.recherches.toLowerCase())
+    );
+  }
+  
+  recherche()
+  {
+    const obj = this.rechercheForm.value;
+    this.admin.recherchePseudo(obj)
   }
 
- 
+  Submit(nom : string)
+  {
+    this.mailForm.value.adresse_visiteur = nom
+    const obj = this.mailForm.value;
+   this.admin.abonnement(obj)
+  }
 }

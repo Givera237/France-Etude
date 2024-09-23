@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="mt-5 text-center">               
+            <p class="text-center texte couleur_titre display-4 fw-bold" style="color: orange;" >Jours indisponibles :  </p>
+        </div>
+        <mat-card class="scrollable-card">
+            <div class="scrollable-content">
+                <section class="container" style="margin-top: 30px ;">
+                    <table class="table" >
+                        <thead >
+                        <tr>
+                            <th scope="col">N°</th>
+                            <th scope="col">jour</th>
+                            <th scope="col">Supprimer</th>
+                        </tr>
+                        </thead>
+                        <tbody *ngFor="let jour of liste, let i=index ">
+                        <tr>
+                            <td>{{i+1}} </td>
+                            <td class="fw-bold" >{{jour.date}}</td>
+                            <td style="cursor: pointer;"> <span (click)="supprimer(jour.id)" class="material-icons" style="color: greenyellow;" > check_circle</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </mat-card>
+    </div>
+</div>
+<div>
+    <button (click)="ajouter()" title="Valider les réservations" class="btn shadow-lg rounded" >
+      <span class="material-icons" style="font-size: 80px; color: red; " >
+        rule
+      </span>
+    </button>
+  </div>
+

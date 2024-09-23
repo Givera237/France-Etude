@@ -30,7 +30,6 @@ export class CreneauxDispoComponent
     this.liste_creneau = this.rdv.getListeCreneau()
     this.rdvForm = this.rdv.getRdv()
     this.originalDate = this.rdv.getDateDebut()
-    console.log('hello ',this.originalDate)
    }
 
    envoi(heure_debut : string)

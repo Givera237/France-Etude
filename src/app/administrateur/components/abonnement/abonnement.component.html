@@ -1,48 +1,49 @@
 <section  style="margin-top: 95px;">
     <div class="container">
       <h3 class="fw-bold text-center" > <br> Vous procedez à un abonnement <br></h3> <br>
-      <div class="row"> 
-        <div class="col-1"></div>
-        <div class="col-7 offset-1">
-          <form [formGroup]="mailForm">
-            <div class="mb-3">
-                <label for="titre_repertoire" class="form-label">Titre</label>
-                <select formControlName="titre_repertoire" id="titre_repertoire" class="mx-3">
-                  <option> </option>
-                  <option *ngFor="let option of titre">{{ option }}</option>
-                </select> 
-              </div>
-            <div class="mb-3">
-              <label for="adresse_visiteur" class="form-label">Pseudo</label> 
-              <select formControlName="adresse_visiteur" id="adresse_visiteur" class="mx-3">
-                <option> </option>
-                <option *ngFor="let option of utilisateur">{{ option }}</option>
-              </select>     
-            </div>
-            <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
-              <button type="submit" (click)="Submit()" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Abonner</button>
-            </div>
-          </form>
+        <div class="form-container d-flex justify-content-center" style="background-color: aliceblue;">
+          <div class="col-10 mx-0 mx-md-2 mx-lg-0 col-md-3 py-4">
+            <input class="form-control me-2" type="search"  
+            [(ngModel)]="recherches" 
+            placeholder="Rechercher" aria-label="Search">
+          </div>
         </div>
-     </div>
+        <mat-card class="scrollable-card">
+          <div class="scrollable-content">
+              <section class="container" style="margin-top: 30px ;">
+                  <table class="table" >
+                      <thead >
+                      <tr>
+                          <th scope="col">N°</th>
+                          <th scope="col">Pseudo</th>
+                          <th scope="col">Formation</th>
+                          <th scope="col">Abonner</th>
+                      </tr>
+                      </thead>
+                      <tbody *ngFor="let nom of nomsFiltres , let i=index ">
+                      <tr [formGroup]="mailForm">
+                          <td>{{i+1}} </td>
+                          <td class="fw-bold" > {{nom}} </td>
+                          <td class="fw-bold"> 
+                            <select formControlName="titre_repertoire" id="titre_repertoire" class="mx-3">
+                            <option> </option>
+                            <option *ngFor="let option of titre">{{ option }}</option>
+                            </select>    
+                         </td>
+                         <td style="cursor: pointer;">         
+                            <button type="submit" (click)="Submit(nom)" class="btn btn-primary fw-bold text-black btn_connexion">Abonner</button>
+                         </td>
+                        </tr>
+                      </tbody>
+                  </table>
+              </section>
+          </div>
+        </mat-card>
     </div>
-  
-  </section>
-  
+</section>
+
+
+
 
  
-  
-  <!--
-     <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Utilisateur</label>
-      <select [(ngModel)]="email" name="adresse_visiteur" class="mx-3">
-        <option *ngFor="let option of utilisateur">{{ option }}</option>
-      </select>           
-    </div>
-    <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Formation</label>
-      <select [(ngModel)]="formation" name="titre_repertoire" class="mx-3">
-        <option *ngFor="let option of titre">{{ option }}</option>
-      </select>          
-    </div>
-  -->
+

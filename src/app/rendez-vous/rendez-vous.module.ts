@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { RdvFormComponent } from './components/rdv-form/rdv-form.component';
 import { RendezVousRoutingModule } from './rendez-vous-routing.module';
@@ -16,6 +16,14 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { ListeRdvComponent } from './components/liste-rdv/liste-rdv.component';
+import { JoursIndisponiblesComponent } from './components/jours-indisponibles/jours-indisponibles.component';
+import { AjoutJourIndisponibleComponent } from './components/ajout-jour-indisponible/ajout-jour-indisponible.component';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+import { MatIconModule } from '@angular/material/icon'; // Importer MatIconModule
+
+
+registerLocaleData(localeFr); // Enregistre la locale française
 
 
 
@@ -29,6 +37,8 @@ import { ListeRdvComponent } from './components/liste-rdv/liste-rdv.component';
     ListeReservationComponent,
     EntrerCreneauComponent,
     ListeRdvComponent,
+    JoursIndisponiblesComponent,
+    AjoutJourIndisponibleComponent,
   ],
   imports: 
   [
@@ -38,6 +48,7 @@ import { ListeRdvComponent } from './components/liste-rdv/liste-rdv.component';
     ReactiveFormsModule,
     FormsModule,
     MatDatepickerModule,
+    MatIconModule,
     MatCardModule,
     MatNativeDateModule,
     MatListModule,
@@ -45,6 +56,8 @@ import { ListeRdvComponent } from './components/liste-rdv/liste-rdv.component';
     MatInputModule,
     MatSelectModule,
     BsDatepickerModule.forRoot()
-  ]
+  ],
+  providers: [{ provide: LOCALE_ID, useValue: 'fr' }],
+
 })
 export class RendezVousModule { }

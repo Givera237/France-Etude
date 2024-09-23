@@ -5,6 +5,8 @@ import { CreneauxDispoComponent } from "./components/creneaux-dispo/creneaux-dis
 import { ListeReservationComponent } from "./components/liste-reservation/liste-reservation.component";
 import { EntrerCreneauComponent } from "./components/entrer-creneau/entrer-creneau.component";
 import { ListeRdvComponent } from "./components/liste-rdv/liste-rdv.component";
+import { JoursIndisponiblesComponent } from "./components/jours-indisponibles/jours-indisponibles.component";
+import { AjoutJourIndisponibleComponent } from "./components/ajout-jour-indisponible/ajout-jour-indisponible.component";
 
 const routes : Routes =
 [
@@ -13,6 +15,8 @@ const routes : Routes =
     {path : 'liste', component : ListeReservationComponent},
     {path : 'entrer_creneau', component : EntrerCreneauComponent},
     {path : 'mes_rdv', component : ListeRdvComponent },
+    {path : 'liste_indisponible', component : JoursIndisponiblesComponent},
+    {path : 'ajout_jour_indispo', component : AjoutJourIndisponibleComponent}
 ]
 
 @NgModule

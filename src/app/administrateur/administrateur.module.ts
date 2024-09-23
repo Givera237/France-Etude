@@ -16,6 +16,12 @@ import { ListePdfComponent } from './components/liste-pdf/liste-pdf.component';
 import { ModifierRepertoireComponent } from './components/modifier-repertoire/modifier-repertoire.component';
 import { AjoutPdfGratuitComponent } from './components/ajout-pdf-gratuit/ajout-pdf-gratuit.component';
 import { AjoutVideoGratuiteComponent } from './components/ajout-video-gratuite/ajout-video-gratuite.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatListModule } from '@angular/material/list';
+
 
 
 
@@ -41,7 +47,13 @@ import { AjoutVideoGratuiteComponent } from './components/ajout-video-gratuite/a
     AdministrateurRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatAutocompleteModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatListModule
+
   ]
 })
 export class AdministrateurModule 
