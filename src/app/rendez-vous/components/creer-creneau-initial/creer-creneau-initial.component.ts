@@ -51,7 +51,7 @@ export class CreerCreneauInitialComponent
   onSubmit()
   {
     const obj = this.creneauForm.value;
-    this.http.put(`https://franceétudes.com:3000/api/creation/credo`, obj, { observe: 'response' }).subscribe
+    this.http.post(`https://franceétudes.com:3000/api/creation/credo`, obj, { observe: 'response' }).subscribe
     (
       (response: HttpResponse<any>) => 
       {
