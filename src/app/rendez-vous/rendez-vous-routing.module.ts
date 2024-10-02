@@ -7,6 +7,7 @@ import { EntrerCreneauComponent } from "./components/entrer-creneau/entrer-crene
 import { ListeRdvComponent } from "./components/liste-rdv/liste-rdv.component";
 import { JoursIndisponiblesComponent } from "./components/jours-indisponibles/jours-indisponibles.component";
 import { AjoutJourIndisponibleComponent } from "./components/ajout-jour-indisponible/ajout-jour-indisponible.component";
+import { CreerCreneauInitialComponent } from "./components/creer-creneau-initial/creer-creneau-initial.component";
 
 const routes : Routes =
 [
@@ -14,6 +15,7 @@ const routes : Routes =
     {path : 'creneau', component : CreneauxDispoComponent},
     {path : 'liste', component : ListeReservationComponent},
     {path : 'entrer_creneau', component : EntrerCreneauComponent},
+    {path : 'creer_creneau', component : CreerCreneauInitialComponent},
     {path : 'mes_rdv', component : ListeRdvComponent },
     {path : 'liste_indisponible', component : JoursIndisponiblesComponent},
     {path : 'ajout_jour_indispo', component : AjoutJourIndisponibleComponent}

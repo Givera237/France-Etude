@@ -20,7 +20,8 @@ import { JoursIndisponiblesComponent } from './components/jours-indisponibles/jo
 import { AjoutJourIndisponibleComponent } from './components/ajout-jour-indisponible/ajout-jour-indisponible.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
-import { MatIconModule } from '@angular/material/icon'; // Importer MatIconModule
+import { MatIconModule } from '@angular/material/icon';
+import { CreerCreneauInitialComponent } from './components/creer-creneau-initial/creer-creneau-initial.component'; // Importer MatIconModule
 
 registerLocaleData(localeFr); // Enregistre la locale française
 
@@ -38,6 +39,7 @@ registerLocaleData(localeFr); // Enregistre la locale française
     ListeRdvComponent,
     JoursIndisponiblesComponent,
     AjoutJourIndisponibleComponent,
+    CreerCreneauInitialComponent,
   ],
   imports: 
   [
