@@ -6,6 +6,7 @@ import { CookieServices } from 'src/app/cookie.service';
 import { ListeCreneaux } from '../models/liste-creneaux';
 import { Observable, map } from 'rxjs';
 import { ListeReservation } from '../models/liste-reservation';
+import { DateIndisponible } from '../models/date-indisponible';
 
 @Injectable({
   providedIn: 'root'
@@ -56,12 +57,37 @@ export class RendezVousService
 
     getRendezVous(): Observable<ListeReservation[]> 
     {
-      return this.http.get<ListeReservation[]>('http://localhost:3000/api/liste/rendez_vous_effectif').pipe(
+      return this.http.get<ListeReservation[]>('https://franceétudes.com:3000/api/liste/rendez_vous_effectif').pipe(
         map((data: any[]) => data.map(item => ({
           ...item,
           date_debut: new Date(item.date_debut) // Assurez-vous que la date est au format Date
         })))
       );
+    }
+
+    private apiUrl = 'https://franceétudes.com:3000/api/liste/jour_indisponible'; // Remplacez par votre URL d'API
+
+    getDateIndisponible(): Observable<DateIndisponible[]> 
+    {
+      return this.http.get<DateIndisponible[]>(this.apiUrl);
+    }
+    datesArray !: Date[]
+    blockedDate!: DateIndisponible[]
+    getJourIndisponible() : Date[]
+    {
+      this.http.get<DateIndisponible[]>('https://franceétudes.com:3000/api/liste/jour_indisponible').subscribe(reponse  => 
+        {
+          this.blockedDate = reponse
+           this.datesArray = this.blockedDate.map(item => new Date(item.date));
+          console.log('Je tenteb ma chance', this.datesArray);        }
+        );
+
+        return this.datesArray
+    }
+
+    getBlockedDates(): Observable<DateIndisponible[]> 
+    {
+      return this.http.get<DateIndisponible[]>(this.apiUrl);
     }
 
 }

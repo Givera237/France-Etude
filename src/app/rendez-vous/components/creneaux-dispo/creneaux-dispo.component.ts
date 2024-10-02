@@ -34,19 +34,17 @@ export class CreneauxDispoComponent
 
    envoi(heure_debut : string)
    {
-    const [hours, minutes] = this.parseTime(heure_debut);
+     const [hours, minutes] = this.parseTime(heure_debut);
      this.originalDate.setHours(hours);
      this.originalDate.setMinutes(minutes);
      this.rdvForm.date_debut = this.originalDate
-     console.log('formulaire final ', this.rdvForm)
      
-     this.http.post(`http://localhost:3000/api/creation/rendez_vous`, this.rdvForm, { observe: 'response' }).subscribe
+     this.http.post(`https://franceétudes.com:3000/api/creation/rendez_vous`, this.rdvForm, { observe: 'response' }).subscribe
      (
        (response: HttpResponse<any>) => 
        {
          if (response.status === 200) 
          {
-           console.log(response)
            this.router.navigateByUrl(`rdv/rdv_form`);
          }
          else 

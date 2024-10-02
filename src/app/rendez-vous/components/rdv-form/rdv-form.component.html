@@ -27,8 +27,13 @@
           <div class="col-10 mx-0 mx-md-2 mx-lg-0 col-md-3 py-4">
             <input type="email" autocomplete="off" formControlName="email" id="email" class="py-2 " placeholder="Votre adresse mail" >
           </div>
-          <div class="col-10 mx-0 mx-md-2 mx-lg-0 col-md-3 py-4">
-            <input type="tel" autocomplete="off" class="py-2 " formControlName="telephone" id="telephone" placeholder="Votre numero de téléphone" >
+          <div class="col-10 mx-0 mx-md-2 mx-lg-0 col-md-3 py-4 d-flex" [formGroup]="phoneForm" >
+            <select formControlName="selectedCode" class="py-2 select " id="country-code" style="width: 75px;">
+                <option *ngFor="let country of countryCodes" [value]="country.code">
+                  {{ country.flag }} {{ country.code }} - {{ country.country }}
+                </option>
+            </select>   
+            <input type="tel" autocomplete="off" class="py-2 " formControlName="phoneNumber" id="telephone" placeholder="Votre numero de téléphone">     
           </div>
           <div class="col-10 col-md-3 mx-0 mx-md-2 mx-lg-0 py-2 ">
             <label class="mb-2">Objet du RDV</label>
@@ -93,19 +98,28 @@
             <button class="btn shadow-lg rounded text_white fw-bold "> <span style="color: red;" >Service premium : {{ selectedTarif1 }} € </span></button>
           </div>
         </div>
-        <!--Calendrier-->
+        <div class="row">
+          <!--Calendrier-->
         <p class="fs-5 text-center mt-5 fw-bold" style="background-color: aliceblue; color: black;" >
           Accompagnement pour préparer un dossier solide, élaborer un CV percutant et une lettre de motivation convaincante, choisir les formations adéquates,
            se préparer efficacement à l'entretien, etc.
         </p>
-        <div class="col-12 col-md-6 offset-0 offset-md-3 text-center">
+        <div class="col-12 col-md-6 offset-md-0 text-center">
             <mat-card class="demo-inline-calendar-card" style="margin-top: 100px;" >
               <mat-calendar [dateFilter]="dateFilter" #releasedAtPicker color="accent" #calendar style="color: red;" [(selected)]="selected">
                 <mat-calendar-header class="text-white" style="background-color: red;"></mat-calendar-header>
               </mat-calendar>
             </mat-card>
         </div>
+        <!--Bouton-->
+        <div class="col-12 col-md-3 offset-0 offset-md-2 mb-5 mt-5" >
+          <p class="text-center mt-5 "> <br> <br>
+            <button class="btn shadow-lg rounded m-0 m-md-5 text-center text-white fw-bold" (click)="onButtonClick(2, 60,249)" [class.selected-button]="selectedButtonId === 2" style="background-color: red;" > <span class="text-time" >Service standard : {{ selectedTarif }} € </span></button> 
+            <button class="btn shadow-lg rounded m-0 m-md-5 text-center text-white fw-bold" (click)="onButtonClick(3, 60,499 )" [class.selected-button]="selectedButtonId === 3" style="background-color: red;" > <span class="text-time" >Service premium : {{ selectedTarif1 }} € </span></button> 
+          </p>
+        </div>
         <!--Fin-->
+        </div>
       </div>
       <!--Entretien Campus France-->
       <div *ngSwitchCase="'Entretien Campus France'">
@@ -141,7 +155,7 @@
         <!--Fin-->
       </div>
       <!--Recherche de logement-->
-      <div *ngSwitchCase="'Recherche de logement'">
+      <div *ngSwitchCase="'Recherche de logement'" rdvForm.value.prix=299>
         <div class="row d-flex justify-content-center mt-5 ">
           <p class="texte text-center fw-bold fs-3 mt-2 mb-2 mt-md-4 mb-md-5 " style="color: black;" > <span style="background-color: white;">Nos tarifs :</span> </p>
           <div class="d-flex justify-content-center"> 
@@ -163,11 +177,8 @@
         </div>
          <!--Fin-->
       </div>
-      <div *ngSwitchCase="'Alternance'">
-        C'est le cas 3.
-      </div>
       <!--Recherche de Job étudiant-->
-      <div *ngSwitchCase="'Recheche de Job étudiant'" rdvForm.value.prix=149 >
+      <div *ngSwitchCase="'Recheche de Job étudiant'" >
         <div class="row d-flex justify-content-center mt-5 ">
           <p class="texte text-center fw-bold fs-3 mt-2 mb-2 mt-md-4 mb-md-5 " style="color: black;" > <span style="background-color: white;">Nos tarifs :</span> </p>
           <div class="d-flex justify-content-center"> 
@@ -188,17 +199,14 @@
        </div>
        <!--Fin-->
       </div>
-      <div *ngSwitchCase="'Suivi complet'">
-        C'est le cas 3.
-      </div>
       <!--Défaut-->
       <div *ngSwitchDefault>
         <div class="row">
           <!--Calendrier-->
           <div class="col-12 col-md-6 offset-0 offset-md-3 text-center">
-            <mat-card class="demo-inline-calendar-card" style="margin-top: 100px;" >
-              <mat-calendar [dateFilter]="dateFilter" #releasedAtPicker color="accent" #calendar style="color: red;" [(selected)]="selected">
-                <mat-calendar-header class="text-white" style="background-color: red;"></mat-calendar-header>
+            <mat-card class="demo-inline-calendar-card" style="margin-top: 100px; color: white;" >
+              <mat-calendar [dateFilter]="dateFilter" #releasedAtPicker color="accent" #calendar [(selected)]="selected">
+                <mat-calendar-header></mat-calendar-header>
               </mat-calendar>
             </mat-card>
           </div>
@@ -240,3 +248,9 @@
     </div>
   </div>
 </div>
+
+<!--
+    <div class="col-10 mx-0 mx-md-2 mx-lg-0 col-md-3 py-4">
+            <input type="tel" autocomplete="off" class="py-2 " formControlName="telephone" id="telephone" placeholder="Votre numero de téléphone" >
+    </div>
+-->

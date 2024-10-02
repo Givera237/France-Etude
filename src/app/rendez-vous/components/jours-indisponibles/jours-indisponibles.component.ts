@@ -2,9 +2,13 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CookieServices } from 'src/app/cookie.service';
-import { ListeCreneaux } from '../../models/liste-creneaux';
 import { RendezVousService } from '../../services/rendez-vous-service';
-import { ListeReservation } from '../../models/liste-reservation';
+
+interface Jours
+{
+  id : number;
+  date: Date
+}
 
 @Component({
   selector: 'app-jours-indisponibles',
@@ -30,10 +34,9 @@ export class JoursIndisponiblesComponent
   {
     this.admin = this.cookieService.getCookie('status');
 
-    this.http.get<Jours[]>('http://localhost:3000/api/liste/jour_indisponible').subscribe(reponse  => 
+    this.http.get<Jours[]>('https://franceétudes.com:3000/api/liste/jour_indisponible').subscribe(reponse  => 
       {
         this.liste = reponse;
-        console.log( 'jour indispo',this.liste)
       }
       );
   }
@@ -49,13 +52,12 @@ export class JoursIndisponiblesComponent
     {
       decision: 'effectif'
      }
-    this.http.put(`http://localhost:3000/api/rendez_vous/modifier/${id_rdv}`, decision, { observe: 'response' }).subscribe
+    this.http.put(`https://franceétudes.com:3000/api/rendez_vous/modifier/${id_rdv}`, decision, { observe: 'response' }).subscribe
   (
     (response: HttpResponse<any>) => 
     {
       if (response.status === 200) 
       {
-        console.log(response)
         //this.router.navigateByUrl(`formation/${id_formation}`);
       }
       else 
@@ -71,8 +73,3 @@ export class JoursIndisponiblesComponent
   }
 }
 
-interface Jours
-{
-  id : number;
-  date: Date
-}

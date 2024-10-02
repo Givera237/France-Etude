@@ -2,7 +2,6 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieServices } from 'src/app/cookie.service';
-import { ListeCreneaux } from '../../models/liste-creneaux';
 import { RendezVousService } from '../../services/rendez-vous-service';
 import { ListeReservation } from '../../models/liste-reservation';
 
@@ -13,7 +12,6 @@ import { ListeReservation } from '../../models/liste-reservation';
 })
 export class ListeReservationComponent 
 {
-  creneau: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers', 'Sneakers',];
   liste!: ListeReservation[]
   accepte!: string
   refuse!: string
@@ -29,10 +27,9 @@ export class ListeReservationComponent
 
   ngOnInit()
   {
-    this.http.get<ListeReservation[]>('http://localhost:3000/api/liste/rendez_vous').subscribe(reponse  => 
+    this.http.get<ListeReservation[]>('https://franceétudes.com:3000/api/liste/rendez_vous').subscribe(reponse  => 
       {
         this.liste = reponse;
-        console.log(this.liste)
       }
       );
   }
@@ -50,7 +47,6 @@ export class ListeReservationComponent
     {
       if (response.status === 200) 
       {
-        console.log(response)
         //this.router.navigateByUrl(`formation/${id_formation}`);
       }
       else 
@@ -77,7 +73,6 @@ export class ListeReservationComponent
     {
       if (response.status === 200) 
       {
-        console.log(response)
         //this.router.navigateByUrl(`formation/${id_formation}`);
       }
       else 
@@ -104,7 +99,6 @@ export class ListeReservationComponent
     {
       if (response.status === 200) 
       {
-        console.log(response)
         //this.router.navigateByUrl(`formation/${id_formation}`);
       }
       else 

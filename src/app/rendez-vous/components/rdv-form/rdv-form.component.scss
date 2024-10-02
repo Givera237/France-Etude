@@ -73,7 +73,6 @@ input
 {
   border-radius: 40px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  height: 30px;
 }
 
 .jello-horizontal:hover{-webkit-animation:jello-horizontal .9s both;animation:jello-horizontal .9s both}
@@ -157,6 +156,13 @@ input
   color: white;
 }
 
+/*
+::ng-deep .mat-calendar-header .mat-calendar-body-label {
+  color: #ffeb3b; 
+  background-color : green ;
+
+}
+
 ::ng-deep .mat-calendar-body 
 {
   background-color : white ;
@@ -172,6 +178,7 @@ input
   color : red ;
   background-color: #F12020;
 }
+  */
 
 .disabled-date {
   background-color: #f44336; /* Rouge pour les jours désactivés */

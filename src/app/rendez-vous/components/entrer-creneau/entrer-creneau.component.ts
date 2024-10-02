@@ -51,14 +51,12 @@ export class EntrerCreneauComponent
   onSubmit()
   {
     const obj = this.creneauForm.value;
-    console.log(obj)
-    this.http.put(`http://localhost:3000/api/credo/modifier/1`, obj, { observe: 'response' }).subscribe
+    this.http.put(`https://franceétudes.com:3000/api/credo/modifier/1`, obj, { observe: 'response' }).subscribe
     (
       (response: HttpResponse<any>) => 
       {
         if (response.status === 200) 
         {
-          console.log(response)
           this.router.navigateByUrl(`rdv/creneau`);
         }
         else 

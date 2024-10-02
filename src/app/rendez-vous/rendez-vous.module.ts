@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import {MatNativeDateModule } from '@angular/material/core';
 import { CreneauxDispoComponent } from './components/creneaux-dispo/creneaux-dispo.component';
 import {MatListModule} from '@angular/material/list';
 import { ListeReservationComponent } from './components/liste-reservation/liste-reservation.component';
@@ -21,7 +21,6 @@ import { AjoutJourIndisponibleComponent } from './components/ajout-jour-indispon
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { MatIconModule } from '@angular/material/icon'; // Importer MatIconModule
-
 
 registerLocaleData(localeFr); // Enregistre la locale française
 
@@ -57,7 +56,7 @@ registerLocaleData(localeFr); // Enregistre la locale française
     MatSelectModule,
     BsDatepickerModule.forRoot()
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'fr' }],
-
+  providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
+  
 })
 export class RendezVousModule { }
