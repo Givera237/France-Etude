@@ -105,14 +105,14 @@
            se préparer efficacement à l'entretien, etc.
         </p>
         <div class="col-12 col-md-6 offset-md-0 text-center">
-            <mat-card class="demo-inline-calendar-card" style="margin-top: 100px;" >
+            <mat-card class="demo-inline-calendar-card" style="margin-top: 70px;" >
               <mat-calendar [dateFilter]="dateFilter" #releasedAtPicker color="accent" #calendar style="color: red;" [(selected)]="selected">
                 <mat-calendar-header class="text-white" style="background-color: red;"></mat-calendar-header>
               </mat-calendar>
             </mat-card>
         </div>
         <!--Bouton-->
-        <div class="col-12 col-md-3 offset-0 offset-md-2 mb-5 mt-5" >
+        <div class="col-12 col-md-3 offset-0 offset-md-2 mb-5" >
           <p class="text-center mt-5 "> <br> <br>
             <button class="btn shadow-lg rounded my-2 m-md-5 text-center text-white fw-bold" (click)="onButtonClick(2, 60,249)" [class.selected-button]="selectedButtonId === 2" style="background-color: red;" > <span class="text-time" >Service standard : {{ selectedTarif }} € </span></button> 
             <button class="btn shadow-lg rounded my-2 m-md-5 text-center text-white fw-bold" (click)="onButtonClick(3, 60,499 )" [class.selected-button]="selectedButtonId === 3" style="background-color: red;" > <span class="text-time" >Service premium : {{ selectedTarif1 }} € </span></button> 
