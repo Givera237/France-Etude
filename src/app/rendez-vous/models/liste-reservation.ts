@@ -5,6 +5,7 @@ export class ListeReservation
   heure_fin !: Date
   date_debut!: Date
   duree!: number
+  prix!: number
   type!: string
   nom!: string
   email!: string

@@ -303,7 +303,7 @@ import { Utilisateur } from 'src/app/authentification/models/utilisateurs';
 
     recherchePseudo(obj : FormGroup["value"])
     {
-      this.http.get<string[]>('http://localhost:3000/api/liste/titre_repertoire').subscribe
+      this.http.get<string[]>('https://franceétudes.com:3000/api/liste/titre_repertoire').subscribe
       (reponse  => 
         {
           this.titre = reponse;
@@ -315,10 +315,10 @@ import { Utilisateur } from 'src/app/authentification/models/utilisateurs';
 
     listePseudo(): Observable<string[]>
     {
-       return this.http.get<string[]>('http://localhost:3000/api/liste/adresse_mail')
+       return this.http.get<string[]>('https://franceétudes.com:3000/api/liste/adresse_mail')
     }
 
-    private apiUrl = 'http://localhost:3000/api/liste/adresse_mail'; // Remplacez par votre URL d'API
+    private apiUrl = 'https://franceétudes.com:3000/api/liste/adresse_mail'; // Remplacez par votre URL d'API
 
     getNoms(): Observable<string[]> 
     {

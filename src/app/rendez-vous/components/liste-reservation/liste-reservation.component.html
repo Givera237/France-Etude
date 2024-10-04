@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row">
+    <div class="row" *ngIf="decision ===0">
         <div class="mt-5 text-center">               
             <p class="text-center texte couleur_titre display-4 fw-bold" style="color: orange;" >Vos demandes de réservations :  </p>
         </div>
@@ -24,7 +24,7 @@
                         <tr>
                             <td>{{i+1}} </td>
                             <td class="fw-bold" >{{rdv.nom}}</td>
-                            <td >10</td>
+                            <td >{{rdv.prix}}</td>
                             <td >{{rdv.duree}} min</td>
                             <td >{{rdv.date_debut | date: 'd MMMM yyyy'}}</td>
                             <td >{{rdv.date_debut | date: 'HH:mm'}}</td>
@@ -37,6 +37,25 @@
                 </section>
             </div>
         </mat-card>
+    </div>
+    <div class="row" *ngIf="decision ===1">
+        <p class="mx-5 mt-5 fw-bold fs-5 text-center">
+            Le rendez-vous a été accepté <br><br>
+            <button type="button" (click)="onSubmit()" class="btn btn-danger rouge fw-bold btn_connexion">Terminer </button>
+
+        </p>
+    </div>
+    <div class="row" *ngIf="decision ===2">
+        <p class="mx-5 mt-5 fw-bold fs-5 text-center">
+            Le rendez-vous a été refusé <br><br>
+            <button type="button" (click)="onSubmit()" class="btn btn-danger rouge fw-bold btn_connexion">Terminer </button>
+        </p>
+    </div>
+    <div class="row" *ngIf="decision ===3">
+        <p class="mx-5 mt-5 fw-bold fs-5 text-center" >
+            Le rendez-vous a été annulé <br><br>
+            <button type="button" (click)="onSubmit()" class="btn btn-danger rouge fw-bold btn_connexion">Terminer </button>
+        </p>
     </div>
 </div>
 

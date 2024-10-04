@@ -14,6 +14,7 @@ export class CreneauxDispoComponent
 {
   liste_creneau!: ListeCreneaux[]
   rdvForm!: any
+  email!: string
   originalDate!: Date
   timeString: string = '11h45'; // Heure à appliquer
 
@@ -30,6 +31,7 @@ export class CreneauxDispoComponent
     this.liste_creneau = this.rdv.getListeCreneau()
     this.rdvForm = this.rdv.getRdv()
     this.originalDate = this.rdv.getDateDebut()
+    this.email = this.rdv.getEmail()
    }
 
    envoi(heure_debut : string)
@@ -45,7 +47,7 @@ export class CreneauxDispoComponent
        {
          if (response.status === 200) 
          {
-           this.router.navigateByUrl(`rdv/rdv_form`);
+           this.router.navigateByUrl(`rdv/confirmation-rdv/${this.email}`);
          }
          else 
          {

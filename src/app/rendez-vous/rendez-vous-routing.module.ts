@@ -8,6 +8,7 @@ import { ListeRdvComponent } from "./components/liste-rdv/liste-rdv.component";
 import { JoursIndisponiblesComponent } from "./components/jours-indisponibles/jours-indisponibles.component";
 import { AjoutJourIndisponibleComponent } from "./components/ajout-jour-indisponible/ajout-jour-indisponible.component";
 import { CreerCreneauInitialComponent } from "./components/creer-creneau-initial/creer-creneau-initial.component";
+import { ConfirmeRdvComponent } from "./components/confirme-rdv/confirme-rdv.component";
 
 const routes : Routes =
 [
@@ -18,7 +19,8 @@ const routes : Routes =
     {path : 'creer_creneau', component : CreerCreneauInitialComponent},
     {path : 'mes_rdv', component : ListeRdvComponent },
     {path : 'liste_indisponible', component : JoursIndisponiblesComponent},
-    {path : 'ajout_jour_indispo', component : AjoutJourIndisponibleComponent}
+    {path : 'ajout_jour_indispo', component : AjoutJourIndisponibleComponent},
+    {path : 'confirmation-rdv/:id', component : ConfirmeRdvComponent}
 ]
 
 @NgModule

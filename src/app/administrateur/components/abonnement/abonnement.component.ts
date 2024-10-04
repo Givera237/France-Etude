@@ -45,7 +45,7 @@ export class AbonnementComponent
       ) ;
 
     const id_formation = this.route.snapshot.params['id']; // http://localhost:3000/api/ https://franceétudes.com:3000/
-    this.http.get<string[]>('http://localhost:3000/api/liste/titre_repertoire').subscribe(reponse  => 
+    this.http.get<string[]>('https://franceétudes.com:3000/api/liste/titre_repertoire').subscribe(reponse  => 
       {
         this.titre = reponse;
       }

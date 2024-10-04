@@ -16,6 +16,7 @@ export class ListeReservationComponent
   accepte!: string
   refuse!: string
   annule!: string
+  decision = 0
 
   constructor
   (
@@ -41,13 +42,13 @@ export class ListeReservationComponent
     {
       decision: 'effectif'
      }
-    this.http.put(`http://localhost:3000/api/rendez_vous/modifier/${id_rdv}`, decision, { observe: 'response' }).subscribe
+    this.http.put(`https://franceétudes.com:3000/api/rendez_vous/modifier/${id_rdv}`, decision, { observe: 'response' }).subscribe
   (
     (response: HttpResponse<any>) => 
     {
       if (response.status === 200) 
       {
-        //this.router.navigateByUrl(`formation/${id_formation}`);
+        this.decision = 1
       }
       else 
       {
@@ -67,14 +68,13 @@ export class ListeReservationComponent
     {
       decision: 'refuser'
      }
-    this.http.put(`http://localhost:3000/api/rendez_vous/annuler/${id_rdv}`, decision, { observe: 'response' }).subscribe
+    this.http.put(`https://franceétudes.com:3000/api/rendez_vous/annuler/${id_rdv}`, decision, { observe: 'response' }).subscribe
   (
     (response: HttpResponse<any>) => 
     {
       if (response.status === 200) 
       {
-        //this.router.navigateByUrl(`formation/${id_formation}`);
-      }
+        this.decision = 2      }
       else 
       {
         console.log('merde combi');
@@ -93,14 +93,13 @@ export class ListeReservationComponent
     {
       decision: 'annuler'
      }
-    this.http.put(`http://localhost:3000/api/rendez_vous/annuler/${id_rdv}`, decision, { observe: 'response' }).subscribe
+    this.http.put(`https://franceétudes.com:3000/api/rendez_vous/annuler/${id_rdv}`, decision, { observe: 'response' }).subscribe
   (
     (response: HttpResponse<any>) => 
     {
       if (response.status === 200) 
       {
-        //this.router.navigateByUrl(`formation/${id_formation}`);
-      }
+        this.decision = 3      }
       else 
       {
         console.log('merde combi');
@@ -111,6 +110,10 @@ export class ListeReservationComponent
       console.error(error); // Afficher l'erreur à l'utilisateur
     }
   )
+  }
+  onSubmit()
+  {
+    this.decision = 0
   }
 
   

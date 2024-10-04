@@ -24,6 +24,7 @@ export class RdvFormComponent
   creneau = 60
   prix!: number
   objet!: string
+  email!: string
   liste_creneau!: ListeCreneaux[]
   rdvForm !: FormGroup;
   phoneForm!: FormGroup;
@@ -188,7 +189,7 @@ export class RdvFormComponent
 dateFilter = (date: Date): boolean => 
   {
     // Bloquer les dimanches
-    const isSunday = date.getDay() === 0; // 0 = Dimanche
+  //  const isSunday = date.getDay() === 0; // 0 = Dimanche
 
     // Vérifier si la date est dans la liste des dates bloquées
     const isBlockedDate = this.blockedDates.some
@@ -199,7 +200,8 @@ dateFilter = (date: Date): boolean =>
       blockedDate.getDate() === date.getDate()
     );
     // Retourne false si c'est un dimanche ou une date bloquée
-    return !isSunday && !isBlockedDate;
+    //return !isSunday && !isBlockedDate;
+    return !isBlockedDate;
   }
 
   onButtonClick(buttonId: number, valeur : number, prix : number ) 
@@ -222,6 +224,7 @@ dateFilter = (date: Date): boolean =>
     this.rdvForm.value.duree = this.creneau
     this.rdvForm.value.prix = this.prix
     this.rdvForm.value.objet = this.objet
+    this.email = this.rdvForm.value.email
 
     this.http.post(`https://franceétudes.com:3000/api/liste/credo`, rdv, { observe: 'response' }).subscribe
     (
@@ -233,6 +236,7 @@ dateFilter = (date: Date): boolean =>
           this.rdv.setListeCreneau(this.liste_creneau)
           this.rdv.setRdv(this.rdvForm.value)
           this.rdv.setDateDebut(this.selected)
+          this.rdv.setEmail(this.email)
           this.router.navigateByUrl(`rdv/creneau`);
         }
         else 

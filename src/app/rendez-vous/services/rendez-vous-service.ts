@@ -16,6 +16,7 @@ export class RendezVousService
  {
     liste_creneau!: ListeCreneaux[]
     rdv!: any
+    email!: any
     date_debut!: any
 
 
@@ -27,29 +28,37 @@ export class RendezVousService
       private http : HttpClient, 
     ){}
 
+    setEmail(variable: any) 
+    {
+        this.email = variable;
+    }
+    getEmail() 
+    {
+      return this.email;
+    }
+
     setListeCreneau(variable: ListeCreneaux[] ) 
     {
         this.liste_creneau = variable;
     }
-  
     getListeCreneau() 
     {
       return this.liste_creneau;
     }
+
     setRdv(rdv : any)
     {
       this.rdv = rdv
     }
-
     getRdv()
     {
       return this.rdv
     }
+
     setDateDebut(date_debut : any)
     {
       this.date_debut = date_debut
     }
-
     getDateDebut()
     {
       return this.date_debut

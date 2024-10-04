@@ -9,7 +9,7 @@
             <p class="p-3 pt-3 text-black text-center text fs-6 que_faisons_nous">
               <br>
               Transformez votre rêve d’études en France en réalité ! <br>
-              Besoin d'aide pour <span class="fw-bold">Campus France, Visa France, logement ou job étudiant</span> ? <br> 
+              Besoin d'aide pour <span class="fw-bold" style="color: #1283EB;" >Campus France, Visa France, logement ou job étudiant</span> ? <br> 
               Réservez votre consultation sur-mesure et boostez vos chances de succès !
             </p>  
         </div>
@@ -18,9 +18,9 @@
       <p class="text-center texte couleur_titre display-4 fw-bold mt-5" style="color: orange;" >Fixez un Rendez-vous : </p>
     </div>
     <div class="form-container">
-      <form class="container my-3" [formGroup]="rdvForm" style="background-color: aliceblue;">
+      <form class="container my-3" [formGroup]="rdvForm" style="background-color: black;">
         <div class="row">
-          <h2 class="text-black text-center roboto-black fw-bold" > Entrez vos informations : </h2>
+          <h2 class="text-white text-center roboto-black fw-bold" > Entrez vos informations : </h2>
           <div class="col-10 mx-0 mx-md-2 mx-lg-0 col-md-3 py-4">
             <input type="text" autocomplete="off" formControlName="nom" id="nom" class="py-2 " placeholder="Votre pseudo" >
           </div>
@@ -36,7 +36,7 @@
             <input type="tel" autocomplete="off" class="py-2 " formControlName="phoneNumber" id="telephone" placeholder="Votre numero de téléphone">     
           </div>
           <div class="col-10 col-md-3 mx-0 mx-md-2 mx-lg-0 py-2 ">
-            <label class="mb-2">Objet du RDV</label>
+            <label class="mb-2 text-white">Objet du RDV</label>
               <select formControlName="type" [(ngModel)]="selectedOption" class="form-select" aria-label="Default select example" id="rdvType" (change)="onTypeChange($event)">
                 <option *ngFor="let rdv of rendezVousTypes" [value]="rdv.type">
                   {{ rdv.type | titlecase }}
@@ -66,7 +66,7 @@
         </div>
         <div class="row">
           <!--Calendrier-->
-          <p class="fs-5 text-center mt-5 fw-bold" style="background-color: aliceblue; color: black;"  >
+          <p class="fs-5 text-center mt-5 fw-bold" style="background-color: white; color: black;"  >
             Vérification complète de votre dossier, conseils avant le dépôt, stratégies en cas de refus, et options de recours adaptées à votre situation.
           </p>
           <div class="col-12 col-md-6 offset-md-0 text-center">
@@ -100,7 +100,7 @@
         </div>
         <div class="row">
           <!--Calendrier-->
-        <p class="fs-5 text-center mt-5 fw-bold" style="background-color: aliceblue; color: black;" >
+        <p class="fs-5 text-center mt-5 fw-bold" style="background-color: white; color: black;" >
           Accompagnement pour préparer un dossier solide, élaborer un CV percutant et une lettre de motivation convaincante, choisir les formations adéquates,
            se préparer efficacement à l'entretien, etc.
         </p>
@@ -134,7 +134,7 @@
         </div>
         <div class="row">
          <!--Calendrier-->
-          <p class="fs-5 text-center mt-5 fw-bold" style="background-color: aliceblue; color: black;" >
+          <p class="fs-5 text-center mt-5 fw-bold" style="background-color: white; color: black;" >
             Coaching personnalisé pour maîtriser les questions clés, affiner vos réponses et vous préparer à réussir votre entretien Campus France.
           </p>
           <div class="col-12 col-md-6 offset-md-0 text-center">
@@ -164,7 +164,7 @@
         </div>
         <div class="row">
            <!--Calendrier-->
-            <p class="fs-5 text-center mt-5 fw-bold" style="background-color: aliceblue; color: black;" >
+            <p class="fs-5 text-center mt-5 fw-bold" style="background-color: white; color: black;" >
               Aide à la recherche de logements étudiants adaptés à votre budget, vérification du contrat et conseils pour éviter les arnaques.      
             </p>
            <div class="col-12 col-md-6 offset-0 offset-md-3 text-center">
@@ -187,7 +187,7 @@
         </div>
         <div class="row">
           <!--Calendrier-->
-          <p class="fs-5 text-center mt-5 fw-bold" style="background-color: aliceblue; color: black;" >
+          <p class="fs-5 text-center mt-5 fw-bold" style="background-color: white; color: black;" >
             Accompagnement pour la recherche de job étudiant, préparation du CV et des entretiens, et conseils pour obtenir rapidement un emploi.          </p>
           <div class="col-12 col-md-6 offset-0 offset-md-3 text-center">
             <mat-card class="demo-inline-calendar-card" style="margin-top: 100px;" >
