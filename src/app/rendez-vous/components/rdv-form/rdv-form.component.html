@@ -3,9 +3,9 @@
 <div class="container" >
     <div class="row">
         <div class="col-9 col-md-6 offset-1 offset-md-3 ">                   
-            <p class="p-3 pt-3 fw-bold text-center texte fs-5" style="color: orange;">
+            <p class="p-3 pt-3 fw-bold text-center texte fs-5">
               <br>
-              Transformez votre rêve d’études en France en réalité ! <br>
+              <span class="text-center texte couleur_titre display-5 fw-bold mt-5" style="color: orange;">Transformez votre rêve d’études en France en réalité! </span>  <br>
               Besoin d'aide pour <span class="fw-bold" style="color: #1283EB;" >Campus France, Visa France, logement ou job étudiant</span> ? <br> 
               Réservez votre consultation sur-mesure et boostez vos chances de succès !
             </p>  
@@ -19,7 +19,7 @@
         <div class="row">
           <h2 class="text-white text-center roboto-black fw-bold" > Entrez vos informations : </h2>
           <div class="col-10 mx-0 mx-md-2 mx-lg-0 col-md-3 py-4">
-            <input type="text" autocomplete="off" formControlName="nom" id="nom" class="py-2 " placeholder="Votre pseudo" >
+            <input type="text" autocomplete="off" formControlName="nom" id="nom" class="py-2 " placeholder="Vos noms et prénoms" >
           </div>
           <div class="col-10 mx-0 mx-md-2 mx-lg-0 col-md-3 py-4">
             <input type="email" autocomplete="off" formControlName="email" id="email" class="py-2 " placeholder="Votre adresse mail" >
@@ -44,7 +44,7 @@
       </form>
     </div>
 </div>
-<div class="mt-3 mb-4 bg-image img-fluid" style="width: 100%; height: 130vh; background-image: url('/assets/RDV.jpg'); background-size: 100% 100% ; background-attachment: fixed;  background-repeat :no-repeat; ">
+<div class="mt-3 mb-4 bg-image img-fluid" style="width: 100%; height: 120vh; background-image: url('/assets/RDV.jpg'); background-size: 100% 100% ; background-attachment: fixed;  background-repeat :no-repeat; ">
   <div class="container text-white ">    
     <div [ngSwitch]="selectedOption">
       <!--Visa-->
@@ -63,7 +63,7 @@
         </div>
         <div class="row">
           <!--Calendrier-->
-          <p class="fs-5 text-center mt-5 fw-bold" style="background-color: white; color: black;"  >
+          <p class="fs-5 text-center mt-5 fw-bold" style="background-color: black; color: white;"  >
             Vérification complète de votre dossier, conseils avant le dépôt, stratégies en cas de refus, et options de recours adaptées à votre situation.
           </p>
           <div class="col-12 col-md-6 offset-md-0 text-center">
@@ -97,7 +97,7 @@
         </div>
         <div class="row">
           <!--Calendrier-->
-        <p class="fs-5 text-center mt-5 fw-bold" style="background-color: white; color: black;" >
+        <p class="fs-5 text-center mt-5 fw-bold" style="background-color: black; color: white;" >
           Accompagnement pour préparer un dossier solide, élaborer un CV percutant et une lettre de motivation convaincante, choisir les formations adéquates,
            se préparer efficacement à l'entretien, etc.
         </p>
@@ -131,7 +131,7 @@
         </div>
         <div class="row">
          <!--Calendrier-->
-          <p class="fs-5 text-center mt-5 fw-bold" style="background-color: white; color: black;" >
+          <p class="fs-5 text-center mt-5 fw-bold" style="background-color: black; color: white;" >
             Coaching personnalisé pour maîtriser les questions clés, affiner vos réponses et vous préparer à réussir votre entretien Campus France.
           </p>
           <div class="col-12 col-md-6 offset-md-0 text-center">
@@ -161,7 +161,7 @@
         </div>
         <div class="row">
            <!--Calendrier-->
-            <p class="fs-5 text-center mt-5 fw-bold" style="background-color: white; color: black;" >
+            <p class="fs-5 text-center mt-5 fw-bold" style="background-color: black; color: white;" >
               Aide à la recherche de logements étudiants adaptés à votre budget, vérification du contrat et conseils pour éviter les arnaques.      
             </p>
            <div class="col-12 col-md-6 offset-0 offset-md-3 text-center">
@@ -184,7 +184,7 @@
         </div>
         <div class="row">
           <!--Calendrier-->
-          <p class="fs-5 text-center mt-5 fw-bold" style="background-color: white; color: black;" >
+          <p class="fs-5 text-center mt-5 fw-bold" style="background-color: black; color: white;" >
             Accompagnement pour la recherche de job étudiant, préparation du CV et des entretiens, et conseils pour obtenir rapidement un emploi.          </p>
           <div class="col-12 col-md-6 offset-0 offset-md-3 text-center">
             <mat-card class="demo-inline-calendar-card" style="margin-top: 100px;" >
