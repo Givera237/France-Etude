@@ -35,7 +35,7 @@ export class RdvFormComponent
   selectedTarif1: number | null = null;
   selectedTarif2: number | null = null;
   blockedDate!: DateIndisponible[]
-  datesArray : Date[] = this.rdv.getJourIndisponible()
+ // datesArray : Date[] = this.rdv.getJourIndisponible()
   blockedDates: Date[] = 
   [
     new Date('2024-08-06'),
@@ -65,12 +65,13 @@ export class RdvFormComponent
   ngOnInit()
   {
       this.admin = this.cookieService.getCookie('status');
-
+    /*
       this.http.get<DateIndisponible[]>('https://franceétudes.com:3000/api/liste/jour_indisponible').subscribe(reponse  => 
         {
           this.blockedDate = reponse
         }
         );
+        */
 
       this.rdvForm = this.formbuilder.group
       (
@@ -225,7 +226,7 @@ dateFilter = (date: Date): boolean =>
     this.submitted = 1; // Marquer le formulaire comme soumis
 
     // Vérifier si le formulaire est valide
-    if (this.rdvForm.invalid) 
+    if (((this.rdvForm.value.email === '') || (this.rdvForm.value.nom === '') || (this.rdvForm.value.objet === null) || (this.rdvForm.value.type === 'case1'))) 
     {
       return;
     }
