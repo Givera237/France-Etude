@@ -20,6 +20,7 @@ export class RdvFormComponent
   selectedOption: string = 'case1'; // Valeur par défaut
   admin!: string;
   isClicked: boolean = false;
+  submitted: number = 0; // Indique si le formulaire a été soumis
   azerty!: any
   creneau = 60
   prix!: number
@@ -77,11 +78,11 @@ export class RdvFormComponent
           date_debut: [null],
           duree: [null] ,
           type: [null,[Validators.required]] ,
-          nom: [null,[Validators.required]] ,
-          email: [null,[Validators.required]] ,
+          nom: ['',[Validators.required]] ,
+          email: ['',[Validators.required]] ,
           telephone: [null] ,
-          prix: [null] ,
-          objet: [null] ,
+          prix: [''] ,
+          objet: ['',[Validators.required]] ,
 
         }
       ) ;
@@ -213,11 +214,6 @@ dateFilter = (date: Date): boolean =>
 
   creneauDispo()
   {
-    const rdv = 
-    {
-      jour : this.selected ,
-      duree : this.creneau
-    } 
 
     this.rdvForm.value.telephone = '' + this.phoneForm.value.selectedCode + this.phoneForm.value.phoneNumber;
     this.rdvForm.value.date_debut = this.selected
@@ -225,6 +221,19 @@ dateFilter = (date: Date): boolean =>
     this.rdvForm.value.prix = this.prix
     this.rdvForm.value.objet = this.objet
     this.email = this.rdvForm.value.email
+
+    this.submitted = 1; // Marquer le formulaire comme soumis
+
+    // Vérifier si le formulaire est valide
+    if (this.rdvForm.invalid) 
+    {
+      return;
+    }
+    const rdv = 
+    {
+      jour : this.selected ,
+      duree : this.creneau
+    } 
 
     this.http.post(`https://franceétudes.com:3000/api/liste/credo`, rdv, { observe: 'response' }).subscribe
     (
@@ -237,6 +246,9 @@ dateFilter = (date: Date): boolean =>
           this.rdv.setRdv(this.rdvForm.value)
           this.rdv.setDateDebut(this.selected)
           this.rdv.setEmail(this.email)
+          console.log('objet', this.rdvForm.value.objet)
+          console.log('type', this.rdvForm.value.type)
+
           this.router.navigateByUrl(`rdv/creneau`);
         }
         else 

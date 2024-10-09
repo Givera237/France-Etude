@@ -19,9 +19,19 @@
         <div class="row">
           <h2 class="text-white text-center roboto-black fw-bold" > Entrez vos informations : </h2>
           <div class="col-10 mx-0 mx-md-2 mx-lg-0 col-md-3 py-4">
+            <div *ngIf="submitted != 0 && rdvForm.value.nom === ''" class="error">
+              <p class="fs-6" style="color: red;">
+                <span style="color: red;">*</span> le nom est obligatoire <br>
+              </p>
+            </div>
             <input type="text" autocomplete="off" formControlName="nom" id="nom" class="py-2 " placeholder="Vos noms et prénoms" >
           </div>
           <div class="col-10 mx-0 mx-md-2 mx-lg-0 col-md-3 py-4">
+            <div *ngIf="submitted != 0 && rdvForm.value.email === ''" class="error">
+              <p class="fs-6" style="color: red;">
+                <span style="color: red;">*</span> Votre adresse mail est obligatoire <br>
+              </p>
+            </div>
             <input type="email" autocomplete="off" formControlName="email" id="email" class="py-2 " placeholder="Votre adresse mail" >
           </div>
           <div class="col-10 mx-0 mx-md-2 mx-lg-0 col-md-3 py-4 d-flex" [formGroup]="phoneForm" >
@@ -33,6 +43,11 @@
             <input type="tel" autocomplete="off" class="py-2 " formControlName="phoneNumber" id="telephone" placeholder="Votre numero de téléphone">     
           </div>
           <div class="col-10 col-md-3 mx-0 mx-md-2 mx-lg-0 py-2 ">
+            <div *ngIf="submitted != 0 && rdvForm.value.type === 'case1'" class="error">
+              <p class="fs-6" style="color : red">
+                <span style="color: red;">*</span> L'objet de votre rdv est obligatoire <br>
+              </p>
+            </div>
             <label class="mb-2 text-white">Objet du RDV</label>
               <select formControlName="type" [(ngModel)]="selectedOption" class="form-select" aria-label="Default select example" id="rdvType" (change)="onTypeChange($event)">
                 <option *ngFor="let rdv of rendezVousTypes" [value]="rdv.type">
@@ -50,16 +65,7 @@
       <!--Visa-->
       <div *ngSwitchCase="'Visa'">
         <div class="row d-flex justify-content-center mt-5 ">
-          <p class="texte text-center fw-bold fs-3 mt-2 mb-2 mt-md-4 mb-md-5 " style="color: black;" > <span style="background-color: white;">Nos tarifs :</span> </p>
-          <div class="col-4" *ngIf="selectedTarif2 !== null">
-            <button class="btn shadow-lg rounded text_white fw-bold" > <span style="color: red;" >30 min : {{ selectedTarif }} € </span></button>
-          </div>
-          <div class="col-4 col-md-3 offset-0 offset-md-1" *ngIf="selectedTarif1 !== null">
-            <button class="btn shadow-lg rounded text_white fw-bold "> <span style="color: red;" >1 heure : {{ selectedTarif1 }} € </span></button>
-          </div>
-          <div class="col-4 col-md-2 offset-0 offset-md-2" *ngIf="selectedTarif2 !== null">
-            <button class="btn shadow-lg rounded text_white fw-bold " > <span style="color: red;" >1h30 min : {{ selectedTarif2 }} € </span></button>
-          </div>
+          <p class="texte text-center fw-bold fs-3 mt-2 mb-2 mt-md-4 mb-md-5 " style="color: black;" > <span style="background-color: white;">Qu'est-ce que c'est ?</span> </p>
         </div>
         <div class="row">
           <!--Calendrier-->
@@ -74,11 +80,14 @@
             </mat-card>
           </div>
           <!--Bouton-->
-          <div class="col-12 col-md-3 offset-0 offset-md-2 mb-5 mt-5" >
+          <div class="col-12 col-md-3 offset-0 offset-md-2 mb-5 mt-5" > 
+            <div class="mt-md-5 mb-md-3  mt-lg-5 mb-lg-5"> <br>
+              <p class="text-center texte fs-4 fw-bold" style="color: black; background-color: white; "> Tarifs</p>
+            </div>
             <p class="text-center mt-5 "> <br> <br>
-              <button class="btn shadow-lg rounded m-0 m-md-5 text-center text-white fw-bold" (click)="onButtonClick(1,30,69 )" [class.selected-button]="selectedButtonId === 1" style="background-color: red;"> <span class="" >30 min </span></button>
-              <button class="btn shadow-lg rounded m-0 m-md-5 text-center text-white fw-bold" (click)="onButtonClick(2, 60,99)" [class.selected-button]="selectedButtonId === 2" style="background-color: red;" > <span class="text-time" >1 heure </span></button> 
-              <button class="btn shadow-lg rounded m-0 m-md-5 text-center text-white fw-bold" (click)="onButtonClick(3, 90,149 )" [class.selected-button]="selectedButtonId === 3" style="background-color: red;" > <span class="text-time" >1h30 min </span></button> 
+              <button class="btn shadow-lg rounded m-2 m-md-3 m-lg-5 text-center text-white fw-bold" (click)="onButtonClick(1,30,69 )" [class.selected-button]="selectedButtonId === 1" style="background-color: red;"> <span class="" >30 min : {{ selectedTarif }} € </span></button>
+              <button class="btn shadow-lg rounded m-2 m-md-3 m-lg-5 text-center text-white fw-bold" (click)="onButtonClick(2, 60,99)" [class.selected-button]="selectedButtonId === 2" style="background-color: red;" > <span class="text-time" >1 heure : {{ selectedTarif1 }} € </span></button> 
+              <button class="btn shadow-lg rounded m-2 m-md-3 m-lg-5 text-center text-white fw-bold" (click)="onButtonClick(3, 90,149 )" [class.selected-button]="selectedButtonId === 3" style="background-color: red;" > <span class="text-time" >1h30 min : {{ selectedTarif2 }} € </span></button> 
             </p>
           </div>
         </div>
@@ -87,13 +96,7 @@
       <!--Accompagnement Campus France-->
       <div *ngSwitchCase="'Accompagnement Campus France'">
         <div class="row d-flex justify-content-center mt-5 ">
-          <p class="texte text-center fw-bold fs-3 mt-2 mb-2 mt-md-4 mb-md-5 " style="color: black;" > <span style="background-color: white;">Nos tarifs :</span> </p>
-          <div class="col-4">
-            <button class="btn shadow-lg rounded text_white fw-bold" > <span style="color: red;" >Service standard : {{ selectedTarif }} € </span></button>
-          </div>
-          <div class="col-4 col-md-3 offset-0 offset-md-1">
-            <button class="btn shadow-lg rounded text_white fw-bold "> <span style="color: red;" >Service premium : {{ selectedTarif1 }} € </span></button>
-          </div>
+          <p class="texte text-center fw-bold fs-3 mt-2 mb-2 mt-md-4 mb-md-5 " style="color: black;" > <span style="background-color: white;">Qu'est-ce que c'est ?</span> </p>
         </div>
         <div class="row">
           <!--Calendrier-->
@@ -109,10 +112,13 @@
             </mat-card>
         </div>
         <!--Bouton-->
-        <div class="col-12 col-md-3 offset-0 offset-md-2 mb-5" >
+        <div class="col-12 col-md-3 offset-0 offset-md-2 mt-5 mb-5" >
+          <div class="mt-md-5 mb-md-3 mt-lg-5 mb-lg-5"> <br>
+            <p class="text-center texte fs-4 fw-bold" style="color: black; background-color: white; "> Tarifs</p>
+          </div>
           <p class="text-center mt-5 "> <br> <br>
-            <button class="btn shadow-lg rounded my-2 m-md-5 text-center text-white fw-bold" (click)="onButtonClick(2, 60,249)" [class.selected-button]="selectedButtonId === 2" style="background-color: red;" > <span class="text-time" >Service standard : {{ selectedTarif }} € </span></button> 
-            <button class="btn shadow-lg rounded my-2 m-md-5 text-center text-white fw-bold" (click)="onButtonClick(3, 60,499 )" [class.selected-button]="selectedButtonId === 3" style="background-color: red;" > <span class="text-time" >Service premium : {{ selectedTarif1 }} € </span></button> 
+            <button class="btn shadow-lg rounded my-2 m-2 m-md-3 m-lg-5 text-center text-white fw-bold" (click)="onButtonClick(2, 60,249)" [class.selected-button]="selectedButtonId === 2" style="background-color: red;" > <span class="text-time" >Service standard : {{ selectedTarif }} € </span></button> 
+            <button class="btn shadow-lg rounded my-2 m-2 m-md-3 m-lg-5 text-center text-white fw-bold" (click)="onButtonClick(3, 60,499 )" [class.selected-button]="selectedButtonId === 3" style="background-color: red;" > <span class="text-time" >Service premium : {{ selectedTarif1 }} € </span></button> 
           </p>
         </div>
         <!--Fin-->
@@ -121,13 +127,7 @@
       <!--Entretien Campus France-->
       <div *ngSwitchCase="'Entretien Campus France'">
         <div class="row d-flex justify-content-center mt-5 ">
-          <p class="texte text-center fw-bold fs-3 mt-2 mb-2 mt-md-4 mb-md-5 " style="color: black;" > <span style="background-color: white;">Nos tarifs :</span> </p>
-          <div class="col-4">
-            <button class="btn shadow-lg rounded text_white fw-bold" > <span style="color: red;" >30 min : {{ selectedTarif }} € </span></button>
-          </div>
-          <div class="col-4 col-md-3 offset-0 offset-md-1">
-            <button class="btn shadow-lg rounded text_white fw-bold "> <span style="color: red;" >1 heure : {{ selectedTarif1 }} € </span></button>
-          </div>
+          <p class="texte text-center fw-bold fs-3 mt-2 mb-2 mt-md-4 mb-md-5 " style="color: black;" > <span style="background-color: white;">Qu'est-ce que c'est ?</span> </p>
         </div>
         <div class="row">
          <!--Calendrier-->
@@ -143,9 +143,12 @@
           </div>
          <!--Bouton-->
           <div class="col-12 col-md-3 offset-0 offset-md-2 mb-5 mt-5" >
+            <div class="mt-md-5 mb-md-3 mt-lg-5 mb-lg-5"> <br>
+              <p class="text-center texte fs-4 fw-bold" style="color: black; background-color: white; "> Tarifs</p>
+            </div>
             <p class="text-center mt-5 "> <br> <br>
-              <button class="btn shadow-lg rounded m-0 m-md-5 text-center text-white fw-bold" (click)="onButtonClick(1,30,29)" [class.selected-button]="selectedButtonId === 1" style="background-color: red;"> <span class="" >30 min </span></button>
-              <button class="btn shadow-lg rounded m-0 m-md-5 text-center text-white fw-bold" (click)="onButtonClick(2, 60,49)" [class.selected-button]="selectedButtonId === 2" style="background-color: red;" > <span class="text-time" >1 heure </span></button> 
+              <button class="btn shadow-lg rounded my-2 m-2 m-md-3 m-lg-5 text-center text-white fw-bold" (click)="onButtonClick(1,30,29)" [class.selected-button]="selectedButtonId === 1" style="background-color: red;"> <span class="" >30 min : {{ selectedTarif }} € </span></button>
+              <button class="btn shadow-lg rounded my-2 m-2 m-md-3 m-lg-5 text-center text-white fw-bold" (click)="onButtonClick(2, 60,49)" [class.selected-button]="selectedButtonId === 2" style="background-color: red;" > <span class="text-time" >1 heure : {{ selectedTarif1 }} € </span></button> 
             </p>
           </div>
         </div>
@@ -216,8 +219,13 @@
 </div>
 
 <div class="row d-flex justify-content-center mt-5 "> <br><br><br>
+  <div *ngIf=" (submitted !=0) && ((rdvForm.value.email === '') || (rdvForm.value.nom === '') || (rdvForm.value.type === 'case1'))" class="error">
+  <p class="text-center fs-5" style="color: red;">
+    Veuillez remplir tous les champs du formulaire
+  </p>
+  </div>
   <p class="text-center">
-      <button type="button" (click)="creneauDispo()" [disabled]="rdvForm.invalid" class="btn btn-danger text-center rouge btn-lg btn_coaching text-black" style="background-color: white;"> <strong>Suivant</strong> </button>
+      <button type="button" (click)="creneauDispo()"  class="btn btn-danger text-center rouge btn-lg btn_coaching text-black" style="background-color: white;"> <strong>Suivant</strong> </button>
   </p>
 </div>
 <div> 
