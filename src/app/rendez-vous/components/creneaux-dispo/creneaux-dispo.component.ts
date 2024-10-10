@@ -13,7 +13,7 @@ import { RendezVousService } from '../../services/rendez-vous-service';
 export class CreneauxDispoComponent 
 {
   liste_creneau!: ListeCreneaux[]
-  rdvForm!: any
+  rdvForm : any = 1
   email!: string
   originalDate!: Date
   timeString: string = '11h45'; // Heure à appliquer
@@ -28,10 +28,11 @@ export class CreneauxDispoComponent
 
    ngOnInit()
    {
+    this.rdvForm = this.rdv.getRdv().date_debut
     this.liste_creneau = this.rdv.getListeCreneau()
-    this.rdvForm = this.rdv.getRdv()
     this.originalDate = this.rdv.getDateDebut()
     this.email = this.rdv.getEmail()
+    console.log(this.rdv.getRdv().date_debut)
    }
 
    envoi(heure_debut : string)

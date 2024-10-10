@@ -235,6 +235,8 @@ dateFilter = (date: Date): boolean =>
       jour : this.selected ,
       duree : this.creneau
     } 
+    console.log('objet', this.rdvForm.value)
+
 
     this.http.post(`https://franceétudes.com:3000/api/liste/credo`, rdv, { observe: 'response' }).subscribe
     (
@@ -247,8 +249,6 @@ dateFilter = (date: Date): boolean =>
           this.rdv.setRdv(this.rdvForm.value)
           this.rdv.setDateDebut(this.selected)
           this.rdv.setEmail(this.email)
-          console.log('objet', this.rdvForm.value.objet)
-          console.log('type', this.rdvForm.value.type)
 
           this.router.navigateByUrl(`rdv/creneau`);
         }

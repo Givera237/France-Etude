@@ -31,6 +31,7 @@ export class ListeReservationComponent
     this.http.get<ListeReservation[]>('https://franceétudes.com:3000/api/liste/rendez_vous').subscribe(reponse  => 
       {
         this.liste = reponse;
+        console.log(reponse)
       }
       );
   }
