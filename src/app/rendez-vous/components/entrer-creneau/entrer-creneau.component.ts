@@ -14,6 +14,7 @@ export class EntrerCreneauComponent
 {
   creneauForm!: FormGroup
   selectedTime: string = '10h00'; // Heure par défaut
+  decision : number = 0
 
 
   constructor
@@ -57,7 +58,7 @@ export class EntrerCreneauComponent
       {
         if (response.status === 200) 
         {
-          this.router.navigateByUrl(`rdv/creneau`);
+          this.decision = 1
         }
         else 
         {
@@ -70,4 +71,11 @@ export class EntrerCreneauComponent
       }
     ) 
   }
+
+    retour()
+  {
+    this.router.navigateByUrl(`rdv/rdv_form`);
+
+  }
 }
+
