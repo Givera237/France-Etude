@@ -28,7 +28,7 @@ export class ListeReservationComponent
 
   ngOnInit()
   {
-    this.http.get<ListeReservation[]>('https://franceétudes.com:3000/api/liste/rendez_vous').subscribe(reponse  => 
+    this.http.get<ListeReservation[]>('https://franceétudes.com:3000/api/liste/rendez_vous_effectif').subscribe(reponse  => 
       {
         this.liste = reponse;
         console.log(reponse)

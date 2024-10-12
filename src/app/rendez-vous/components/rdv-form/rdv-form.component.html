@@ -73,6 +73,11 @@
             Vérification complète de votre dossier, conseils avant le dépôt, stratégies en cas de refus, et options de recours adaptées à votre situation.
           </p>
           <div class="col-12 col-md-6 offset-md-0 text-center">
+            <div *ngIf="submitted != 0 && rdvForm.value.date_debut === ''" class="error">
+              <p class="fs-6" style="color: red; background-color: white; ">
+                <span style="color: red;">*</span> Veuillez choisir une date<br>
+              </p>
+            </div>
             <mat-card class="demo-inline-calendar-card" style="margin-top: 100px;" >
               <mat-calendar [dateFilter]="dateFilter" #releasedAtPicker color="accent" #calendar style="color: red;" [(selected)]="selected">
                 <mat-calendar-header class="text-white" style="background-color: red;"></mat-calendar-header>
@@ -105,6 +110,11 @@
            se préparer efficacement à l'entretien, etc.
         </p>
         <div class="col-12 col-md-6 offset-md-0 text-center">
+          <div *ngIf="submitted != 0 && rdvForm.value.date_debut === ''" class="error">
+            <p class="fs-6" style="color: red; background-color: white; ">
+              <span style="color: red;">*</span> Veuillez choisir une date<br>
+            </p>
+          </div>
             <mat-card class="demo-inline-calendar-card" style="margin-top: 70px;" >
               <mat-calendar [dateFilter]="dateFilter" #releasedAtPicker color="accent" #calendar style="color: red;" [(selected)]="selected">
                 <mat-calendar-header class="text-white" style="background-color: red;"></mat-calendar-header>
@@ -135,6 +145,11 @@
             Coaching personnalisé pour maîtriser les questions clés, affiner vos réponses et vous préparer à réussir votre entretien Campus France.
           </p>
           <div class="col-12 col-md-6 offset-md-0 text-center">
+            <div *ngIf="submitted != 0 && rdvForm.value.date_debut === ''" class="error">
+              <p class="fs-6" style="color: red; background-color: white; ">
+                <span style="color: red;">*</span> Veuillez choisir une date<br>
+              </p>
+            </div>
             <mat-card class="demo-inline-calendar-card" style="margin-top: 100px;" >
               <mat-calendar [dateFilter]="dateFilter" #releasedAtPicker color="accent" #calendar style="color: red;" [(selected)]="selected">
                 <mat-calendar-header class="text-white" style="background-color: red;"></mat-calendar-header>
@@ -168,6 +183,11 @@
               Aide à la recherche de logements étudiants adaptés à votre budget, vérification du contrat et conseils pour éviter les arnaques.      
             </p>
            <div class="col-12 col-md-6 offset-0 offset-md-3 text-center">
+            <div *ngIf="submitted != 0 && rdvForm.value.date_debut === ''" class="error">
+              <p class="fs-6" style="color: red; background-color: white; ">
+                <span style="color: red;">*</span> Veuillez choisir une date<br>
+              </p>
+            </div>
              <mat-card class="demo-inline-calendar-card" style="margin-top: 100px;" >
                <mat-calendar [dateFilter]="dateFilter" #releasedAtPicker color="accent" #calendar style="color: red;" [(selected)]="selected">
                  <mat-calendar-header class="text-white" style="background-color: red;"></mat-calendar-header>
@@ -190,6 +210,11 @@
           <p class="fs-5 text-center mt-5 fw-bold" style="background-color: black; color: white;" >
             Accompagnement pour la recherche de job étudiant, préparation du CV et des entretiens, et conseils pour obtenir rapidement un emploi.          </p>
           <div class="col-12 col-md-6 offset-0 offset-md-3 text-center">
+            <div *ngIf="submitted != 0 && rdvForm.value.date_debut === ''" class="error">
+              <p class="fs-6" style="color: red; background-color: white; ">
+                <span style="color: red;">*</span> Veuillez choisir une date<br>
+              </p>
+            </div>
             <mat-card class="demo-inline-calendar-card" style="margin-top: 100px;" >
               <mat-calendar [dateFilter]="dateFilter" #releasedAtPicker color="accent" #calendar style="color: red;" [(selected)]="selected">
                 <mat-calendar-header class="text-white" style="background-color: red;"></mat-calendar-header>
@@ -219,7 +244,7 @@
 </div>
 
 <div class="row d-flex justify-content-center mt-5 "> <br><br><br>
-  <div *ngIf=" (submitted !=0) && ((rdvForm.value.email === '') || (rdvForm.value.nom === '') || (rdvForm.value.type === 'case1'))" class="error">
+  <div *ngIf=" (submitted !=0) && ((rdvForm.value.email === '') || (rdvForm.value.nom === '') || (rdvForm.value.date_debut === '') || (rdvForm.value.type === 'case1'))" class="error">
   <p class="text-center fs-5" style="color: red;">
     Veuillez remplir tous les champs du formulaire
   </p>

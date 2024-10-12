@@ -22,7 +22,7 @@
         <p class="fs-5"> <br><br>
 
          <span class="mx-3 texte">
-             Votre rendez-vous est prévu pour <span class="fw-bold">le {{rdvForm | date: 'd MMMM yyyy'}} de</span>  
+             Votre rendez-vous est prévu pour <span class="fw-bold">le {{originalDate | date: 'd MMMM yyyy'}} de</span>  
             <span class="fw-bold fs-4 mx-2" style="color: red;"> 
                 {{shoes.selectedOptions.hasValue() ? shoes.selectedOptions.selected[0].value.heure_debut  : ''}}
              </span> 
@@ -59,7 +59,7 @@
               </div>
     </div>
 </div>
-
+<!--
 <div class="container">
   <div class="row" *ngIf="rdvForm === undefined ">
     <p class="mx-5 mt-5 fw-bold fs-5 text-center">
@@ -69,3 +69,4 @@
   </p>
   </div>
 </div>
+-->

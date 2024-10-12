@@ -17,7 +17,7 @@ export class RendezVousService
     liste_creneau!: ListeCreneaux[]
     rdv!: any
     email!: any
-    date_debut!: any
+    date_debut = new Date()
 
 
     constructor
@@ -64,9 +64,9 @@ export class RendezVousService
       return this.date_debut
     }
 
-    getRendezVous(): Observable<ListeReservation[]> 
+    getRendezVous(): Observable<ListeReservation[]> //https://xn--francetudes-gbb.com:3000/api/liste/rendez_vous_accepter https://franceétudes.com:3000/api/liste/rendez_vous_accepter
     {
-      return this.http.get<ListeReservation[]>('https://franceétudes.com:3000/api/liste/rendez_vous_effectif').pipe(
+      return this.http.get<ListeReservation[]>('https://franceétudes.com:3000/api/liste/rendez_vous_accepter').pipe(
         map((data: any[]) => data.map(item => ({
           ...item,
           date_debut: new Date(item.date_debut) // Assurez-vous que la date est au format Date
@@ -74,7 +74,7 @@ export class RendezVousService
       );
     }
 
-    private apiUrl = 'https://franceétudes.com:3000/api/liste/jour_indisponible'; // Remplacez par votre URL d'API
+    private apiUrl = 'https://franceétudes:3000/api/liste/jour_indisponible'; // Remplacez par votre URL d'API
 
     getDateIndisponible(): Observable<DateIndisponible[]> 
     {
@@ -84,7 +84,7 @@ export class RendezVousService
     blockedDate!: DateIndisponible[]
     getJourIndisponible() : Date[]
     {
-      this.http.get<DateIndisponible[]>('https://franceétudes.com:3000/api/liste/jour_indisponible').subscribe(reponse  => 
+      this.http.get<DateIndisponible[]>('https://franceétudes:3000/api/liste/jour_indisponible').subscribe(reponse  => 
         {
           this.blockedDate = reponse
            this.datesArray = this.blockedDate.map(item => new Date(item.date));

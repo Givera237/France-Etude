@@ -64,6 +64,7 @@ export class RdvFormComponent
 
   ngOnInit()
   {
+    const test = new Date()
       this.admin = this.cookieService.getCookie('status');
     /*
       this.http.get<DateIndisponible[]>('https://franceétudes.com:3000/api/liste/jour_indisponible').subscribe(reponse  => 
@@ -76,7 +77,7 @@ export class RdvFormComponent
       this.rdvForm = this.formbuilder.group
       (
         {
-          date_debut: [null],
+          date_debut: ['',[Validators.required]],
           duree: [null] ,
           type: [null,[Validators.required]] ,
           nom: ['',[Validators.required]] ,
@@ -222,11 +223,10 @@ dateFilter = (date: Date): boolean =>
     this.rdvForm.value.prix = this.prix
     this.rdvForm.value.objet = this.objet
     this.email = this.rdvForm.value.email
-
     this.submitted = 1; // Marquer le formulaire comme soumis
 
     // Vérifier si le formulaire est valide
-    if (((this.rdvForm.value.email === '') || (this.rdvForm.value.nom === '') || (this.rdvForm.value.objet === null) || (this.rdvForm.value.type === 'case1'))) 
+    if (((this.rdvForm.value.email === '') || (this.rdvForm.value.nom === '') || (this.rdvForm.value.objet === null) || (this.rdvForm.value.date_debut === undefined) || (this.rdvForm.value.type === 'case1'))) 
     {
       return;
     }
@@ -235,8 +235,6 @@ dateFilter = (date: Date): boolean =>
       jour : this.selected ,
       duree : this.creneau
     } 
-    console.log('objet', this.rdvForm.value)
-
 
     this.http.post(`https://franceétudes.com:3000/api/liste/credo`, rdv, { observe: 'response' }).subscribe
     (

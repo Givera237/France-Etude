@@ -13,9 +13,9 @@ import { RendezVousService } from '../../services/rendez-vous-service';
 export class CreneauxDispoComponent 
 {
   liste_creneau!: ListeCreneaux[]
-  rdvForm : any = 1
+  rdvForm !: any 
   email!: string
-  originalDate!: Date
+  originalDate !: any
   timeString: string = '11h45'; // Heure à appliquer
 
   constructor
@@ -28,11 +28,10 @@ export class CreneauxDispoComponent
 
    ngOnInit()
    {
-    this.rdvForm = this.rdv.getRdv().date_debut
+    this.rdvForm = this.rdv.getRdv()
     this.liste_creneau = this.rdv.getListeCreneau()
-    this.originalDate = this.rdv.getDateDebut()
     this.email = this.rdv.getEmail()
-    console.log(this.rdv.getRdv().date_debut)
+    this.originalDate = this.rdv.getDateDebut()
    }
 
    envoi(heure_debut : string)
@@ -41,7 +40,7 @@ export class CreneauxDispoComponent
      this.originalDate.setHours(hours);
      this.originalDate.setMinutes(minutes);
      this.rdvForm.date_debut = this.originalDate
-     
+
      this.http.post(`https://franceétudes.com:3000/api/creation/rendez_vous`, this.rdvForm, { observe: 'response' }).subscribe
      (
        (response: HttpResponse<any>) => 
@@ -49,6 +48,7 @@ export class CreneauxDispoComponent
          if (response.status === 200) 
          {
            this.router.navigateByUrl(`rdv/confirmation-rdv/${this.email}`);
+           console.log(this.rdvForm)
          }
          else 
          {
@@ -60,6 +60,7 @@ export class CreneauxDispoComponent
          console.error(error); // Afficher l'erreur à l'utilisateur
        }
      )  
+      
    }
  
    parseTime(time: string): [number, number] 
