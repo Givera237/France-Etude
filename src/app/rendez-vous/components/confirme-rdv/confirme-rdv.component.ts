@@ -15,6 +15,7 @@ export class ConfirmeRdvComponent
     private router : Router, 
    ){}
 
+
    ngOnInit()
    {
     this.email = this.route.snapshot.params['id'];

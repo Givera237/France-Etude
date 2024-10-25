@@ -16,7 +16,7 @@ import { DateIndisponible } from '../../models/date-indisponible';
 })
 export class RdvFormComponent 
 {
-  selected!: Date | null ;
+  selected!: any  ;
   selectedOption: string = 'case1'; // Valeur par défaut
   admin!: string;
   isClicked: boolean = false;
@@ -73,7 +73,6 @@ export class RdvFormComponent
         }
         );
         */
-
       this.rdvForm = this.formbuilder.group
       (
         {
@@ -218,7 +217,10 @@ dateFilter = (date: Date): boolean =>
   {
 
     this.rdvForm.value.telephone = '' + this.phoneForm.value.selectedCode + this.phoneForm.value.phoneNumber;
+
     this.rdvForm.value.date_debut = this.selected
+
+
     this.rdvForm.value.duree = this.creneau
     this.rdvForm.value.prix = this.prix
     this.rdvForm.value.objet = this.objet
@@ -235,7 +237,7 @@ dateFilter = (date: Date): boolean =>
       jour : this.selected ,
       duree : this.creneau
     } 
-
+    
     this.http.post(`https://franceétudes.com:3000/api/liste/credo`, rdv, { observe: 'response' }).subscribe
     (
       (response: HttpResponse<any>) => 

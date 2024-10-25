@@ -17,6 +17,10 @@ export class CreneauxDispoComponent
   email!: string
   originalDate !: any
   timeString: string = '11h45'; // Heure à appliquer
+  isoDateGmt0!: string;
+  formattedDate!: string;
+  isoDate!: string;
+
 
   constructor
   (
@@ -36,10 +40,27 @@ export class CreneauxDispoComponent
 
    envoi(heure_debut : string)
    {
-     const [hours, minutes] = this.parseTime(heure_debut);
-     this.originalDate.setHours(hours);
-     this.originalDate.setMinutes(minutes);
-     this.rdvForm.date_debut = this.originalDate
+    const [hours, minutes] = this.parseTime(heure_debut);
+    const date = this.originalDate; // GMT+1200
+
+    // Obtenir l'année, le mois, le jour, l'heure, les minutes, les secondes et les millisecondes
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Mois de 0 à 11
+    const day = String(date.getDate()).padStart(2, '0');
+    const hour = String(date.getHours()).padStart(2, '0');
+    const minute = String(date.getMinutes()).padStart(2, '0');
+    const seconds = String(date.getSeconds()).padStart(2, '0');
+    const milliseconds = String(date.getMilliseconds()).padStart(3, '0');
+
+    // Calculer le décalage horaire en heures et minutes
+    const timezoneOffset = date.getTimezoneOffset(); // en minutes
+    const offsetSign = timezoneOffset > 0 ? '-' : '+';
+    const offsetHours = String(Math.floor(Math.abs(timezoneOffset) / 60)).padStart(2, '0');
+    const offsetMinutes = String(Math.abs(timezoneOffset) % 60).padStart(2, '0');
+
+    // Construire la chaîne au format ISO 8601 avec le fuseau horaire
+    this.isoDate = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}+00:00`;
+    this.rdvForm.date_debut = this.isoDate
 
      this.http.post(`https://franceétudes.com:3000/api/creation/rendez_vous`, this.rdvForm, { observe: 'response' }).subscribe
      (
@@ -48,7 +69,6 @@ export class CreneauxDispoComponent
          if (response.status === 200) 
          {
            this.router.navigateByUrl(`rdv/confirmation-rdv/${this.email}`);
-           console.log(this.rdvForm)
          }
          else 
          {
