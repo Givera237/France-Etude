@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Repertoire } from 'src/app/formation/models/repertoire';
 import { AdministrateurServices } from '../../services/administrateur-service';
+import { CookieServices } from 'src/app/cookie.service';
 
 
 @Component({
@@ -18,6 +19,8 @@ export class AbonnementComponent
   rechercheForm!: FormGroup
   noms: string[] = [];
   recherches: string = '';
+  admi!: string;
+
 
   constructor
   (
@@ -25,10 +28,15 @@ export class AbonnementComponent
    private route : ActivatedRoute,
    private formbuilder : FormBuilder,
    private admin : AdministrateurServices,
+   private cookieService: CookieServices,
+   private router : Router 
+
   ){}
 
   ngOnInit() : void
   {
+    this.admi = this.cookieService.getCookie('status');
+
     this.mailForm = this.formbuilder.group
       (
         {
@@ -83,5 +91,10 @@ export class AbonnementComponent
     this.mailForm.value.adresse_visiteur = nom
     const obj = this.mailForm.value;
    this.admin.abonnement(obj)
+  }
+
+  onConnect()
+  {
+    this.router.navigateByUrl(`authentification/connexion`);
   }
 }

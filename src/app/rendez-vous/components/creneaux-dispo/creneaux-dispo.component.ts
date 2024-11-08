@@ -61,6 +61,7 @@ export class CreneauxDispoComponent
     // Construire la chaîne au format ISO 8601 avec le fuseau horaire
     this.isoDate = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}+00:00`;
     this.rdvForm.date_debut = this.isoDate
+    console.log( this.rdvForm.date_debu)
 
      this.http.post(`https://franceétudes.com:3000/api/creation/rendez_vous`, this.rdvForm, { observe: 'response' }).subscribe
      (
