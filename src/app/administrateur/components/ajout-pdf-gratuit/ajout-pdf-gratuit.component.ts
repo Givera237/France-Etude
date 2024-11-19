@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdministrateurServices } from '../../services/administrateur-service';
+import { CookieServices } from 'src/app/cookie.service';
 
 @Component({
   selector: 'app-ajout-pdf-gratuit',
@@ -10,12 +11,21 @@ import { AdministrateurServices } from '../../services/administrateur-service';
 export class AjoutPdfGratuitComponent 
 {
   essai = new FormData();
+  admi!: string;
+
 
   constructor
   (
    private route : ActivatedRoute,
-   private admin : AdministrateurServices
+   private admin : AdministrateurServices,
+   private router : Router,
+   private cookieService: CookieServices,
   ){}
+
+  ngOnInit() : void
+  {
+    this.admi = this.cookieService.getCookie('status');
+  }
 
   onFileChange(event: any) 
   {
@@ -32,5 +42,11 @@ export class AjoutPdfGratuitComponent
 
     this.admin.ajoutPdfGratuit(this.essai, id_formation)
   } 
+
+
+  onConnect()
+  {
+    this.router.navigateByUrl(`authentification/connexion`);
+  }
 
 }

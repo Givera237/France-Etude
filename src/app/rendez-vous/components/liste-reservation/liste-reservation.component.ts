@@ -17,6 +17,8 @@ export class ListeReservationComponent
   refuse!: string
   annule!: string
   decision = 0
+  admi!: string;
+
 
   constructor
   (
@@ -28,6 +30,8 @@ export class ListeReservationComponent
 
   ngOnInit()
   {
+    this.admi = this.cookieService.getCookie('status');
+
     this.http.get<ListeReservation[]>('https://franceétudes.com:3000/api/liste/rendez_vous_effectif').subscribe(reponse  => 
       {
         this.liste = reponse;
@@ -115,6 +119,11 @@ export class ListeReservationComponent
   onSubmit()
   {
     this.decision = 0
+  }
+
+  onConnect()
+  {
+    this.router.navigateByUrl(`authentification/connexion`);
   }
 
   

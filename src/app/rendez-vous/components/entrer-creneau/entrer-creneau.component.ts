@@ -15,6 +15,7 @@ export class EntrerCreneauComponent
   creneauForm!: FormGroup
   selectedTime: string = '10h00'; // Heure par défaut
   decision : number = 0
+  admi!: string;
 
 
   constructor
@@ -28,6 +29,8 @@ export class EntrerCreneauComponent
 
   ngOnInit()
   {
+    this.admi = this.cookieService.getCookie('status');
+
     this.creneauForm = this.formbuilder.group
       (
         {
@@ -75,7 +78,11 @@ export class EntrerCreneauComponent
     retour()
   {
     this.router.navigateByUrl(`rdv/rdv_form`);
+  }
 
+  onConnect()
+  {
+    this.router.navigateByUrl(`authentification/connexion`);
   }
 }
 

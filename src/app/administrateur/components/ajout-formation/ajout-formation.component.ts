@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AdministrateurServices } from '../../services/administrateur-service';
+import { CookieServices } from 'src/app/cookie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ajout-formation',
@@ -12,12 +14,21 @@ export class AjoutFormationComponent
   titre!: string
   description!: string
   contenu!: string 
+  admi!: string;
+
 
   constructor
   (
-   private admin : AdministrateurServices
+   private admin : AdministrateurServices,
+   private router : Router,
+   private cookieService: CookieServices,
+
   ){}
 
+  ngOnInit() : void
+  {
+    this.admi = this.cookieService.getCookie('status');
+  }
 
   onFileChange(event: any) 
   {
@@ -31,13 +42,16 @@ export class AjoutFormationComponent
 
   onSubmit()
   {
-
     this.essai.append('titre', this.titre);
     this.essai.append('description', this.description);
     this.essai.append('contenu', this.contenu);
 
     this.admin.ajoutFormationGratuite(this.essai)
-  
+  }
+
+  onConnect()
+  {
+    this.router.navigateByUrl(`authentification/connexion`);
   }
 
 }

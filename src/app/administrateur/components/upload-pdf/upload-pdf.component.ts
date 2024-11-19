@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdministrateurServices } from '../../services/administrateur-service';
+import { CookieServices } from 'src/app/cookie.service';
 
 @Component({
   selector: 'app-upload-pdf',
@@ -10,13 +11,22 @@ import { AdministrateurServices } from '../../services/administrateur-service';
 export class UploadPdfComponent 
 {
   essai = new FormData();
+  admi!: string;
+
 
   constructor
   (
    private route : ActivatedRoute,
-   private admin : AdministrateurServices
+   private admin : AdministrateurServices,
+   private cookieService: CookieServices,
+   private router : Router,
+
   ){}
 
+  ngOnInit() : void
+  {
+    this.admi = this.cookieService.getCookie('status');
+  }
 
   onFileChange(event: any) 
   {
@@ -32,6 +42,11 @@ export class UploadPdfComponent
     const id_repertoire = this.route.snapshot.params['id'];
 
     this.admin.uploadPdf(this.essai, id_repertoire)
+  }
+
+  onConnect()
+  {
+    this.router.navigateByUrl(`authentification/connexion`);
   }
 
 }

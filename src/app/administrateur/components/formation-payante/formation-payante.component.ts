@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Video } from '../../models/video';
 import { CookieServices } from 'src/app/cookie.service';
 import { Pdf } from '../../models/pdf';
 import { AdministrateurServices } from '../../services/administrateur-service';
+import { NgIfContext } from '@angular/common';
 
 @Component({
   selector: 'app-formation-payante',
@@ -16,6 +17,8 @@ export class FormationPayanteComponent
   videos!: Video[];
   pdf!: Pdf[];
   admin!: string
+  connexion!: string;
+  non_connecte!: TemplateRef<NgIfContext<boolean>>|null;
 
   constructor
   (
@@ -29,6 +32,7 @@ export class FormationPayanteComponent
   ngOnInit() : void
   {
     this.admin = this.cookieService.getCookie('status');
+    this.connexion = this.cookieService.getCookie('connexion');
  
     const id_repertoire = this.route.snapshot.params['id'];
 
@@ -99,5 +103,10 @@ export class FormationPayanteComponent
     const id_repertoire = +this.route.snapshot.params['id'];
     this.router.navigateByUrl(`admin/modifier_repertoire/${id_repertoire}`);
   }
+
+  onConnect()
+    {
+      this.router.navigateByUrl(`authentification/connexion`);
+    }
 
 }

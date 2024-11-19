@@ -1,4 +1,4 @@
-<section style="margin-top: 85px;">
+<section style="margin-top: 85px;" *ngIf="admi ==='1'">
     <div class="container">
         <h3 class="fw-bold text-center" > <br> Vous ajoutez une formation payante <br></h3>
       <div class="row"> 
@@ -37,8 +37,22 @@
         </div>
      </div>
     </div>
-  
   </section>
+
+  <div *ngIf="admi !='1'"  >
+    <h2 class="fw-bold text-center" > <br> Vous n'êtes pas habilité<br></h2>
+    <div class="container ">
+      <div class="row">
+        <div class="col-10 col-md-3 offset-1 offset-md-2 p-2 d-flex justify-content-center"> 
+          <p class="fs-6 que_faisons_nous text-black"> <br> Veuillez-vous connecter !</p>
+      </div>  
+      <div class="col-10 col-md-4 offset-1 offset-md-1 d-flex justify-content-center" >
+          <br>
+          <button type="button" (click)="onConnect()" class="btn btn-danger jello-horizontal bouton_blanc btn-lg mt-3 mb-3 "  style=" background-color: #F31111; "><strong> Connexion</strong> </button> <br> 
+      </div>        
+      </div>  
+    </div> 
+  </div>
   
   
   

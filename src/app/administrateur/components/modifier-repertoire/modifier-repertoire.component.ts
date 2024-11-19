@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdministrateurServices } from '../../services/administrateur-service';
+import { CookieServices } from 'src/app/cookie.service';
 
 @Component({
   selector: 'app-modifier-repertoire',
@@ -15,14 +16,22 @@ export class ModifierRepertoireComponent
   description!: string
   contenu!: string 
   prix!:string
+  admi!: string;
+
 
   constructor
   (
    private http : HttpClient, 
    private router : Router,
    private route : ActivatedRoute,
-   private admin : AdministrateurServices
+   private admin : AdministrateurServices,
+   private cookieService: CookieServices,
   ){}
+
+  ngOnInit() : void
+  {
+    this.admi = this.cookieService.getCookie('status');
+  }
 
   onFileChange(event: any) 
   {
@@ -43,6 +52,11 @@ export class ModifierRepertoireComponent
     this.essai.append('prix', this.prix);
 
     this.admin.modifierFormationPayante(this.essai, id_repertoire)  
+  }
+
+  onConnect()
+  {
+    this.router.navigateByUrl(`authentification/connexion`);
   }
 
 }

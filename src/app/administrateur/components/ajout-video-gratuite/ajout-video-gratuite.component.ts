@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpResponse } from '@angular/common/http';
+import { CookieServices } from 'src/app/cookie.service';
 
 @Component({
   selector: 'app-ajout-video-gratuite',
@@ -14,17 +15,22 @@ export class AjoutVideoGratuiteComponent
   path!: string
   description!: string
   monFormulaire!: FormGroup;
+  admi!: string;
 
   constructor
   (
    private route : ActivatedRoute,
    private formbuilder : FormBuilder,
    private http : HttpClient,
-   private router : Router
+   private router : Router,
+   private cookieService: CookieServices,
+
   ){}
 
   ngOnInit() : void
   {
+
+    this.admi = this.cookieService.getCookie('status');
 
     this.monFormulaire = this.formbuilder.group
     (
@@ -59,5 +65,10 @@ export class AjoutVideoGratuiteComponent
           console.error(error); // Afficher l'erreur à l'utilisateur
         }
       )
+  }
+
+  onConnect()
+  {
+    this.router.navigateByUrl(`authentification/connexion`);
   }
 }

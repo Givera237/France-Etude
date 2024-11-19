@@ -15,6 +15,9 @@ import { ListeReservation } from '../../models/liste-reservation';
 export class ListeRdvComponent 
 {
   liste!: ListeReservation[]
+  rendezVousList: ListeReservation[] = [];
+  admi!: string;
+
 
   constructor
   (
@@ -25,13 +28,12 @@ export class ListeRdvComponent
     private rdv : RendezVousService,
    ){}
 
-rendezVousList: ListeReservation[] = [];
 
 
 ngOnInit() 
 {
   this.loadRendezVous();
-
+  this.admi = this.cookieService.getCookie('status');
 }
 
 loadRendezVous() 
@@ -50,6 +52,10 @@ sortRendezVous()
   this.rendezVousList.sort((a, b) => a.date_debut.getTime() - b.date_debut.getTime());
 }
 
+onConnect()
+  {
+    this.router.navigateByUrl(`authentification/connexion`);
+  }
 
 }
 

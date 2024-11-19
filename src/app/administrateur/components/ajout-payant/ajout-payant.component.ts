@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AdministrateurServices } from '../../services/administrateur-service';
+import { CookieServices } from 'src/app/cookie.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,12 +17,21 @@ export class AjoutPayantComponent
   contenu!: string 
   prix!:string
   prix_barre!: string
+  admi!: string;
+
 
   constructor
   (
-   private admin : AdministrateurServices
+   private admin : AdministrateurServices,
+   private router : Router,
+   private cookieService: CookieServices,
+
   ){}
 
+  ngOnInit() : void
+  {
+    this.admi = this.cookieService.getCookie('status');
+  }
 
   onFileChange(event: any) 
   {
@@ -44,4 +55,8 @@ export class AjoutPayantComponent
     this.admin.ajoutFormationPayante(this.essai)
   }
 
+  onConnect()
+  {
+    this.router.navigateByUrl(`authentification/connexion`);
+  }
 }

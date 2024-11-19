@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdministrateurServices } from '../../services/administrateur-service';
+import { CookieServices } from 'src/app/cookie.service';
 
 @Component({
   selector: 'app-upload-video-payante',
@@ -10,13 +11,21 @@ import { AdministrateurServices } from '../../services/administrateur-service';
 export class UploadVideoPayanteComponent
 {
   essai = new FormData();
+  admi!: string;
+
 
   constructor
   (
    private route : ActivatedRoute,
-   private admin : AdministrateurServices
+   private admin : AdministrateurServices,
+   private router : Router,
+   private cookieService: CookieServices,
   ){}
 
+  ngOnInit() : void
+  {
+    this.admi = this.cookieService.getCookie('status');
+  }
 
   onFileChange(event: any) 
   {
@@ -34,4 +43,8 @@ export class UploadVideoPayanteComponent
     this.admin.uploadVideo(this.essai, id_repertoire)
   }
 
+  onConnect()
+  {
+    this.router.navigateByUrl(`authentification/connexion`);
+  }
 }

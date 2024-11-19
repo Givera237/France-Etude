@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AdministrateurServices } from '../../services/administrateur-service';
+import { Router } from '@angular/router';
+import { CookieServices } from 'src/app/cookie.service';
 
 
 @Component({
@@ -15,13 +17,21 @@ export class EnvoiMailComponent
   message!: string;
   suject!: string;
   annee!: string;
-  constructor(
-              private formbuilder : FormBuilder,
-              private admin : AdministrateurServices
-              ){}
+  admi!: string;
+
+  constructor
+  (
+    private formbuilder : FormBuilder,
+    private admin : AdministrateurServices,
+    private router : Router,
+    private cookieService: CookieServices,
+  ){}
 
     ngOnInit() :void
     {
+
+      this.admi = this.cookieService.getCookie('status');
+      
       this.mailForm = this.formbuilder.group
       (
         {
@@ -36,6 +46,11 @@ export class EnvoiMailComponent
     {
       const obj = this.mailForm.value;
       this.admin.envoieMail(obj)
+    }
+
+    onConnect()
+    {
+      this.router.navigateByUrl(`authentification/connexion`);
     }
 
   }
