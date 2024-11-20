@@ -99,3 +99,32 @@
     </div>
   </ng-template>
 </div>
+
+
+
+
+
+
+<div>
+  <video id="my-video" class="video-js" controls preload="auto"  oncontextmenu="return false;" width="520" height="440">
+    <source src="https://franceétudes.com:3000/public/data/uploads/videos/PRESENATION_DES_ETAPES_POUR_ETUDIER_EN_FRANCE.mp4_1728493765780.mp4" type="video/mp4" />
+    <p class="vjs-no-js">
+      Pour voir cette vidéo, veuillez activer JavaScript et envisager de passer à un navigateur web qui prend en charge la vidéo HTML5.
+    </p>
+  </video>
+</div>
+
+<script>
+  var player = videojs('my-video');
+
+  // Désactiver le clic droit
+  document.getElementById('my-video').addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+  });
+
+  // Optionnel : supprimer les contrôles
+  player.ready(function() {
+      this.controls(false);
+  });
+
+</script>

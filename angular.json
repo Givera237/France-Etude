@@ -55,11 +55,13 @@
               "@angular/material/prebuilt-themes/pink-bluegrey.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/aos/dist/aos.css",
+              "node_modules/video.js/dist/video-js.css",
               "src/styles.scss"
             ],
             "scripts": 
             [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/video.js/dist/video.js",
               "./node_modules/aos/dist/aos.js"
             ]
           },
