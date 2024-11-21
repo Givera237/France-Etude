@@ -1,4 +1,4 @@
-import { Component, ElementRef, AfterViewInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, TemplateRef } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Video } from '../../models/video';
@@ -6,7 +6,6 @@ import { CookieServices } from 'src/app/cookie.service';
 import { Pdf } from '../../models/pdf';
 import { AdministrateurServices } from '../../services/administrateur-service';
 import { NgIfContext } from '@angular/common';
-import videojs from 'video.js';
 
 
 
@@ -16,19 +15,13 @@ import videojs from 'video.js';
   templateUrl: './formation-payante.component.html',
   styleUrls: ['./formation-payante.component.scss']
 })
-export class FormationPayanteComponent implements AfterViewInit
+export class FormationPayanteComponent 
 {
   videos!: Video[];
   pdf!: Pdf[];
   admin!: string
   connexion!: string;
   non_connecte!: TemplateRef<NgIfContext<boolean>>|null;
-  players: any[] = [];
-
-  @ViewChild('videoPlayer') videoPlayer!: ElementRef;
-  player: any;
-
-  //private player: videojs.Player;
 
 
   constructor
@@ -38,29 +31,7 @@ export class FormationPayanteComponent implements AfterViewInit
    private router : Router,
    private admins : AdministrateurServices,
    private cookieService: CookieServices,
-   private elementRef: ElementRef
   ){} 
-
-
-  ngAfterViewInit()
-  {
-    this.player = videojs(this.elementRef.nativeElement.querySelector('#my-video'), 
-    {
-      controls: true,
-      autoplay: false,
-      preload: 'auto',
-      // Autres options de configuration si nécessaire
-    });
-  }
-
-
-  ngOnDestroy() 
-  {
-    if (this.player) 
-    {
-      this.player.dispose();
-    }
-  }
 
 
   ngOnInit() : void
@@ -73,8 +44,6 @@ export class FormationPayanteComponent implements AfterViewInit
     this.http.get<Video[]>(`https://franceétudes.com:3000/api/video_uploads/${id_repertoire}`).subscribe(reponse  => 
     {
       this.videos = reponse;
-      //this.initializePlayers();
-
     }
     );
 
@@ -83,34 +52,7 @@ export class FormationPayanteComponent implements AfterViewInit
       this.pdf = reponse;
     }
     );
-
-
-
-
-/*
-
-    const player = videojs(this.videoPlayer.nativeElement, {
-      controls: true,
-      autoplay: false,
-      preload: 'auto',
-      sources: [{
-        src: 'https://franceétudes.com:3000/public/data/uploads/videos/PRESENATION_DES_ETAPES_POUR_ETUDIER_EN_FRANCE.mp4_1728493765780.mp4',
-        type: 'video/mp4'
-      }],
-      // Options pour désactiver le téléchargement
-      controlBar: {
-        downloadToggle: false // Désactive le bouton de téléchargement
-      }
-    });
-*/
-
   }
-
-
-
-
-
-
 
   onViewFormation() : void
     {
@@ -171,8 +113,5 @@ export class FormationPayanteComponent implements AfterViewInit
       this.router.navigateByUrl(`authentification/connexion`);
     }
 
-}
-function ngAfterViewInit() {
-  throw new Error('Function not implemented.');
 }
 

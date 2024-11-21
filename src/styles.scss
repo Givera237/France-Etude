@@ -3,14 +3,13 @@
 @import 'aos/dist/aos.css';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import '~video.js/dist/video-js.css';
-     
 
 
+body 
+{  
+  font-family: "Roboto", sans-serif;
+}
 
-body {
-    
-    font-family: "Roboto", sans-serif;
-  }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
