@@ -1,3 +1,105 @@
+<div class="container">
+  <div class="row">
+    <h1 class="fw-bold text-center my-5 display-6 " style="color:#FCA129;">Formation</h1>
+    <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center" *ngFor="let repertoire of repertoires" >
+      <div class="card my-4 puff-in-br " style="width: 18rem;" >
+        <div class="card-header text-center" style="background-color: white;" >
+          <strong style="color:#FCA129;">{{repertoire.titre | uppercase}}</strong>
+        </div>
+        <div  *ngFor="let img of images ; let i = index">
+          <div *ngIf="repertoire.id_repertoire===img.id_repertoire" class="position-relative"> 
+            <img class="card-img-top img-fluid" style="height: 200px; filter: brightness(50%);;" src="{{img.path}}" (click)="onViewFormation(repertoire.id_repertoire)" alt="Card image cap" >                         
+            <button type="button" class="btn btn-primary btn position-absolute" style="top: 85%; left: 50%; transform: translate(-50%, -50%); width: 200px; background-color: white;">
+              <span class="fw-bold text-decoration-line-through fs-6 mx-1" style="color: red;" >{{repertoire.prix_barre |  number:'1.0-2' }} €</span> <span class="fw-bold text-end fs-5" style="margin-left: 20px; color: green;"  >{{repertoire.prix | number:'1.0-2' }} € </span>  
+            </button>
+          </div>
+        </div>
+          <div class="card-body" >
+            <p class="card-text" >{{repertoire.description | uppercase}} </p> 
+            <div class="d-flex flex-row justify-content-center" >
+              <a href="https://api.whatsapp.com/send?phone=330780465075">
+                <button type="button" class="btn btn-primary px-5 btn-lg m-2" style="background-color: #144484; color: white; width: 250px;" (click)="onRedirect(repertoire.titre, repertoire.prix)" >
+                    <span class="fw-bold text-white">accéder</span>
+                </button>
+              </a>
+            </div>
+          </div>
+    </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="admin ==='1'">
+  <a href="admin/ajout_payant">
+    <svg xmlns="http://www.w3.org/2000/svg" width="75" style="color :blue" height="52" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+      <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
+      <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
+    </svg>
+  </a>
+  <a href="admin/abonnement">
+    <svg xmlns="http://www.w3.org/2000/svg" width="86" height="62" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
+      <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+      <path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4"/>
+    </svg>
+  </a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 <section class="fond mt-10 mb-10 ">
     <div class="container p-5">
         <div data-aos="zoom-in"  data-aos-duration="3000" class="row">
@@ -20,7 +122,7 @@
                       </div>
                       <div  *ngFor="let img of images ; let i = index">
                         <div *ngIf="repertoire.id_repertoire===img.id_repertoire"> 
-                          <img class="card-img-top img-fluid" style="height: 200px;" src="{{img.path}}" (click)="onViewFormation(repertoire.id_repertoire)" alt="Card image cap" >                         <!-- <img src="./{{img.path}}" class="card-img-top" alt="..." (click)="onViewFormation(formation.id_formation)"  >   --> 
+                          <img class="card-img-top img-fluid" style="height: 200px;" src="{{img.path}}" (click)="onViewFormation(repertoire.id_repertoire)" alt="Card image cap" >                         
                         </div>
                       </div>
                          <div class="card-body" >
@@ -38,14 +140,6 @@
                   </div>
             </div>
         </div>
-        <!--
-          <p class="text-end texte_coaching">   
-            Pour obtenir l'accès à ces formations, contactez-nous afin de vous y abonner
-            <a href="https://api.whatsapp.com/send?phone=237681195346">
-                <button type="button" class="jello-horizontal btn btn-danger btn-lg btn_coaching" style="background-color: #F31111;">M'abonner</button>
-            </a>
-        </p>
-      -->
     </div>
     <div *ngIf="admin ==='1'">
       <a href="admin/ajout_payant">
@@ -64,57 +158,5 @@
 </section>
 
 
-
-
-<!--
-   <div class="card my-4" style="width: 18rem;">
-                      <div class="card-header text-center" style="background-color: #F31111;">
-                          titre
-                      </div>
-                      <img src="/assets/Visa.jpeg" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      </div>
-                  </div>
-   <div class="col">
-                <div class="card my-4" style="width: 18rem;">
-                    <div class="card-header text-center" style="background-color: #F31111;">
-                        titre
-                    </div>
-                    <img src="/assets/Visa.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-                  <div class="card my-4" style="width: 18rem;">
-                    <div class="card-header text-center" style="background-color: #F31111;">
-                        titre
-                    </div>
-                    <img src="/assets/Visa.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                  </div>
-            </div>
- <div class="col">
-                <div class="card my-4" style="width: 18rem;">
-                    <div class="card-header text-center" style="background-color: #F31111;">
-                        titre
-                    </div>
-                    <img src="/assets/Visa.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                  </div>
-                  <div class="card my-4" style="width: 18rem;">
-                    <div class="card-header text-center" style="background-color: #F31111;">
-                        titre
-                    </div>
-                    <img src="/assets/Visa.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                  </div>
-            </div>
 
 -->

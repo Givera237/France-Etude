@@ -1,3 +1,36 @@
+<div class="bg-image img-fluid z-2" style="width: 100%; height: 90vh; background-image: url('/assets/Contact/contact image.png'); background-size: cover; background-attachment: local; background-repeat: no-repeat; position: relative;">
+  <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); z-index: 1;"></div>
+  <div class="container z-3" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center;"> <!-- Centrage vertical uniquement -->
+      <div class="row mb-5" style="text-align: left;">
+        <div class="d-flex flex-column justify-content-between">
+            <div class="col-12 mt-5 text-center" >
+              <p *ngIf="change===false" class="mx-5 fw-bold fs-3 text-white text-center" >
+                Un lien de réinitialisation sera envoyé à l'adresse <span style="color : #FCA129" >{{email}} </span> <br> <br>
+                <button type="button" (click)="onSubmit()" class="btn btn-lg fw-bold text-white px-5" style="background-color: #083699;">Envoyer le lien </button>
+              </p> 
+              <div *ngIf="change===true">
+                <div class="card">
+                  <div class="card-body">
+                    <img class="image-fluid" src="/assets/reinitialisation succes/check.png" alt="hello">
+                    <span class="mx-2 fw-bold" >Le mail contenant le lien a été envoyé </span>
+                  </div>
+                </div>               
+              </div>
+            </div>
+        </div>               
+      </div>
+  </div>   
+</div>
+
+
+
+
+
+
+
+<!--
+
+
 <section class=" container d-flex justify-content-center" style="margin-top: 40px; margin-bottom: 20px;" >
     <ng-container *ngIf="email">
       <div class="row">
@@ -15,4 +48,4 @@
     </ng-container>
   </section>
   
-  
+  -->

@@ -7,7 +7,7 @@
 
 body 
 {  
-  font-family: "Roboto", sans-serif;
+  font-family: Arial, Helvetica, sans-serif; 
 }
 
 html, body { height: 100%; }
@@ -17,3 +17,91 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 {
   --mat-calendar-background-color : red ;
 }
+
+button
+{
+    transition: color 0.3s ease-in-out !important;;
+}
+button:hover
+{
+    transform: scale(1.05) !important;
+}
+
+.carte:hover
+{
+    transform: scale(1.05) !important;
+    transition: transform 0.3s ease-in-out !important;
+}
+
+.icon
+{
+  transition: 0.3s ease-in-out, color 0.3 ease-in-out  !important;
+}
+.icon:hover
+{
+  transform: rotate(10deg) !important;
+  //background-color : #FFA500
+}
+
+.fade-in
+{
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out,  ;
+  transition: translateY(20px), Transform 0.6s ease-in-out;
+}
+
+.fade-in.visible
+{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-up
+{
+  opacity: 1;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.zoom-in
+{
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+.cercle-deforme {
+  position: absolute; /* Positionnement absolu */
+  top: 150%; /* Centrer verticalement */
+  left: 0%; /* Centrer horizontalement */
+  width: 600px; /* Ajustez la taille selon vos besoins */
+  height: 550px; /* Ajustez la taille selon vos besoins */
+  background-color: #0056b3; /* Couleur avec transparence */
+  border-radius: 80% 30% 80% 10% / 10% 20% 80% 90%;
+  transform: translate(-50%, -50%); /* Centrage par rapport à ses propres dimensions */
+  z-index: -1; /* Mettre en arrière-plan */
+}
+
+.container {
+  position: relative; /* Position relative pour le conteneur */
+  z-index: 1; /* S'assurer que le conteneur est au-dessus */
+}
+.cercle-deforme-fin {
+  position: absolute; /* Positionnement absolu */
+  top: 250%; /* Centrer verticalement */
+  left: 85%; /* Centrer horizontalement */
+  width: 600px; /* Ajustez la taille selon vos besoins */
+  height: 550px; /* Ajustez la taille selon vos besoins */
+  background-color: #0056b3; /* Couleur avec transparence */
+  border-radius: 80% 30% 80% 10% / 10% 20% 80% 90%;
+  transform: translate(-50%, -50%); /* Centrage par rapport à ses propres dimensions */
+  z-index: -1; /* Mettre en arrière-plan */
+  /*
+      Les valeurs de border-radius sont définies dans l'ordre suivant :
+      top-left-horizontal top-right-horizontal bottom-right-horizontal bottom-left-horizontal /
+      top-left-vertical top-right-vertical bottom-right-vertical bottom-left-vertical
+  */
+}
+
+
+
+

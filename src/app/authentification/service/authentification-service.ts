@@ -15,27 +15,28 @@ export class AuthentificationService
     inscriptionForm!: FormGroup;
     code!: number;
     erreur_mail!: string
-
-    constructor(
+    private token = this.cookieService.getCookie('token');
+    constructor
+    (
       private router : Router, 
       private formbuilder : FormBuilder,
       private cookieService: CookieServices,
       private http : HttpClient,
       
-){}
+    ){}
 
-ngOnInit() : void
-{
-  this.inscriptionForm = this.formbuilder.group
-  (
+    ngOnInit() : void
     {
-      pseudo: [null,[Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[,.!?]).{6,}$/)]],
-      email: [null,[Validators.required]],
-      code_confirmation: [4,[Validators.required]],
-    }
-  ) ;
+      this.inscriptionForm = this.formbuilder.group
+      (
+        {
+          pseudo: [null,[Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[,.!?]).{6,}$/)]],
+          email: [null,[Validators.required]],
+          code_confirmation: [4,[Validators.required]],
+        }
+      ) ;
 
-} 
+    } 
 
     setVariable(variable: any) 
     {
@@ -216,4 +217,10 @@ ngOnInit() : void
       } 
     ) ;
     } 
+
+    getToken(): string 
+    {
+      return this.token;
+    }
+
   }

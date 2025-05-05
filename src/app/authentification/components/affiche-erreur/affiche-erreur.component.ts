@@ -25,6 +25,7 @@ export class AfficheErreurComponent
 
   onRedirect()
   {
-    this.router.navigate(['authentification/inscription']);
+    this.router.navigateByUrl('authentification/inscription');
+
   }
 }

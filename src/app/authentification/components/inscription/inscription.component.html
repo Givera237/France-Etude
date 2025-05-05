@@ -31,7 +31,7 @@
             </div>
         </div>
     </div>
-  -->
+  
   <div class="bg-image img-fluid" style="width: 100%; height: 100vh; background-image: url('/assets/avion qui décolle.jpg'); background-size: 100% 100% ; background-attachment: fixed;  background-repeat :no-repeat; ">
     <br><br><br><br>
     <div class="container">
@@ -55,7 +55,7 @@
                       <i class="fa"  [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
                     </button>
                   </div>
-                  <div *ngIf="usernameControl.hasError('pattern')"> <span class="" style="color: red;" >Le mot de passe doit contenir au-moins 8 caractères, une majuscule et des caractères spéciaux tel que . , ! ? # @ _</span></div>
+                  <div *ngIf="usernameControl.hasError('pattern')"> <span class="" style="color: red;" >Le mot de passe doit contenir au-moins 8 caractères, une majuscule et des caractères spéciaux tel que . , ! ? #  _</span></div>
                     <p class="text-center" >
                       <button type="submit" (click)="onSubmit()" [disabled]="inscriptionForm.invalid" class="btn btn-primary mt-3 mb-1 text-black btn_connexion"><STRong>Inscription </STRong></button>
                     </p>
@@ -69,7 +69,75 @@
         </div>
     </div>
     <br><br><br><br><br><br><br><br><br><br><br>
+</div> -->
+
+
+
+
+
+<div class="bg-image img-fluid z-2" style="width: 100%; height: 90vh; background-image: url('/assets/Connexion/avion 3.jpg'); background-size: cover; background-attachment: local; background-repeat: no-repeat; position: relative;">
+  <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); z-index: 1;"></div>
+  <div class="container z-3" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center;"> <!-- Centrage vertical uniquement -->
+      <div class="row mb-5" style="text-align: left;">
+          <div class="p-4 d-flex justify-content-center">
+              <div class="col-12 col-md-1 col-lg-3"></div>
+              <form [formGroup]="inscriptionForm" class="col-12 col-md-12 col-lg-4 p-5 my-5" style="background-color: white; ">
+                 <p class="text-center">
+                  <img src="/assets/Connexion/franceétude logo.png" alt="" class="heartbeat" style="width: 100px;">
+                 </p>
+                 <p class="text-center fw-bold">
+                 Inscrivez-vous
+                 </p>
+                 <p class="text-center">
+                  Créez votre profil FranceÉtudes et rejoignez l'aventure. 
+                 </p>
+                 <input type="text" autocomplete="off" class="form-control mb-5 p-3 border border-primary" formControlName="pseudo" id="pseudo"  style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre Pseudo ">
+                 <div class="input-password">
+                    <input type="text" autocomplete="off" class="form-control mb-5 p-3 border border-primary" formControlName="email" id="email" style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre Email ">
+                    <img src="/assets/Connexion/email icon.png" (click)="togglePasswordVisibility()" style="cursor :pointer;"  alt="Cadenas">
+                  </div>
+                  <div class="input-password">
+                    <input type="password" autocomplete="off" [type]="passwordVisible ? 'text' : 'password'" class="form-control mb-5 p-3 border border-primary" formControlName="password"  style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre Mot de passe ">
+                    <img src="/assets/Connexion/mot de passe icon.png" (click)="togglePasswordVisibility()" style="cursor :pointer;"  alt="Cadenas">
+                </div>              
+                <div *ngIf="usernameControl.hasError('pattern')"> <span class="" style="color: red;" >Le mot de passe doit contenir au-moins 8 caractères, une majuscule et des caractères spéciaux tel que . , ! ? #  _</span></div>
+                 <p class="text-center" >
+                  <button type="submit" (click)="onSubmit()" [disabled]="inscriptionForm.invalid" class="btn btn-lg btn-primary mt-3 px-5 mb-1" style="background-color: #083699;" ><span class="fw-bold">Inscription </span></button>
+                  </p>
+                 <div class="text-center">
+                      <span class="text-black">
+                          Déjà un compte, <a href="authentification/connexion" class="lien">Connectez-vous</a> 
+                      </span>
+                 </div>
+              </form>
+              <div class="col-12 col-md-1 col-lg-3"></div>
+          </div>
+      </div>
+  </div>   
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <!-- Modal -->
   <div class="modal fade" id="cookie" tabindex="-1" aria-labelledby="cookies" aria-hidden="true"  style="margin-top: 80px;" >
     <div class="modal-dialog">

@@ -1,79 +1,18 @@
-form
-{
-    margin: 20px;
-    padding: 10px;
-    height: 510px;
+.input-group-text {
+    background-color: transparent; /* Fond transparent pour l'icône */
+    border: none; /* Pas de bordure */
 }
-em
-{
-    color: red;
-}
-
-.fond
-{
-    //background-color: rgba(18, 131, 235, 0.2);
-    background-color: white; 
-    margin: auto;
-    margin-bottom: 35px;
-    padding: 10px;
-}
-.bleu:hover
-{
-    background-color:white !important;
-}
-
-.rouge
-{
-    color: white !important;
-
-    &:hover 
-    {
-        color: red !important;
-    }
-}
-.lien
-{
-    color : red
-}
-.cont
-{
-    //background-color:rgba(0, 0, 0, 0.49);
-    background-color: rgb(255, 255, 255);
-    border-radius: 10%;
-}
-.bouton_blanc:hover
-{
-  background-color: white !important;
-  color : red !important;
-}
-.btn_connexion
-{
-    background-color: red;
-    &:hover 
-    {
-        background-color:white !important ;
-    }
-}
-
-.input-container 
-{
+.input-password {
     position: relative;
-    display: inline-block;
 }
-  
-.input-container input 
-{   
-    padding-right: 40px; /* Ajustez la valeur pour laisser de l'espace pour le bouton */
-}
-
-.input-container button 
-{
+.input-password img {
+    width: 20px; /* Taille de l'icône */
+    height: 20px; /* Ajustement automatique de la hauteur */
     position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 40px; /* Ajustez la valeur pour définir la largeur du bouton */
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
+    right: 10px; /* Positionnement à gauche */
+    top: 50%; /* Centrer verticalement */
+    transform: translateY(-50%); /* Ajustement pour centrer */
+}
+.input-password input {
+    padding-left: 30px; /* Espace pour l'icône */
 }

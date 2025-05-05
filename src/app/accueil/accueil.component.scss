@@ -1,219 +1,70 @@
+.circle-container {
+  width: 50px; /* Définissez la largeur de votre cercle */
+  height: 50px; /* Définissez la hauteur de votre cercle */
+  background-color: #144484; /* Couleur de fond du cercle */
+  border-radius: 50%; /* Rendre le conteneur circulaire */
+  display: flex; /* Pour centrer l'image */
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  overflow: hidden; /* Masque la partie débordante de l'image */
+}
+.input-group-text {
+  background-color: transparent; /* Fond transparent pour l'icône */
+  border: none; /* Pas de bordure */
+}
+.input-password {
+  position: relative;
+}
+.input-password img {
+  width: 20px; /* Taille de l'icône */
+  height: 20px; /* Ajustement automatique de la hauteur */
+  position: absolute;
+  right: 10px; /* Positionnement à gauche */
+  top: 50%; /* Centrer verticalement */
+  transform: translateY(-50%); /* Ajustement pour centrer */
+}
+.input-password input {
+  padding-left: 30px; /* Espace pour l'icône */
+}
+
+.circle-container img 
+{
+  width: 80%; /* S'assurer que l'image remplit le conteneur */
+  height: auto; /* Maintient le ratio d'aspect de l'image */
+}
 
 iframe
 {
-    width: 100%;
-    height: 320px;
-    margin-top: 10px;
-    margin-bottom: 15px;
-} 
-input {
-  border-radius: 40px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.inscription:hover
-{
-  background-color: rgb(220,20,60) !important;
-}
-.background
-{
-  background-image: url('/assets/avion qui décolle.jpg');
-  width: 1250px;
-  height: 650px;
-}
-.images
-{
-    height: 250px;
-    width: 250px;
-    margin: 10px;
-    border-radius: 55%;
+  height: 600px;
 }
 
-.texte_sur_image
-{
-  color: white;
-  position: absolute;
-  top: 90%;
-  left: 80%
-}
-.bouton_image:hover
-{
-  background-color: red; // Réinitialisez la transformation de base
-}
-.image_fond
-{
-  height: 300px ;
-  width: 550px;
-  border-radius: 55%;
-}
-.mon-element {
-  //background: linear-gradient(90deg,  rgb(240,128,128), rgb(220,20,60));
-  background-color: black;
-  color: white; /* Ajouter une couleur de texte blanche */
-  text-shadow: 1px 1px 1px rgba(255,255,255,0.2); /* Ajouter une ombre de texte foncée */
-  &:before {
-    position: absolute; /* Position absolue pour le texte */
-    top: 50%; /* Centrer le texte verticalement */
-    left: 50%; /* Centrer le texte horizontalement */
-    transform: translate(-50%, -50%); /* Centrer le texte exactement */  }
-}
-.citation
-{
-  font-style: italic;
-}
-.auteur
-{
-    font-family: 'Kavoon';
-}
-.que_faisons_nous
-{
-  font-family: "Libre Baskerville", serif;
-  font-weight: 500;
-  font-size: large;
-  font-style: normal;
-}
-.titre
-{
-  font-family: "Libre Baskerville", serif;
-  font-weight: 500;
-  font-style: normal;
-}
+/* Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
 
-.pacifico-regular 
-{
-  font-family: "Geologica", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-variation-settings:
-    "slnt" 0,
-    "CRSV" 0,
-    "SHRP" 0;
+/* Cursor */
+.cursor{
+    position: relative;
+    width: 24rem;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 30px;
+    text-align: start;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
 }
-
-.logo_fige
-{
-  width: 50px;
-  position:fixed;
-  top: 75%;
-  left: 2%;
-  z-index: 1;
+/* Animation */
+.typewriter-animation {
+  animation: 
+    typewriter 8s steps(50) 1s 1 normal both, 
+    blinkingCursor 500ms steps(50) infinite normal;
 }
-.texte_mobile
-{
-    transform: none; // Réinitialisez la transformation de base
-    &:hover 
-    {
-      transform: translate(10px, 10px); // Déplacez l'image de 10 pixels vers la droite et le bas
-    }
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
 }
-  
-  .image_mobile 
-  {
-    transform: none; // Réinitialisez la transformation de base
-    height: 200px;
-    width: 200px;
-    margin: 5px;
-    border-radius: 55%;
-    &:hover {
-      transform: translate(10px, 10px); // Déplacez l'image de 10 pixels vers la droite et le bas
-    }
-  }
-  
-  .roboto-thin {
-    font-family: "Roboto", sans-serif;
-    font-weight: 100;
-    font-style: normal;
-  }
-  
-  .roboto-light {
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-  }
-  
-  .roboto-regular {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .roboto-medium {
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-  }
-  
-  .roboto-bold {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-  }
-  
-  .roboto-black {
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-  }
-  
-  .roboto-thin-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 100;
-    font-style: italic;
-  }
-  
-  .roboto-light-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: italic;
-  }
-  
-  .roboto-regular-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: italic;
-  }
-  
-  .roboto-medium-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-style: italic;
-  }
-  
-  .roboto-bold-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-style: italic;
-  }
-  
-  .roboto-black-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: italic;
-  }
-  
-
-
-.rouge:hover 
-{
-  background-color: red !important;
+@keyframes blinkingCursor{
+  from { border-right-color: transparent; }
+  to { border-right-color: transparent; }
 }
-.bouton_blanc:hover
-{
-  background-color: white !important;
-  color : red !important;
-}
-.text-focus-in{-webkit-animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both;animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both}
- @-webkit-keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}
- 
- .tracking-in-expand:hover{animation:tracking-in-expand 2s cubic-bezier(.215,.61,.355,1.000) both}
- @keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}
-
-.heartbeat:hover{-webkit-animation:heartbeat 1.5s ease-in-out infinite both;animation:heartbeat 1.5s ease-in-out infinite both}
- @-webkit-keyframes heartbeat{from{-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:center center;transform-origin:center center;-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}10%{-webkit-transform:scale(.91);transform:scale(.91);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}17%{-webkit-transform:scale(.98);transform:scale(.98);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}33%{-webkit-transform:scale(.87);transform:scale(.87);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}45%{-webkit-transform:scale(1);transform:scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}}@keyframes heartbeat{from{-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:center center;transform-origin:center center;-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}10%{-webkit-transform:scale(.91);transform:scale(.91);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}17%{-webkit-transform:scale(.98);transform:scale(.98);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}33%{-webkit-transform:scale(.87);transform:scale(.87);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}45%{-webkit-transform:scale(1);transform:scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}}
-
-
-
-
-
-
-
 

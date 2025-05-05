@@ -1,3 +1,119 @@
+<div class="container">
+  <div class="row">
+    <h1 class="fw-bold text-center my-5 display-6 " style="color:#FCA129; ">Découvrez nos formations gratuites</h1>
+    <p class="text-center" >
+      Durant ma procédure pour la France, j'ai fait face à une série de défis déconcertants. Le manque de logement a été l'une de mes premières épreuves, 
+      aggravé par l'abandon soudain d'un ami qui avait promis de m'héberger. À mon arrivée en France, sans repères et dans un état d'incertitude, 
+      je me suis retrouvé confronté à l'angoisse de la rentrée académique déjà commencée.
+    </p>
+  </div>
+</div>
+<div class="container rounded-5 " style="background-color: #D9D9D9;">
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-6 p-5 heartbeat " *ngFor="let formation of formations" >
+      <div class="card my-4 puff-in-br">
+            <div  *ngFor="let img of images ; let i = index">
+              <div *ngIf="formation.id_formation===img.id_formation"> 
+                <img class="card-img-top " src="{{img.path}}" height="50%" width="50%" alt="Card image cap" (click)="onViewFormation(formation.id_formation)" >                            
+              </div>
+            </div>
+      </div>
+      <span class=" fw-bold my-4" style="background-color: #D9D9D9;">{{formation.description}} </span>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -8,7 +124,7 @@
 </head>
 
 <div  *ngIf="existe(connexion); else existe_pas">
-  <div *ngIf="connexion === 'true'; else non_connecte"> 
+  <div *ngIf="connexion === 'true' && statutToken === 200 ; else non_connecte"> 
     <section class="fond mt-10 mb-10 ">
         <div class="container p-5">
             <div data-aos="zoom-in"  data-aos-duration="3000" class="row">
@@ -35,7 +151,7 @@
                           </div>
                           <div  *ngFor="let img of images ; let i = index">
                             <div *ngIf="formation.id_formation===img.id_formation"> 
-                              <img class="card-img-top " src="{{img.path}}" height="200px" alt="Card image cap" (click)="onViewFormation(formation.id_formation)" >                         <!-- <img src="./{{img.path}}" class="card-img-top" alt="..." (click)="onViewFormation(formation.id_formation)"  >   --> 
+                              <img class="card-img-top " src="{{img.path}}" height="200px" alt="Card image cap" (click)="onViewFormation(formation.id_formation)" >                         <!-- <img src="./{{img.path}}" class="card-img-top" alt="..." (click)="onViewFormation(formation.id_formation)"  >   
                             </div>
                           </div>
                             <div class="card-body" >
@@ -111,3 +227,4 @@
 </ng-template>
 </div>
 
+-->

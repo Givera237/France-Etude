@@ -70,6 +70,11 @@ export class FormationUniqueComponent
      this.router.navigateByUrl(`formation/liste`);
     }
 
+    onViewFormationPayante()
+    {
+      this.router.navigateByUrl(`formation/payante`);
+    }
+
     onModifyFormation() : void
     {
       const id_formation = +this.route.snapshot.params['id'];

@@ -4,6 +4,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Image } from '../models/image';
 import { Formation } from '../models/formation';
 import { Objet } from '../models/objet';
+import { Observable } from 'rxjs';
 
 
 
@@ -28,6 +29,16 @@ import { Objet } from '../models/objet';
         this.formations = reponse;
       }
       );
+    }
+
+    getFormationListe() :  Observable<HttpResponse<Formation[]>>
+    {
+      return this.http.get<Formation[]>('https://franceétudes.com:3000/api/liste/formation', { observe: 'response' });
+    }
+
+    getFormationImage() : Observable<HttpResponse<Image[]>>
+    {
+      return this.http.get<Image[]>('https://franceétudes.com:3000/api/liste/imagecomplet', { observe: 'response' })
     }
 
     listeImage()

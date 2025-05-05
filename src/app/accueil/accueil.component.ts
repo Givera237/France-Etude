@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Utilisateur } from '../authentification/models/utilisateurs';
 import { AuthentificationService } from '../authentification/service/authentification-service';
+import { CookieServices } from '../cookie.service';
 
 
 
@@ -21,11 +22,14 @@ export class AccueilComponent
   erreur!: string;
   imagePath!: string
   isCollapsed = true;
+  connexion!: string
+  passwordVisible!: boolean
  
 
 
   constructor(
               private formbuilder : FormBuilder,
+              private cookieService: CookieServices,
               private authentification :AuthentificationService
              ){}
 
@@ -33,6 +37,7 @@ export class AccueilComponent
     {
       AOS.init();
 
+      this.connexion = this.cookieService.getCookie('connexion');
       this.erreur = "";
       this.inscriptionForm = this.formbuilder.group
       (
@@ -40,15 +45,28 @@ export class AccueilComponent
           pseudo: [null,[Validators.required]],
           email: [null,[Validators.required]],
           password: [null,[Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[0-9])(?=.*[!.,?_@#$%^&*])[a-zA-Z0-9!.,?_@#$%^&*]{8,}$/)]],
+          confirmation_password: [null ,[Validators.required]],
           code_confirmation: [4,[Validators.required]],
 
-        }
+        },
+        { validators: this.passwordMatchValidator }
       ) ;
+    }
+
+    passwordMatchValidator(form: FormGroup) {
+      return form.get('password')?.value === form.get('confirmation_password')?.value
+        ? null
+        : { mismatch: true };
     }
 
     get usernameControl(): any 
   {
     return this.inscriptionForm.get('password');
+  }
+
+  togglePasswordVisibility() 
+  {
+    this.passwordVisible = !this.passwordVisible;
   }
 
   onSubmit() : void

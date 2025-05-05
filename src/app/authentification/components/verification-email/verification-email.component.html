@@ -1,7 +1,76 @@
+<div class="bg-image img-fluid z-2" style="width: 100%; height: 90vh; background-image: url('/assets/Contact/contact image.png'); background-size: cover; background-attachment: local; background-repeat: no-repeat; position: relative;">
+  <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); z-index: 1;"></div>
+  <div class="container z-3" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center;"> <!-- Centrage vertical uniquement -->
+    <ng-container *ngIf="maVariable" >  
+      <div class="row mb-5" style="text-align: left;">
+        <h3 class="fw-bold fs-2 text-center" style="color :white;;" > <br> {{erreur}}  <br></h3>
+            <div class="d-flex flex-column justify-content-between">
+              <p class="text-black fw-bold fs-3 text-center ">{{erreur}} </p> <br><br>
+                <div class="col-12 mt-5 text-center" >
+                  <p class="mx-5 fw-bold fs-3 text-center text-white" >
+                    Veuillez entrer le code envoyé à l'adresse <span style="color: blue;" >{{maVariable.email}} </span> 
+                  </p>
+                </div>
+                <div class="col-12 my-5 text-center">
+                  <button type="button" class="btn btn-lg fw-bold text-white px-5" style="background-color: #083699;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Confirmation du code
+                  </button>                   
+                </div>
+            </div>        
+      </div>
+    </ng-container>  
+  </div> 
+</div>
+ <!--Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 120px;">
+  <div class="modal-dialog">
+    <form class="modal-content" (submit)="onSubmit()">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmer votre code</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="number" class="form-control" [(ngModel)]="code_verifie" name="code" >
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" >Vérifier</button>
+      </div>
+    </form>
+  </div>
+</div>       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 <section class=" container d-flex justify-content-center" style="margin-top: 40px; margin-bottom: 20px;" >
-
-
-  <ng-container *ngIf="maVariable">
+  <ng-container *ngIf="maVariable"> 
     <div class="row">
       <p class="text-black fw-bold fs-3 text-center ">{{erreur}} </p> <br><br>
       <div class="col-10 col-md-5">
@@ -14,7 +83,7 @@
           Confirmation du code
         </button> 
       </div>
-      <!-- Modal -->
+       Modal 
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 80px;">
         <div class="modal-dialog">
           <form class="modal-content" (submit)="onSubmit()">
@@ -36,3 +105,4 @@
   </ng-container>
 </section>
 
+-->

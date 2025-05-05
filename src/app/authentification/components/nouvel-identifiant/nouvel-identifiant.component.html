@@ -1,3 +1,68 @@
+<div class="bg-image img-fluid z-2" style="width: 100%; height: 90vh; background-image: url('/assets/Contact/contact image.png'); background-size: cover; background-attachment: local; background-repeat: no-repeat; position: relative;">
+    <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); z-index: 1;"></div>
+    <div class="container z-3" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center;"> <!-- Centrage vertical uniquement -->
+        <div class="row mb-5" style="text-align: left;">
+            <div class="p-4 d-flex justify-content-center">
+                <div class="col-12 col-md-1 col-lg-3"></div>
+                <form [formGroup]="newForm" class="col-12 col-md-12 col-lg-4 p-5 my-5 rounded-4" style="background-color: white; ">
+                   <p class="text-center fw-bold">
+                        Réinitialisation
+                   </p>
+                   <p class="text-center">
+                        Laissez le pseudo vide si vous ne voulez pas le modifier
+                   </p>
+                    <div class="input-password">
+                        <input type="text" autocomplete="off" class="form-control mb-3 p-3 border border-primary" formControlName="pseudo" style="background-color: rgb(217, 217, 217, 0.38);" placeholder="Votre pseudo ">
+                        <img src="/assets/Connexion/email icon.png" style="cursor :pointer;"  alt="Cadenas">
+                    </div>
+                    <div class="input-password">
+                        <input type="{{ passwordVisible ? 'text' : 'password' }}" autocomplete="off" class="form-control  mb-3 p-3 border border-primary" formControlName="password" id="password" style="background-color: rgb(217, 217, 217, 0.38);" placeholder="Votre mot de passe ">                                                        
+                        <img src="/assets/Connexion/mot de passe icon.png" (click)="togglePasswordVisibility()" style="cursor :pointer;"  alt="Cadenas">
+                      </div>
+                      <div *ngIf="usernameControl.hasError('pattern')"> <span class="text-black" >Le mot de passe doit contenir au-moins 8 caractères, une majuscule et des caractères spéciaux tel que . , ! ? #  _ etc</span></div>
+                    <p class="text-center" >
+                        <button type="submit" (click)="onSubmit()" [disabled]="newForm.invalid" class="btn btn-lg btn-primary mt-3 px-5 mb-1" style="background-color: #083699;" ><span class="fw-bold">Envoyer </span></button>
+                    </p>
+                    <div class="text-center">
+                        <span class="text-black">
+                            Pas de compte, <a href="authentification/inscription" class="lien">Inscrivez vous</a> 
+                        </span>
+                   </div>
+                </form>
+                <div class="col-12 col-md-1 col-lg-3"></div>
+            </div>
+        </div>
+    </div>   
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 <div class="container">
     <div class="fond" style="margin-top: 80px;" >
         <div class="row d-flex justify-content-center ">
@@ -23,3 +88,5 @@
         </div>
     </div>
 </div>
+
+-->

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { MatDivider } from '@angular/material/divider';
 
 
 @Component({
@@ -8,7 +11,13 @@ import { Component } from '@angular/core';
 })
 export class CampusFranceComponent 
 {
- 
+    constructor(
+        private router : Router,
+        ){}
+  onViewFormation()
+  {
+    this.router.navigateByUrl(`formation/liste`);
+  }
 }
 
 

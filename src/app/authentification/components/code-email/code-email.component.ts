@@ -50,7 +50,7 @@ export class CodeEmailComponent
         ) ;
       }
   }
-  //http://localhost:4200/formation/3 https://franceétudes.com http://localhost:3000 https://franceétudes.com:3000
+  //http://localhost:4200/formation/3 https://franceétudes.com https://franceétudes.com:3000 https://franceétudes.com:3000
   onSubmit()
   {
     const obj = this.verificationForm.value;

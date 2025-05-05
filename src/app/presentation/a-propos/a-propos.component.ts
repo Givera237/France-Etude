@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import * as AOS from 'aos';
 
+
 @Component({
   selector: 'app-a-propos',
   templateUrl: './a-propos.component.html',
@@ -9,6 +10,8 @@ import * as AOS from 'aos';
 export class AProposComponent
 {
   videoPlaying: boolean = false;
+
+
 
   ngOnInit() : void
   {
@@ -19,4 +22,6 @@ export class AProposComponent
     }, 1000); // Définir le délai avant la lecture automatique
   }
   
+
+
 }

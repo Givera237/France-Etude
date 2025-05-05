@@ -6,18 +6,23 @@ import { Injectable } from '@angular/core';
 export class CookieServices
 {
 
-   setCookie( objet : any, expirationDays: number) 
+   setCookie( objet : any, expirationDays: number) : Promise<void> 
    {
-    const date = new Date();
-    date.setTime(date.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
-    const expires = "expires=" + date.toUTCString();
-   // document.cookie = name + "=" + value + ";" + expires + ";path=/";
-    document.cookie = "email=" + objet.email + ";" + expires + ";path=/";
-    document.cookie = "id_utilisateur=" + objet.id_utilisateur + ";" + expires + ";path=/";
-    document.cookie = "pseudo=" + objet.pseudo + ";" + expires + ";path=/";
-    document.cookie = "status=" + objet.status + ";" + expires + ";path=/";
-    document.cookie = "connexion=" + true + ";" + expires + ";path=/";
-    document.cookie = "creation=" + objet.date_creation + ";" + expires + ";path=/";
+    return new Promise((resolve) => {
+      const date = new Date();
+      date.setTime(date.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+      const expires = "expires=" + date.toUTCString();
+    // document.cookie = name + "=" + value + ";" + expires + ";path=/";
+      document.cookie = "email=" + objet.email + ";" + expires + ";path=/";
+      document.cookie = "id_utilisateur=" + objet.id_utilisateur + ";" + expires + ";path=/";
+      document.cookie = "pseudo=" + objet.pseudo + ";" + expires + ";path=/";
+      document.cookie = "status=" + objet.status + ";" + expires + ";path=/";
+      document.cookie = "connexion=" + true + ";" + expires + ";path=/";
+      document.cookie = "token=" + objet.token + ";" + expires + ";path=/";
+      document.cookie = "creation=" + objet.date_creation + ";" + expires + ";path=/";
+
+    resolve(); // Resolve the promise once the cookie is set
+  });
   }
 
   setConnexion( expirationDays: number, valeur : string)
@@ -28,6 +33,8 @@ export class CookieServices
 
     document.cookie = "connexion=" + valeur + ";"  + expires + ";path=/";
   }
+
+  
 
   getCookie(name: string): string 
   {

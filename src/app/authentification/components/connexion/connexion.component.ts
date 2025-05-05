@@ -23,6 +23,8 @@ export class ConnexionComponent
   existe_pas!: TemplateRef<NgIfContext<boolean>>|null;
   non_connecte!: TemplateRef<NgIfContext<boolean>>|null;
 
+  
+
   constructor(
               private formbuilder : FormBuilder,
               private cookieService: CookieServices,
@@ -57,18 +59,23 @@ export class ConnexionComponent
   }
   
 
-  onSubmit()
+   onSubmit()
   {
     const obj = this.loginForm.value;
-    this.http.post('https://franceétudes.com:3000/api/login', obj, { observe: 'response' }).subscribe
+    this.http.post('https://franceétudes.com:3000//api/login', obj, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {
           if (response.status === 200) 
           {            
-            this.cookie = response.body
-            this.cookieService.setCookie(this.cookie, 30)
-            this.router.navigateByUrl(`formation/liste`);
+            this.cookieService.setCookie(response.body.utilisateur, 30);
+            this.cookie = response.body.utilisateur
+            this.http.get<any[]>('https://franceétudes.com:3000//api/nombre_utilisateur').subscribe(reponse  => 
+              {
+              }
+              );
+              console.log('token à regarder', `${this.auth.getToken()}`)
+            this.navigate()
           } 
         },
         error => 
@@ -95,5 +102,10 @@ export class ConnexionComponent
   {
     const id_utilisateur = +this.cookieService.getCookie('id_utilisateur');
     this.auth.desabonnement(id_utilisateur)
+  }
+
+  navigate()
+  {
+    this.router.navigateByUrl('formation/liste');
   }
 }
