@@ -1,21 +1,21 @@
-import { Component, TemplateRef } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {Router } from '@angular/router';
-import { Formation } from '../../models/formation';
-import { Image } from '../../models/image';
-
-import { CookieServices } from 'src/app/cookie.service';
 import { NgIfContext } from '@angular/common';
+import AOS from 'aos';
 
-import * as AOS from 'aos';
+import { HttpClient } from '@angular/common/http';
+import { Component, TemplateRef } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieServices } from '../../../cookie.service';
 import { Connexion } from '../../models/connexion';
 import { Deconnexion } from '../../models/deconnexion';
-import { FormationService } from '../../services/formation.services';
+import { Formation } from '../../models/formation';
+import { FormationService } from '../../service/formation.services';
+import { Image } from '../../models/image';
 
 @Component({
   selector: 'app-liste-formation',
+  imports: [],
   templateUrl: './liste-formation.component.html',
-  styleUrls: ['./liste-formation.component.scss']
+  styleUrl: './liste-formation.component.scss'
 })
 export class ListeFormationComponent 
 {
@@ -45,23 +45,8 @@ export class ListeFormationComponent
       AOS.init();
        this.admin = this.cookieService.getCookie('status');
        this.connexion = this.cookieService.getCookie('connexion');
-   /*
-      this.http.get<Formation[]>('https://franceétudes.com:3000//api/liste/formation').subscribe(reponse  => 
-      {
-        this.formations = reponse;
-        console.log(reponse)
-      }
-      );
 
-      this.http.get<Image[]>('https://franceétudes.com:3000//api/liste/imagecomplet').subscribe(reponse  => 
-      {
-        this.images = reponse;
-      }
-      );
-*/
-
-
-      this.http.get<any[]>('https://franceétudes.com:3000//api/nombre_utilisateur').subscribe(reponse  => 
+      this.http.get<any[]>('https://franceétudes.com:3000//api/nombre_utilisateur').subscribe((reponse: any[])  => 
       {
         this.nombre = reponse;
       }
@@ -87,7 +72,7 @@ export class ListeFormationComponent
                   } */
               } 
           );      
-         }, 5000); 
+         }, 2); 
 
 
 

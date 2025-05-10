@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AdministrateurServices } from '../../services/administrateur-service';
-import { CookieServices } from 'src/app/cookie.service';
+import { CookieServices } from '../../../cookie.service';
+import { AdministrateurServices } from '../../service/administrateur-service';
 
 @Component({
   selector: 'app-ajout-pdf-gratuit',
+  imports: [FormsModule],
   templateUrl: './ajout-pdf-gratuit.component.html',
-  styleUrls: ['./ajout-pdf-gratuit.component.scss']
+  styleUrl: './ajout-pdf-gratuit.component.scss'
 })
 export class AjoutPdfGratuitComponent 
 {
@@ -48,5 +50,4 @@ export class AjoutPdfGratuitComponent
   {
     this.router.navigateByUrl(`authentification/connexion`);
   }
-
 }

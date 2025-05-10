@@ -1,15 +1,16 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Repertoire } from 'src/app/formation/models/repertoire';
+import { CookieServices } from '../../../cookie.service';
+import { Repertoire } from '../../../formation/models/repertoire';
 import { Abonnement } from '../../models/abonnement';
-import { AdministrateurServices } from '../../services/administrateur-service';
-import { CookieServices } from 'src/app/cookie.service';
+import { AdministrateurServices } from '../../service/administrateur-service';
 
 @Component({
   selector: 'app-liste-abonnement',
+  imports: [],
   templateUrl: './liste-abonnement.component.html',
-  styleUrls: ['./liste-abonnement.component.scss']
+  styleUrl: './liste-abonnement.component.scss'
 })
 export class ListeAbonnementComponent 
 {
@@ -49,5 +50,4 @@ export class ListeAbonnementComponent
   {
     this.router.navigateByUrl(`authentification/connexion`);
   }
-
 }

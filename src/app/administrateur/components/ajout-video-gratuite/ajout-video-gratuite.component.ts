@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { CookieServices } from 'src/app/cookie.service';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CookieServices } from '../../../cookie.service';
 
 @Component({
   selector: 'app-ajout-video-gratuite',
+  imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './ajout-video-gratuite.component.html',
-  styleUrls: ['./ajout-video-gratuite.component.scss']
+  styleUrl: './ajout-video-gratuite.component.scss'
 })
 export class AjoutVideoGratuiteComponent 
 {

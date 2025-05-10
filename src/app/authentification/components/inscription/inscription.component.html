@@ -1,164 +1,66 @@
- 
-<!--
-<div class="container">
-    <div class="fond" style="margin-top: 50px;">
-        <div class="row d-flex justify-content-center ">
-            <div class="col-12  col-md-6 col-lg-4  p-4 d-flex justify-content-center">
-                <form [formGroup]="inscriptionForm" class="row g-3 cont">
-                    <label for="pseudo" class="for-label"> <h4 class="fw-bold text-center text-uppercase" style="color : red" >INSCRIPTION</h4> </label><br>
-                    <p *ngIf="erreur_mail" class="fs-5" style="color: black;"> {{erreur_mail}}</p> <br>
-                    <span>pseudo <em>*</em></span> <span style="color: black;"> {{erreur}} </span>
-                    <input type="text" autocomplete="off" class="form-control mt-1 mb-2 p-1" formControlName="pseudo" id="pseudo" placeholder="Votre Pseudo "><br>
-                    <span>email <em>*</em></span>
-                    <input type="email" autocomplete="off" class="form-control mt-1 mb-3 p-1" formControlName="email" id="email" placeholder="Votre Email "> 
-                    <span>mot de passe <em>*</em></span>
-                    <div class="input-container"> <br>
-                      <input type="{{ passwordVisible ? 'text' : 'password' }}" autocomplete="off" class="form-control mt-1 mb-3 p-1" formControlName="password" id="password" placeholder="Votre mot de passe ">                                                        
-                      <button type="button" style="width: 40px;" (click)="togglePasswordVisibility()">
-                        <i class="fa"  [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
-                      </button>
-                    </div>
-                    <div *ngIf="usernameControl.hasError('pattern')"> <span class="text-black" style="color: red;" >Le mot de passe doit contenir au-moins 8 caractères, une majuscule et des caractères spéciaux tel que . , ! ? # @ _</span></div>
-                    <div class="d-flex justify-content-center">
-                      <button type="submit" data-bs-toggle="modal" data-bs-target="#cookie" [disabled]="inscriptionForm.invalid" class="btn btn-danger bouton_blanc mt-3 mb-3 "  style=" background-color: #F31111; "><strong> Suivant</strong> </button> <br> 
-                    </div>
-                    <div class="text-md-end">
-                        <span class="text-black text-start text-end">
-                            Déjà un compte, <a href="authentification/connexion " class="fw-bold rouge">Se connecter</a> 
-                        </span>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-  
-  <div class="bg-image img-fluid" style="width: 100%; height: 100vh; background-image: url('/assets/avion qui décolle.jpg'); background-size: 100% 100% ; background-attachment: fixed;  background-repeat :no-repeat; ">
-    <br><br><br><br>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-sm-9 col-md-9 col-lg-5 offset-0 offset-sm-1 offset-md-3 p-4 d-flex justify-content-center">
-                <form [formGroup]="inscriptionForm" class="row g-3 cont" style="margin-top: 80px;">
+<div class="bg-image img-fluid z-2" style="width: 100%; height: 90vh; background-image: url('/Connexion/avion 3.jpg'); background-size: cover; background-attachment: local; background-repeat: no-repeat; position: relative;">
+    <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); z-index: 1;"></div>
+    <div class="container z-3" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center;"> <!-- Centrage vertical uniquement -->
+        <div class="row mb-5" style="text-align: left;">
+            <div class="p-4 d-flex justify-content-center">
+                <div class="col-12 col-md-1 col-lg-3"></div>
+                <form [formGroup]="inscriptionForm" class="col-12 col-md-12 col-lg-4 p-5 my-5" style="background-color: white; ">
                    <p class="text-center">
-                    <img src="/assets/France-Etude rond 1.png" alt="" class="heartbeat" style="width: 100px;">
+                    <img src="/Connexion/franceétude logo.png" alt="" class="heartbeat" style="width: 100px;">
                    </p>
-                   <p class="text-center fs-5 fw-bold" style="color: red;" >
+                   <p class="text-center fw-bold">
                    Inscrivez-vous
                    </p>
                    <p class="text-center">
                     Créez votre profil FranceÉtudes et rejoignez l'aventure. 
                    </p>
-                   <input type="text" autocomplete="off" class="form-control mt-1 mb-3 p-1" formControlName="pseudo" id="pseudo" placeholder="Votre Pseudo ">
-                   <input type="email" autocomplete="off" class="form-control mt-1 mb-3 p-1" formControlName="email" id="email" placeholder="Votre Email "> 
-                   <div class="input-container"> <br>
-                    <input type="{{ passwordVisible ? 'text' : 'password' }}" autocomplete="off" class="form-control mt-1 mb-3 p-1" formControlName="password" id="password" placeholder="Votre mot de passe ">                                                        
-                    <button type="button" style="width: 40px;" (click)="togglePasswordVisibility()">
-                      <i class="fa"  [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
-                    </button>
-                  </div>
-                  <div *ngIf="usernameControl.hasError('pattern')"> <span class="" style="color: red;" >Le mot de passe doit contenir au-moins 8 caractères, une majuscule et des caractères spéciaux tel que . , ! ? #  _</span></div>
-                    <p class="text-center" >
-                      <button type="submit" (click)="onSubmit()" [disabled]="inscriptionForm.invalid" class="btn btn-primary mt-3 mb-1 text-black btn_connexion"><STRong>Inscription </STRong></button>
+                   <input type="text" autocomplete="off" class="form-control mb-5 p-3 border border-primary" formControlName="pseudo" id="pseudo"  style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre Pseudo ">
+                   <div class="input-password">
+                      <input type="text" autocomplete="off" class="form-control mb-5 p-3 border border-primary" formControlName="email" id="email" style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre Email ">
+                      <img src="/Connexion/email icon.png" (click)="togglePasswordVisibility()" style="cursor :pointer;"  alt="Cadenas">
+                    </div>
+                    <div class="input-password">
+                      <input type="password" autocomplete="off" [type]="passwordVisible ? 'text' : 'password'" class="form-control mb-5 p-3 border border-primary" formControlName="password"  style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre Mot de passe ">
+                      <img src="/Connexion/mot de passe icon.png" (click)="togglePasswordVisibility()" style="cursor :pointer;"  alt="Cadenas">
+                  </div>   
+                  @if (usernameControl.hasError('pattern')) 
+                  {
+                    <span class="" style="color: red;" >Le mot de passe doit contenir au-moins 8 caractères, une majuscule et des caractères spéciaux tel que . , ! ? #  _</span>
+                  }           
+                   <p class="text-center" >
+                    <button type="submit" (click)="onSubmit()" [disabled]="inscriptionForm.invalid" class="btn btn-lg btn-primary mt-3 px-5 mb-1" style="background-color: #083699;" ><span class="fw-bold">Inscription </span></button>
                     </p>
                    <div class="text-center">
                         <span class="text-black">
-                            Déjà un compte, <a href="authentification/connexion" class="lien fw-bold ">Connectez-vous</a> 
+                            Déjà un compte, <a href="authentification/connexion" class="lien">Connectez-vous</a> 
                         </span>
                    </div>
                 </form>
+                <div class="col-12 col-md-1 col-lg-3"></div>
             </div>
         </div>
-    </div>
-    <br><br><br><br><br><br><br><br><br><br><br>
-</div> -->
-
-
-
-
-
-<div class="bg-image img-fluid z-2" style="width: 100%; height: 90vh; background-image: url('/assets/Connexion/avion 3.jpg'); background-size: cover; background-attachment: local; background-repeat: no-repeat; position: relative;">
-  <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); z-index: 1;"></div>
-  <div class="container z-3" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center;"> <!-- Centrage vertical uniquement -->
-      <div class="row mb-5" style="text-align: left;">
-          <div class="p-4 d-flex justify-content-center">
-              <div class="col-12 col-md-1 col-lg-3"></div>
-              <form [formGroup]="inscriptionForm" class="col-12 col-md-12 col-lg-4 p-5 my-5" style="background-color: white; ">
-                 <p class="text-center">
-                  <img src="/assets/Connexion/franceétude logo.png" alt="" class="heartbeat" style="width: 100px;">
-                 </p>
-                 <p class="text-center fw-bold">
-                 Inscrivez-vous
-                 </p>
-                 <p class="text-center">
-                  Créez votre profil FranceÉtudes et rejoignez l'aventure. 
-                 </p>
-                 <input type="text" autocomplete="off" class="form-control mb-5 p-3 border border-primary" formControlName="pseudo" id="pseudo"  style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre Pseudo ">
-                 <div class="input-password">
-                    <input type="text" autocomplete="off" class="form-control mb-5 p-3 border border-primary" formControlName="email" id="email" style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre Email ">
-                    <img src="/assets/Connexion/email icon.png" (click)="togglePasswordVisibility()" style="cursor :pointer;"  alt="Cadenas">
-                  </div>
-                  <div class="input-password">
-                    <input type="password" autocomplete="off" [type]="passwordVisible ? 'text' : 'password'" class="form-control mb-5 p-3 border border-primary" formControlName="password"  style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre Mot de passe ">
-                    <img src="/assets/Connexion/mot de passe icon.png" (click)="togglePasswordVisibility()" style="cursor :pointer;"  alt="Cadenas">
-                </div>              
-                <div *ngIf="usernameControl.hasError('pattern')"> <span class="" style="color: red;" >Le mot de passe doit contenir au-moins 8 caractères, une majuscule et des caractères spéciaux tel que . , ! ? #  _</span></div>
-                 <p class="text-center" >
-                  <button type="submit" (click)="onSubmit()" [disabled]="inscriptionForm.invalid" class="btn btn-lg btn-primary mt-3 px-5 mb-1" style="background-color: #083699;" ><span class="fw-bold">Inscription </span></button>
-                  </p>
-                 <div class="text-center">
-                      <span class="text-black">
-                          Déjà un compte, <a href="authentification/connexion" class="lien">Connectez-vous</a> 
-                      </span>
-                 </div>
-              </form>
-              <div class="col-12 col-md-1 col-lg-3"></div>
-          </div>
-      </div>
-  </div>   
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Modal -->
-  <div class="modal fade" id="cookie" tabindex="-1" aria-labelledby="cookies" aria-hidden="true"  style="margin-top: 80px;" >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="cookies">Utilisation de cookies</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-         <p>
-            Ce site utilise des cookies pour améliorer votre expérience de navigation. 
-            Pour en savoir plus sur les cookies que nous utilisons, 
-            veuillez consulter notre politique de confidentialité: <a href="core/confidentialite">Politique de confidentialité.</a>  <br>
-            En cliquant sur le bouton <strong>'j'accepte' </strong> , vous acceptez l'utilisation de cookies.
-         </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Je refuse</button>
-          <button type="button" (click)="onSubmit()" data-bs-dismiss="modal" class="btn btn-primary">J'accepte</button>
-        </div>
-      </div>
-    </div>
+    </div>   
   </div>
-  
+    <!-- Modal -->
+    <div class="modal fade" id="cookie" tabindex="-1" aria-labelledby="cookies" aria-hidden="true"  style="margin-top: 80px;" >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cookies">Utilisation de cookies</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+           <p>
+              Ce site utilise des cookies pour améliorer votre expérience de navigation. 
+              Pour en savoir plus sur les cookies que nous utilisons, 
+              veuillez consulter notre politique de confidentialité: <a href="core/confidentialite">Politique de confidentialité.</a>  <br>
+              En cliquant sur le bouton <strong>'j'accepte' </strong> , vous acceptez l'utilisation de cookies.
+           </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Je refuse</button>
+            <button type="button" (click)="onSubmit()" data-bs-dismiss="modal" class="btn btn-primary">J'accepte</button>
+          </div>
+        </div>
+      </div>
+    </div>

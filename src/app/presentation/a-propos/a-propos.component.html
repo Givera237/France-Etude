@@ -1,9 +1,12 @@
 <div class="container">
     <div class="row d-flex justify-content-center my-3 my-md-5 ">
         <div data-aos="zoom-in-right"  data-aos-duration="2000" class="col-12">
-            <video (loadedmetadata)="true" *ngIf="videoPlaying" [autoplay]="true" controls>
-                <source  src="/assets/Intro.mp4" type="video/mp4">
-                <source  src="" type="video/mp4">
+            <video (loadedmetadata)="true" [autoplay]="true" controls>
+                @if (videoPlaying) 
+                {
+                    <source  src="/Intro.mp4" type="video/mp4">
+                    <source  src="" type="video/mp4">
+                }
               </video>
             <p class="citation text-center fw-bold fst-italic ">
                 “c’est votre attitude, bien plus que votre aptitude, qui determine votre altitude” <br>
@@ -12,10 +15,10 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-6 d-flex justify-content-center">
-            <img class="image-fluid my-5" width="130%" height="100%" src="/assets/a propos/illustration .png" alt="hello">
+        <div class="col-12 col-md-12 col-lg-6 d-flex justify-content-center">
+            <img class="image-fluid my-5" width="180%" height="100%" src="/a propos/illustration .png" style="width: 350px;" alt="hello">
         </div>
-        <div class="col-12 col-md-6 my-5 flex-column d-flex justify-content-center">
+        <div class="col-12 col-md-12 col-lg-6 my-5 flex-column d-flex justify-content-center">
             <h1 class="fw-bold text-center fs-4" style="color: #FCA129;">Notre histoire</h1>
             <p class="fs-5" >
                 Durant ma procédure pour la France, j'ai fait face à une série de défis déconcertants. Le manque de logement a été l'une de mes premières épreuves,
@@ -33,89 +36,15 @@
                 couronné de succès.
             </p>
         </div>
-        <div class="col-12 col-md-6 flex-column d-flex justify-content-center">
+        <div class="col-12 col-md-12 col-lg-6 flex-column d-flex justify-content-center">
             <h1 class="fw-bold text-center fs-4" style="color: #FCA129;">Qui sommes-nous ?</h1>
             <p class="fs-5" >
                 Nous sommes une équipe dédiée à faciliter le parcours des étudiants internationaux vers l'éducation en France. Fondée par Ismaël FOUDJO, 
                 notre structure offre un accompagnement personnalisé pour chaque étape, de la demande de visa à l'intégration en France.
             </p>
         </div>
-        <div class="col-12 col-md-6 d-flex justify-content-center">
-            <img class="image-fluid my-5" width="900%" height="90%" src="/assets/a propos/vue.jpg" alt="paris vue">
+        <div class="col-12 col-md-12 col-lg-6 d-flex justify-content-center">
+            <img class="image-fluid my-5" width="900%" height="90%" src="/a propos/vue.jpg" alt="paris vue">
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-<section data-aos="flip-left"  data-aos-duration="2000" class="mt-5 container qui_sommes_nous">
-    <p class="fw-bold fs-2 text-center que_faisons_nous " style="color: orange;" >Notre histoire </p>
-    <p class="p-5 pt-3 text-black fs-6 que_faisons_nous  ">
-        Durant ma procédure pour la France, j'ai fait face à une série de défis déconcertants. 
-        Le manque de logement a été l'une de mes premières épreuves, aggravé par l'abandon soudain d'un ami
-        qui avait promis de m'héberger. À mon arrivée en France, sans repères et dans un état d'incertitude,
-        je me suis retrouvé confronté à l'angoisse de la rentrée académique déjà commencée. <br> <br>
-        Ce moment difficile a été un véritable déclic. Confronté au traumatisme de ne pas avoir de logement,
-        d'être abandonné à la gare, et de ne pas savoir quelles démarches entreprendre, 
-        j'ai décidé de transformer cette épreuve en opportunité. C'est ainsi qu'est née <span class="fw-bold">"FranceÉtudes" </span> .
-        Mon objectif : <span class="fw-bold">aider le maximum de personnes à éviter le cauchemar que j'ai vécu. </span> <br> <br>
-        A travers <span class="fw-bold">"FranceÉtudes" </span>, je mets à disposition mon expérience personnelle pour vous guider à travers
-         chaque étape complexe de votre aventure estudiantine en France. Plus qu'un simple service, c'est une 
-         initiative née de l'empathie et du désir de rendre votre parcours sans heurts et couronné de succès. <br><br>
-         Bienvenue dans cette aventure où chaque obstacle est une opportunité de créer une histoire d'études en France pleine de réussite. <br>
-         
-    </p>
-    <p class="text-end mx-4">
-        Sincèrement, <span class="fw-bold libre-baskerville-bold">  FOUDJO ISMAËL</span> CEO de FranceÉtudes.
-    </p>
-</section>
-<section class="container mb-5 section_histoire" >
-    <div class="row">
-        <div data-aos="fade-left" data-aos-duration="2000" class="col-12 col-md-6">
-            <p class="fw-bold fs-2 text-center que_faisons_nous mt-4" style="color: orange;" >Qui sommes-nous ? </p>
-            <p class="p-5 pt-3 text-black text fs-6 que_faisons_nous">
-                Nous sommes une équipe dédiée à faciliter le parcours des étudiants 
-                internationaux vers l'éducation en France. Fondée par <span class="fw-bold">Ismaël FOUDJO, </span>  notre structure offre
-                 un accompagnement personnalisé pour chaque étape, de la demande de visa à l'intégration 
-                 en France. <br> <br>
-                Notre mission est de rendre le processus d'études en France aussi simple et sans stress
-                 que possible. Avec notre expertise et notre engagement, nous sommes là pour vous aider à 
-                 réaliser vos rêves d'études en France.                
-        </p>
-        </div>
-        <div data-aos="fade-right" data-aos-duration="2000" class="col-12 col-md-6"> 
-            <p class="fw-bold fs-2 text-center  que_faisons_nous mt-4" style="color: orange;" >Nos services </p>
-            <p class="p-5 pt-3 text-black  fs-6 que_faisons_nous">
-                Rejoignez-nous pour une aventure estudiantine en France sans souci. 
-                Nous simplifions la procédure de visa, vous guidons à travers <span class="fw-bold" >Campus France </span> , 
-                facilitons la recherche de logement, nous vous aidons à trouver un job étudiant, 
-                et restons à vos côtés pour une intégration en douceur et des démarches
-                 administratives sans stress. <br><br>
-                  Avec nous, chaque étape devient une opportunité, 
-                 pas un obstacle.
-            </p>
-            <p class="text-end fw-bold" >  L'équipe de FranceÉtudes.</p>
-        </div>
-    </div>
-</section>
-
--->

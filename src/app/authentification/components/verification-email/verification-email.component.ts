@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { AuthentificationService } from '../../service/authentification-service';
-import { Utilisateur } from '../../models/utilisateurs';
 import { Router } from '@angular/router';
+import { Utilisateur } from '../../../administrateur/models/utilisateurs';
+import { AuthentificationService } from '../../service/authentification-service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-verification-email',
+  imports: [FormsModule],
   templateUrl: './verification-email.component.html',
-  styleUrls: ['./verification-email.component.scss']
+  styleUrl: './verification-email.component.scss'
 })
 export class VerificationEmailComponent 
 {

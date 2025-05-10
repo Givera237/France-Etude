@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CookieServices } from 'src/app/cookie.service';
+import { CookieServices } from '../../cookie.service'; 
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Utilisateur } from 'src/app/authentification/models/utilisateurs';
+import { Utilisateur } from '../models/utilisateurs'; 
 
 
 

@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
 import * as AOS from 'aos';
-import { CookieServices } from 'src/app/cookie.service';
+
+import { CookieServices } from '../../../cookie.service';
 import { ImageRepertoire } from '../../models/image_repertoire';
 import { Repertoire } from '../../models/repertoire';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-mes-formations',
+  imports: [CommonModule],
   templateUrl: './mes-formations.component.html',
-  styleUrls: ['./mes-formations.component.scss']
+  styleUrl: './mes-formations.component.scss'
 })
 export class MesFormationsComponent 
 {

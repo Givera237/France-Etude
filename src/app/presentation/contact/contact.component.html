@@ -1,5 +1,6 @@
-<div *ngIf="confirmationMessage === false" >
-    <div class="bg-image img-fluid z-2" style="width: 100%; height: 90vh; background-image: url('/assets/Contact/contact image.png'); background-size: cover; background-attachment: local; background-repeat: no-repeat; position: relative;">
+@if (confirmationMessage === false) 
+{
+    <div class="bg-image img-fluid z-2" style="width: 100%; height: 90vh; background-image: url('/Contact/contact image.png'); background-size: cover; background-attachment: local; background-repeat: no-repeat; position: relative;">
         <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); z-index: 1;"></div>
         <div class="container z-3" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: end;"> <!-- Centrage vertical uniquement -->
             <div class="row mb-5" style="text-align: left;">
@@ -33,9 +34,12 @@
                 <label class="fw-bold" >Téléphone (WhatsApp) </label>
                 <div class="d-flex flex-row">
                     <select class=" custom-select form-control fw-bold text-center mb-5 p-3 border border-primary mx-2" formControlName="indicatif" style="background-color: rgb(217, 217, 217, 0.38);" >
-                        <option *ngFor="let country of countryCodes" [value]="country.code">
-                          {{ country.flag }} {{ country.code }} 
-                        </option>
+                        @for (country of countryCodes; track $index) 
+                        {
+                            <option [value]="country.code">
+                                {{ country.flag }} {{ country.code }} 
+                              </option>
+                        }
                     </select>                  
                      <input type="tel" autocomplete="off" formControlName="telephone" class="form-control mb-5 p-3 border border-primary" style="background-color: rgb(217, 217, 217, 0.38);" placeholder="612-345-678 (WhatsApp)">
                 </div>
@@ -44,9 +48,12 @@
                 <div class="d-flex flex-row">
                     <input type="tel" autocomplete="off" class="form-control fw-bold text-center mb-5 p-3 border border-primary mx-2" value="Pays de résidence :" style="background-color: rgb(217, 217, 217, 0.38);">
                     <select class="custom-select form-control fw-bold text-center mb-5 p-3 border border-primary mx-2" formControlName="pays" style="background-color: rgb(217, 217, 217, 0.38);" >
-                        <option *ngFor="let country of countryCodes" [value]="country.country">
-                          {{ country.flag }} {{ country.country }}
-                        </option>
+                       @for (country of countryCodes; track $index) 
+                       {
+                        <option [value]="country.country">
+                            {{ country.flag }} {{ country.country }}
+                          </option>
+                       }
                     </select>             
                 </div>
             </div>
@@ -62,26 +69,27 @@
             </div>
         </form>
     </div>
-</div>
-<div *ngIf="confirmationMessage === true " >
-    <div class="bg-image img-fluid z-2" style="width: 100%; height: 90vh; background-image: url('/assets/Contact/contact image.png'); background-size: cover; background-attachment: local; background-repeat: no-repeat; position: relative;">
+}
+@if (confirmationMessage === true) 
+{
+    <div class="bg-image img-fluid z-2" style="width: 100%; height: 90vh; background-image: url('/Contact/contact image.png'); background-size: cover; background-attachment: local; background-repeat: no-repeat; position: relative;">
         <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); z-index: 1;"></div>
         <div class="container z-3" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center;"> <!-- Centrage vertical uniquement -->
             <div class="row mb-5" style="text-align: left;">
-              <div class="d-flex flex-column justify-content-between">
-                  <div class="col-12 mt-5 text-center" >
+                <div class="d-flex flex-column justify-content-between">
+                    <div class="col-12 mt-5 text-center" >
                     <div class="card">
-                      <div class="card-body">
-                        <img class="image-fluid" src="/assets/reinitialisation succes/check.png" alt="hello">
+                        <div class="card-body">
+                        <img class="image-fluid" src="/reinitialisation succes/check.png" alt="hello">
                         <span class="mx-2 fw-bold" >Réservation effectuée avec succès, Retournez à l'accueil </span>
-                      </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-12 my-5 text-center">
-                      <button type="button" (click)="accueil()" class="btn btn-lg fw-bold text-white px-5" style="background-color: #083699;" >Accueil</button>
-                  </div>
-              </div>               
+                    </div>
+                    <div class="col-12 my-5 text-center">
+                        <button type="button" (click)="accueil()" class="btn btn-lg fw-bold text-white px-5" style="background-color: #083699;" >Accueil</button>
+                    </div>
+                </div>               
             </div>
         </div>   
-      </div>
-</div>
+    </div>
+}

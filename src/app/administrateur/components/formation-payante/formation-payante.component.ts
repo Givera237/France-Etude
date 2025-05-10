@@ -1,19 +1,17 @@
-import { Component, ElementRef, TemplateRef } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Video } from '../../models/video';
-import { CookieServices } from 'src/app/cookie.service';
-import { Pdf } from '../../models/pdf';
-import { AdministrateurServices } from '../../services/administrateur-service';
 import { NgIfContext } from '@angular/common';
-
-
-
+import { HttpClient } from '@angular/common/http';
+import { Component, TemplateRef } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CookieServices } from '../../../cookie.service';
+import { Pdf } from '../../models/pdf';
+import { Video } from '../../models/video';
+import { AdministrateurServices } from '../../service/administrateur-service';
 
 @Component({
   selector: 'app-formation-payante',
+  imports: [],
   templateUrl: './formation-payante.component.html',
-  styleUrls: ['./formation-payante.component.scss']
+  styleUrl: './formation-payante.component.scss'
 })
 export class FormationPayanteComponent 
 {
@@ -112,6 +110,4 @@ export class FormationPayanteComponent
     {
       this.router.navigateByUrl(`authentification/connexion`);
     }
-
 }
-

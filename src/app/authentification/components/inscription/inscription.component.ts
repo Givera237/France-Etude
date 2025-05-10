@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Utilisateur } from '../../models/utilisateurs';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Utilisateur } from '../../../administrateur/models/utilisateurs';
 import { AuthentificationService } from '../../service/authentification-service';
+
 @Component({
   selector: 'app-inscription',
+  imports: [ReactiveFormsModule],
   templateUrl: './inscription.component.html',
-  styleUrls: ['./inscription.component.scss']
+  styleUrl: './inscription.component.scss'
 })
 export class InscriptionComponent 
 {

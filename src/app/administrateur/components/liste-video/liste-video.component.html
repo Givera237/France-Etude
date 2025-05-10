@@ -12,12 +12,15 @@
                   <th scope="col">option</th> 
               </tr>
               </thead>
-              <tbody *ngFor="let video of videos" >
-              <tr>
-                  <td>{{video.id_videos}} </td>
-                  <td>{{video.path}} </td>
-                  <td (click)="onDelete(video.id_videos)">supprimer</td>
-              </tr>
+              <tbody>
+                @for (video of videos; track $index) 
+                {
+                    <tr>
+                        <td>{{video.id_videos}} </td>
+                        <td>{{video.path}} </td>
+                        <td (click)="onDelete(video.id_videos)">supprimer</td>
+                    </tr>
+                }
               </tbody>
           </table>
             
@@ -25,7 +28,6 @@
         </div>
       </div>
     </div>
-
   </section>
   
   

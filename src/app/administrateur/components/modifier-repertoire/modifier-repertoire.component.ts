@@ -1,13 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AdministrateurServices } from '../../services/administrateur-service';
-import { CookieServices } from 'src/app/cookie.service';
+import { FormsModule } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { CookieServices } from '../../../cookie.service';
+import { AdministrateurServices } from '../../service/administrateur-service';
 
 @Component({
   selector: 'app-modifier-repertoire',
+  imports: [FormsModule],
   templateUrl: './modifier-repertoire.component.html',
-  styleUrls: ['./modifier-repertoire.component.scss']
+  styleUrl: './modifier-repertoire.component.scss'
 })
 export class ModifierRepertoireComponent 
 {
@@ -58,5 +60,4 @@ export class ModifierRepertoireComponent
   {
     this.router.navigateByUrl(`authentification/connexion`);
   }
-
 }

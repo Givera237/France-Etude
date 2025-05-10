@@ -1,42 +1,48 @@
-<section  style="margin-top: 70px; margin-bottom: 80px;" *ngIf="admi ==='1'" >
-    <div class="container">
-      <div class="row"> 
-        <div class="col-1"></div>
-        <div class="col-7 offset-1">
-          <form [formGroup]="mailForm">
-            <div class="mb-3">
-                <label for="subject" class="form-label">Sujet</label>
-                <input type="text" class="form-control mt-1 mb-3 p-1" formControlName="subject" id="subject" placeholder="Votre sujet ">
+<section  style="margin-top: 70px; margin-bottom: 80px;">
+    @if (admi ==='1') 
+    {
+        <div class="container">
+            <div class="row"> 
+              <div class="col-1"></div>
+              <div class="col-7 offset-1">
+                <form [formGroup]="mailForm">
+                  <div class="mb-3">
+                      <label for="subject" class="form-label">Sujet</label>
+                      <input type="text" class="form-control mt-1 mb-3 p-1" formControlName="subject" id="subject" placeholder="Votre sujet ">
+                    </div>
+                  <div class="mb-3">
+                    <label for="message" class="form-label">Contenu</label>
+                    <textarea  class="form-control" formControlName="message"  placeholder="Contenu du mail" rows="6"></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="annee" class="form-label">Année</label>
+                    <input type="number" min="2021" max="2050" class="form-control mt-1 mb-3 p-1" formControlName="annee" id="annee" placeholder="Choisissez l'année ">
+                  </div>
+                  <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
+                    <button type="submit" (click)="onSubmit()" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Envoyer</button>
+                  </div>
+                </form>
               </div>
-            <div class="mb-3">
-              <label for="message" class="form-label">Contenu</label>
-              <textarea  class="form-control" formControlName="message"  placeholder="Contenu du mail" rows="6"></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="annee" class="form-label">Année</label>
-              <input type="number" min="2021" max="2050" class="form-control mt-1 mb-3 p-1" formControlName="annee" id="annee" placeholder="Choisissez l'année ">
-            </div>
-            <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
-              <button type="submit" (click)="onSubmit()" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Envoyer</button>
-            </div>
-          </form>
-        </div>
-     </div>
-    </div>
+           </div>
+          </div>
+    }
+
+    @if (admi !='1') 
+    {
+        <h2 class="fw-bold text-center" > <br> Vous n'êtes pas habilité<br></h2>
+        <div class="container ">
+          <div class="row">
+            <div class="col-10 col-md-3 offset-1 offset-md-2 p-2 d-flex justify-content-center"> 
+              <p class="fs-6 que_faisons_nous text-black"> <br> Veuillez-vous connecter !</p>
+          </div>  
+          <div class="col-10 col-md-4 offset-1 offset-md-1 d-flex justify-content-center" >
+              <br>
+              <button type="button" (click)="onConnect()" class="btn btn-danger jello-horizontal bouton_blanc btn-lg mt-3 mb-3 "  style=" background-color: #F31111; "><strong> Connexion</strong> </button> <br> 
+          </div>        
+          </div>  
+        </div> 
+    }
   </section>
 
-  <div *ngIf="admi !='1'"  >
-    <h2 class="fw-bold text-center" > <br> Vous n'êtes pas habilité<br></h2>
-    <div class="container ">
-      <div class="row">
-        <div class="col-10 col-md-3 offset-1 offset-md-2 p-2 d-flex justify-content-center"> 
-          <p class="fs-6 que_faisons_nous text-black"> <br> Veuillez-vous connecter !</p>
-      </div>  
-      <div class="col-10 col-md-4 offset-1 offset-md-1 d-flex justify-content-center" >
-          <br>
-          <button type="button" (click)="onConnect()" class="btn btn-danger jello-horizontal bouton_blanc btn-lg mt-3 mb-3 "  style=" background-color: #F31111; "><strong> Connexion</strong> </button> <br> 
-      </div>        
-      </div>  
-    </div> 
-  </div>
+
   

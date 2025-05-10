@@ -1,19 +1,31 @@
-import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, inject } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Video } from '../../models/video';
-import { CookieServices } from 'src/app/cookie.service';
-import { FormationService } from '../../services/formation.services';
-import { Pdf } from 'src/app/administrateur/models/pdf';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CookieServices } from '../../../cookie.service';
 import { Formation } from '../../models/formation';
+import { Video } from '../../models/video';
+import { FormationService } from '../../service/formation.services';
+import { Pdf } from '../../../administrateur/models/pdf';
+import { SafePipe } from "../../../safe.pipe";
+
 @Component({
   selector: 'app-formation-unique',
+  imports: [SafePipe],
   templateUrl: './formation-unique.component.html',
-  styleUrls: ['./formation-unique.component.scss']
+  styleUrl: './formation-unique.component.scss'
 })
 export class FormationUniqueComponent 
 {
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private http = inject(HttpClient);
+
+  constructor(
+    private cookieService: CookieServices,
+    private formation : FormationService,
+    private sanitizer: DomSanitizer ){}
+
   videos !: Video[];
   formations !: Formation[];
   pdf!: Pdf[];
@@ -22,13 +34,8 @@ export class FormationUniqueComponent
   admin!: string;
   id = +this.route.snapshot.params['id'];
 
-  constructor(
-    private route : ActivatedRoute,
-    private http : HttpClient,
-    private router : Router,
-    private cookieService: CookieServices,
-    private formation : FormationService,
-    private sanitizer: DomSanitizer ){}
+
+
 
     ngOnInit()
     {

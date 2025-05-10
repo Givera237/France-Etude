@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { Utilisateur } from '../models/utilisateurs';
+import { inject, Injectable, signal } from '@angular/core';
+import { Utilisateur } from '../../administrateur/models/utilisateurs';  
 import { HttpClient,  HttpResponse } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CookieServices } from 'src/app/cookie.service';
+import { CookieServices } from '../../cookie.service'; 
 
 @Injectable({
   providedIn: 'root'
@@ -11,17 +11,26 @@ import { CookieServices } from 'src/app/cookie.service';
 
 export class AuthentificationService
  {
+    private http = inject(HttpClient);
+
+
+
+
+
+
+
+
+
     private variable!: Utilisateur;
     inscriptionForm!: FormGroup;
     code!: number;
     erreur_mail!: string
-    private token = this.cookieService.getCookie('token');
+   // private token = this.cookieService.getCookie('token');
     constructor
     (
       private router : Router, 
       private formbuilder : FormBuilder,
       private cookieService: CookieServices,
-      private http : HttpClient,
       
     ){}
 
@@ -64,6 +73,11 @@ export class AuthentificationService
 
     deconnection(id_utilisateur : number)
     {
+
+        return this.http.get<any[]>(`https://franceétudes.com:3000/api/logout/${id_utilisateur}`).pipe
+        (
+        );
+
       this.http.get<any>(`https://franceétudes.com:3000/api/logout/${id_utilisateur}`).subscribe(reponse  => 
       {
       }
@@ -85,35 +99,34 @@ export class AuthentificationService
 
     connexion(obj : FormGroup, cookie : any, erreur : string)
     {
-      this.http.post('https://franceétudes.com:3000/api/login', obj, { observe: 'response' }).subscribe
-      (
-        (response: HttpResponse<any>) => 
-        {
-          if (response.status === 200) 
-          
-          { 
-           console.log('session',response.body);
-           cookie = response.body;
-           
-            this.cookieService.setCookie(cookie, 30); 
-            this.router.navigateByUrl(`formation/liste`);
-          } 
-          
-        },
-        error => 
-        {  
-          if (error.status === 404) 
-          {
-            erreur = 'Pseudo inexistant veuillez réessayer!';
-            console.log(error);
-          }
-          if (error.status === 500) 
-          {
-            erreur = 'Erreur système réessayer plus tard'
-          }
-          console.error(error.body); // Afficher l'erreur à l'utilisateur
-        } 
-      ) ;  
+
+        return this.http.post<any>('https://franceétudes.com:3000/api/login', obj).subscribe
+        (
+            (response: HttpResponse<any>) => 
+            {
+                if (response.status === 200) 
+                { 
+                 console.log('session',response.body);
+                 cookie = response.body;
+                 
+                this.cookieService.setCookie(cookie, 30); 
+                this.router.navigateByUrl(`formation/liste`);
+                } 
+            },
+            error => 
+            {  
+                if (error.status === 404) 
+                {
+                erreur = 'Pseudo inexistant veuillez réessayer!';
+                console.log(error);
+                }
+                if (error.status === 500) 
+                {
+                erreur = 'Erreur système réessayer plus tard'
+                }
+                console.error(error.body); // Afficher l'erreur à l'utilisateur
+            }
+        );
     }
 
     verification_email(obj : Utilisateur, code = this.inscriptionForm.value, erreur : string  )
@@ -218,9 +231,11 @@ export class AuthentificationService
     ) ;
     } 
 
+  /*
     getToken(): string 
     {
       return this.token;
     }
 
+  */
   }

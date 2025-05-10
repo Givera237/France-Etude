@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { Repertoire } from 'src/app/formation/models/repertoire';
-import { AdministrateurServices } from '../../services/administrateur-service';
-import { CookieServices } from 'src/app/cookie.service';
+import { CookieServices } from '../../../cookie.service';
+import { AdministrateurServices } from '../../service/administrateur-service';
+import { MatCardModule } from '@angular/material/card';
 
 
 @Component({
   selector: 'app-abonnement',
+  imports: [ReactiveFormsModule, FormsModule, MatCardModule],
   templateUrl: './abonnement.component.html',
-  styleUrls: ['./abonnement.component.scss']
+  styleUrl: './abonnement.component.scss'
 })
 export class AbonnementComponent 
 {
@@ -64,7 +65,7 @@ export class AbonnementComponent
       {
         this.noms = data; // Assurez-vous que les données sont un tableau de chaînes
       },
-      (error) => 
+      (error: any) => 
       {
         console.error('Erreur lors de la récupération des noms:', error);
       }

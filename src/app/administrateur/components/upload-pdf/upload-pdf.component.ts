@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AdministrateurServices } from '../../services/administrateur-service';
-import { CookieServices } from 'src/app/cookie.service';
+import { CookieServices } from '../../../cookie.service';
+import { AdministrateurServices } from '../../service/administrateur-service';
 
 @Component({
   selector: 'app-upload-pdf',
+  imports: [FormsModule],
   templateUrl: './upload-pdf.component.html',
-  styleUrls: ['./upload-pdf.component.scss']
+  styleUrl: './upload-pdf.component.scss'
 })
 export class UploadPdfComponent 
 {
@@ -48,5 +50,4 @@ export class UploadPdfComponent
   {
     this.router.navigateByUrl(`authentification/connexion`);
   }
-
 }

@@ -1,83 +1,64 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-contact',
+  imports: [ReactiveFormsModule],
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrl: './contact.component.scss'
 })
 export class ContactComponent 
 {
+  contactForm!: FormGroup;
+  confirmationMessage: boolean = false
 
-    contactForm!: FormGroup;
-    confirmationMessage: boolean = false
-  
-    constructor
+  constructor
+  (
+   private formbuilder : FormBuilder,
+  private http : HttpClient,
+  private router : Router, 
+  ){}
+
+  ngOnInit() : void
+  {
+
+    this.contactForm = this.formbuilder.group
     (
-     private formbuilder : FormBuilder,
-    private http : HttpClient,
-    private router : Router, 
-    ){}
+      {
+        nom: [null,[Validators.required]],
+        prenom: [null,[Validators.required]],
+        email: [null,[Validators.required]],
+        telephone: [null,[Validators.required]],
+        pays: [null,[Validators.required]],
+        motif: [null,[Validators.required]],
+        indicatif: [null,[Validators.required]],
 
-    ngOnInit() : void
-    {
-  
-      this.contactForm = this.formbuilder.group
+      }
+    ) ;
+  } 
+
+
+  onSubmit()
+  {
+    const obj = this.contactForm.value;
+    this.http.post('https://franceétudes.com:3000/api/creation/reservation', obj, { observe: 'response' }).subscribe
       (
+        (response: HttpResponse<any>) => 
         {
-          nom: [null,[Validators.required]],
-          prenom: [null,[Validators.required]],
-          email: [null,[Validators.required]],
-          telephone: [null,[Validators.required]],
-          pays: [null,[Validators.required]],
-          motif: [null,[Validators.required]],
-          indicatif: [null,[Validators.required]],
+          this.confirmationMessage = true;
+        },
+        error => 
+        {  
+        } 
+      ) ;  
+  }
 
-        }
-      ) ;
-    } 
-
-
-    onSubmit()
-    {
-      const obj = this.contactForm.value;
-      this.http.post('https://franceétudes.com:3000/api/creation/reservation', obj, { observe: 'response' }).subscribe
-        (
-          (response: HttpResponse<any>) => 
-          {
-            this.confirmationMessage = true;
-          },
-          error => 
-          {  
-          } 
-        ) ;  
-    }
-
-    accueil()
-    {
-      this.router.navigateByUrl(``);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  accueil()
+  {
+    this.router.navigateByUrl(``);
+  }
 
 
 
@@ -224,4 +205,5 @@ export class ContactComponent
     { code: '+260', country: 'Zambie', flag: '🇿🇲' },
     { code: '+263', country: 'Zimbabwe', flag: '🇿🇼' },
   ];
+
 }

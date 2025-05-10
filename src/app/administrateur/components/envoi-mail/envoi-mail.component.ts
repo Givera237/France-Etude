@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { AdministrateurServices } from '../../services/administrateur-service';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CookieServices } from 'src/app/cookie.service';
-
+import { CookieServices } from '../../../cookie.service';
+import { AdministrateurServices } from '../../service/administrateur-service';
 
 @Component({
   selector: 'app-envoi-mail',
+  imports: [ReactiveFormsModule],
   templateUrl: './envoi-mail.component.html',
-  styleUrls: ['./envoi-mail.component.scss']
+  styleUrl: './envoi-mail.component.scss'
 })
 export class EnvoiMailComponent 
 {
@@ -52,6 +52,4 @@ export class EnvoiMailComponent
     {
       this.router.navigateByUrl(`authentification/connexion`);
     }
-
-  }
-
+}

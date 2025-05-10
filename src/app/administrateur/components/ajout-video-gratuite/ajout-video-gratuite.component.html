@@ -1,41 +1,47 @@
-<section style="margin-top: 85px; margin-bottom: 25px;" *ngIf="admi ==='1'">
-    <div class="container">
-        <h3 class="fw-bold text-center" > <br> Vous ajoutez une vidéo à votre formation <br></h3>
-      <div class="row"> 
-        <div class="col-1"></div>
-        <div class="col-7 offset-1">
-          <form [formGroup]="monFormulaire" class="row g-3 cont">
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-              <textarea class="form-control mt-1 mb-3 p-1" formControlName="description" id="description" rows="3"></textarea>
+<section style="margin-top: 85px; margin-bottom: 25px;">
+    @if (admi ==='1') 
+    {
+        <div class="container">
+            <h3 class="fw-bold text-center" > <br> Vous ajoutez une vidéo à votre formation <br></h3>
+          <div class="row"> 
+            <div class="col-1"></div>
+            <div class="col-7 offset-1">
+              <form [formGroup]="monFormulaire" class="row g-3 cont">
+                <div class="mb-3">
+                  <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                  <textarea class="form-control mt-1 mb-3 p-1" formControlName="description" id="description" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Video</label>
+                  <input type="text" class="form-control mt-1 mb-2 p-1" formControlName="url" id="url" placeholder="Video "><br>
+                </div>
+                <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
+                  <button type="submit" (click)="Submit()" class="btn btn-primary mt-3 mb-3 fw-bold text-black btn_connexion">Envoyer</button>
+                </div>
+              </form>
             </div>
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Video</label>
-              <input type="text" class="form-control mt-1 mb-2 p-1" formControlName="url" id="url" placeholder="Video "><br>
-            </div>
-            <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
-              <button type="submit" (click)="Submit()" class="btn btn-primary mt-3 mb-3 fw-bold text-black btn_connexion">Envoyer</button>
-            </div>
-          </form>
+         </div>
         </div>
-     </div>
-    </div>
+    }
+
+    @if (admi !='1') 
+    {
+        <h2 class="fw-bold text-center" > <br> Vous n'êtes pas habilité<br></h2>
+        <div class="container ">
+          <div class="row">
+            <div class="col-10 col-md-3 offset-1 offset-md-2 p-2 d-flex justify-content-center"> 
+              <p class="fs-6 que_faisons_nous text-black"> <br> Veuillez-vous connecter !</p>
+          </div>  
+          <div class="col-10 col-md-4 offset-1 offset-md-1 d-flex justify-content-center" >
+              <br>
+              <button type="button" (click)="onConnect()" class="btn btn-danger jello-horizontal bouton_blanc btn-lg mt-3 mb-3 "  style=" background-color: #F31111; "><strong> Connexion</strong> </button> <br> 
+          </div>        
+          </div>  
+        </div> 
+    }
   </section>
 
-  <div *ngIf="admi !='1'"  >
-    <h2 class="fw-bold text-center" > <br> Vous n'êtes pas habilité<br></h2>
-    <div class="container ">
-      <div class="row">
-        <div class="col-10 col-md-3 offset-1 offset-md-2 p-2 d-flex justify-content-center"> 
-          <p class="fs-6 que_faisons_nous text-black"> <br> Veuillez-vous connecter !</p>
-      </div>  
-      <div class="col-10 col-md-4 offset-1 offset-md-1 d-flex justify-content-center" >
-          <br>
-          <button type="button" (click)="onConnect()" class="btn btn-danger jello-horizontal bouton_blanc btn-lg mt-3 mb-3 "  style=" background-color: #F31111; "><strong> Connexion</strong> </button> <br> 
-      </div>        
-      </div>  
-    </div> 
-  </div>
+   
   
   
   

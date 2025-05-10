@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-faqs',
+  imports: [],
   templateUrl: './faqs.component.html',
-  styleUrls: ['./faqs.component.scss']
+  styleUrl: './faqs.component.scss'
 })
 export class FaqsComponent {
 

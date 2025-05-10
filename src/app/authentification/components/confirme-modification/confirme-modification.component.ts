@@ -3,8 +3,9 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-confirme-modification',
+  imports: [],
   templateUrl: './confirme-modification.component.html',
-  styleUrls: ['./confirme-modification.component.scss']
+  styleUrl: './confirme-modification.component.scss'
 })
 export class ConfirmeModificationComponent 
 {

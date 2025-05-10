@@ -1,20 +1,22 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
+import { CommonModule, LowerCasePipe, UpperCasePipe } from '@angular/common';
 
-import * as AOS from 'aos';
-import { CookieServices } from 'src/app/cookie.service';
-import { Repertoire } from '../../models/repertoire';
+import AOS from 'aos';
+import { Router } from '@angular/router';
+import { CookieServices } from '../../../cookie.service';
 import { ImageRepertoire } from '../../models/image_repertoire';
 import { Objet } from '../../models/objet';
-import { FormationService } from '../../services/formation.services';
+import { Repertoire } from '../../models/repertoire';
+import { FormationService } from '../../service/formation.services';
 
 @Component({
   selector: 'app-formation-payante',
+  imports: [CommonModule],
   templateUrl: './formation-payante.component.html',
-  styleUrls: ['./formation-payante.component.scss']
+  styleUrl: './formation-payante.component.scss'
 })
-export class FormationPayanteComponent
+export class ListeFormationPayanteComponent 
 {
   repertoires !: Repertoire[];
   images!: ImageRepertoire[];

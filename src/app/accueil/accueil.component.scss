@@ -1,70 +1,98 @@
 .circle-container {
-  width: 50px; /* Définissez la largeur de votre cercle */
-  height: 50px; /* Définissez la hauteur de votre cercle */
-  background-color: #144484; /* Couleur de fond du cercle */
-  border-radius: 50%; /* Rendre le conteneur circulaire */
-  display: flex; /* Pour centrer l'image */
-  justify-content: center; /* Centre horizontalement */
-  align-items: center; /* Centre verticalement */
-  overflow: hidden; /* Masque la partie débordante de l'image */
-}
-.input-group-text {
-  background-color: transparent; /* Fond transparent pour l'icône */
-  border: none; /* Pas de bordure */
-}
-.input-password {
-  position: relative;
-}
-.input-password img {
-  width: 20px; /* Taille de l'icône */
-  height: 20px; /* Ajustement automatique de la hauteur */
-  position: absolute;
-  right: 10px; /* Positionnement à gauche */
-  top: 50%; /* Centrer verticalement */
-  transform: translateY(-50%); /* Ajustement pour centrer */
-}
-.input-password input {
-  padding-left: 30px; /* Espace pour l'icône */
-}
-
-.circle-container img 
-{
-  width: 80%; /* S'assurer que l'image remplit le conteneur */
-  height: auto; /* Maintient le ratio d'aspect de l'image */
-}
-
-iframe
-{
-  height: 600px;
-}
-
-/* Google Fonts */
-@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
-
-/* Cursor */
-.cursor{
+    width: 50px; /* Définissez la largeur de votre cercle */
+    height: 50px; /* Définissez la hauteur de votre cercle */
+    background-color: #144484; /* Couleur de fond du cercle */
+    border-radius: 50%; /* Rendre le conteneur circulaire */
+    display: flex; /* Pour centrer l'image */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    overflow: hidden; /* Masque la partie débordante de l'image */
+  }
+  .input-group-text {
+    background-color: transparent; /* Fond transparent pour l'icône */
+    border: none; /* Pas de bordure */
+  }
+  .input-password {
     position: relative;
-    width: 24rem;
-    margin: 0 auto;
-    border-right: 2px solid rgba(255,255,255,.75);
-    font-size: 30px;
-    text-align: start;
-    white-space: nowrap;
-    overflow: hidden;
-    transform: translateY(-50%);    
-}
-/* Animation */
-.typewriter-animation {
-  animation: 
-    typewriter 8s steps(50) 1s 1 normal both, 
-    blinkingCursor 500ms steps(50) infinite normal;
-}
-@keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
-}
-@keyframes blinkingCursor{
-  from { border-right-color: transparent; }
-  to { border-right-color: transparent; }
+  }
+  .input-password img {
+    width: 20px; /* Taille de l'icône */
+    height: 20px; /* Ajustement automatique de la hauteur */
+    position: absolute;
+    right: 10px; /* Positionnement à gauche */
+    top: 50%; /* Centrer verticalement */
+    transform: translateY(-50%); /* Ajustement pour centrer */
+  }
+  .input-password input {
+    padding-left: 30px; /* Espace pour l'icône */
+  }
+  
+  .circle-container img 
+  {
+    width: 80%; /* S'assurer que l'image remplit le conteneur */
+    height: auto; /* Maintient le ratio d'aspect de l'image */
+  }
+  
+  iframe
+  {
+    height: 600px;
+  }
+  
+  /* Google Fonts */
+  @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+  
+  /* Cursor */
+  .cursor{
+      position: relative;
+      width: 14rem;
+      margin: 0 auto;
+      border-right: 2px solid rgba(255,255,255,.75);
+      font-size: 30px;
+      text-align: start;
+      white-space: nowrap;
+      overflow: hidden;
+      transform: translateY(-50%);    
+  }
+  /* Animation */
+  .typewriter-animation {
+    animation: 
+      typewriter 8s steps(50) 1s 1 normal both, 
+      blinkingCursor 500ms steps(50) infinite normal;
+  }
+  @keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  @keyframes blinkingCursor{
+    from { border-right-color: transparent; }
+    to { border-right-color: transparent; }
+  }
+  
+  .text-container {
+    white-space: normal; /* Permet le retour à la ligne */
+    overflow-wrap: break-word; /* Gère les mots longs */
+    word-wrap: break-word; /* Ancienne méthode pour la compatibilité */
+    width: 100%; /* Ajustez selon vos besoins */
 }
 
+
+
+.effet-machine-a-ecrire {
+  overflow: hidden; /* Empêche le curseur de déborder initialement */
+  white-space: nowrap; /* Empêche le texte de passer à la ligne */
+  border-right: none; /* Effet de curseur */
+  animation: frappe 3s steps(40, end) forwards, /* Animation de frappe */
+             clignotement-curseur .75s step-end infinite; /* Animation du curseur */
+}
+
+/* Animation pour l'effet de frappe */
+@keyframes frappe {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* Animation pour le clignotement du curseur */
+@keyframes clignotement-curseur {
+  from, to { border-color: transparent }
+  50% { border-color: black }
+}

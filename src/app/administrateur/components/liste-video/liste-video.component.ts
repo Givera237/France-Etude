@@ -1,14 +1,14 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CookieServices } from '../../../cookie.service';
 import { Video } from '../../models/video';
-import { DomSanitizer } from '@angular/platform-browser';
-import { CookieServices } from 'src/app/cookie.service';
 
 @Component({
   selector: 'app-liste-video',
+  imports: [],
   templateUrl: './liste-video.component.html',
-  styleUrls: ['./liste-video.component.scss']
+  styleUrl: './liste-video.component.scss'
 })
 export class ListeVideoComponent 
 {

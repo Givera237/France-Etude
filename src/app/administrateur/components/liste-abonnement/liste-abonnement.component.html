@@ -1,48 +1,55 @@
-<section class="formation" *ngIf="admi ==='1'">
-    <h3 class="fw-bold text-center" > <br> Les abonnés <br></h3>
-
-    <div class="container ">
-        <div class="row">
-            <div class="col" >
-                    <div  >
-                        <div> 
-                            <table class="table" >
-                                <thead >
-                                <tr>
-                                    <th scope="col">N°</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Formation</th>
-                                    <th scope="col">Désabonner</th>
-                    
-                                </tr>
-                                </thead>
-                                <tbody  *ngFor="let abonnement of abonnement ; let i = index">
-                                <tr>
-                                    <td> {{i+1}} </td>
-                                    <td>{{abonnement.adresse_visiteur}} </td>
-                                    <td>{{abonnement.titre_repertoire}} </td>
-                                    <td  class="supp" (click)="desabonner(abonnement.id_abonnement)"> <button>désabonner</button>  </td>
-                                  </tr>
-                                </tbody>
-                            </table>
+<section class="formation">
+    @if (admi ==='1') 
+    {
+        <h3 class="fw-bold text-center" > <br> Les abonnés <br></h3>
+        <div class="container ">
+            <div class="row">
+                <div class="col" >
+                        <div  >
+                            <div> 
+                                <table class="table" >
+                                    <thead >
+                                    <tr>
+                                        <th scope="col">N°</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Formation</th>
+                                        <th scope="col">Désabonner</th>
+                        
+                                    </tr>
+                                    </thead>
+                                    @for (abonnement of abonnement; track $index) 
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td> {{$index+1}} </td>
+                                                <td>{{abonnement.adresse_visiteur}} </td>
+                                                <td>{{abonnement.titre_repertoire}} </td>
+                                                <td  class="supp" (click)="desabonner(abonnement.id_abonnement)"> <button>désabonner</button>  </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                            </div>
                         </div>
-                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    }
+    @if (admi !='1') 
+    {
+        <h2 class="fw-bold text-center" > <br> Vous n'êtes pas habilité<br></h2>
+        <div class="container ">
+          <div class="row">
+            <div class="col-10 col-md-3 offset-1 offset-md-2 p-2 d-flex justify-content-center"> 
+              <p class="fs-6 que_faisons_nous text-black"> <br> Veuillez-vous connecter !</p>
+          </div>  
+          <div class="col-10 col-md-4 offset-1 offset-md-1 d-flex justify-content-center" >
+              <br>
+              <button type="button" (click)="onConnect()" class="btn btn-danger jello-horizontal bouton_blanc btn-lg mt-3 mb-3 "  style=" background-color: #F31111; "><strong> Connexion</strong> </button> <br> 
+          </div>        
+          </div>  
+        </div> 
+    }
 </section>
 
-<div *ngIf="admi !='1'"  >
-    <h2 class="fw-bold text-center" > <br> Vous n'êtes pas habilité<br></h2>
-    <div class="container ">
-      <div class="row">
-        <div class="col-10 col-md-3 offset-1 offset-md-2 p-2 d-flex justify-content-center"> 
-          <p class="fs-6 que_faisons_nous text-black"> <br> Veuillez-vous connecter !</p>
-      </div>  
-      <div class="col-10 col-md-4 offset-1 offset-md-1 d-flex justify-content-center" >
-          <br>
-          <button type="button" (click)="onConnect()" class="btn btn-danger jello-horizontal bouton_blanc btn-lg mt-3 mb-3 "  style=" background-color: #F31111; "><strong> Connexion</strong> </button> <br> 
-      </div>        
-      </div>  
-    </div> 
-  </div>
+   

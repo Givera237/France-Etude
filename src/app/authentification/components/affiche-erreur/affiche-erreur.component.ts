@@ -4,8 +4,9 @@ import { AuthentificationService } from '../../service/authentification-service'
 
 @Component({
   selector: 'app-affiche-erreur',
+  imports: [],
   templateUrl: './affiche-erreur.component.html',
-  styleUrls: ['./affiche-erreur.component.scss']
+  styleUrl: './affiche-erreur.component.scss'
 })
 export class AfficheErreurComponent 
 {

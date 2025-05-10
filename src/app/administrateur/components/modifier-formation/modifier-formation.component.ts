@@ -1,13 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AdministrateurServices } from '../../services/administrateur-service';
-import { CookieServices } from 'src/app/cookie.service';
+import { CookieServices } from '../../../cookie.service';
+import { AdministrateurServices } from '../../service/administrateur-service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-modifier-formation',
+  imports: [FormsModule],
   templateUrl: './modifier-formation.component.html',
-  styleUrls: ['./modifier-formation.component.scss']
+  styleUrl: './modifier-formation.component.scss'
 })
 export class ModifierFormationComponent 
 {

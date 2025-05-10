@@ -1,17 +1,17 @@
-import { Component, TemplateRef } from '@angular/core';
-import { HttpClient,  HttpResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { CookieServices } from 'src/app/cookie.service';
 import { NgIfContext } from '@angular/common';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Component, TemplateRef } from '@angular/core';
+import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CookieServices } from '../../../cookie.service';
 import { AuthentificationService } from '../../service/authentification-service';
 
 @Component({
   selector: 'app-connexion',
+  imports: [ReactiveFormsModule],
   templateUrl: './connexion.component.html',
-  styleUrls: ['./connexion.component.scss']
+  styleUrl: './connexion.component.scss'
 })
-
 export class ConnexionComponent 
 {
   loginForm!: FormGroup;
@@ -74,7 +74,6 @@ export class ConnexionComponent
               {
               }
               );
-              console.log('token à regarder', `${this.auth.getToken()}`)
             this.navigate()
           } 
         },

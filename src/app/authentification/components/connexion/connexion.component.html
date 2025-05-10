@@ -1,140 +1,119 @@
-<div  *ngIf="existe(connexion); else existe_pas">
-    <div *ngIf="connexion === 'true'; else non_connecte"> 
-        <div class="bg-image img-fluid z-2" style="width: 100%; height: 90vh; background-image: url('/assets/Contact/contact image.png'); background-size: cover; background-attachment: local; background-repeat: no-repeat; position: relative;">
+@if (existe(connexion)) 
+{
+        @if (connexion === 'true') 
+    {
+        <div> 
+            <div class="bg-image img-fluid z-2" style="width: 100%; height: 90vh; background-image: url('/Contact/contact image.png'); background-size: cover; background-attachment: local; background-repeat: no-repeat; position: relative;">
+                <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); z-index: 1;"></div>
+                <div class="container z-3" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center;"> <!-- Centrage vertical uniquement -->
+                    <div class="row mb-5" style="text-align: left;">
+                        <h3 class="fw-bold fs-2 text-center" style="color :white;;" > <br> Hello <span style="color: #FCA129;">{{pseudo}}</span>, comment pouvons-nous vous aider?   <br></h3>
+                            <div class="d-flex flex-column justify-content-between">
+                                <div class="col-12 mt-5 text-center" >
+                                    <a href="accueil/contact">
+                                        <button type="button"  class="btn btn-lg" style=" background-color: white; color: #083699;"> <strong>Contactez-nous</strong> </button>
+                                    </a>
+                                </div>
+                                <div class="col-12 my-5 text-center">
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#deconnexion" class="btn btn-lg fw-bold text-white" style="background-color: #083699;" >Déconnexion</button>
+                                </div>
+                                <div class="col-12 text-center" >
+                                    <button type="button"  data-bs-toggle="modal" data-bs-target="#desabonner" class="btn btn-lg fw-bold text-white" style="background-color: #083699;"> <strong>Désabonnement</strong> </button>
+                                </div>
+                            </div>               
+                    </div>
+                </div>   
+            </div>
+            <!-- Debut Modal -->
+            <div class="modal fade" style="margin-top: 70px;" id="deconnexion" tabindex="-1" aria-labelledby="deconnexionLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deconnexionLabel">Deconnexion</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                En vous déconnectant vous fermez votre session mais pourrez-vous reconnecter plus tard  
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" (click)="Deconnexion()" data-bs-dismiss="modal" class="btn btn-primary">Valider</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" style="margin-top: 70px;" id="desabonner" tabindex="-1" aria-labelledby="desabonneLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="desabonneLabel">Désabonnement</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Voulez vous supprimer votre compte ? 
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" (click)="suppresion()" data-bs-dismiss="modal" class="btn btn-primary">Valider</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    @else 
+    {
+        <div class="bg-image img-fluid z-2" style="width: 100%; height: 90vh; background-image: url('/Connexion/avion 3.jpg'); background-size: cover; background-attachment: local; background-repeat: no-repeat; position: relative;">
             <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); z-index: 1;"></div>
             <div class="container z-3" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center;"> <!-- Centrage vertical uniquement -->
                 <div class="row mb-5" style="text-align: left;">
-                    <h3 class="fw-bold fs-2 text-center" style="color :white;;" > <br> Hello <span style="color: #FCA129;">{{pseudo}}</span>, comment pouvons-nous vous aider?   <br></h3>
-                        <div class="d-flex flex-column justify-content-between">
-                            <div class="col-12 mt-5 text-center" >
-                                <a href="accueil/contact">
-                                    <button type="button"  class="btn btn-lg" style=" background-color: white; color: #083699;"> <strong>Contactez-nous</strong> </button>
-                                </a>
+                    <div class="p-4 d-flex justify-content-center">
+                        <div class="col-12 col-md-1 col-lg-3"></div>
+                        <form [formGroup]="loginForm" class="col-12 col-md-12 col-lg-4 p-5 my-5" style="background-color: white; ">
+                        <p class="text-center">
+                            <img src="/Connexion/franceétude logo.png" alt="" class="heartbeat" style="width: 100px;">
+                        </p>
+                        <p class="text-center fw-bold">
+                        Connectez-vous
+                        </p>
+                        <p class="text-center">
+                            Entrez vos informations de connexion  
+                            afin d'obtenir un accès à nos différentes formations
+                        </p>
+                        <div class="input-password">
+                            <input type="text" autocomplete="off" class="form-control mb-5 p-3 border border-primary" formControlName="pseudo" id="pseudo" style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre pseudo ">
+                            <img src="/Connexion/email icon.png" style="cursor :pointer;"  alt="Cadenas">
+                        </div>
+                        <div class="input-password">
+                                <input type="password" autocomplete="off" [type]="passwordVisible ? 'text' : 'password'" class="form-control mb-5 p-3 border border-primary" formControlName="password" id="password" style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre Mot de passe ">
+                                <img src="/Connexion/mot de passe icon.png" (click)="togglePasswordVisibility()" style="cursor :pointer;"  alt="Cadenas">
                             </div>
-                            <div class="col-12 my-5 text-center">
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#deconnexion" class="btn btn-lg fw-bold text-white" style="background-color: #083699;" >Déconnexion</button>
-                            </div>
-                            <div class="col-12 text-center" >
-                                <button type="button"  data-bs-toggle="modal" data-bs-target="#desabonner" class="btn btn-lg fw-bold text-white" style="background-color: #083699;"> <strong>Désabonnement</strong> </button>
-                            </div>
-                        </div>               
+                        <p class="text-center" >
+                            <button type="submit" (click)="onSubmit()" [disabled]="loginForm.invalid" class="btn btn-lg btn-primary mt-3 px-5 mb-1" style="background-color: #083699;" ><span class="fw-bold">Connexion </span></button>
+                            </p>
+                            <p class="text-center fw-bold">
+                                Mot de passe oubliés?, <a href="authentification/entre_email" class="fw-bold lien">Cliquez ici</a> 
+                            </p>
+                        <div class="text-center">
+                                <span class="text-black">
+                                    Pas de compte, <a href="authentification/inscription" class="lien">Inscrivez vous</a> 
+                                </span>
+                        </div>
+                        </form>
+                        <div class="col-12 col-md-1 col-lg-3"></div>
+                    </div>
                 </div>
             </div>   
         </div>
-        <!-- Debut Modal -->
-        <div class="modal fade" style="margin-top: 70px;" id="deconnexion" tabindex="-1" aria-labelledby="deconnexionLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="deconnexionLabel">Deconnexion</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            En vous déconnectant vous fermez votre session mais pourrez-vous reconnecter plus tard  
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" (click)="Deconnexion()" data-bs-dismiss="modal" class="btn btn-primary">Valider</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" style="margin-top: 70px;" id="desabonner" tabindex="-1" aria-labelledby="desabonneLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="desabonneLabel">Désabonnement</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            Voulez vous supprimer votre compte ? 
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" (click)="suppresion()" data-bs-dismiss="modal" class="btn btn-primary">Valider</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Fin Modal --> <!--
-    <ng-template #non_connecte>
-        <div class="container">
-            <div class="fond" style="margin-top: 80px;" >
-                <div class="row d-flex justify-content-center ">
-                    <div class="col-12  col-md-6 col-lg-4  p-4 d-flex justify-content-center">
-                        <form [formGroup]="loginForm" class="row g-3 cont">
-                            <label for="pseudo" class="for-label"> <h4 class="fw-bold text-center text-uppercase" style="color : red" >Connexion</h4> </label>
-                            <span>pseudo <em>*</em></span> <span class="text-black " >{{erreur}} </span>
-                            <input type="text" autocomplete="off" formControlName="pseudo" class="form-control mt-1 mb-3 p-1" id="pseudo" placeholder="Votre Pseudo ">
-                            <span>mot de passe <em>*</em></span>
-                            <div class="input-container"> <br>
-                                <input type="{{ passwordVisible ? 'text' : 'password' }}" autocomplete="off" class="form-control mt-1 mb-3 p-1" formControlName="password" id="password" placeholder="Votre mot de passe ">                                                        
-                                <button type="button" style="width: 40px;" (click)="togglePasswordVisibility()">
-                                  <i class="fa"  [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
-                                </button>
-                              </div>
-                            <div class=" d-flex justify-content-center">
-                                <button type="submit" (click)="onSubmit()" class="btn btn-danger bouton_blanc mt-3 mb-3 "  style=" background-color: #F31111; "><strong> Connexion</strong> </button> <br>
-                            </div>
-                            <div class="text-center" *ngIf="erreur!=''" >
-                                <span class="text-black text-start text-end">
-                                    Identifiants oubliés?, <a href="authentification/entre_email" class="fw-bold lien">Cliquez ici</a> 
-                                </span>
-                            </div>
-                            <div class="text-md-end">
-                                <span class="text-black text-start text-end">
-                                    Pas de compte, <a href="authentification/inscription " class="fw-bold lien">Inscrivez-vous</a> 
-                                </span>
-                            </div>
-                        </form>
-                    </div> 
-                </div>
-            </div>
-        </div>
-    </ng-template>
-</div>
-<ng-template #existe_pas>
-    <div class="fond" style="margin-top: 80px;" >
-        <div class="container ">
-            <div class="col-4 col-sm-6 col-md-5 offset-0 offset-md-3 p-4 d-flex justify-content-center">
-                 <form [formGroup]="loginForm" class="row g-3 cont">
-                    <label for="pseudo" class="for-label"> <h4 class="fw-bold text-center text-white text-uppercase">Connexion</h4> </label>
-                    <span>pseudo <em>*</em></span> <span class="text-black " >{{erreur}} </span>
-                    <input type="text" formControlName="pseudo" class="form-control mt-1 mb-3 p-1" id="pseudo" placeholder="Votre Pseudo ">
-                    <span>mot de passe <em>*</em></span>
-                    <div class="input-container"> <br>
-                        <input type="{{ passwordVisible ? 'text' : 'password' }}" autocomplete="off" class="form-control mt-1 mb-3 p-1" formControlName="password" id="password" placeholder="Votre mot de passe ">                                                        
-                        <button type="button" style="width: 40px;" (click)="togglePasswordVisibility()">
-                          <i class="fa"  [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
-                        </button>
-                      </div>
-                    <div class="col-6 offset-3 offset-sm-1 offset-md-2 d-flex justify-content-center">
-                        <button type="submit" (click)="onSubmit()" class="btn btn-primary mt-3 mb-3 text-black btn_connexion">Connexion</button>
-                    </div>
-                    <div class="text-center" *ngIf="erreur!=''" >
-                        <span class="text-black text-start text-end">
-                            Identifiants oubliés?, <a href="authentification/entre_email" class="fw-bold lien">Cliquez ici</a> 
-                        </span>
-                    </div>
-                    <div class="text-md-end">
-                        <span class="text-white text-start text-end">
-                            Pas de compte, <a href="authentification/inscription" class="text-black lien">Inscrivez vous</a> 
-                        </span>
-                    </div>
-                 </form>
-             </div>
-            
-        </div>
-    </div>
+    }
+}
 
-</ng-template> -->
-
-<ng-template #non_connecte>
-    <div class="bg-image img-fluid z-2" style="width: 100%; height: 90vh; background-image: url('/assets/Connexion/avion 3.jpg'); background-size: cover; background-attachment: local; background-repeat: no-repeat; position: relative;">
+@else 
+{
+    <div class="bg-image img-fluid z-2" style="width: 100%; height: 90vh; background-image: url('/Connexion/avion 3.jpg'); background-size: cover; background-attachment: local; background-repeat: no-repeat; position: relative;">
         <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); z-index: 1;"></div>
         <div class="container z-3" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center;"> <!-- Centrage vertical uniquement -->
             <div class="row mb-5" style="text-align: left;">
@@ -142,7 +121,7 @@
                     <div class="col-12 col-md-1 col-lg-3"></div>
                     <form [formGroup]="loginForm" class="col-12 col-md-12 col-lg-4 p-5 my-5" style="background-color: white; ">
                        <p class="text-center">
-                        <img src="/assets/Connexion/franceétude logo.png" alt="" class="heartbeat" style="width: 100px;">
+                        <img src="/Connexion/franceétude logo.png" alt="" class="heartbeat" style="width: 100px;">
                        </p>
                        <p class="text-center fw-bold">
                        Connectez-vous
@@ -153,56 +132,11 @@
                        </p>
                        <div class="input-password">
                         <input type="text" autocomplete="off" class="form-control mb-5 p-3 border border-primary" formControlName="pseudo" id="pseudo" style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre pseudo ">
-                        <img src="/assets/Connexion/email icon.png" style="cursor :pointer;"  alt="Cadenas">
-                    </div>
-                       <div class="input-password">
-                            <input type="password" autocomplete="off" [type]="passwordVisible ? 'text' : 'password'" class="form-control mb-5 p-3 border border-primary" formControlName="password" id="password" style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre Mot de passe ">
-                            <img src="/assets/Connexion/mot de passe icon.png" (click)="togglePasswordVisibility()" style="cursor :pointer;"  alt="Cadenas">
-                        </div>
-                       <p class="text-center" >
-                        <button type="submit" (click)="onSubmit()" [disabled]="loginForm.invalid" class="btn btn-lg btn-primary mt-3 px-5 mb-1" style="background-color: #083699;" ><span class="fw-bold">Connexion </span></button>
-                        </p>
-                        <p class="text-center fw-bold">
-                             Mot de passe oubliés?, <a href="authentification/entre_email" class="fw-bold lien">Cliquez ici</a> 
-                        </p>
-                       <div class="text-center">
-                            <span class="text-black">
-                                Pas de compte, <a href="authentification/inscription" class="lien">Inscrivez vous</a> 
-                            </span>
-                       </div>
-                    </form>
-                    <div class="col-12 col-md-1 col-lg-3"></div>
-                </div>
-            </div>
-        </div>   
-    </div>
-</ng-template>
-
-<ng-template #existe_pas>
-    <div class="bg-image img-fluid z-2" style="width: 100%; height: 90vh; background-image: url('/assets/Connexion/avion 3.jpg'); background-size: cover; background-attachment: local; background-repeat: no-repeat; position: relative;">
-        <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); z-index: 1;"></div>
-        <div class="container z-3" style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center;"> <!-- Centrage vertical uniquement -->
-            <div class="row mb-5" style="text-align: left;">
-                <div class="p-4 d-flex justify-content-center">
-                    <div class="col-12 col-md-1 col-lg-3"></div>
-                    <form [formGroup]="loginForm" class="col-12 col-md-12 col-lg-4 p-5 my-5" style="background-color: white; ">
-                       <p class="text-center">
-                        <img src="/assets/Connexion/franceétude logo.png" alt="" class="heartbeat" style="width: 100px;">
-                       </p>
-                       <p class="text-center fw-bold">
-                       Connectez-vous
-                       </p>
-                       <p class="text-center">
-                        Entrez vos informations de connexion  
-                        afin d'obtenir un accès à nos différentes formations
-                       </p>
-                       <div class="input-password">
-                        <input type="text" autocomplete="off" class="form-control mb-5 p-3 border border-primary" formControlName="pseudo" id="pseudo" style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre pseudo ">
-                        <img src="/assets/Connexion/email icon.png" (click)="togglePasswordVisibility()" style="cursor :pointer;"  alt="Cadenas">
+                        <img src="/Connexion/email icon.png" (click)="togglePasswordVisibility()" style="cursor :pointer;"  alt="Cadenas">
                     </div>
                        <div class="input-password">
                             <input type="password" autocomplete="off" [type]="passwordVisible ? 'text' : 'password'" class="form-control mb-5 p-3 border border-primary" formControlName="password" id="mot_de_passe" style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre Mot de passe ">
-                            <img src="/assets/Connexion/mot de passe icon.png" (click)="togglePasswordVisibility()" style="cursor :pointer;"  alt="Cadenas">
+                            <img src="/Connexion/mot de passe icon.png" (click)="togglePasswordVisibility()" style="cursor :pointer;"  alt="Cadenas">
                         </div>
                        <p class="text-center" >
                         <button type="submit" (click)="onSubmit()" [disabled]="loginForm.invalid" class="btn btn-lg btn-primary mt-3 px-5 mb-1" style="background-color: #083699;" ><span class="fw-bold">Connexion </span></button>
@@ -221,53 +155,7 @@
             </div>
         </div>   
     </div>
-</ng-template>
-
-
-<!--
-
-
-    <div class="bg-image img-fluid" style="width: 100%; height: 100vh; background-image: url('/assets/avion qui décolle.jpg'); background-size: 100% 100% ; background-attachment: fixed;  background-repeat :no-repeat; ">
-        <br><br><br><br>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-sm-9 col-md-9 col-lg-5 offset-0 offset-sm-1 offset-md-3 p-4 d-flex justify-content-center">
-                    <form [formGroup]="loginForm" class="row g-3 cont" style="margin-top: 80px;">
-                       <p class="text-center">
-                        <img src="/assets/France-Etude rond 1.png" alt="" class="heartbeat" style="width: 100px;">
-                       </p>
-                       <p class="text-center fw-bold">
-                       Connectez-vous
-                       </p>
-                       <p class="text-center">
-                        Entrez vos informations de connexion  
-                        afin d'obtenir un accès à nos différentes formations
-                       </p>
-                       <span class="text-black " >{{erreur}} </span>
-                       <input type="text" class="form-control mt-1 mb-3 p-1" formControlName="pseudo" id="pseudo" placeholder="Votre Pseudo ">
-                       <div class="input-container"> 
-                        <input type="{{ passwordVisible ? 'text' : 'password' }}" autocomplete="off" class="form-control mt-1 mb-3 p-1" formControlName="password" id="password" placeholder="Votre mot de passe ">                                                        
-                        <button type="button" style="width: 40px;" (click)="togglePasswordVisibility()">
-                          <i class="fa"  [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
-                        </button>
-                      </div>
-                       <p class="text-center" >
-                        <button type="submit" (click)="onSubmit()" [disabled]="loginForm.invalid" class="btn btn-primary mt-3 mb-1 text-black btn_connexion"><STRong>Connexion </STRong></button>
-                        </p>
-                        <p class="text-center fw-bold">
-                             Identifiants oubliés?, <a href="authentification/entre_email" class="fw-bold lien">Cliquez ici</a> 
-                        </p>
-                       <div class="text-center">
-                            <span class="text-black">
-                                Pas de compte, <a href="authentification/inscription" class="lien fw-bold">Inscrivez vous</a> 
-                            </span>
-                       </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <br><br><br><br><br><br><br><br><br><br><br>
-    </div>
+}
 
 
 
@@ -278,28 +166,8 @@
 
 
 
- <h3 class="fw-bold fs-2 text-center" style="color:#1283EB;;" > <br> Hello <span style="color: black;">{{pseudo}}</span>, comment pouvons-nous vous aider?   <br></h3>
-        <div class="container mt-5 mb-5">
-            <div class="row d-flex justify-content-between">
-                <div class="col-10 col-md-3 offset-1  text-center">
-                    <button type="button"  data-bs-toggle="modal" data-bs-target="#deconnexion" class="btn btn-danger rouge  btn_connexion  btn-lg text-black"> <strong>Déconnexion</strong> </button>
-                </div>
-                <div class="col-10 col-md-3 my-4 my-md-0 offset-1  text-center" >
-                    <button type="button"  data-bs-toggle="modal" data-bs-target="#desabonner" class="btn btn-danger rouge btn-lg btn_connexion text-black"> <strong>Désabonnement</strong> </button>
-                </div>
-                <div class="col-10 col-md-3 offset-1  text-center" >
-                    <a href="https://api.whatsapp.com/send?phone=330780465075">
-                        <button type="button"  class="btn btn-danger rouge btn-lg btn_connexion text-black"> <strong>Contactez-nous</strong> </button>
-                    </a>
-                </div>
-            </div>
-        </div>
 
 
 
 
 
-
-
-
--->

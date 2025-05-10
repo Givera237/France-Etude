@@ -1,14 +1,15 @@
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { HttpClient,  HttpResponse } from '@angular/common/http';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Utilisateur } from '../../../administrateur/models/utilisateurs';
 import { AuthentificationService } from '../../service/authentification-service';
-import { Utilisateur } from '../../models/utilisateurs';
 
 @Component({
   selector: 'app-code-email',
+  imports: [],
   templateUrl: './code-email.component.html',
-  styleUrls: ['./code-email.component.scss']
+  styleUrl: './code-email.component.scss'
 })
 export class CodeEmailComponent 
 {
@@ -21,6 +22,8 @@ export class CodeEmailComponent
   lien!: string
   mail!: string
   change!: boolean
+
+  
   constructor(
     private formbuilder : FormBuilder,
     private auth : AuthentificationService  ,

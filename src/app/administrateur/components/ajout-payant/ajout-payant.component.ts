@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { AdministrateurServices } from '../../services/administrateur-service';
-import { CookieServices } from 'src/app/cookie.service';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { CookieServices } from '../../../cookie.service';
+import { AdministrateurServices } from '../../service/administrateur-service';
 
 @Component({
   selector: 'app-ajout-payant',
+  imports: [FormsModule],
   templateUrl: './ajout-payant.component.html',
-  styleUrls: ['./ajout-payant.component.scss']
+  styleUrl: './ajout-payant.component.scss'
 })
 export class AjoutPayantComponent 
 {

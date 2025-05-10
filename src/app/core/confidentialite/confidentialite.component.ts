@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-confidentialite',
+  imports: [],
   templateUrl: './confidentialite.component.html',
-  styleUrls: ['./confidentialite.component.scss']
+  styleUrl: './confidentialite.component.scss'
 })
 export class ConfidentialiteComponent {
 

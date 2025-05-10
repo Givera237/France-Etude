@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/dist/css/bootstrap.min.css';
+/* You can add global styles to this file, and also import other style files */
+//@import '~bootstrap/dist/css/bootstrap.min.css';
 @import 'aos/dist/aos.css';
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import '~video.js/dist/video-js.css';
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+//@import '~video.js/dist/video-js.css';
 
 
 body 
@@ -80,19 +81,18 @@ button:hover
   transform: translate(-50%, -50%); /* Centrage par rapport à ses propres dimensions */
   z-index: -1; /* Mettre en arrière-plan */
 }
-
 .container {
   position: relative; /* Position relative pour le conteneur */
   z-index: 1; /* S'assurer que le conteneur est au-dessus */
 }
 .cercle-deforme-fin {
   position: absolute; /* Positionnement absolu */
-  top: 250%; /* Centrer verticalement */
-  left: 85%; /* Centrer horizontalement */
-  width: 600px; /* Ajustez la taille selon vos besoins */
+  top: 200%; /* Centrer verticalement */
+  right: 0%; /* Centrer horizontalement */
+  width: 350px !important ; /* Ajustez la taille selon vos besoins */
   height: 550px; /* Ajustez la taille selon vos besoins */
   background-color: #0056b3; /* Couleur avec transparence */
-  border-radius: 80% 30% 80% 10% / 10% 20% 80% 90%;
+  border-radius:110% 20% 80% 90% / 80% 30% 80% 10%  ;
   transform: translate(-50%, -50%); /* Centrage par rapport à ses propres dimensions */
   z-index: -1; /* Mettre en arrière-plan */
   /*

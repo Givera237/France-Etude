@@ -1,15 +1,15 @@
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { HttpClient,  HttpResponse } from '@angular/common/http';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Utilisateur } from '../../../administrateur/models/utilisateurs';
 import { AuthentificationService } from '../../service/authentification-service';
-import { Utilisateur } from '../../models/utilisateurs';
-
 
 @Component({
   selector: 'app-nouvel-identifiant',
+  imports: [ReactiveFormsModule],
   templateUrl: './nouvel-identifiant.component.html',
-  styleUrls: ['./nouvel-identifiant.component.scss']
+  styleUrl: './nouvel-identifiant.component.scss'
 })
 export class NouvelIdentifiantComponent 
 {
@@ -89,4 +89,4 @@ onSubmit()
       ) ;  
 }
 
-} 
+}

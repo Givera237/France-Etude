@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AdministrateurServices } from '../../services/administrateur-service';
-import { CookieServices } from 'src/app/cookie.service';
+import { CookieServices } from '../../../cookie.service';
+import { AdministrateurServices } from '../../service/administrateur-service';
 
 @Component({
   selector: 'app-upload-video-payante',
+  imports: [FormsModule],
   templateUrl: './upload-video-payante.component.html',
-  styleUrls: ['./upload-video-payante.component.scss']
+  styleUrl: './upload-video-payante.component.scss'
 })
-export class UploadVideoPayanteComponent
+export class UploadVideoPayanteComponent 
 {
   essai = new FormData();
   admi!: string;
