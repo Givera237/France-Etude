@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as AOS from 'aos';
 
 
 @Component({
@@ -15,6 +16,8 @@ export class AProposComponent
 
   ngOnInit() : void
   {
+    AOS.init();
+
     setTimeout(() => {
       this.videoPlaying = true;
     }, 1000); // Définir le délai avant la lecture automatique

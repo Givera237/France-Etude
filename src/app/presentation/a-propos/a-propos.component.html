@@ -1,18 +1,13 @@
 <div class="container">
     <div class="row d-flex justify-content-center my-3 my-md-5 ">
-        <div data-aos="zoom-in-right"  data-aos-duration="2000" class="col-12">
-            <video (loadedmetadata)="true" [autoplay]="true" controls>
-                @if (videoPlaying) 
-                {
-                    <source  src="/Intro.mp4" type="video/mp4">
-                    <source  src="" type="video/mp4">
-                }
-              </video>
-            <p class="citation text-center fw-bold fst-italic ">
-                “c’est votre attitude, bien plus que votre aptitude, qui determine votre altitude” <br>
-                <span class="auteur "> Zig Ziglar</span> 
-            </p>
-        </div>
+        <video width="600" (loadedmetadata)="true" [autoplay]="true"  controls>
+            <source  src="/a propos/Intro.mp4" type="video/mp4">
+            <source  src="" type="video/mp4">
+        </video>
+        <p class="citation text-center fw-bold fst-italic ">
+            “c’est votre attitude, bien plus que votre aptitude, qui determine votre altitude” <br>
+            <span class="auteur "> Zig Ziglar</span> 
+        </p>
     </div>
     <div class="row">
         <div class="col-12 col-md-12 col-lg-6 d-flex justify-content-center">

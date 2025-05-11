@@ -81,7 +81,7 @@
   overflow: hidden; /* Empêche le curseur de déborder initialement */
   white-space: nowrap; /* Empêche le texte de passer à la ligne */
   border-right: none; /* Effet de curseur */
-  animation: frappe 3s steps(40, end) forwards, /* Animation de frappe */
+  animation: frappe 6s steps(40, end) forwards, /* Animation de frappe */
              clignotement-curseur .75s step-end infinite; /* Animation du curseur */
 }
 

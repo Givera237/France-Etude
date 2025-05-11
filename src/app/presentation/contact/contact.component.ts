@@ -13,6 +13,7 @@ export class ContactComponent
 {
   contactForm!: FormGroup;
   confirmationMessage: boolean = false
+  test: string = "test";
 
   constructor
   (

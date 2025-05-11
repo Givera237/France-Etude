@@ -18,20 +18,20 @@
             </div>
             <div class="col-6"></div>
             <div class="col-12 col-md-6">
-                <label class="fw-bold" >Prénom</label>
+                <label class="fw-bold" >Prénom</label> <span style="color: red;">*</span>
                 <input type="text" autocomplete="off" formControlName="prenom" class="form-control mb-5 p-3 border border-primary" style="background-color: rgb(217, 217, 217, 0.38);"  placeholder="Prénom ">
             </div>
             <div class="col-12 col-md-6">
-                <label class="fw-bold" >Nom</label>
+                <label class="fw-bold" >Nom</label> <span style="color: red;">*</span>
                 <input type="text" autocomplete="off" formControlName="nom" class="form-control mb-5 p-3 border border-primary" style="background-color: rgb(217, 217, 217, 0.38);"  placeholder="Nom ">
     
             </div>
             <div class="col-12 col-md-6">
-                <label class="fw-bold" >Email</label>
+                <label class="fw-bold" >Email</label> <span style="color: red;">*</span>
                 <input type="email" autocomplete="off" formControlName="email" class="form-control mb-5 p-3 border border-primary" style="background-color: rgb(217, 217, 217, 0.38);"  placeholder="Email ">
             </div>
             <div class="col-12 col-md-6">
-                <label class="fw-bold" >Téléphone (WhatsApp) </label>
+                <label class="fw-bold" >Téléphone (WhatsApp) </label> <span style="color: red;">*</span>
                 <div class="d-flex flex-row">
                     <select class=" custom-select form-control fw-bold text-center mb-5 p-3 border border-primary mx-2" formControlName="indicatif" style="background-color: rgb(217, 217, 217, 0.38);" >
                         @for (country of countryCodes; track $index) 
@@ -45,10 +45,11 @@
                 </div>
             </div>
             <div class="col-12 col-md-6">
+                <label class="fw-bold">Pays de résidence <span style="color: red;">*</span> </label>
                 <div class="d-flex flex-row">
                     <input type="tel" autocomplete="off" class="form-control fw-bold text-center mb-5 p-3 border border-primary mx-2" value="Pays de résidence :" style="background-color: rgb(217, 217, 217, 0.38);">
                     <select class="custom-select form-control fw-bold text-center mb-5 p-3 border border-primary mx-2" formControlName="pays" style="background-color: rgb(217, 217, 217, 0.38);" >
-                       @for (country of countryCodes; track $index) 
+                        @for (country of countryCodes; track $index) 
                        {
                         <option [value]="country.country">
                             {{ country.flag }} {{ country.country }}
@@ -58,14 +59,18 @@
                 </div>
             </div>
             <div class="col-12 col-md-6">
-                <label class="fw-bold" >Motif de votre rendez-vous</label>
-                <div class="container-fluid full-height d-flex">
-                    <textarea class="textarea form-control text-black" formControlName="motif" placeholder="Écrivez votre texte ici..." cols="80" rows="10" style="background-color: rgb(217, 217, 217, 0.38);">
-                    </textarea>        
-                </div>
+                <label class="fw-bold" >Motif de votre rendez-vous <span style="color: red;">*</span> </label>
+                <select class="custom-select form-control fw-bold text-center mb-5 p-3 border border-primary mx-2" formControlName="motif" style="background-color: rgb(217, 217, 217, 0.38);" >
+                    <option value="Procédure Campus France">Procédure Campus France</option>
+                    <option value="CV / Lettre / Projet d'étude">CV / Lettre / Projet d'étude</option>
+                    <option value="Ecoles privées">Ecoles privées</option>
+                    <option value="Visa étudiant">Visa étudiant</option>
+                    <option value="Logement étudiant">Logement étudiant</option>
+                    <option value="Autres">Autres</option>
+                </select>   
             </div>
             <div class="col-12 col-md-6">
-                <button type="button" (click)="onSubmit()" class="btn btn-lg text-white p-3 m-4" style="background-color: #083699;"><strong>Réserver</strong></button> 
+                <button type="button" (click)="onSubmit()" [disabled]="contactForm.invalid"  class="btn btn-lg text-white p-3 m-4" style="background-color: #083699;"><strong>Réserver</strong></button> 
             </div>
         </form>
     </div>
@@ -93,3 +98,4 @@
         </div>   
     </div>
 }
+
