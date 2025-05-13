@@ -300,6 +300,24 @@ import { Utilisateur } from '../models/utilisateurs';
       )
     }
 
+    commenter(com : Utilisateur)
+    {
+        return this.http.post<any>('https://franceétudes.com:3000/api/creation/commentaire', com).subscribe
+        (
+            (response: HttpResponse<any>) => 
+            {
+                if (response.status === 200) 
+                { 
+                  this.router.navigateByUrl(``);
+                } 
+            },
+            error => 
+            {  
+          
+            }
+        );
+    }
+
 
     recherchePseudo(obj : FormGroup["value"])
     {

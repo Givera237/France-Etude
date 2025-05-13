@@ -41,32 +41,7 @@
   /* Google Fonts */
   @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
   
-  /* Cursor */
-  .cursor{
-      position: relative;
-      width: 14rem;
-      margin: 0 auto;
-      border-right: 2px solid rgba(255,255,255,.75);
-      font-size: 30px;
-      text-align: start;
-      white-space: nowrap;
-      overflow: hidden;
-      transform: translateY(-50%);    
-  }
-  /* Animation */
-  .typewriter-animation {
-    animation: 
-      typewriter 8s steps(50) 1s 1 normal both, 
-      blinkingCursor 500ms steps(50) infinite normal;
-  }
-  @keyframes typewriter {
-    from { width: 0; }
-    to { width: 100%; }
-  }
-  @keyframes blinkingCursor{
-    from { border-right-color: transparent; }
-    to { border-right-color: transparent; }
-  }
+
   
   .text-container {
     white-space: normal; /* Permet le retour à la ligne */
@@ -74,7 +49,6 @@
     word-wrap: break-word; /* Ancienne méthode pour la compatibilité */
     width: 100%; /* Ajustez selon vos besoins */
 }
-
 
 
 .effet-machine-a-ecrire {
@@ -96,3 +70,64 @@
   from, to { border-color: transparent }
   50% { border-color: black }
 }
+
+
+
+.typewriter p {
+  overflow: hidden;
+  white-space: nowrap;
+ // border-right: .15em solid #333;
+  //font-family: monospace;
+  //font-size: 1.2em;
+  width: 0;
+  opacity: 0;
+  animation: typing 4s steps(30, end) forwards;
+}
+
+.typewriter p:nth-child(2) {
+  animation-delay: 1.6s;
+}
+.typewriter p:nth-child(3) {
+  animation-delay: 3.4s;
+}
+.typewriter p:nth-child(4) {
+  animation-delay: 5.3s;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+    opacity: 1;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+.cursor {
+  display: inline-block;
+  width: 0em;
+  height: 0em;
+  background: none;
+  vertical-align: bottom;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+
+.typewriter span {
+  opacity: 0;
+  animation: letter 0.5s forwards;
+}
+
+@keyframes letter {
+  to { opacity: 1; }
+}
+
+
+

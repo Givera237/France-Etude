@@ -48,7 +48,11 @@ export class ContactComponent
       (
         (response: HttpResponse<any>) => 
         {
-          this.confirmationMessage = true;
+          if (response.status === 200)
+          {
+            console.log(response)
+            this.confirmationMessage = true;
+          }
         },
         error => 
         {  

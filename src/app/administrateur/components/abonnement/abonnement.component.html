@@ -31,7 +31,10 @@
                                         <td class="fw-bold"> 
                                           <select formControlName="titre_repertoire" id="titre_repertoire" class="mx-3">
                                           <option> </option>
-                                          <option *ngFor="let option of titre">{{ option }}</option>
+                                          @for (option of titre; track $index) 
+                                          {
+                                            <option>{{ option }}</option>
+                                          }
                                           </select>    
                                        </td>
                                        <td style="cursor: pointer;">         

@@ -46,7 +46,7 @@ export class ListeFormationComponent
        this.admin = this.cookieService.getCookie('status');
        this.connexion = this.cookieService.getCookie('connexion');
 
-      this.http.get<any[]>('https://franceétudes.com:3000//api/nombre_utilisateur').subscribe((reponse: any[])  => 
+      this.http.get<any[]>('https://franceétudes.com:3000/api/nombre_utilisateur').subscribe((reponse: any[])  => 
       {
         this.nombre = reponse;
       }
