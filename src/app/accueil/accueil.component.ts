@@ -27,6 +27,7 @@ export class AccueilComponent
   commentaire!: commentaire[]
   isCollapsed = true;
   connexion!: string
+  id_utilisateur!: string
   passwordVisible!: boolean
 
 
@@ -43,6 +44,8 @@ export class AccueilComponent
     AOS.init();
 
     this.connexion = this.cookieService.getCookie('connexion');
+      this.id_utilisateur = this.cookieService.getCookie('id_utilisateur');
+
     this.erreur = "";
     this.inscriptionForm = this.formbuilder.group
     (
@@ -65,8 +68,9 @@ export class AccueilComponent
       }
     )
 
-    this.http.get<commentaire[]>('https://franceétudes.com:3000/api/liste/commentaire').subscribe((reponse: any[])  => 
+    this.http.get<commentaire[]>(`https://franceétudes.com:3000/api/liste/commentaire/${this.id_utilisateur}`).subscribe((reponse: any[])  => 
       {
+        console.log(reponse)
         this.commentaire = reponse
       }
       );

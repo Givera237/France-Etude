@@ -62,15 +62,16 @@ export class ConnexionComponent
    onSubmit()
   {
     const obj = this.loginForm.value;
-    this.http.post('https://franceétudes.com:3000//api/login', obj, { observe: 'response' }).subscribe
+    this.http.post('https://franceétudes.com:3000/api/login', obj, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {
           if (response.status === 200) 
-          {            
-            this.cookieService.setCookie(response.body.utilisateur, 30);
+          { 
+            console.log(response);          
+            this.cookieService.setCookie(response.body, 30);
             this.cookie = response.body.utilisateur
-            this.http.get<any[]>('https://franceétudes.com:3000//api/nombre_utilisateur').subscribe(reponse  => 
+            this.http.get<any[]>('https://franceétudes.com:3000/api/nombre_utilisateur').subscribe(reponse  => 
               {
               }
               );
@@ -88,7 +89,7 @@ export class ConnexionComponent
             this.erreur = error.error.message;
           }
         } 
-      ) ;  
+      ) ;   
   }
 
   Deconnexion()

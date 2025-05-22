@@ -6,9 +6,9 @@ import { Injectable } from '@angular/core';
 export class CookieServices
 {
 
-   setCookie( objet : any, expirationDays: number) : Promise<void> 
+   setCookie( objet : any, expirationDays: number) 
    {
-    return new Promise((resolve) => {
+
       const date = new Date();
       date.setTime(date.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
       const expires = "expires=" + date.toUTCString();
@@ -21,8 +21,6 @@ export class CookieServices
       document.cookie = "token=" + objet.token + ";" + expires + ";path=/";
       document.cookie = "creation=" + objet.date_creation + ";" + expires + ";path=/";
 
-    resolve(); // Resolve the promise once the cookie is set
-  });
   }
 
   setConnexion( expirationDays: number, valeur : string)

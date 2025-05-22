@@ -25,7 +25,7 @@ import { Utilisateur } from '../models/utilisateurs';
 
     abonnement(obj : FormGroup["value"] )
     {
-        this.http.post('http://localhost:3000/api/creation/abonnement', obj, { observe: 'response' }).subscribe
+        this.http.post('https://franceétudes.com:3000/api/creation/abonnement', obj, { observe: 'response' }).subscribe
         (
           (response: HttpResponse<any>) => 
           {
@@ -52,7 +52,7 @@ import { Utilisateur } from '../models/utilisateurs';
 
     ajoutFormationGratuite(essai : FormData)
     {
-        this.http.post(`http://localhost:3000/api/creation/formation`, essai, { observe: 'response' }).subscribe
+        this.http.post(`https://franceétudes.com/api/creation/formation`, essai, { observe: 'response' }).subscribe
         (
           (response: HttpResponse<any>) => 
           {
@@ -75,7 +75,7 @@ import { Utilisateur } from '../models/utilisateurs';
 
     ajoutFormationPayante(essai : FormData)
     {
-      this.http.post(`http://localhost:3000/api/creation/repertoire`, essai, { observe: 'response' }).subscribe
+      this.http.post(`https://franceétudes.com/api/creation/repertoire`, essai, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {
@@ -98,7 +98,7 @@ import { Utilisateur } from '../models/utilisateurs';
 
     envoieMail(obj : FormGroup["value"])
     {
-      this.http.post('http://localhost:3000/api/sendmail/1', obj, { observe: 'response' }).subscribe
+      this.http.post('https://franceétudes.com/api/sendmail/1', obj, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {
@@ -124,7 +124,7 @@ import { Utilisateur } from '../models/utilisateurs';
 
     supprimerVideoPayante(id : number, id_repertoire : number)
     {
-      this.http.delete(`http://localhost:3000/api/video/supprimer/${id}`).subscribe(reponse  => 
+      this.http.delete(`https://franceétudes.com/api/video/supprimer/${id}`).subscribe(reponse  => 
       {
         (error: any) => console.log('Erreur : ', error)
         this.router.navigateByUrl(`admin/formation_payante/${id_repertoire}`);
@@ -134,7 +134,7 @@ import { Utilisateur } from '../models/utilisateurs';
 
     supprimerPdf(id : number, id_repertoire : number)
     {
-      this.http.delete(`http://localhost:3000/api/pdf/supprimer/${id}`).subscribe(reponse  => 
+      this.http.delete(`https://franceétudes.com/api/pdf/supprimer/${id}`).subscribe(reponse  => 
     {
       (error: any) => console.log('Erreur : ', error)
       this.router.navigateByUrl(`admin/formation_payante/${id_repertoire}`);
@@ -144,7 +144,7 @@ import { Utilisateur } from '../models/utilisateurs';
 
     supprimerRepertoire(id_formation : number)
     {
-      this.http.delete(`http://localhost:3000/api/repertoire/supprimer/${id_formation}`).subscribe(reponse  => 
+      this.http.delete(`https://franceétudes.com/api/repertoire/supprimer/${id_formation}`).subscribe(reponse  => 
     {
       (error: any) => console.log('Erreur : ', error)
       this.router.navigateByUrl(`formation/payante`);
@@ -154,7 +154,7 @@ import { Utilisateur } from '../models/utilisateurs';
 
     desabonnement(id : number)
     {
-      this.http.delete(`http://localhost:3000/api/abonnement/supprimer/${id}`).subscribe(reponse  => 
+      this.http.delete(`https://franceétudes.com/api/abonnement/supprimer/${id}`).subscribe(reponse  => 
       {
         (error: any) => console.log('Erreur : ', error)
         this.router.navigateByUrl(`formation/payante`);
@@ -164,7 +164,7 @@ import { Utilisateur } from '../models/utilisateurs';
 
     modifierFormationGratuite(essai : FormData,id_formation : number)
     {
-      this.http.put(`http://localhost:3000/api/formation/modifier/${id_formation}`, essai, { observe: 'response' }).subscribe
+      this.http.put(`https://franceétudes.com/api/formation/modifier/${id_formation}`, essai, { observe: 'response' }).subscribe
     (
       (response: HttpResponse<any>) => 
       {
@@ -187,7 +187,7 @@ import { Utilisateur } from '../models/utilisateurs';
 
     modifierFormationPayante(essai : FormData, id_repertoire : number)
     {
-      this.http.put(`http://localhost:3000/api/repertoire/modifier/${id_repertoire}`, essai, { observe: 'response' }).subscribe
+      this.http.put(`https://franceétudes.com/api/repertoire/modifier/${id_repertoire}`, essai, { observe: 'response' }).subscribe
     (
       (response: HttpResponse<any>) => 
       {
@@ -210,7 +210,7 @@ import { Utilisateur } from '../models/utilisateurs';
 
     uploadPdf(essai : FormData, id_repertoire : number)
     {
-      this.http.post(`http://localhost:3000/api/uploads/pdf/${id_repertoire}`, essai, { observe: 'response' }).subscribe
+      this.http.post(`https://franceétudes.com/api/uploads/pdf/${id_repertoire}`, essai, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {
@@ -233,7 +233,7 @@ import { Utilisateur } from '../models/utilisateurs';
 
     uploadVideo(essai : FormData, id_repertoire : number)
     {
-      this.http.post(`http://localhost:3000/api/uploads/video/${id_repertoire}`,essai, { observe: 'response' }).subscribe
+      this.http.post(`https://franceétudes.com/api/uploads/video/${id_repertoire}`,essai, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {
@@ -256,7 +256,7 @@ import { Utilisateur } from '../models/utilisateurs';
 
     ajoutPdfGratuit(essai : FormData, id_formation : number)
     {
-      this.http.post(`http://localhost:3000/api/uploads/pdf_formation/${id_formation}`, essai, { observe: 'response' }).subscribe
+      this.http.post(`https://franceétudes.com/api/uploads/pdf_formation/${id_formation}`, essai, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {
@@ -279,7 +279,7 @@ import { Utilisateur } from '../models/utilisateurs';
 
     ajoutVideoGratuit(essai : FormData, id_formation : number)
     {
-      this.http.post(`http://localhost:3000/api/creation/video_youtube/${id_formation}`, essai, { observe: 'response' }).subscribe
+      this.http.post(`https://franceétudes.com/api/creation/video_youtube/${id_formation}`, essai, { observe: 'response' }).subscribe
       (
         (response: HttpResponse<any>) => 
         {
@@ -321,7 +321,7 @@ import { Utilisateur } from '../models/utilisateurs';
 
     recherchePseudo(obj : FormGroup["value"])
     {
-      this.http.get<string[]>('http://localhost:3000/api/liste/titre_repertoire').subscribe
+      this.http.get<string[]>('https://franceétudes.com/api/liste/titre_repertoire').subscribe
       (reponse  => 
         {
           this.titre = reponse;
@@ -333,10 +333,10 @@ import { Utilisateur } from '../models/utilisateurs';
 
     listePseudo(): Observable<string[]>
     {
-       return this.http.get<string[]>('http://localhost:3000/api/liste/adresse_mail')
+       return this.http.get<string[]>('https://franceétudes.com/api/liste/adresse_mail')
     }
 
-    private apiUrl = 'http://localhost:3000/api/liste/adresse_mail'; // Remplacez par votre URL d'API
+    private apiUrl = 'https://franceétudes.com/api/liste/adresse_mail'; // Remplacez par votre URL d'API
 
     getNoms(): Observable<string[]> 
     {

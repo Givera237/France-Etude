@@ -70,21 +70,37 @@ export class AuthentificationService
     {
         return this.code
     }
-
+/*
     deconnection(id_utilisateur : number)
     {
 
         return this.http.get<any[]>(`https://franceétudes.com:3000/api/logout/${id_utilisateur}`).pipe
         (
-        );
+        ); 
+        this.cookieService.setConnexion(30, 'false');
+        this.router.navigateByUrl(``);
 
-      this.http.get<any>(`https://franceétudes.com:3000/api/logout/${id_utilisateur}`).subscribe(reponse  => 
+      /*this.http.get<any>(`https://franceétudes.com:3000/api/logout/${id_utilisateur}`).subscribe(reponse  => 
+      {
+      }
+      );
+      this.cookieService.setConnexion(30, 'false');
+      this.router.navigateByUrl(``); */
+  /*  } 
+*/
+
+    deconnection(id_utilisateur : number)
+    {
+      this.http.get<any[]>(`https://franceétudes.com:3000/api/logout/${id_utilisateur}`).subscribe(reponse  => 
       {
       }
       );
       this.cookieService.setConnexion(30, 'false');
       this.router.navigateByUrl(``);
-    }  
+    }
+
+
+
 
     desabonnement(id_utilisateur : number)
     {
@@ -99,7 +115,6 @@ export class AuthentificationService
 
     connexion(obj : FormGroup, cookie : any, erreur : string)
     {
-
         return this.http.post<any>('https://franceétudes.com:3000/api/login', obj).subscribe
         (
             (response: HttpResponse<any>) => 
