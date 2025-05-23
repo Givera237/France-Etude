@@ -24,7 +24,8 @@ export class AccueilComponent
   emailRegex!: RegExp;
   erreur!: string;
   imagePath!: string
-  commentaire!: commentaire[]
+  commentaire!: any[]
+  com!: any
   isCollapsed = true;
   connexion!: string
   id_utilisateur!: string
@@ -68,10 +69,13 @@ export class AccueilComponent
       }
     )
 
-    this.http.get<commentaire[]>(`https://franceétudes.com:3000/api/liste/commentaire/${this.id_utilisateur}`).subscribe((reponse: any[])  => 
+    this.http.get<any>(`https://franceétudes.com:3000/api/liste/commentaire/${this.id_utilisateur}`).subscribe((reponse: any)  => 
       {
         console.log(reponse)
-        this.commentaire = reponse
+        console.log(reponse.liste)
+        this.commentaire = reponse.liste
+        this.com = reponse.commentaire_user
+        console.log(this.com)
       }
       );
   }

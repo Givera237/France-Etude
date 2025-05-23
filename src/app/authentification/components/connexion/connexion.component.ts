@@ -82,6 +82,8 @@ export class ConnexionComponent
         {  
           if (error.status === 404) 
           {
+            console.log(error)
+            console.log(error.error.message)
             this.erreur = error.error.message;
           }
           if (error.status === 500) 

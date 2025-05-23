@@ -83,6 +83,7 @@
                             Entrez vos informations de connexion  
                             afin d'obtenir un accès à nos différentes formations
                         </p>
+                        <span class="mb-4" style="color: red;">{{erreur}} </span>
                         <div class="input-password">
                             <input type="text" autocomplete="off" class="form-control mb-5 p-3 border border-primary" formControlName="pseudo" id="pseudo" style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre pseudo ">
                             <img src="/Connexion/email icon.png" style="cursor :pointer;"  alt="Cadenas">
@@ -99,7 +100,7 @@
                             </p>
                         <div class="text-center">
                                 <span class="text-black">
-                                    Pas de compte, <a href="authentification/inscription" class="lien">Inscrivez vous</a> 
+                                    Pas de compte, <a href="authentification/inscription" class="lien">Inscrivez-vous</a> 
                                 </span>
                         </div>
                         </form>
@@ -130,11 +131,12 @@
                         Entrez vos informations de connexion  
                         afin d'obtenir un accès à nos différentes formations
                        </p>
-                       <div class="input-password">
-                        <input type="text" autocomplete="off" class="form-control mb-5 p-3 border border-primary" formControlName="pseudo" id="pseudo" style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre pseudo ">
-                        <img src="/Connexion/email icon.png" (click)="togglePasswordVisibility()" style="cursor :pointer;"  alt="Cadenas">
-                    </div>
-                       <div class="input-password">
+                        <div class="input-password">
+                            <input type="text" autocomplete="off" class="form-control mb-5 p-3 border border-primary" formControlName="pseudo" id="pseudo" style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre pseudo ">
+                         <img src="/Connexion/email icon.png" (click)="togglePasswordVisibility()" style="cursor :pointer;"  alt="Cadenas">
+                        </div>
+                        <span>pseudo <em>*</em></span> <span class="text-black " >{{erreur}} </span>
+                        <div class="input-password">
                             <input type="password" autocomplete="off" [type]="passwordVisible ? 'text' : 'password'" class="form-control mb-5 p-3 border border-primary" formControlName="password" id="mot_de_passe" style="background-color: rgb(217, 217, 217, 0.38);"placeholder="Votre Mot de passe ">
                             <img src="/Connexion/mot de passe icon.png" (click)="togglePasswordVisibility()" style="cursor :pointer;"  alt="Cadenas">
                         </div>
@@ -146,7 +148,7 @@
                         </p>
                        <div class="text-center">
                             <span class="text-black">
-                                Pas de compte, <a href="authentification/inscription" class="lien">Inscrivez vous</a> 
+                                Pas de compte, <a href="authentification/inscription" class="lien">Inscrivez-vous</a> 
                             </span>
                        </div>
                     </form>
