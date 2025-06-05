@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ElementRef, ViewChild } from '@angular/core';
 import AOS from 'aos';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -9,9 +9,11 @@ import { HttpClient } from '@angular/common/http';
 import { AdministrateurServices } from '../administrateur/service/administrateur-service';
 import { commentaire } from '../administrateur/models/commentaire';
 
+
+
 @Component({
   selector: 'app-accueil',
-  imports: [ReactiveFormsModule, FormsModule],
+  imports: [ReactiveFormsModule, FormsModule,],
   templateUrl: './accueil.component.html',
   styleUrl: './accueil.component.scss'
 })
@@ -26,8 +28,10 @@ export class AccueilComponent
   imagePath!: string
   commentaire!: any[]
   com!: any
+  coma!: any[]
   isCollapsed = true;
-  connexion!: string
+  connexion!: string  
+  items!: any[]
   id_utilisateur!: string
   passwordVisible!: boolean
 
@@ -45,7 +49,10 @@ export class AccueilComponent
     AOS.init();
 
     this.connexion = this.cookieService.getCookie('connexion');
-      this.id_utilisateur = this.cookieService.getCookie('id_utilisateur');
+    this.id_utilisateur = this.cookieService.getCookie('id_utilisateur');
+    
+    this.items = Array.from({length: 100000}).map((_, i) => `Item #${i}`);
+
 
     this.erreur = "";
     this.inscriptionForm = this.formbuilder.group
@@ -78,6 +85,16 @@ export class AccueilComponent
         console.log(this.com)
       }
       );
+
+      this.coma =
+      [
+        {speudo: "isfoucau", valeur: "FranceÉtudes m'a été d'une grande"},
+        {speudo: "givera", valeur: "FranceÉtudes m'a été d'une grande aide pour mon voyage en France. Je vous recommande"},
+        {speudo: "Farnel", valeur: "FranceÉtudes m'a été d'une grande aide pour mon voyage en France."},
+        {speudo: "Junior", valeur: "FranceÉtudes m'a été"},
+        {speudo: "Ango", valeur: "grande aide pour mon voyage en France."},
+
+      ]
   }
 
   passwordMatchValidator(form: FormGroup) 

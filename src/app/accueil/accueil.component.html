@@ -146,18 +146,34 @@
             </form>
         </div>
         <div class="col-12 col-md-5"> 
-            @for (commentaire of commentaire; track $index) 
-            {
-                <div data-aos="fade-right" data-aos-offset="400" data-aos-duration="3000" class="">
-                    <p class="form-control mt-1 mb-3 mx-0 mx-md-5 p-5 text-white border rounded-5" style="background-color: #143F77; ">
-                       <span class="fw-bold">{{commentaire.id_utilisateur}}</span>  : <br>
-                       {{ commentaire.valeur }}
-                    </p>
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    @for (commentaire of coma; track $index) 
+                    {
+                        <div class="carousel-item active" data-bs-interval="10000">
+                            <div class="">
+                                <p class="form-control mt-1 mb-3 mx-0 mx-md-5  p-5 text-white border rounded-5" style="background-color: #143F77;">
+                                <span class="fw-bold">{{commentaire.speudo}}</span>  : <br>
+                                {{ commentaire.valeur }}
+                                </p>
+                            </div>
+                        </div>
+                    }
                 </div>
-            }
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
     }
 </div>
+
 <div class="modal fade" id="cookie" tabindex="-1" aria-labelledby="cookies" aria-hidden="true"  style="margin-top: 80px;" >
     <div class="modal-dialog">
       <div class="modal-content">
@@ -179,21 +195,90 @@
         </div>
       </div>
     </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+  
+
+
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/accueil/pic 2.png" width="300px" height="200px" class="d-block" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/accueil/pic 1.png" width="300px" height="200px" class="d-block" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+        <div data-aos="fade-right" data-aos-offset="400" data-aos-duration="3000" class="carousel-item active">
+                 @for (commentaire of commentaire; track $index) 
+    {
+            <p class="form-control mt-1 mb-3 mx-0 mx-md-5 p-5 text-white border rounded-5" style="background-color: #143F77; ">
+                <span class="fw-bold">{{commentaire.id_utilisateur}}</span>  : <br>
+                {{ commentaire.valeur }}
+            </p>
+            }
+        </div>
+    
+    <div class="carousel-item active">
+      <img src="..." class="d-block w-100" alt="guy">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="hello">
+    </div>
   </div>
 
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
 
 
 
-
-
-
-
-
-
-
-
-
+-->
 
 
 

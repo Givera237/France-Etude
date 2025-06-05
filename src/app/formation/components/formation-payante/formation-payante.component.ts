@@ -77,6 +77,10 @@ export class ListeFormationPayanteComponent
         };
 
         this.formation.envoieMessge(maConstante)
+    }
 
+    mesFormations()
+    {
+      this.router.navigateByUrl(`formation/mes_formations`); 
     }
 }

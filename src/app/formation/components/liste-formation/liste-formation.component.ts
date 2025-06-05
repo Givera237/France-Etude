@@ -113,4 +113,9 @@ export class ListeFormationComponent
         this.router.navigateByUrl(`authentification/connexion`);
       }
     }
+
+    mesFormations()
+    {
+      this.router.navigateByUrl(`formation/mes_formations`);
+    }
 }

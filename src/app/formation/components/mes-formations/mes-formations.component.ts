@@ -28,7 +28,7 @@ export class MesFormationsComponent
 
     ngOnInit(): void
     {
-      AOS.init();
+      //AOS.init();
       this.pseudo = this.cookieService.getCookie('pseudo');
 
       this.http.get<Repertoire[]>(`https://franceétudes.com:3000/api/liste/formation_paye/${this.pseudo}`).subscribe(reponse  => 

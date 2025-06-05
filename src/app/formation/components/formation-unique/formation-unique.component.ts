@@ -65,6 +65,11 @@ export class FormationUniqueComponent
       return this.sanitizer.bypassSecurityTrustUrl(path);
     }
 
+    mesFormations()
+    {
+      this.router.navigateByUrl(`formation/mes_formations`);
+    }
+
     supprimer()
     {
       const id_formation = +this.route.snapshot.params['id'];

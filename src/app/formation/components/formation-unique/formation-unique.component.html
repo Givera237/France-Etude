@@ -1,5 +1,10 @@
 <div class="container">
     <div class="row">
+        <p class="text-end mt-5">
+            <button type="button" class="btn btn-primary btn" (click)="mesFormations()" style=" width: 200px; background-color: #FCA129;">
+            <span class="fw-bold text-white fs-5 mx-1"> Mes Formations</span> 
+            </button>
+        </p>
         <div class="text-white fs-5">
             @for (formation of formations; track $index) 
             {
