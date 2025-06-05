@@ -88,11 +88,11 @@ export class AccueilComponent
 
       this.coma =
       [
-        {speudo: "isfoucau", valeur: "FranceÉtudes m'a été d'une grande"},
-        {speudo: "givera", valeur: "FranceÉtudes m'a été d'une grande aide pour mon voyage en France. Je vous recommande"},
+        {speudo: "isfoucau", valeur: "FranceÉtudes m'a été d'une grande utilité je lui suis énormément reconnaissant pour son aide dans mon voyage en France."},
+        {speudo: "Givera", valeur: "Je vous recommande vivement de suivre Franceétudes si vous désirez étudier en France en toute serénité"},
         {speudo: "Farnel", valeur: "FranceÉtudes m'a été d'une grande aide pour mon voyage en France."},
-        {speudo: "Junior", valeur: "FranceÉtudes m'a été"},
-        {speudo: "Ango", valeur: "grande aide pour mon voyage en France."},
+        {speudo: "Junior", valeur: "Très bon service, ils ont été à l'écoute et m'ont énormément rassuré."},
+        {speudo: "Eliot", valeur: "Franceétudes, The best of the best."},
 
       ]
   }

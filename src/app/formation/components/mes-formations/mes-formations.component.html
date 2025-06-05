@@ -37,7 +37,7 @@
 
 <div class="container">
     <div class="row">
-      <h1 class="fw-bold text-center my-5 display-6 " style="color:#FCA129;">Formation</h1>
+      <h1 class="fw-bold text-center my-5 display-6 " style="color:#FCA129;">Mes Formation</h1>
       <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
         @for (repertoire of repertoires; track $index) 
         {
@@ -50,24 +50,14 @@
             {
                @if (repertoire.id_repertoire===img.id_repertoire) 
             {
-              <div *ngIf="" class="position-relative"> 
-                <img class="card-img-top img-fluid" style="height: 200px; filter: brightness(50%);;" src="{{img.path}}" (click)="onViewFormation(repertoire.id_repertoire)" alt="Card image cap" >                         
-                <button type="button" class="btn btn-primary btn position-absolute" style="top: 85%; left: 50%; transform: translate(-50%, -50%); width: 200px; background-color: white;">
-                  <span class="fw-bold text-decoration-line-through fs-6 mx-1" style="color: red;" >{{repertoire.prix_barre |  number:'1.0-2' }} €</span> <span class="fw-bold text-end fs-5" style="margin-left: 20px; color: green;"  >{{repertoire.prix | number:'1.0-2' }} € </span>  
-                </button>
+              <div class="position-relative"> 
+                <img class="card-img-top img-fluid" style="height: 200px; filter: brightness(50%); cursor: pointer; " src="{{img.path}}" (click)="onViewFormation(repertoire.id_repertoire)" alt="Card image cap" >                         
             </div>
             }
             }
           </div>
             <div class="card-body" >
               <p class="card-text" >{{repertoire.description | uppercase}} </p> 
-              <div class="d-flex flex-row justify-content-center" >
-                <a href="https://api.whatsapp.com/send?phone=330780465075">
-                  <button type="button" class="btn btn-primary px-5 btn-lg m-2" style="background-color: #144484; color: white; width: 250px;">
-                      <span class="fw-bold text-white">accéder</span>
-                  </button>
-                </a>
-              </div>
             </div>
         </div>
 

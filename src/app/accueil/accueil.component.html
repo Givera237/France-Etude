@@ -146,29 +146,35 @@
             </form>
         </div>
         <div class="col-12 col-md-5"> 
-            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <p class="text-start fw-bold p-5 text-white" style="background-color: #1052A9;" >
+                            <span class="fw-bold">Farnel</span>  : <br>
+                            FranceÉtudes m'a été d'une grande utilité je lui suis énormément reconnaissant pour son aide dans mon voyage en France.
+                        </p>
+                    </div>
                     @for (commentaire of coma; track $index) 
                     {
-                        <div class="carousel-item active" data-bs-interval="10000">
-                            <div class="">
-                                <p class="form-control mt-1 mb-3 mx-0 mx-md-5  p-5 text-white border rounded-5" style="background-color: #143F77;">
+                        <div class="carousel-item" data-bs-interval="10000">
+                            <p class="text-start text-white fw-bold p-5" style="background-color: #1052A9;" >
                                 <span class="fw-bold">{{commentaire.speudo}}</span>  : <br>
-                                {{ commentaire.valeur }}
-                                </p>
-                            </div>
+                                    {{ commentaire.valeur }}
+                            </p>
                         </div>
                     }
+                    <div style="position: relative;">
+                          <button class="carousel-control-prev" style="color: red;" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                      
                 </div>
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
         </div>
     }
@@ -196,8 +202,6 @@
       </div>
     </div>
 </div>
-
-
 
 
 

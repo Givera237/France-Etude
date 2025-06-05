@@ -140,3 +140,13 @@
 .example-item {
   height: 50px;
 }
+
+.carousel-control-prev,
+.carousel-control-next {
+    margin-top: 20px; /* Ajustez selon vos besoins */
+}
+
+.carousel-control-prev
+{
+  position: absolute;
+}
